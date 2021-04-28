@@ -1,14 +1,27 @@
-﻿using PlannR.Domain.Entities;
+﻿using PlannR.Application.Contracts.Persistence;
+using PlannR.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace PlannR.Application.Contracts.Persistence
+namespace PlannR.Persistence.Repositories
 {
-    public interface IRouteRepository : IAsyncRepository<Route>
+    public class RouteRepository : BaseRepository<Route>, IRouteRepository
     {
-        Task<bool> IsRouteReservedOnTheseDateTimes(DateTime start, DateTime end);
-        Task<ICollection<Route>> GetAllRoutesOnDate(DateTime date);
-        Task<ICollection<Route>> GetAllRoutesOfTripById(Guid tripId);
+        public RouteRepository(PlannRDbContext dbContext) : base(dbContext)
+        {
+        }
+        public Task<bool> IsRouteReservedOnTheseDateTimes(DateTime start, DateTime end)
+        {
+            throw new NotImplementedException();
+        }
+        public Task<ICollection<Route>> GetAllRoutesOnDate(DateTime date)
+        {
+            throw new NotImplementedException();
+        }
+        public Task<ICollection<Route>> GetAllRoutesOfTripById(Guid tripId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

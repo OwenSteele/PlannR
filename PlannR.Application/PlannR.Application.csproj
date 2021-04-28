@@ -5,27 +5,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Features\Accomodation\Booking\**" />
+    <Compile Remove="Features\Accomodation\Type\**" />
+    <EmbeddedResource Remove="Features\Accomodation\Booking\**" />
+    <EmbeddedResource Remove="Features\Accomodation\Type\**" />
+    <None Remove="Features\Accomodation\Booking\**" />
+    <None Remove="Features\Accomodation\Type\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Features\Routes\Commands\" />
-    <Folder Include="Features\Routes\Queries\" />
-    <Folder Include="Features\Transportsx\Booking\Commands\" />
-    <Folder Include="Features\Transportsx\Booking\Queries\" />
-    <Folder Include="Features\Transportsx\Commands\" />
-    <Folder Include="Features\Transportsx\Queries\" />
-    <Folder Include="Features\Transportsx\Type\Commands\" />
-    <Folder Include="Features\Transportsx\Type\Queries\" />
-    <Folder Include="Features\Events\Booking\Commands\" />
-    <Folder Include="Features\Events\Booking\Queries\" />
-    <Folder Include="Features\Events\Commands\" />
-    <Folder Include="Features\Events\Queries\" />
-    <Folder Include="Features\Events\Type\Commands\" />
-    <Folder Include="Features\Events\Type\Queries\" />
-    <Folder Include="Features\Transports\Booking\Commands\" />
-    <Folder Include="Features\Transports\Booking\Queries\" />
-    <Folder Include="Features\Transports\Type\Commands\" />
-    <Folder Include="Features\Transports\Type\Queries\" />
-    <Folder Include="Features\Transports\Type\" />
+    <Folder Include="Features\Accomodation\Commands\" />
+    <Folder Include="Features\Accomodation\Queries\" />
+    <Folder Include="Features\Routes\Queries\Dtos\" />
     <Folder Include="Features\Trips\Commands\" />
-    <Folder Include="Features\Trips\Queries\" />
     <Folder Include="Models\Authentication\" />
     <Folder Include="Responses\" />
   </ItemGroup>

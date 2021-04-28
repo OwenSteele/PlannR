@@ -10,6 +10,7 @@ namespace PlannR.Domain.Shared
 {
     public class Booking : AuditableEntity
     {
+        public string Name { get; set; }
         public string Link { get; set; }
         public string Email { get; set; }
         public string Comments { get; set; }

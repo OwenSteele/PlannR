@@ -17,6 +17,8 @@ namespace PlannR.Domain.Entities
         public decimal? CostPerNight { get; set; }
         public int Rooms { get; set; }
         public int Nights { get; set; }
+        public DateTime StartDateTime { get; set; }
+        public DateTime EndDateTime { get; set; }
         public AccomodationBooking Booking { get; set; }
         public string Description { get; set; }
         public Location Location { get; set; }

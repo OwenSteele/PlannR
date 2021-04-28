@@ -3,7 +3,7 @@ using System;
 
 namespace PlannR.Application.Features.Transports.Commands.UpdateTransport
 {
-    public class UpdateTransportCommand :IRequest
+    public class UpdateTransportCommand : IRequest
     {
         public Guid TransportId { get; set; }
         public Guid TripId { get; set; }

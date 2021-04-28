@@ -13,7 +13,7 @@ using PlannR.Domain.Shared;
 
 namespace PlannR.Application.Profiles
 {
-    public class MappingProfile :Profile
+    public class MappingProfile : Profile
     {
         public MappingProfile()
         {

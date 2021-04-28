@@ -19,7 +19,7 @@ namespace PlannR.Application.Features.Transports.Queries.GetTransportsList
             _transportRepository = transportRepository;
         }
 
-        public async Task<ICollection<TransportListViewModel>> Handle(GetGetTransportListQuery request, CancellationToken cancellationToken)
+        public async Task<ICollection<TransportListViewModel>> Handle(GetTransportListQuery request, CancellationToken cancellationToken)
         {
             var result = (await _transportRepository.ListAllAsync()).OrderBy(x => x.StartDateTime);
 

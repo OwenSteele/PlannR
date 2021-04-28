@@ -6,10 +6,15 @@ using System.Threading.Tasks;
 
 namespace PlannR.Persistence.Repositories
 {
-    public class EventRepository : ATEBaseRepository<Event>, IEventRepository
+    public class EventRepository : BaseRepository<Event>, IEventRepository
     {
         public EventRepository(PlannRDbContext dbContext) : base(dbContext)
         {
+        }
+        public async Task<ICollection<Event>> GetAllOfTripById(Guid tripId)
+        {
+            var trip = (await _dbContext.Trips.FindAsync(tripId));
+            return trip.Events;
         }
     }
 }

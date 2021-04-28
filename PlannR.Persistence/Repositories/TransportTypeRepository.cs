@@ -6,13 +6,27 @@ using System.Threading.Tasks;
 
 namespace PlannR.Persistence.Repositories
 {
-    public interface ITransportTypeRepository : IAsyncRepository<TransportType>
+    public class TransportTypeRepository : TypeBaseRepository<TransportType>, ITransportTypeRepository
     {
-        Task<TransportType> GetTransportTypeByName(string name);
-        Task<ICollection<TransportType>> GetAllPublicTransportTypes();
-        Task<ICollection<TransportType>> GetAllNonPublicTransportTypes();
-        Task<ICollection<TransportType>> GetAllTransportTypesWithFixedRoute();
-        Task<ICollection<TransportType>> GetAllTransportTypesWithNonFixedRoute();
-        Task<ICollection<TransportType>> GetAllTransportTypesWithEventsFromTripById(Guid tripId);
+        public TransportTypeRepository(PlannRDbContext dbContext) : base(dbContext)
+        {
+        }
+
+        public Task<ICollection<TransportType>> GetAllPublicTransportTypes()
+        {
+            throw new NotImplementedException();
+        }
+        public Task<ICollection<TransportType>> GetAllNonPublicTransportTypes()
+        {
+            throw new NotImplementedException();
+        }
+        public Task<ICollection<TransportType>> GetAllTransportTypesWithFixedRoute()
+        {
+            throw new NotImplementedException();
+        }
+        public Task<ICollection<TransportType>> GetAllTransportTypesWithNonFixedRoute()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

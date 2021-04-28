@@ -16,7 +16,7 @@ namespace PlannR.Application.Features.Transports.Queries.GetTransportsDetail
             _repository = repository;
         }
 
-        public async Task<TransportsDetailViewModel> Handle(GetGetTransportDetailQuery request, CancellationToken cancellationToken)
+        public async Task<TransportsDetailViewModel> Handle(GetTransportDetailQuery request, CancellationToken cancellationToken)
         {
             var result = (await _repository.GetByIdAsync(request.Id));
 

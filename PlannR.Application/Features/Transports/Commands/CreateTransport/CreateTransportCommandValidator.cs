@@ -1,6 +1,4 @@
 ﻿using FluentValidation;
-using PlannR.Application.Contracts.Persistence;
-using System;
 
 namespace PlannR.Application.Features.Transports.Commands.CreateTransport
 {

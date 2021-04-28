@@ -1,0 +1,37 @@
+﻿using AutoMapper;
+using MediatR;
+using PlannR.Application.Contracts.Persistence;
+using PlannR.Application.Exceptions;
+using PlannR.Domain.Entities;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace PlannR.Application.Features.Accomodations.Commands.DeleteAccomodation
+{
+    public class DeleteAccomodationCommandHandler : IRequestHandler<DeleteAccomodationCommand>
+    {
+        private readonly IAccomodationRepository _accomodationRepository;
+        private readonly IMapper _mapper;
+
+        public DeleteAccomodationCommandHandler(IMapper mapper, IAccomodationRepository accomodationRepository)
+        {
+            _mapper = mapper;
+            _accomodationRepository = accomodationRepository;
+        }
+
+        public async Task<Unit> Handle(DeleteAccomodationCommand request, CancellationToken cancellationToken)
+        {
+            var result = await _accomodationRepository.GetByIdAsync(request.AccomodationId);
+
+            if (result == null)
+            {
+                throw new NotFoundException(nameof(Accomodation), request.AccomodationId);
+            }
+
+            await _accomodationRepository.DeleteAsync(result);
+
+            return Unit.Value;
+        }
+
+    }
+}

@@ -1,8 +1,21 @@
-﻿using PlannR.Domain.Entities;
+﻿using PlannR.Application.Contracts.Persistence;
+using PlannR.Domain.Entities;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
-namespace PlannR.Application.Contracts.Persistence
+namespace PlannR.Persistence.Repositories
 {
-    public interface ITransportRepository : IAsyncRepository<Transport>, ISharedRepository<Transport>
+    public class TransportRepository : BaseRepository<Transport>, ITransportRepository
     {
+        public TransportRepository(PlannRDbContext dbContext) : base(dbContext)
+        {
+        }
+
+        public async Task<ICollection<Transport>> GetAllOfTripById(Guid tripId)
+        {
+            var trip = (await _dbContext.Trips.FindAsync(tripId));
+            return trip.Transports;
+        }
     }
 }

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.Application.Contracts.Persistence
 {
-    public interface ITripRepository
+    public interface ITripRepository : IAsyncRepository<Trip>
     {
         public Task<ICollection<Trip>> GetTripsByName(string name);
         public Task<ICollection<Trip>> GetAllTripsWithoutChildren();

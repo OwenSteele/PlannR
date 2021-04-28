@@ -12,7 +12,6 @@ namespace PlannR.Application.Features.Transports.Commands.CreateTransport
         public Guid EndLocationId { get; set; }
         public DateTime StartDateTime { get; set; }
         public DateTime EndDateTime { get; set; }
-        public Guid TransportBookingId { get; set; }
         public string Description { get; set; }
     }
 }

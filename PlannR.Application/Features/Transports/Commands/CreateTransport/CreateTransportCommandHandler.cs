@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Microsoft.Extensions.Logging;
 using PlannR.Application.Contracts.Persistence;
 using PlannR.Domain.Entities;
 using System;

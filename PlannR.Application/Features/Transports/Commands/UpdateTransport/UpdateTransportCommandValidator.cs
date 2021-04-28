@@ -14,6 +14,9 @@ namespace PlannR.Application.Features.Transports.Commands.UpdateTransport
             RuleFor(p => p.TripId)
                 .NotEmpty().WithMessage("{PropertyName} is required.")
                 .NotNull();
+            RuleFor(p => p.TransportId)
+                .NotEmpty().WithMessage("{PropertyName} is required.")
+                .NotNull();
         }
     }
 }
