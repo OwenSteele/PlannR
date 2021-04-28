@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Features\Routes\Commands\" />
+    <Folder Include="Features\Routes\Queries\" />
+    <Folder Include="Features\Transportsx\Booking\Commands\" />
+    <Folder Include="Features\Transportsx\Booking\Queries\" />
+    <Folder Include="Features\Transportsx\Commands\" />
+    <Folder Include="Features\Transportsx\Queries\" />
+    <Folder Include="Features\Transportsx\Type\Commands\" />
+    <Folder Include="Features\Transportsx\Type\Queries\" />
+    <Folder Include="Features\Events\Booking\Commands\" />
+    <Folder Include="Features\Events\Booking\Queries\" />
+    <Folder Include="Features\Events\Commands\" />
+    <Folder Include="Features\Events\Queries\" />
+    <Folder Include="Features\Events\Type\Commands\" />
+    <Folder Include="Features\Events\Type\Queries\" />
+    <Folder Include="Features\Transports\Booking\Commands\" />
+    <Folder Include="Features\Transports\Booking\Queries\" />
+    <Folder Include="Features\Transports\Type\Commands\" />
+    <Folder Include="Features\Transports\Type\Queries\" />
+    <Folder Include="Features\Transports\Type\" />
+    <Folder Include="Features\Trips\Commands\" />
+    <Folder Include="Features\Trips\Queries\" />
+    <Folder Include="Models\Authentication\" />
+    <Folder Include="Responses\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="10.0.4" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="5.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PlannR.Domain\PlannR.Domain.csproj"></ProjectReference>
+  </ItemGroup>
+
+</Project>
