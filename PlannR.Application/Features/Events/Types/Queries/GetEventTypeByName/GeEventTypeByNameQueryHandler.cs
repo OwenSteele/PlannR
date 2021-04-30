@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using MediatR;
 using PlannR.Application.Contracts.Persistence;
 using PlannR.Domain.EntityTypes;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Events.Types.Queries.GetEventTypeByName
 {
-    public class GetEventTypeByNameQueryHandler
+    public class GetEventTypeByNameQueryHandler : IRequestHandler<GetEventTypeByNameQuery,ICollection<EventTypeByNameViewModel>>
     {
         private readonly IMapper _mapper;
         private readonly IAsyncRepository<EventType> _eventTypeRepository;

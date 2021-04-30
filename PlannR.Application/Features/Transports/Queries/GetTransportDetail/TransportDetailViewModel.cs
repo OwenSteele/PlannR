@@ -3,15 +3,15 @@ using System;
 
 namespace PlannR.Application.Features.Transports.Queries.GetTransportsDetail
 {
-    public class TransportsDetailViewModel
+    public class TransportDetailViewModel
     {
         public Guid TransportId { get; set; }
         public Guid TripId { get; set; }
-        public TripDto Trip { get; set; }
+        public TransportTripDto Trip { get; set; }
         public string Name { get; set; }
         public TransportTypeDto TransportType { get; set; }
-        public LocationDto StartLocation { get; set; }
-        public LocationDto EndLocation { get; set; }
+        public TransportLocationDto StartLocation { get; set; }
+        public TransportLocationDto EndLocation { get; set; }
         public DateTime StartDateTime { get; set; }
         public DateTime EndDateTime { get; set; }
         public string Description { get; set; }

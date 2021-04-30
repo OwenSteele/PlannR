@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using MediatR;
 using PlannR.Application.Contracts.Persistence;
 using PlannR.Domain.Entities;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 namespace PlannR.Application.Features.Transports.Bookings.Queries.GetTransportBookingListByTripId
 {
     public class GetTransportBookingListByTripIdQueryHandler
+     : IRequestHandler<GetTransportBookingListByTripIdQuery,ICollection<TransportBookingListByTripIdViewModel>>
     {
         private readonly IMapper _mapper;
         private readonly IAsyncRepository<TransportBooking> _transportBookingRepository;
@@ -21,7 +23,7 @@ namespace PlannR.Application.Features.Transports.Bookings.Queries.GetTransportBo
         }
 
         public async Task<ICollection<TransportBookingListByTripIdViewModel>> Handle(
-            TransportBookingListByTripIdQuery request, CancellationToken cancellationToken)
+            GetTransportBookingListByTripIdQuery request, CancellationToken cancellationToken)
         {
             var result = (await _transportBookingRepository.ListAllAsync())
                 .Where(x => x.Transport.TripId == request.TripId)

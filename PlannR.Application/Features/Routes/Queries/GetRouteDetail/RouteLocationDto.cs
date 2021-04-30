@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace PlannR.Application.Features.Transports.Dtos.GetTransportsList
+namespace PlannR.Application.Features.Routes.Queries.GetRouteDetail
 {
-    public class LocationDto
+    public class RouteLocationDto
     {
         public Guid LocationId { get; set; }
         public double Latitude { get; set; }

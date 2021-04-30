@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using MediatR;
 using PlannR.Application.Contracts.Persistence;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Transports.Queries.GetTransportListOnDate
 {
-    public class GetTransportListOnDateQueryHandler
+    public class GetTransportListOnDateQueryHandler : IRequestHandler<GetTransportListOnDateQuery,ICollection<TransportListOnDateViewModel>>
     {
         private readonly IMapper _mapper;
         private readonly ITransportRepository _transportRepository;

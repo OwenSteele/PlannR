@@ -1,26 +1,27 @@
 ﻿using AutoMapper;
+using MediatR;
 using PlannR.Application.Contracts.Persistence;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Transports.Queries.GetTransportsDetail
 {
-    public class GetTransportsDetailQueryHandler
+    public class GetTransportDetailQueryHandler : IRequestHandler<GetTransportDetailQuery,TransportDetailViewModel>
     {
         private readonly IMapper _mapper;
         private readonly ITransportRepository _repository;
 
-        public GetTransportsDetailQueryHandler(IMapper mapper, ITransportRepository repository)
+        public GetTransportDetailQueryHandler(IMapper mapper, ITransportRepository repository)
         {
             _mapper = mapper;
             _repository = repository;
         }
 
-        public async Task<TransportsDetailViewModel> Handle(GetTransportDetailQuery request, CancellationToken cancellationToken)
+        public async Task<TransportDetailViewModel> Handle(GetTransportDetailQuery request, CancellationToken cancellationToken)
         {
             var result = (await _repository.GetByIdAsync(request.Id));
 
-            return _mapper.Map<TransportsDetailViewModel>(result);
+            return _mapper.Map<TransportDetailViewModel>(result);
         }
     }
 }

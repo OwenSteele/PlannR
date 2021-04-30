@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using MediatR;
 using PlannR.Application.Contracts.Persistence;
 using PlannR.Domain.Entities;
 using System.Threading;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Events.Bookings.Queries.GetEventBookingDetail
 {
-    public class GetEventBookingDetailQueryHandler
+    public class GetEventBookingDetailQueryHandler : IRequestHandler<GetEventBookingDetailQuery,EventBookingDetailViewModel>
     {
         private readonly IMapper _mapper;
         private readonly IAsyncRepository<EventBooking> _eventBookingRepository;

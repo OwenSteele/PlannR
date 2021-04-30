@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace PlannR.Application.Features.Routes.Queries.GetRouteDetail
+namespace PlannR.Application.Features.Transports.Dtos.GetTransportsList
 {
-    public class TripDto
+    public class TransportTripDto
     {
         public Guid Id { get; set; }
         public string Name { get; set; }

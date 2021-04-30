@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using MediatR;
 using PlannR.Application.Contracts.Persistence;
 using PlannR.Domain.EntityTypes;
 using System;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Events.Types.Commands.CreateEventType
 {
-    public class CreateEventTypeCommandHandler
+    public class CreateEventTypeCommandHandler : IRequestHandler<CreateEventTypeCommand,Guid>
     {
         private readonly IMapper _mapper;
         private readonly IAsyncRepository<EventType> _eventTypeRepository;

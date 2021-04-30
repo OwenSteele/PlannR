@@ -1,11 +1,12 @@
 ﻿using AutoMapper;
+using MediatR;
 using PlannR.Application.Contracts.Persistence;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Events.Queries.GetEventsDetail
 {
-    public class GetEventDetailQueryHandler
+    public class GetEventDetailQueryHandler : IRequestHandler<GetEventDetailQuery,EventDetailViewModel>
     {
         private readonly IMapper _mapper;
         private readonly IEventRepository _repository;

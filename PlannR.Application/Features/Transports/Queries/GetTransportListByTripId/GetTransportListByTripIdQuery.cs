@@ -6,6 +6,6 @@ namespace PlannR.Application.Features.Transports.Queries.GetTransportListByTripI
 {
     public class GetTransportListByTripIdQuery : IRequest<ICollection<TransportListByTripIdViewModel>>
     {
-        public Guid Id { get; set; }
+        public Guid TripId { get; set; }
     }
 }

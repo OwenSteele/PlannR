@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using MediatR;
 using PlannR.Application.Contracts.Persistence;
 using PlannR.Domain.EntityTypes;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Transports.Types.Queries.GetTransportTypeList
 {
-    public class GetTransportTypeListQueryHandler
+    public class GetTransportTypeListQueryHandler : IRequestHandler<GetTransportTypeListQuery,ICollection<TransportTypeListViewModel>>
     {
         private readonly IMapper _mapper;
         private readonly IAsyncRepository<TransportType> _transportTypeRepository;

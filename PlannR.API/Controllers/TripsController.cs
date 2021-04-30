@@ -36,7 +36,7 @@ namespace PlannR.API.Controllers
 
         [HttpGet("{id}",Name = "GetTripById")]
         [ProducesDefaultResponseType]
-        public async Task<ActionResult<ICollection<TripListViewModel>>> GetTripById(Guid id)
+        public async Task<ActionResult<TripDetailViewModel>> GetTripById(Guid id)
         {
             var query = new GetTripDetailQuery() { Id = id };
             var result = await _mediator.Send(query);
@@ -46,7 +46,7 @@ namespace PlannR.API.Controllers
         [HttpGet("{start},{end}", Name = "GetAllTripsBetweenDates")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesDefaultResponseType]
-        public async Task<ActionResult<ICollection<TripListViewModel>>> GetAllTripsBetweenDates(DateTime start, DateTime end)
+        public async Task<ActionResult<ICollection<TripListBetweenDatesViewModel>>> GetAllTripsBetweenDates(DateTime start, DateTime end)
         {
             var query = new GetTripListBetweenDatesQuery() { StartDateTime = start, EndDateTime = end };
             var result = await _mediator.Send(query);
@@ -56,7 +56,7 @@ namespace PlannR.API.Controllers
         [HttpGet("{date}", Name = "GetAllTripOnDate")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesDefaultResponseType]
-        public async Task<ActionResult<ICollection<TripListViewModel>>> GetAllTrips(DateTime date)
+        public async Task<ActionResult<ICollection<TripListOnDateViewModel>>> GetAllTripOnDate(DateTime date)
         {
             var query = new GetTripListOnDateQuery() { DateTime = date };
             var result = await _mediator.Send(query);
@@ -85,8 +85,8 @@ namespace PlannR.API.Controllers
         [ProducesDefaultResponseType]
         public async Task<ActionResult> Delete(Guid id)
         {
-            var deleteEventCommand = new DeleteTripCommand() { TripId = id };
-            await _mediator.Send(deleteEventCommand);
+            var deleteTripCommand = new DeleteTripCommand() { TripId = id };
+            await _mediator.Send(deleteTripCommand);
             return NoContent();
         }
     }

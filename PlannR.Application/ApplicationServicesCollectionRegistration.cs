@@ -11,8 +11,6 @@ namespace PlannR.Application
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddMediatR(Assembly.GetExecutingAssembly());
 
-            services.AddScoped<IRequestHandler<>,>
-
             return services;
         }
     }

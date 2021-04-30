@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using MediatR;
 using PlannR.Application.Contracts.Persistence;
 using PlannR.Domain.Entities;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Transports.Bookings.Queries.GetTransportBookingList
 {
-    public class GetTransportBookingListQueryHandler
+    public class GetTransportBookingListQueryHandler : IRequestHandler<GetTransportBookingListQuery,ICollection<TransportBookingListViewModel>>
     {
         private readonly IMapper _mapper;
         private readonly IAsyncRepository<TransportBooking> _transportBookingRepository;

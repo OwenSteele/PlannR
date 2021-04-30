@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using MediatR;
 using PlannR.Application.Contracts.Persistence;
 using PlannR.Domain.Entities;
 using System;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Transports.Bookings.Commands.CreateTransportBooking
 {
-    public class CreateTransportBookingCommandHandler
+    public class CreateTransportBookingCommandHandler : IRequestHandler<CreateTransportBookingCommand,Guid>
     {
         private readonly IMapper _mapper;
         private readonly IAsyncRepository<TransportBooking> _transportBookingRepository;

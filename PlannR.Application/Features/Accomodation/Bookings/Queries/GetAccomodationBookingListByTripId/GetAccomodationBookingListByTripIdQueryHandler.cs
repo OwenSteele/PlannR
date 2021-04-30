@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using MediatR;
 using PlannR.Application.Contracts.Persistence;
 using PlannR.Domain.Entities;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 namespace PlannR.Application.Features.Accomodations.Bookings.Queries.GetAccomodationBookingListByTripId
 {
     public class GetAccomodationBookingListByTripIdQueryHandler
+     : IRequestHandler<GetAccomodationBookingListByTripIdQuery,ICollection<AccomodationBookingListByTripIdViewModel>>
     {
         private readonly IMapper _mapper;
         private readonly IAsyncRepository<AccomodationBooking> _accomodationBookingRepository;
@@ -21,7 +23,7 @@ namespace PlannR.Application.Features.Accomodations.Bookings.Queries.GetAccomoda
         }
 
         public async Task<ICollection<AccomodationBookingListByTripIdViewModel>> Handle(
-            AccomodationBookingListByTripIdQuery request, CancellationToken cancellationToken)
+            GetAccomodationBookingListByTripIdQuery request, CancellationToken cancellationToken)
         {
             var result = (await _accomodationBookingRepository.ListAllAsync())
                 .Where(x => x.Accomodation.TripId == request.TripId)

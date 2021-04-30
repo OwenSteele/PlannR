@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace PlannR.Application.Features.Transports.Dtos.GetTransportsList
+namespace PlannR.Application.Features.Events.Dtos.GetEventsList
 {
-    public class TripDto
+    public class EventTripDto
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
