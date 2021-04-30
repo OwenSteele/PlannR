@@ -10,10 +10,10 @@ namespace PlannR.Application.Features.Events.Types.Commands.CreateEventType
     public class CreateEventTypeCommandHandler
     {
         private readonly IMapper _mapper;
-        private readonly IEventTypeRepository _eventTypeRepository;
+        private readonly IAsyncRepository<EventType> _eventTypeRepository;
 
 
-        public CreateEventTypeCommandHandler(IMapper mapper, IEventTypeRepository eventTypeRepository)
+        public CreateEventTypeCommandHandler(IMapper mapper, IAsyncRepository<EventType> eventTypeRepository)
         {
             _mapper = mapper;
             _eventTypeRepository = eventTypeRepository;

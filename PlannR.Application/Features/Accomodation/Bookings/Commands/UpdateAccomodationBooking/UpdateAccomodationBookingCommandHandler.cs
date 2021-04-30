@@ -10,10 +10,10 @@ namespace PlannR.Application.Features.Accomodations.Bookings.Commands.UpdateAcco
 {
     public class UpdateAccomodationBookingCommandHandler : IRequestHandler<UpdateAccomodationBookingCommand>
     {
-        private readonly IAccomodationBookingRepository _accomodationBookingRepository;
+        private readonly IAsyncRepository<AccomodationBooking> _accomodationBookingRepository;
         private readonly IMapper _mapper;
 
-        public UpdateAccomodationBookingCommandHandler(IMapper mapper, IAccomodationBookingRepository accomodationBookingRepository)
+        public UpdateAccomodationBookingCommandHandler(IMapper mapper, IAsyncRepository<AccomodationBooking> accomodationBookingRepository)
         {
             _mapper = mapper;
             _accomodationBookingRepository = accomodationBookingRepository;

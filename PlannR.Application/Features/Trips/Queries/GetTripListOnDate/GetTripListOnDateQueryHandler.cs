@@ -21,7 +21,7 @@ namespace PlannR.Application.Features.Trips.Queries.GetTripListOnDate
 
         public async Task<ICollection<TripListOnDateViewModel>> Handle(GetTripListOnDateQuery request, CancellationToken cancellationToken)
         {
-            var result = (await _tripRepository.GetAllTripsOnThisDateTime(request.DateTime, request.DateTime))
+            var result = (await _tripRepository.GetAllTripsOnTheseDateTimes(request.DateTime, request.DateTime))
                 .OrderBy(x => x.Name);
 
             return _mapper.Map<ICollection<TripListOnDateViewModel>>(result);

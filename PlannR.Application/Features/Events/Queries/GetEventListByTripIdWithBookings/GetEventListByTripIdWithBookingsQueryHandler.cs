@@ -21,8 +21,7 @@ namespace PlannR.Application.Features.Events.Queries.GetEventListByTripIdWithBoo
 
         public async Task<ICollection<EventListByTripIdWithBookingsViewModel>> Handle(EventListByTripIdWithBookingsViewModel request, CancellationToken cancellationToken)
         {
-            var result = (await _eventRepository.GetAllOfTripByIdWithBookings(request.TripId))
-                .Where(x => x.TripId == request.TripId)
+            var result = (await _eventRepository.GetAllOfTripById(request.TripId))
                 .OrderBy(x => x.StartDateTime);
 
             return _mapper.Map<ICollection<EventListByTripIdWithBookingsViewModel>>(result);

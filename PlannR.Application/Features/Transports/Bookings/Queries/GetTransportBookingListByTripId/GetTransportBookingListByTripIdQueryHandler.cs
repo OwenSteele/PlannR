@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using PlannR.Application.Contracts.Persistence;
+using PlannR.Domain.Entities;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -10,10 +11,10 @@ namespace PlannR.Application.Features.Transports.Bookings.Queries.GetTransportBo
     public class GetTransportBookingListByTripIdQueryHandler
     {
         private readonly IMapper _mapper;
-        private readonly ITransportBookingRepository _transportBookingRepository;
+        private readonly IAsyncRepository<TransportBooking> _transportBookingRepository;
 
         public GetTransportBookingListByTripIdQueryHandler(IMapper mapper,
-            ITransportBookingRepository transportBookingRepository)
+            IAsyncRepository<TransportBooking> transportBookingRepository)
         {
             _mapper = mapper;
             _transportBookingRepository = transportBookingRepository;
@@ -22,7 +23,7 @@ namespace PlannR.Application.Features.Transports.Bookings.Queries.GetTransportBo
         public async Task<ICollection<TransportBookingListByTripIdViewModel>> Handle(
             TransportBookingListByTripIdQuery request, CancellationToken cancellationToken)
         {
-            var result = (await _transportBookingRepository.GetAllBookingsOfTripById(request.TripId))
+            var result = (await _transportBookingRepository.ListAllAsync())
                 .Where(x => x.Transport.TripId == request.TripId)
                 .OrderBy(x => x.Name);
 

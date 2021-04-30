@@ -2,8 +2,6 @@
 using PlannR.Domain.EntityTypes;
 using PlannR.Domain.Shared;
 using System;
-using System.Collections.Generic;
-using System.IO;
 
 namespace PlannR.Domain.Entities
 {

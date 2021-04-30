@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using PlannR.Application.Contracts.Persistence;
+using PlannR.Domain.EntityTypes;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -9,21 +11,19 @@ namespace PlannR.Application.Features.Events.Types.Queries.GetEventTypeByName
     public class GetEventTypeByNameQueryHandler
     {
         private readonly IMapper _mapper;
-        private readonly IEventTypeRepository _eventTypeRepository;
-        private readonly IEventRepository _eventRepository;
+        private readonly IAsyncRepository<EventType> _eventTypeRepository;
 
         public GetEventTypeByNameQueryHandler(IMapper mapper,
-            IEventTypeRepository eventTypeRepository,
-            IEventRepository eventRepository)
+           IAsyncRepository<EventType> eventTypeRepository)
         {
             _mapper = mapper;
             _eventTypeRepository = eventTypeRepository;
-            _eventRepository = eventRepository;
         }
 
         public async Task<ICollection<EventTypeByNameViewModel>> Handle(GetEventTypeByNameQuery request, CancellationToken cancellationToken)
         {
-            var result = await _eventTypeRepository.GetEntityTypeByName(request.Name);
+            var result = (await _eventTypeRepository.ListAllAsync())
+                .Where(x => x.Name == request.Name);
 
             return _mapper.Map<ICollection<EventTypeByNameViewModel>>(result);
         }

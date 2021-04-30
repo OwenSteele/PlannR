@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using MediatR;
 using PlannR.Application.Contracts.Persistence;
 using PlannR.Domain.Entities;
 using System;
@@ -7,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Events.Bookings.Commands.CreateEventBooking
 {
-    public class CreateEventBookingCommandHandler
+    public class CreateEventBookingCommandHandler : IRequestHandler<CreateEventBookingCommand, Guid>
     {
         private readonly IMapper _mapper;
-        private readonly IEventBookingRepository _eventBookingRepository;
+        private readonly IAsyncRepository<EventBooking> _eventBookingRepository;
 
 
-        public CreateEventBookingCommandHandler(IMapper mapper, IEventBookingRepository eventBookingRepository)
+        public CreateEventBookingCommandHandler(IMapper mapper, IAsyncRepository<EventBooking> eventBookingRepository)
         {
             _mapper = mapper;
             _eventBookingRepository = eventBookingRepository;

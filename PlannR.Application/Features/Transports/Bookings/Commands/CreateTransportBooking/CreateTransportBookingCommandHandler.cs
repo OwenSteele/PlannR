@@ -10,10 +10,10 @@ namespace PlannR.Application.Features.Transports.Bookings.Commands.CreateTranspo
     public class CreateTransportBookingCommandHandler
     {
         private readonly IMapper _mapper;
-        private readonly ITransportBookingRepository _transportBookingRepository;
+        private readonly IAsyncRepository<TransportBooking> _transportBookingRepository;
 
 
-        public CreateTransportBookingCommandHandler(IMapper mapper, ITransportBookingRepository transportBookingRepository)
+        public CreateTransportBookingCommandHandler(IMapper mapper, IAsyncRepository<TransportBooking> transportBookingRepository)
         {
             _mapper = mapper;
             _transportBookingRepository = transportBookingRepository;

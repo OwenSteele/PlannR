@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
+using MediatR;
 using PlannR.Application.Contracts.Persistence;
+using PlannR.Domain.EntityTypes;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -7,13 +9,13 @@ using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Accomodations.Types.Queries.GetAccomodationTypeList
 {
-    public class GetAccomodationTypeListQueryHandler
+    public class GetAccomodationTypeListQueryHandler : IRequestHandler<GetAccomodationTypeListQuery, ICollection<AccomodationTypeListViewModel>>
     {
         private readonly IMapper _mapper;
-        private readonly IAccomodationTypeRepository _accomodationTypeRepository;
+        private readonly IAsyncRepository<AccomodationType> _accomodationTypeRepository;
 
         public GetAccomodationTypeListQueryHandler(IMapper mapper,
-            IAccomodationTypeRepository accomodationTypeRepository)
+           IAsyncRepository<AccomodationType> accomodationTypeRepository)
         {
             _mapper = mapper;
             _accomodationTypeRepository = accomodationTypeRepository;

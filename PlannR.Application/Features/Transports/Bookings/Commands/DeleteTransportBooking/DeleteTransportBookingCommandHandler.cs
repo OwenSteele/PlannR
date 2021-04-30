@@ -10,10 +10,10 @@ namespace PlannR.Application.Features.Transports.Bookings.Commands.DeleteTranspo
 {
     public class DeleteTransportCommandHandler : IRequestHandler<DeleteTransportBookingCommand>
     {
-        private readonly ITransportBookingRepository _transportBookingRepository;
+        private readonly IAsyncRepository<TransportBooking> _transportBookingRepository;
         private readonly IMapper _mapper;
 
-        public DeleteTransportCommandHandler(IMapper mapper, ITransportBookingRepository transportBookingRepository)
+        public DeleteTransportCommandHandler(IMapper mapper, IAsyncRepository<TransportBooking> transportBookingRepository)
         {
             _mapper = mapper;
             _transportBookingRepository = transportBookingRepository;

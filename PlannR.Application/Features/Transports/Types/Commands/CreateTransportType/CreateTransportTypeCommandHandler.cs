@@ -10,10 +10,10 @@ namespace PlannR.Application.Features.Transports.Types.Commands.CreateTransportT
     public class CreateTransportTypeCommandHandler
     {
         private readonly IMapper _mapper;
-        private readonly ITransportTypeRepository _transportTypeRepository;
+        private readonly IAsyncRepository<TransportType> _transportTypeRepository;
 
 
-        public CreateTransportTypeCommandHandler(IMapper mapper, ITransportTypeRepository transportTypeRepository)
+        public CreateTransportTypeCommandHandler(IMapper mapper, IAsyncRepository<TransportType> transportTypeRepository)
         {
             _mapper = mapper;
             _transportTypeRepository = transportTypeRepository;

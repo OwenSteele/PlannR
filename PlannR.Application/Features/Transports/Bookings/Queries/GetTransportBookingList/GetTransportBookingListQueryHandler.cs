@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using PlannR.Application.Contracts.Persistence;
+using PlannR.Domain.Entities;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -10,10 +11,10 @@ namespace PlannR.Application.Features.Transports.Bookings.Queries.GetTransportBo
     public class GetTransportBookingListQueryHandler
     {
         private readonly IMapper _mapper;
-        private readonly ITransportBookingRepository _transportBookingRepository;
+        private readonly IAsyncRepository<TransportBooking> _transportBookingRepository;
 
         public GetTransportBookingListQueryHandler(IMapper mapper,
-            ITransportBookingRepository transportBookingRepository)
+            IAsyncRepository<TransportBooking> transportBookingRepository)
         {
             _mapper = mapper;
             _transportBookingRepository = transportBookingRepository;

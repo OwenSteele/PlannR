@@ -3,19 +3,18 @@ using PlannR.Application.Contracts.Persistence;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace PlannR.Persistence.Repositories
 {
     public class BaseRepository<T> : IAsyncRepository<T> where T : class
     {
-        protected readonly PlannRDbContext _dbContext;
+        protected readonly PlannrDbContext _dbContext;
 
-        public BaseRepository(PlannRDbContext dbContext)
+        public BaseRepository(PlannrDbContext dbContext)
         {
             _dbContext = dbContext;
-        } 
+        }
 
         public virtual async Task<T> GetByIdAsync(Guid id)
         {
@@ -24,12 +23,12 @@ namespace PlannR.Persistence.Repositories
 
         public async Task<IReadOnlyCollection<T>> ListAllAsync()
         {
-            return await _dbContext.Set<T>().ToListAsync();
+            return await _dbContext.Set<T>().ToArrayAsync();
         }
 
         public async virtual Task<IReadOnlyList<T>> GetPagedReponseAsync(int page, int size)
         {
-            return await _dbContext.Set<T>().Skip((page - 1) * size).Take(size).AsNoTracking().ToListAsync();
+            return await _dbContext.Set<T>().Skip((page - 1) * size).Take(size).AsNoTracking().ToArrayAsync();
         }
 
         public async Task<T> AddAsync(T entity)
