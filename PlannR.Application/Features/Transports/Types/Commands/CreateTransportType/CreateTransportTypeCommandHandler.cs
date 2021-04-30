@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using MediatR;
 using PlannR.Application.Contracts.Persistence;
 using PlannR.Domain.EntityTypes;
 using System;
@@ -7,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Transports.Types.Commands.CreateTransportType
 {
-    public class CreateTransportTypeCommandHandler
+    public class CreateTransportTypeCommandHandler : IRequestHandler<CreateTransportTypeCommand,Guid>
     {
         private readonly IMapper _mapper;
-        private readonly ITransportTypeRepository _transportTypeRepository;
+        private readonly IAsyncRepository<TransportType> _transportTypeRepository;
 
 
-        public CreateTransportTypeCommandHandler(IMapper mapper, ITransportTypeRepository transportTypeRepository)
+        public CreateTransportTypeCommandHandler(IMapper mapper, IAsyncRepository<TransportType> transportTypeRepository)
         {
             _mapper = mapper;
             _transportTypeRepository = transportTypeRepository;

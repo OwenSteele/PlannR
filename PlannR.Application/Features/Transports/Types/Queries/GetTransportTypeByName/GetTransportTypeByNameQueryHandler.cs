@@ -1,29 +1,30 @@
 ﻿using AutoMapper;
+using MediatR;
 using PlannR.Application.Contracts.Persistence;
+using PlannR.Domain.EntityTypes;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Transports.Types.Queries.GetTransportTypeByName
 {
-    public class GetTransportTypeByNameQueryHandler
+    public class GetTransportTypeByNameQueryHandler : IRequestHandler<GetTransportTypeByNameQuery,ICollection<TransportTypeByNameViewModel>>
     {
         private readonly IMapper _mapper;
-        private readonly ITransportTypeRepository _transportTypeRepository;
-        private readonly ITransportRepository _transportRepository;
+        private readonly IAsyncRepository<TransportType> _transportTypeRepository;
 
         public GetTransportTypeByNameQueryHandler(IMapper mapper,
-            ITransportTypeRepository transportTypeRepository,
-            ITransportRepository transportRepository)
+            IAsyncRepository<TransportType> transportTypeRepository)
         {
             _mapper = mapper;
             _transportTypeRepository = transportTypeRepository;
-            _transportRepository = transportRepository;
         }
 
         public async Task<ICollection<TransportTypeByNameViewModel>> Handle(GetTransportTypeByNameQuery request, CancellationToken cancellationToken)
         {
-            var result = await _transportTypeRepository.GetEntityTypeByName(request.Name);
+            var result = (await _transportTypeRepository.ListAllAsync())
+                .Where(x => x.Name == request.Name);
 
             return _mapper.Map<ICollection<TransportTypeByNameViewModel>>(result);
         }

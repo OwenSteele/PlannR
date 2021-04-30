@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using MediatR;
 using PlannR.Application.Contracts.Persistence;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Routes.Queries.GetRoutesList
 {
-    public class GetRouteListQueryHandler
+    public class GetRouteListQueryHandler : IRequestHandler<GetRouteListQuery,ICollection<RouteListViewModel>>
     {
         private readonly IMapper _mapper;
         private readonly IRouteRepository _accomodationRepository;

@@ -6,6 +6,6 @@ namespace PlannR.Application.Features.Accomodations.Queries.GetAccomodationListB
 {
     public class GetAccomodationListByTripIdQuery : IRequest<ICollection<AccomodationListByTripIdViewModel>>
     {
-        public Guid Id { get; set; }
+        public Guid TripId { get; set; }
     }
 }

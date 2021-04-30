@@ -6,6 +6,6 @@ namespace PlannR.Application.Features.Events.Queries.GetEventListByTripId
 {
     public class GetEventListByTripIdQuery : IRequest<ICollection<EventListByTripIdViewModel>>
     {
-        public Guid Id { get; set; }
+        public Guid TripId { get; set; }
     }
 }

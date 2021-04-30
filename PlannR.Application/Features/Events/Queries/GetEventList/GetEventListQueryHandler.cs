@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using MediatR;
 using PlannR.Application.Contracts.Persistence;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Events.Queries.GetEventsList
 {
-    public class GetEventListQueryHandler
+    public class GetEventListQueryHandler : IRequestHandler<GetEventListQuery,ICollection<EventListViewModel>>
     {
         private readonly IMapper _mapper;
         private readonly IEventRepository _eventRepository;

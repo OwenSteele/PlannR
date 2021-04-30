@@ -6,6 +6,6 @@ namespace PlannR.Application.Features.Events.Queries.GetEventListByTripIdWithBoo
 {
     public class GetEventListByTripIdWithBookingsQuery : IRequest<ICollection<EventListByTripIdWithBookingsViewModel>>
     {
-        public Guid Id { get; set; }
+        public Guid TripId { get; set; }
     }
 }

@@ -1,11 +1,12 @@
 ﻿using AutoMapper;
+using MediatR;
 using PlannR.Application.Contracts.Persistence;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Accomodations.Queries.GetAccomodationsDetail
 {
-    public class GetAccomodationDetailQueryHandler
+    public class GetAccomodationDetailQueryHandler : IRequestHandler<GetAccomodationDetailQuery, AccomodationDetailViewModel>
     {
         private readonly IMapper _mapper;
         private readonly IAccomodationRepository _repository;

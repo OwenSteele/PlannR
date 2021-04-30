@@ -10,10 +10,10 @@ namespace PlannR.Application.Features.Events.Bookings.Commands.UpdateEventBookin
 {
     public class UpdateEventBookingCommandHandler : IRequestHandler<UpdateEventBookingCommand>
     {
-        private readonly IEventBookingRepository _eventBookingRepository;
+        private readonly IAsyncRepository<EventBooking> _eventBookingRepository;
         private readonly IMapper _mapper;
 
-        public UpdateEventBookingCommandHandler(IMapper mapper, IEventBookingRepository eventBookingRepository)
+        public UpdateEventBookingCommandHandler(IMapper mapper, IAsyncRepository<EventBooking> eventBookingRepository)
         {
             _mapper = mapper;
             _eventBookingRepository = eventBookingRepository;

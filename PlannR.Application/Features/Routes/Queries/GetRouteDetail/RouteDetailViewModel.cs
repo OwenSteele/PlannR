@@ -7,7 +7,7 @@ namespace PlannR.Application.Features.Routes.Queries.GetRouteDetail
     {
         public Guid RouteId { get; set; }
         public Guid TripId { get; set; }
-        public TripDto Trip { get; set; }
+        public RouteTripDto Trip { get; set; }
         public string Name { get; set; }
         public DateTime StartDateTime { get; set; }
         public DateTime EndDateTime { get; set; }

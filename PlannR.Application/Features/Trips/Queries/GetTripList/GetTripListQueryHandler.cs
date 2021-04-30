@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using MediatR;
 using PlannR.Application.Contracts.Persistence;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Trips.Queries.GetTripsList
 {
-    public class GetTripListQueryHandler
+    public class GetTripListQueryHandler : IRequestHandler<GetTripListQuery,ICollection<TripListViewModel>>
     {
         private readonly IMapper _mapper;
         private readonly ITripRepository _tripRepository;

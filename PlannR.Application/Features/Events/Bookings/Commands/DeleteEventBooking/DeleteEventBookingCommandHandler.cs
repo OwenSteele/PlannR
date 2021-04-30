@@ -10,10 +10,10 @@ namespace PlannR.Application.Features.Events.Bookings.Commands.DeleteEventBookin
 {
     public class DeleteEventCommandHandler : IRequestHandler<DeleteEventBookingCommand>
     {
-        private readonly IEventBookingRepository _eventBookingRepository;
+        private readonly IAsyncRepository<EventBooking> _eventBookingRepository;
         private readonly IMapper _mapper;
 
-        public DeleteEventCommandHandler(IMapper mapper, IEventBookingRepository eventBookingRepository)
+        public DeleteEventCommandHandler(IMapper mapper, IAsyncRepository<EventBooking> eventBookingRepository)
         {
             _mapper = mapper;
             _eventBookingRepository = eventBookingRepository;

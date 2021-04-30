@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using MediatR;
 using PlannR.Application.Contracts.Persistence;
 using PlannR.Domain.Entities;
 using System;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Routes.Commands.CreateRoute
 {
-    public class CreateRouteCommandHandler
+    public class CreateRouteCommandHandler : IRequestHandler<CreateRouteCommand,Guid>
     {
         private readonly IMapper _mapper;
         private readonly IRouteRepository _accomodationRepository;

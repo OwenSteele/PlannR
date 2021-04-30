@@ -7,17 +7,18 @@
   <ItemGroup>
     <Compile Remove="Features\Accomodation\Booking\**" />
     <Compile Remove="Features\Accomodation\Type\**" />
+    <Compile Remove="Features\Routes\Queries\Dtos\**" />
     <EmbeddedResource Remove="Features\Accomodation\Booking\**" />
     <EmbeddedResource Remove="Features\Accomodation\Type\**" />
+    <EmbeddedResource Remove="Features\Routes\Queries\Dtos\**" />
     <None Remove="Features\Accomodation\Booking\**" />
     <None Remove="Features\Accomodation\Type\**" />
+    <None Remove="Features\Routes\Queries\Dtos\**" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Features\Routes\Commands\" />
     <Folder Include="Features\Accomodation\Commands\" />
-    <Folder Include="Features\Accomodation\Queries\" />
-    <Folder Include="Features\Routes\Queries\Dtos\" />
     <Folder Include="Features\Trips\Commands\" />
     <Folder Include="Models\Authentication\" />
     <Folder Include="Responses\" />

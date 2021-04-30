@@ -1,11 +1,12 @@
 ﻿using AutoMapper;
+using MediatR;
 using PlannR.Application.Contracts.Persistence;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Routes.Queries.GetRouteDetail
 {
-    public class GetRouteDetailQueryHandler
+    public class GetRouteDetailQueryHandler : IRequestHandler<GetRouteDetailQuery,RouteDetailViewModel>
     {
         private readonly IMapper _mapper;
         private readonly IRouteRepository _repository;

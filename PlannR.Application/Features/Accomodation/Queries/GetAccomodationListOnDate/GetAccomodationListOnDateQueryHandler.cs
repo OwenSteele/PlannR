@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using MediatR;
 using PlannR.Application.Contracts.Persistence;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Accomodations.Queries.GetAccomodationListOnDate
 {
-    public class GetAccomodationListOnDateQueryHandler
+    public class GetAccomodationListOnDateQueryHandler : IRequestHandler<GetAccomodationListOnDateQuery, ICollection<AccomodationListOnDateViewModel>>
     {
         private readonly IMapper _mapper;
         private readonly IAccomodationRepository _accomodationRepository;

@@ -6,6 +6,6 @@ namespace PlannR.Application.Features.Routes.Queries.GetRouteListByTripId
 {
     public class GetRouteListByTripIdQuery : IRequest<ICollection<RouteListByTripIdViewModel>>
     {
-        public Guid Id { get; set; }
+        public Guid TripId { get; set; }
     }
 }

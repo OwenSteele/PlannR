@@ -10,10 +10,10 @@ namespace PlannR.Application.Features.Accomodations.Bookings.Commands.DeleteAcco
 {
     public class DeleteAccomodationCommandHandler : IRequestHandler<DeleteAccomodationBookingCommand>
     {
-        private readonly IAccomodationBookingRepository _accomodationBookingRepository;
+        private readonly IAsyncRepository<AccomodationBooking> _accomodationBookingRepository;
         private readonly IMapper _mapper;
 
-        public DeleteAccomodationCommandHandler(IMapper mapper, IAccomodationBookingRepository accomodationBookingRepository)
+        public DeleteAccomodationCommandHandler(IMapper mapper, IAsyncRepository<AccomodationBooking> accomodationBookingRepository)
         {
             _mapper = mapper;
             _accomodationBookingRepository = accomodationBookingRepository;

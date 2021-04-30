@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using MediatR;
 using PlannR.Application.Contracts.Persistence;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Events.Queries.GetEventListByTripId
 {
-    public class GetEventListByTripIdQueryHandler
+    public class GetEventListByTripIdQueryHandler : IRequestHandler<GetEventListByTripIdQuery, ICollection<EventListByTripIdViewModel>>
     {
         private readonly IMapper _mapper;
         private readonly IEventRepository _eventRepository;
@@ -19,7 +20,7 @@ namespace PlannR.Application.Features.Events.Queries.GetEventListByTripId
             _eventRepository = eventRepository;
         }
 
-        public async Task<ICollection<EventListByTripIdViewModel>> Handle(EventListByTripIdViewModel request, CancellationToken cancellationToken)
+        public async Task<ICollection<EventListByTripIdViewModel>> Handle(GetEventListByTripIdQuery request, CancellationToken cancellationToken)
         {
             var result = (await _eventRepository.GetAllOfTripById(request.TripId))
                 .Where(x => x.TripId == request.TripId)

@@ -11,7 +11,7 @@ namespace PlannR.Application.Features.Accomodations.Queries.GetAccomodationListO
         public AccomodationTypeDto AccomodationType { get; set; }
         public int Nights { get; set; }
         public string Description { get; set; }
-        public LocationDto Location { get; set; }
+        public AccomodationLocationDto Location { get; set; }
         public DateTime StartDateTime { get; set; }
         public DateTime EndDateTime { get; set; }
     }

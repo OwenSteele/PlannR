@@ -10,10 +10,10 @@ namespace PlannR.Application.Features.Transports.Bookings.Commands.UpdateTranspo
 {
     public class UpdateTransportBookingCommandHandler : IRequestHandler<UpdateTransportBookingCommand>
     {
-        private readonly ITransportBookingRepository _transportBookingRepository;
+        private readonly IAsyncRepository<TransportBooking> _transportBookingRepository;
         private readonly IMapper _mapper;
 
-        public UpdateTransportBookingCommandHandler(IMapper mapper, ITransportBookingRepository transportBookingRepository)
+        public UpdateTransportBookingCommandHandler(IMapper mapper, IAsyncRepository<TransportBooking> transportBookingRepository)
         {
             _mapper = mapper;
             _transportBookingRepository = transportBookingRepository;

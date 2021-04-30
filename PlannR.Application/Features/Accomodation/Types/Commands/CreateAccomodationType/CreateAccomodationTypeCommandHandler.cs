@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using MediatR;
 using PlannR.Application.Contracts.Persistence;
 using PlannR.Domain.EntityTypes;
 using System;
@@ -7,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Accomodations.Types.Commands.CreateAccomodationType
 {
-    public class CreateAccomodationTypeCommandHandler
+    public class CreateAccomodationTypeCommandHandler : IRequestHandler<CreateAccomodationTypeCommand, Guid>
     {
         private readonly IMapper _mapper;
-        private readonly IAccomodationTypeRepository _accomodationTypeRepository;
+        private readonly IAsyncRepository<AccomodationType> _accomodationTypeRepository;
 
 
-        public CreateAccomodationTypeCommandHandler(IMapper mapper, IAccomodationTypeRepository accomodationTypeRepository)
+        public CreateAccomodationTypeCommandHandler(IMapper mapper, IAsyncRepository<AccomodationType> accomodationTypeRepository)
         {
             _mapper = mapper;
             _accomodationTypeRepository = accomodationTypeRepository;
