@@ -4,7 +4,7 @@ namespace PlannR.Application.Features.Routes.Queries.GetRouteDetail
 {
     public class RouteTripDto
     {
-        public Guid Id { get; set; }
+        public Guid TripId { get; set; }
         public string Name { get; set; }
     }
 }

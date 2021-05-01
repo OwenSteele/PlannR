@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Transports.Bookings.Queries.GetTransportBookingList
 {
-    public class GetTransportBookingListQueryHandler : IRequestHandler<GetTransportBookingListQuery,ICollection<TransportBookingListViewModel>>
+    public class GetTransportBookingListQueryHandler : IRequestHandler<GetTransportBookingListQuery, ICollection<TransportBookingListViewModel>>
     {
         private readonly IMapper _mapper;
         private readonly IAsyncRepository<TransportBooking> _transportBookingRepository;

@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PlannR.Application.Features.Routes.Commands.CreateRoute;
@@ -9,8 +10,6 @@ using PlannR.Application.Features.Routes.Queries.GetRouteListOnDate;
 using PlannR.Application.Features.Routes.Queries.GetRoutesList;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace PlannR.API.Controllers
@@ -24,7 +23,7 @@ namespace PlannR.API.Controllers
         public RoutesController(IMediator mediator)
         {
             _mediator = mediator;
-        }  
+        }
 
         [HttpGet(Name = "GetAllRoutes")]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -34,7 +33,8 @@ namespace PlannR.API.Controllers
             return Ok(result);
         }
 
-        [HttpGet("{id}",Name = "GetRouteById")]
+        [Authorize]
+        [HttpGet("{id}", Name = "GetRouteById")]
         [ProducesDefaultResponseType]
         public async Task<ActionResult<RouteDetailViewModel>> GetRouteById(Guid id)
         {
@@ -43,7 +43,7 @@ namespace PlannR.API.Controllers
             return Ok(result);
         }
 
-        [HttpGet("{date}", Name = "GetAllRouteOnDate")]
+        [HttpGet("{date:DateTime}", Name = "GetAllRouteOnDate")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesDefaultResponseType]
         public async Task<ActionResult<ICollection<RouteListOnDateViewModel>>> GetAllRouteOnDate(DateTime date)

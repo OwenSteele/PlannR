@@ -32,7 +32,7 @@ namespace PlannR.Application.Features.Accomodations.Types.Commands.CreateAccomod
 
             entity = await _accomodationTypeRepository.AddAsync(entity);
 
-            return entity.Id;
+            return entity.AccomodationTypeId;
         }
     }
 }

@@ -7,7 +7,7 @@ namespace PlannR.Domain.EntityTypes
 {
     public class EventType : AuditableEntity
     {
-        public Guid Id { get; set; }
+        public Guid EventTypeId { get; set; }
         public string Name { get; set; }
         public ICollection<Event> Events { get; set; }
     }

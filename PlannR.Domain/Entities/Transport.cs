@@ -11,6 +11,7 @@ namespace PlannR.Domain.Entities
         public Guid TripId { get; set; }
         public Trip Trip { get; set; }
         public string Name { get; set; }
+        public Guid TransportTypeId { get; set; }
         public TransportType TransportType { get; set; }
         public Location StartLocation { get; set; }
         public Location EndLocation { get; set; }

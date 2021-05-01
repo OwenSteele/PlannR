@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PlannR.Application.Features.Events.Commands.CreateEvent;
@@ -11,8 +12,6 @@ using PlannR.Application.Features.Events.Queries.GetEventsDetail;
 using PlannR.Application.Features.Events.Queries.GetEventsList;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace PlannR.API.Controllers
@@ -26,7 +25,7 @@ namespace PlannR.API.Controllers
         public EventsController(IMediator mediator)
         {
             _mediator = mediator;
-        }  
+        }
 
         [HttpGet(Name = "GetAllEvents")]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -36,7 +35,8 @@ namespace PlannR.API.Controllers
             return Ok(result);
         }
 
-        [HttpGet("{id}",Name = "GetEventById")]
+        [Authorize]
+        [HttpGet("{id}", Name = "GetEventById")]
         [ProducesDefaultResponseType]
         public async Task<ActionResult<EventDetailViewModel>> GetEventById(Guid id)
         {
@@ -45,7 +45,8 @@ namespace PlannR.API.Controllers
             return Ok(result);
         }
 
-        [HttpGet("{tripId}", Name = "GetAllEventsByTripId")]
+        [Authorize]
+        [HttpGet("trip/{tripId}", Name = "GetAllEventsByTripId")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesDefaultResponseType]
         public async Task<ActionResult<ICollection<EventListByTripIdViewModel>>> GetAllEventsByTripId(Guid tripId)
@@ -55,7 +56,8 @@ namespace PlannR.API.Controllers
             return Ok(result);
         }
 
-        [HttpGet("{tripId}/Bookings", Name = "GetAllEventsByTripIdWithBookings")]
+        [Authorize]
+        [HttpGet("trip/{tripId}/Bookings", Name = "GetAllEventsByTripIdWithBookings")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesDefaultResponseType]
         public async Task<ActionResult<ICollection<EventListByTripIdWithBookingsViewModel>>> GetAllEventsByTripIdWithBookings(Guid tripId)
@@ -65,7 +67,7 @@ namespace PlannR.API.Controllers
             return Ok(result);
         }
 
-        [HttpGet("{date}", Name = "GetAllEventsOnDate")]
+        [HttpGet("{date:DateTime}", Name = "GetAllEventsOnDate")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesDefaultResponseType]
         public async Task<ActionResult<ICollection<EventListOnDateViewModel>>> GetAllEventsOnDate(DateTime date)
@@ -100,6 +102,6 @@ namespace PlannR.API.Controllers
             var deleteEventCommand = new DeleteEventCommand() { EventId = id };
             await _mediator.Send(deleteEventCommand);
             return NoContent();
-        }  
+        }
     }
 }

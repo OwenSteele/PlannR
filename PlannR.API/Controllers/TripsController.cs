@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PlannR.Application.Features.Trips.Commands.CreateTrip;
@@ -34,7 +35,8 @@ namespace PlannR.API.Controllers
             return Ok(result);
         }
 
-        [HttpGet("{id}",Name = "GetTripById")]
+        [Authorize]
+        [HttpGet("{id}", Name = "GetTripById")]
         [ProducesDefaultResponseType]
         public async Task<ActionResult<TripDetailViewModel>> GetTripById(Guid id)
         {

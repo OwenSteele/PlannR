@@ -1,4 +1,5 @@
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PlannR.Application.Features.Transports.Types.Commands.CreateTransportType;
@@ -6,8 +7,6 @@ using PlannR.Application.Features.Transports.Types.Queries.GetTransportTypeByNam
 using PlannR.Application.Features.Transports.Types.Queries.GetTransportTypeList;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace PlannR.API.Controllers
@@ -21,7 +20,7 @@ namespace PlannR.API.Controllers
         public TransportTypeController(IMediator mediator)
         {
             _mediator = mediator;
-        }  
+        }
 
         [HttpGet(Name = "GetAllTransportTypes")]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -31,7 +30,7 @@ namespace PlannR.API.Controllers
             return Ok(result);
         }
 
-        [HttpGet("{name}",Name = "GetTransportTypeByName")]
+        [HttpGet("{name}", Name = "GetTransportTypeByName")]
         [ProducesDefaultResponseType]
         public async Task<ActionResult<TransportTypeByNameViewModel>> GetTransportTypeByName(string name)
         {
@@ -40,6 +39,7 @@ namespace PlannR.API.Controllers
             return Ok(result);
         }
 
+        [Authorize]
         [HttpPost(Name = "AddTransportType")]
         public async Task<ActionResult<Guid>> Create([FromBody] CreateTransportTypeCommand createTransportTypeCommand)
         {

@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PlannR.Application.Features.Transports.Commands.CreateTransport;
@@ -11,8 +12,6 @@ using PlannR.Application.Features.Transports.Queries.GetTransportsDetail;
 using PlannR.Application.Features.Transports.Queries.GetTransportsList;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace PlannR.API.Controllers
@@ -26,7 +25,7 @@ namespace PlannR.API.Controllers
         public TransportController(IMediator mediator)
         {
             _mediator = mediator;
-        }  
+        }
 
         [HttpGet(Name = "GetAllTransports")]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -36,7 +35,8 @@ namespace PlannR.API.Controllers
             return Ok(result);
         }
 
-        [HttpGet("{id}",Name = "GetTransportById")]
+        [Authorize]
+        [HttpGet("{id}", Name = "GetTransportById")]
         [ProducesDefaultResponseType]
         public async Task<ActionResult<TransportDetailViewModel>> GetTransportById(Guid id)
         {
@@ -45,7 +45,8 @@ namespace PlannR.API.Controllers
             return Ok(result);
         }
 
-        [HttpGet("{tripId}", Name = "GetAllTransportByTripId")]
+        [Authorize]
+        [HttpGet("trip/{tripId}", Name = "GetAllTransportByTripId")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesDefaultResponseType]
         public async Task<ActionResult<ICollection<TransportListByTripIdViewModel>>> GetAllTransportByTripId(Guid tripId)
@@ -55,7 +56,8 @@ namespace PlannR.API.Controllers
             return Ok(result);
         }
 
-        [HttpGet("{tripId}/Bookings", Name = "GetAllTransportByTripIdWithBookings")]
+        [Authorize]
+        [HttpGet("trip/{tripId}/Bookings", Name = "GetAllTransportByTripIdWithBookings")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesDefaultResponseType]
         public async Task<ActionResult<ICollection<TransportListByTripIdWithBookingsViewModel>>> GetAllTransportByTripIdWithBookings(Guid tripId)
@@ -65,7 +67,7 @@ namespace PlannR.API.Controllers
             return Ok(result);
         }
 
-        [HttpGet("{date}", Name = "GetAllTransportOnDate")]
+        [HttpGet("{date:DateTime}", Name = "GetAllTransportOnDate")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesDefaultResponseType]
         public async Task<ActionResult<ICollection<TransportListOnDateViewModel>>> GetAllTransportOnDate(DateTime date)
@@ -100,6 +102,6 @@ namespace PlannR.API.Controllers
             var deleteTransportCommand = new DeleteTransportCommand() { TransportId = id };
             await _mediator.Send(deleteTransportCommand);
             return NoContent();
-        }  
+        }
     }
 }

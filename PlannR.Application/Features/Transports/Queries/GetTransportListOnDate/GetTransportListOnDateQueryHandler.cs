@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Transports.Queries.GetTransportListOnDate
 {
-    public class GetTransportListOnDateQueryHandler : IRequestHandler<GetTransportListOnDateQuery,ICollection<TransportListOnDateViewModel>>
+    public class GetTransportListOnDateQueryHandler : IRequestHandler<GetTransportListOnDateQuery, ICollection<TransportListOnDateViewModel>>
     {
         private readonly IMapper _mapper;
         private readonly ITransportRepository _transportRepository;

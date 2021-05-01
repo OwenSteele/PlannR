@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace PlannR.Application.Features.Accomodations.Bookings.Queries.GetAccomodationBookingListByTripId
 {
     public class GetAccomodationBookingListByTripIdQueryHandler
-     : IRequestHandler<GetAccomodationBookingListByTripIdQuery,ICollection<AccomodationBookingListByTripIdViewModel>>
+     : IRequestHandler<GetAccomodationBookingListByTripIdQuery, ICollection<AccomodationBookingListByTripIdViewModel>>
     {
         private readonly IMapper _mapper;
         private readonly IAsyncRepository<AccomodationBooking> _accomodationBookingRepository;

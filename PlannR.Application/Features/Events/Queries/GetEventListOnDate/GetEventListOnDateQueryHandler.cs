@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Events.Queries.GetEventListOnDate
 {
-    public class GetEventListOnDateQueryHandler : IRequestHandler<GetEventListOnDateQuery,ICollection<EventListOnDateViewModel>>
+    public class GetEventListOnDateQueryHandler : IRequestHandler<GetEventListOnDateQuery, ICollection<EventListOnDateViewModel>>
     {
         private readonly IMapper _mapper;
         private readonly IEventRepository _eventRepository;

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Transports.Queries.GetTransportsDetail
 {
-    public class GetTransportDetailQueryHandler : IRequestHandler<GetTransportDetailQuery,TransportDetailViewModel>
+    public class GetTransportDetailQueryHandler : IRequestHandler<GetTransportDetailQuery, TransportDetailViewModel>
     {
         private readonly IMapper _mapper;
         private readonly ITransportRepository _repository;
@@ -19,7 +19,7 @@ namespace PlannR.Application.Features.Transports.Queries.GetTransportsDetail
 
         public async Task<TransportDetailViewModel> Handle(GetTransportDetailQuery request, CancellationToken cancellationToken)
         {
-            var result = (await _repository.GetByIdAsync(request.Id));
+            var result = (await _repository.GetWithRelated(request.Id));
 
             return _mapper.Map<TransportDetailViewModel>(result);
         }

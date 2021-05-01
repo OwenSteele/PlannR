@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Trips.Commands.CreateTrip
 {
-    public class CreateTripCommandHandler : IRequestHandler<CreateTripCommand,Guid>
+    public class CreateTripCommandHandler : IRequestHandler<CreateTripCommand, Guid>
     {
         private readonly IMapper _mapper;
         private readonly ITripRepository _tripRepository;

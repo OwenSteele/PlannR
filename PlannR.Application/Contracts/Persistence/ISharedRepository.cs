@@ -6,6 +6,7 @@ namespace PlannR.Application.Contracts.Persistence
 {
     public interface ISharedRepository<T>
     {
+        Task<T> GetWithRelated(Guid id);
         Task<ICollection<T>> GetAllOfTripById(Guid tripId);
         Task<ICollection<T>> GetAllOfTripByIdWithBookings(Guid tripId);
         Task<ICollection<T>> GetAllOnDateOfTripById(Guid tripId, DateTime date);

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Transports.Queries.GetTransportListByTripId
 {
-    public class GetTransportListByTripIdQueryHandler : IRequestHandler<GetTransportListByTripIdQuery,ICollection<TransportListByTripIdViewModel>>
+    public class GetTransportListByTripIdQueryHandler : IRequestHandler<GetTransportListByTripIdQuery, ICollection<TransportListByTripIdViewModel>>
     {
         private readonly IMapper _mapper;
         private readonly ITransportRepository _transportRepository;

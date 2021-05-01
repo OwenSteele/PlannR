@@ -1,4 +1,5 @@
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PlannR.Application.Features.Events.Bookings.Commands.CreateEventBooking;
@@ -9,12 +10,11 @@ using PlannR.Application.Features.Events.Bookings.Queries.GetEventBookingList;
 using PlannR.Application.Features.Events.Bookings.Queries.GetEventBookingListByTripId;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace PlannR.API.Controllers
 {
+    [Authorize]
     [Route("api/Event/Bookings")]
     [ApiController]
     public class EventBookingController : ControllerBase
@@ -24,7 +24,7 @@ namespace PlannR.API.Controllers
         public EventBookingController(IMediator mediator)
         {
             _mediator = mediator;
-        }  
+        }
 
         [HttpGet(Name = "GetAllEventBookings")]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -34,7 +34,7 @@ namespace PlannR.API.Controllers
             return Ok(result);
         }
 
-        [HttpGet("{id}",Name = "GetEventBookingById")]
+        [HttpGet("{id}", Name = "GetEventBookingById")]
         [ProducesDefaultResponseType]
         public async Task<ActionResult<EventBookingDetailViewModel>> GetEventBookingById(Guid id)
         {
@@ -43,7 +43,7 @@ namespace PlannR.API.Controllers
             return Ok(result);
         }
 
-        [HttpGet("{tripId}", Name = "GetAllEventBookingsByTripId")]
+        [HttpGet("trip/{tripId}", Name = "GetAllEventBookingsByTripId")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesDefaultResponseType]
         public async Task<ActionResult<ICollection<EventBookingListByTripIdViewModel>>> GetAllEventBookingsByTripId(Guid tripId)
@@ -78,6 +78,6 @@ namespace PlannR.API.Controllers
             var deleteEventBookingCommand = new DeleteEventBookingCommand() { BookingId = id };
             await _mediator.Send(deleteEventBookingCommand);
             return NoContent();
-        }  
+        }
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Events.Bookings.Queries.GetEventBookingDetail
 {
-    public class GetEventBookingDetailQueryHandler : IRequestHandler<GetEventBookingDetailQuery,EventBookingDetailViewModel>
+    public class GetEventBookingDetailQueryHandler : IRequestHandler<GetEventBookingDetailQuery, EventBookingDetailViewModel>
     {
         private readonly IMapper _mapper;
         private readonly IAsyncRepository<EventBooking> _eventBookingRepository;

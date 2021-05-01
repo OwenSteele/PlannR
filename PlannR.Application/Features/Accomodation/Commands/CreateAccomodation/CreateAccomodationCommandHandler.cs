@@ -30,6 +30,8 @@ namespace PlannR.Application.Features.Accomodations.Commands.CreateAccomodation
 
             var entity = _mapper.Map<Accomodation>(request);
 
+
+
             entity = await _accomodationRepository.AddAsync(entity);
 
             return entity.AccomodationId;

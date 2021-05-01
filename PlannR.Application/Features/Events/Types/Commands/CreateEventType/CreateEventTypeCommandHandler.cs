@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Events.Types.Commands.CreateEventType
 {
-    public class CreateEventTypeCommandHandler : IRequestHandler<CreateEventTypeCommand,Guid>
+    public class CreateEventTypeCommandHandler : IRequestHandler<CreateEventTypeCommand, Guid>
     {
         private readonly IMapper _mapper;
         private readonly IAsyncRepository<EventType> _eventTypeRepository;
@@ -32,7 +32,7 @@ namespace PlannR.Application.Features.Events.Types.Commands.CreateEventType
 
             entity = await _eventTypeRepository.AddAsync(entity);
 
-            return entity.Id;
+            return entity.EventTypeId;
         }
     }
 }

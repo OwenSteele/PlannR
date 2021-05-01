@@ -12,6 +12,7 @@ namespace PlannR.Domain.Entities
         public Trip Trip { get; set; }
         public string Name { get; set; }
         public string CompanyName { get; set; }
+        public Guid EventTypeId { get; set; }
         public EventType EventType { get; set; }
         public bool EmailReminderEnabled { get; set; }
         public TimeSpan? EmailReminderTimer { get; set; }

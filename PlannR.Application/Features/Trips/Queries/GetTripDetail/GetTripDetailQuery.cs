@@ -1,6 +1,5 @@
 ﻿using MediatR;
 using System;
-using System.Collections.Generic;
 
 namespace PlannR.Application.Features.Trips.Queries.GetTripsDetail
 {

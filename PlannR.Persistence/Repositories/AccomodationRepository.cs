@@ -13,12 +13,19 @@ namespace PlannR.Persistence.Repositories
         public AccomodationRepository(PlannrDbContext dbContext) : base(dbContext)
         {
         }
+        public async Task<Accomodation> GetWithRelated(Guid id)
+        {
+            return await _dbContext.Accomodations.Where(x => x.AccomodationId == id)
+                .Include(x => x.Trip)
+                .Include(x => x.AccomodationType)
+                .Include(x => x.Location)
+                .FirstOrDefaultAsync();
+        }
 
         public async Task<ICollection<Accomodation>> GetAllOfTripById(Guid tripId)
         {
             return await _dbContext.Accomodations
                 .Where(x => x.TripId == tripId)
-                .Include(x => x.AccomodationType)
                 .Include(x => x.Location)
                 .ToArrayAsync();
         }
@@ -27,7 +34,6 @@ namespace PlannR.Persistence.Repositories
         {
             return await _dbContext.Accomodations
                 .Where(x => x.TripId == tripId && x.Booking != null)
-                .Include(x => x.AccomodationType)
                 .Include(x => x.Location)
                 .Include(x => x.Booking)
                 .ToArrayAsync();
@@ -38,7 +44,6 @@ namespace PlannR.Persistence.Repositories
             return await _dbContext.Accomodations
                 .Where(x => x.TripId == tripId &&
                 x.StartDateTime <= date && x.EndDateTime >= date)
-                .Include(x => x.AccomodationType)
                 .Include(x => x.Location)
                 .ToArrayAsync();
         }

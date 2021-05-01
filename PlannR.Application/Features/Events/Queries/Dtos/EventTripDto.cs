@@ -4,7 +4,7 @@ namespace PlannR.Application.Features.Events.Dtos.GetEventsList
 {
     public class EventTripDto
     {
-        public Guid Id { get; set; }
+        public Guid TripId { get; set; }
         public string Name { get; set; }
     }
 }

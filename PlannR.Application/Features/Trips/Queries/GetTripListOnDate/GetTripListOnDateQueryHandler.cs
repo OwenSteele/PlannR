@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Trips.Queries.GetTripListOnDate
 {
-    public class GetTripListOnDateQueryHandler : IRequestHandler<GetTripListOnDateQuery,ICollection<TripListOnDateViewModel>>
+    public class GetTripListOnDateQueryHandler : IRequestHandler<GetTripListOnDateQuery, ICollection<TripListOnDateViewModel>>
     {
         private readonly IMapper _mapper;
         private readonly ITripRepository _tripRepository;

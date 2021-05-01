@@ -12,9 +12,9 @@ namespace PlannR.Persistence
     {
         public static IServiceCollection AddPersistenceServices(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContextPool<PlannrDbContext>(options =>
+            services.AddDbContext<PlannrDbContext>(options =>
             {
-                options.UseSqlServer(configuration.GetConnectionString("PlannrConnectionString"));
+                options.UseSqlServer(configuration.GetConnectionString("Plannr"));
             });
 
             services.AddScoped(typeof(IAsyncRepository<>), typeof(BaseRepository<>));

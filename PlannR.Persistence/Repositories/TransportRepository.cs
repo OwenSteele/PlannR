@@ -13,11 +13,19 @@ namespace PlannR.Persistence.Repositories
         public TransportRepository(PlannrDbContext dbContext) : base(dbContext)
         {
         }
+        public async Task<Transport> GetWithRelated(Guid id)
+        {
+            return await _dbContext.Transports.Where(x => x.TransportId == id)
+                .Include(x => x.Trip)
+                .Include(x => x.TransportType)
+                .Include(x => x.StartLocation)
+                .Include(x => x.EndLocation)
+                .FirstOrDefaultAsync();
+        }
         public async Task<ICollection<Transport>> GetAllOfTripById(Guid tripId)
         {
             return await _dbContext.Transports
                 .Where(x => x.TripId == tripId)
-                .Include(x => x.TransportType)
                 .Include(x => x.StartLocation)
                 .ToArrayAsync();
         }
@@ -26,7 +34,6 @@ namespace PlannR.Persistence.Repositories
         {
             return await _dbContext.Transports
                 .Where(x => x.TripId == tripId && x.Booking != null)
-                .Include(x => x.TransportType)
                 .Include(x => x.StartLocation)
                 .Include(x => x.Booking)
                 .ToArrayAsync();
@@ -37,7 +44,6 @@ namespace PlannR.Persistence.Repositories
             return await _dbContext.Transports
                 .Where(x => x.TripId == tripId &&
                 x.StartDateTime <= date && x.EndDateTime >= date)
-                .Include(x => x.TransportType)
                 .Include(x => x.StartLocation)
                 .ToArrayAsync();
         }

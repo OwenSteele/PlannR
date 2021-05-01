@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Routes.Commands.CreateRoute
 {
-    public class CreateRouteCommandHandler : IRequestHandler<CreateRouteCommand,Guid>
+    public class CreateRouteCommandHandler : IRequestHandler<CreateRouteCommand, Guid>
     {
         private readonly IMapper _mapper;
         private readonly IRouteRepository _accomodationRepository;

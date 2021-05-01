@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Events.Types.Queries.GetEventTypeByName
 {
-    public class GetEventTypeByNameQueryHandler : IRequestHandler<GetEventTypeByNameQuery,ICollection<EventTypeByNameViewModel>>
+    public class GetEventTypeByNameQueryHandler : IRequestHandler<GetEventTypeByNameQuery, ICollection<EventTypeByNameViewModel>>
     {
         private readonly IMapper _mapper;
         private readonly IAsyncRepository<EventType> _eventTypeRepository;

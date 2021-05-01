@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Transports.Queries.GetTransportsList
 {
-    public class GetTransportListQueryHandler : IRequestHandler<GetTransportListQuery,ICollection<TransportListViewModel>>
+    public class GetTransportListQueryHandler : IRequestHandler<GetTransportListQuery, ICollection<TransportListViewModel>>
     {
         private readonly IMapper _mapper;
         private readonly ITransportRepository _transportRepository;

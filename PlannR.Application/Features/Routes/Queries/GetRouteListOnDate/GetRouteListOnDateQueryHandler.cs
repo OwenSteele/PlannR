@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Routes.Queries.GetRouteListOnDate
 {
-    public class GetRouteListOnDateQueryHandler : IRequestHandler<GetRouteListOnDateQuery,ICollection<RouteListOnDateViewModel>>
+    public class GetRouteListOnDateQueryHandler : IRequestHandler<GetRouteListOnDateQuery, ICollection<RouteListOnDateViewModel>>
     {
         private readonly IMapper _mapper;
         private readonly IRouteRepository _accomodationRepository;

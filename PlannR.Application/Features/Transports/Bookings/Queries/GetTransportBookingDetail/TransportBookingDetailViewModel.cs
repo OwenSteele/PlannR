@@ -13,6 +13,6 @@ namespace PlannR.Application.Features.Transports.Bookings.Queries.GetTransportBo
         public string Email { get; set; }
         public string Comments { get; set; }
         public decimal Cost { get; set; }
-        public ICollection<FileStream> Reservations { get; set; }
+        public ICollection<byte[]> Reservations { get; set; }
     }
 }

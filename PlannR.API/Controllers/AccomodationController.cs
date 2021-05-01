@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PlannR.Application.Features.Accomodations.Commands.CreateAccomodation;
@@ -11,8 +12,6 @@ using PlannR.Application.Features.Accomodations.Queries.GetAccomodationsDetail;
 using PlannR.Application.Features.Accomodations.Queries.GetAccomodationsList;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace PlannR.API.Controllers
@@ -26,7 +25,7 @@ namespace PlannR.API.Controllers
         public AccomodationController(IMediator mediator)
         {
             _mediator = mediator;
-        }  
+        }
 
         [HttpGet(Name = "GetAllAccomodations")]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -36,7 +35,8 @@ namespace PlannR.API.Controllers
             return Ok(result);
         }
 
-        [HttpGet("{id}",Name = "GetAccomodationById")]
+        [Authorize]
+        [HttpGet("{id}", Name = "GetAccomodationById")]
         [ProducesDefaultResponseType]
         public async Task<ActionResult<AccomodationDetailViewModel>> GetAccomodationById(Guid id)
         {
@@ -45,7 +45,8 @@ namespace PlannR.API.Controllers
             return Ok(result);
         }
 
-        [HttpGet("{tripId}", Name = "GetAllAccomodationByTripId")]
+        [Authorize]
+        [HttpGet("trip/{tripId}", Name = "GetAllAccomodationByTripId")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesDefaultResponseType]
         public async Task<ActionResult<ICollection<AccomodationListByTripIdViewModel>>> GetAllAccomodationByTripId(Guid tripId)
@@ -55,7 +56,8 @@ namespace PlannR.API.Controllers
             return Ok(result);
         }
 
-        [HttpGet("{tripId}/Bookings", Name = "GetAllAccomodationByTripIdWithBookings")]
+        [Authorize]
+        [HttpGet("trip/{tripId}/Bookings", Name = "GetAllAccomodationByTripIdWithBookings")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesDefaultResponseType]
         public async Task<ActionResult<ICollection<AccomodationListByTripIdWithBookingsViewModel>>> GetAllAccomodationByTripIdWithBookings(Guid tripId)
@@ -65,7 +67,7 @@ namespace PlannR.API.Controllers
             return Ok(result);
         }
 
-        [HttpGet("{date}", Name = "GetAllAccomodationOnDate")]
+        [HttpGet("{date:DateTime}", Name = "GetAllAccomodationOnDate")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesDefaultResponseType]
         public async Task<ActionResult<ICollection<AccomodationListOnDateViewModel>>> GetAllAccomodationOnDate(DateTime date)
@@ -100,6 +102,6 @@ namespace PlannR.API.Controllers
             var deleteAccomodationCommand = new DeleteAccomodationCommand() { AccomodationId = id };
             await _mediator.Send(deleteAccomodationCommand);
             return NoContent();
-        }  
+        }
     }
 }

@@ -1,4 +1,5 @@
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PlannR.Application.Features.Events.Types.Commands.CreateEventType;
@@ -6,8 +7,6 @@ using PlannR.Application.Features.Events.Types.Queries.GetEventTypeByName;
 using PlannR.Application.Features.Events.Types.Queries.GetEventTypeList;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace PlannR.API.Controllers
@@ -21,7 +20,7 @@ namespace PlannR.API.Controllers
         public EventTypeController(IMediator mediator)
         {
             _mediator = mediator;
-        }  
+        }
 
         [HttpGet(Name = "GetAllEventTypes")]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -31,7 +30,7 @@ namespace PlannR.API.Controllers
             return Ok(result);
         }
 
-        [HttpGet("{name}",Name = "GetEventTypeByName")]
+        [HttpGet("{name}", Name = "GetEventTypeByName")]
         [ProducesDefaultResponseType]
         public async Task<ActionResult<EventTypeByNameViewModel>> GetEventTypeByName(string name)
         {
@@ -40,6 +39,7 @@ namespace PlannR.API.Controllers
             return Ok(result);
         }
 
+        [Authorize]
         [HttpPost(Name = "AddEventType")]
         public async Task<ActionResult<Guid>> Create([FromBody] CreateEventTypeCommand createEventTypeCommand)
         {

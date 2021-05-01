@@ -8,6 +8,7 @@ namespace PlannR.Domain.Entities
     {
         public Guid Id { get; set; }
         public Location Location { get; set; }
+        public Guid EventId { get; set; }
         public Event AssociatedEvent { get; set; }
         public DateTime StartDateTime { get; set; }
         public DateTime EndDateTime { get; set; }

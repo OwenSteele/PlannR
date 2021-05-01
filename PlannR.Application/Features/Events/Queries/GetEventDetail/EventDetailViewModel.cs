@@ -6,7 +6,6 @@ namespace PlannR.Application.Features.Events.Queries.GetEventsDetail
     public class EventDetailViewModel
     {
         public Guid EventId { get; set; }
-        public Guid TripId { get; set; }
         public EventTripDto Trip { get; set; }
         public string Name { get; set; }
         public string CompanyName { get; set; }

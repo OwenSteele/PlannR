@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Transports.Types.Queries.GetTransportTypeByName
 {
-    public class GetTransportTypeByNameQueryHandler : IRequestHandler<GetTransportTypeByNameQuery,ICollection<TransportTypeByNameViewModel>>
+    public class GetTransportTypeByNameQueryHandler : IRequestHandler<GetTransportTypeByNameQuery, ICollection<TransportTypeByNameViewModel>>
     {
         private readonly IMapper _mapper;
         private readonly IAsyncRepository<TransportType> _transportTypeRepository;

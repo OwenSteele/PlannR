@@ -20,7 +20,6 @@
     <Folder Include="Features\Routes\Commands\" />
     <Folder Include="Features\Accomodation\Commands\" />
     <Folder Include="Features\Trips\Commands\" />
-    <Folder Include="Models\Authentication\" />
     <Folder Include="Responses\" />
   </ItemGroup>
 

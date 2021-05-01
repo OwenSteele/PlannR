@@ -1,5 +1,4 @@
 ﻿using MediatR;
-using System.Collections.Generic;
 
 namespace PlannR.Application.Features.Accomodations.Types.Queries.GetAccomodationTypeByName
 {

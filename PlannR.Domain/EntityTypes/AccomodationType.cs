@@ -7,7 +7,7 @@ namespace PlannR.Domain.EntityTypes
 {
     public class AccomodationType : AuditableEntity
     {
-        public Guid Id { get; set; }
+        public Guid AccomodationTypeId { get; set; }
         public string Name { get; set; }
         public ICollection<Accomodation> Accomodations { get; set; }
     }

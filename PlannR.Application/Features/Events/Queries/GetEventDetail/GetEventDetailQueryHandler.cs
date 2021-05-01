@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Events.Queries.GetEventsDetail
 {
-    public class GetEventDetailQueryHandler : IRequestHandler<GetEventDetailQuery,EventDetailViewModel>
+    public class GetEventDetailQueryHandler : IRequestHandler<GetEventDetailQuery, EventDetailViewModel>
     {
         private readonly IMapper _mapper;
         private readonly IEventRepository _repository;
@@ -19,7 +19,7 @@ namespace PlannR.Application.Features.Events.Queries.GetEventsDetail
 
         public async Task<EventDetailViewModel> Handle(GetEventDetailQuery request, CancellationToken cancellationToken)
         {
-            var result = (await _repository.GetByIdAsync(request.Id));
+            var result = (await _repository.GetWithRelated(request.Id));
 
             return _mapper.Map<EventDetailViewModel>(result);
         }

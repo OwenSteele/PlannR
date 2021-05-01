@@ -11,6 +11,7 @@ namespace PlannR.Domain.Entities
         public Guid TripId { get; set; }
         public Trip Trip { get; set; }
         public string Name { get; set; }
+        public Guid AccomodationTypeId { get; set; }
         public AccomodationType AccomodationType { get; set; }
         public decimal? CostPerNight { get; set; }
         public int Rooms { get; set; }

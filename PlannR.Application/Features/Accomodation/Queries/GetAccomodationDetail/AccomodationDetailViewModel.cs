@@ -6,7 +6,6 @@ namespace PlannR.Application.Features.Accomodations.Queries.GetAccomodationsDeta
     public class AccomodationDetailViewModel
     {
         public Guid AccomodationId { get; set; }
-        public Guid TripId { get; set; }
         public AccomodationTripDto Trip { get; set; }
         public string Name { get; set; }
         public AccomodationTypeDto AccomodationType { get; set; }

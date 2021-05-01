@@ -1,7 +1,6 @@
 ﻿using PlannR.Domain.Common;
 using System;
 using System.Collections.Generic;
-using System.IO;
 
 namespace PlannR.Domain.Shared
 {

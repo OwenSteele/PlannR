@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using PlannR.Application.Contracts.Identity;
 using PlannR.Domain.Common;
 using PlannR.Domain.Entities;
 using PlannR.Domain.EntityTypes;
@@ -11,9 +12,17 @@ namespace PlannR.Persistence
 {
     public class PlannrDbContext : DbContext
     {
+        private readonly ILoggedInService _loggedInService;
+
         public PlannrDbContext(DbContextOptions<PlannrDbContext> options)
               : base(options)
         {
+        }
+        public PlannrDbContext(DbContextOptions<PlannrDbContext> options,
+            ILoggedInService loggedInService)
+              : base(options)
+        {
+            _loggedInService = loggedInService;
         }
 
         public DbSet<Trip> Trips { get; set; }
@@ -38,30 +47,17 @@ namespace PlannR.Persistence
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //modelBuilder.ApplyConfigurationsFromAssembly(typeof(PlannrDbContext).Assembly);
-
             base.OnModelCreating(modelBuilder);
 
-            //modelBuilder.Entity<Trip>().HasMany<Accomodation>().WithOne(x => x.Trip)
-            //    .HasForeignKey(x => x.TripId);
-            //modelBuilder.Entity<Trip>().HasMany<Route>().WithOne(x => x.Trip)
-            //    .HasForeignKey(x => x.TripId);
-            //modelBuilder.Entity<Trip>().HasMany<Event>().WithOne(x => x.Trip)
-            //    .HasForeignKey(x => x.TripId);
-            //modelBuilder.Entity<Trip>().HasMany<Transport>().WithOne(x => x.Trip)
-            //    .HasForeignKey(x => x.TripId);
-
-            //modelBuilder.Entity<Accomodation>().HasOne<AccomodationBooking>().WithOne(x => x.Accomodation)
-            //    .HasForeignKey(x => x.);
-            //modelBuilder.Entity<Accomodation>().HasOne<AccomodationType>().WithMany(x => x.Accomodations);
-            //modelBuilder.Entity<Transport>().HasOne<TransportBooking>().WithOne(x => x.Transport);
-            //modelBuilder.Entity<Transport>().HasOne<TransportType>().WithMany(x => x.Transports);
-            //modelBuilder.Entity<Event>().HasOne<EventBooking>().WithOne(x => x.Event);
-            //modelBuilder.Entity<Event>().HasOne<EventType>().WithMany(x => x.Events);
-
-            //modelBuilder.Entity<Route>().HasMany<RoutePoint>();
-
-
+            modelBuilder.Entity<Accomodation>()
+                .HasOne(x => x.Booking).WithOne(x => x.Accomodation)
+                .HasForeignKey<AccomodationBooking>(x => x.AccomodationId);
+            modelBuilder.Entity<Transport>()
+                .HasOne(x => x.Booking).WithOne(x => x.Transport)
+                .HasForeignKey<TransportBooking>(x => x.TransportId);
+            modelBuilder.Entity<Event>()
+                .HasOne(x => x.Booking).WithOne(x => x.Event)
+                .HasForeignKey<EventBooking>(x => x.EventId);
 
             modelBuilder.Entity<Booking>().Property(x => x.Cost)
                 .HasColumnType<decimal>("decimal(18,2)");
@@ -77,11 +73,11 @@ namespace PlannR.Persistence
                 {
                     case EntityState.Added:
                         entry.Entity.CreationDate = DateTime.Now;
-                        entry.Entity.CreatedBy = string.Empty;  // Update
+                        entry.Entity.CreatedBy = _loggedInService.UserId;
                         break;
                     case EntityState.Modified:
                         entry.Entity.LastModifiedDate = DateTime.Now;
-                        entry.Entity.LastModifiedBy = string.Empty;  // Update
+                        entry.Entity.LastModifiedBy = _loggedInService.UserId;
                         break;
                 }
             }

@@ -1,4 +1,5 @@
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PlannR.Application.Features.Transports.Bookings.Commands.CreateTransportBooking;
@@ -9,12 +10,11 @@ using PlannR.Application.Features.Transports.Bookings.Queries.GetTransportBookin
 using PlannR.Application.Features.Transports.Bookings.Queries.GetTransportBookingListByTripId;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace PlannR.API.Controllers
 {
+    [Authorize]
     [Route("api/Transport/Bookings")]
     [ApiController]
     public class TransportBookingController : ControllerBase
@@ -24,7 +24,7 @@ namespace PlannR.API.Controllers
         public TransportBookingController(IMediator mediator)
         {
             _mediator = mediator;
-        }  
+        }
 
         [HttpGet(Name = "GetAllTransportBookings")]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -34,7 +34,7 @@ namespace PlannR.API.Controllers
             return Ok(result);
         }
 
-        [HttpGet("{id}",Name = "GetTransportBookingById")]
+        [HttpGet("{id}", Name = "GetTransportBookingById")]
         [ProducesDefaultResponseType]
         public async Task<ActionResult<TransportBookingDetailViewModel>> GetTransportBookingById(Guid id)
         {
@@ -43,7 +43,7 @@ namespace PlannR.API.Controllers
             return Ok(result);
         }
 
-        [HttpGet("{tripId}", Name = "GetAllTransportBookingsByTripId")]
+        [HttpGet("trip/{tripId}", Name = "GetAllTransportBookingsByTripId")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesDefaultResponseType]
         public async Task<ActionResult<ICollection<TransportBookingListByTripIdViewModel>>> GetAllTransportBookingsByTripId(Guid tripId)
@@ -78,6 +78,6 @@ namespace PlannR.API.Controllers
             var deleteTransportBookingCommand = new DeleteTransportBookingCommand() { BookingId = id };
             await _mediator.Send(deleteTransportBookingCommand);
             return NoContent();
-        }  
+        }
     }
 }

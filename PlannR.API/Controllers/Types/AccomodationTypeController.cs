@@ -1,4 +1,5 @@
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PlannR.Application.Features.Accomodations.Types.Commands.CreateAccomodationType;
@@ -6,8 +7,6 @@ using PlannR.Application.Features.Accomodations.Types.Queries.GetAccomodationTyp
 using PlannR.Application.Features.Accomodations.Types.Queries.GetAccomodationTypeList;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace PlannR.API.Controllers
@@ -21,7 +20,7 @@ namespace PlannR.API.Controllers
         public AccomodationTypeController(IMediator mediator)
         {
             _mediator = mediator;
-        }  
+        }
 
         [HttpGet(Name = "GetAllAccomodationTypes")]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -31,7 +30,7 @@ namespace PlannR.API.Controllers
             return Ok(result);
         }
 
-        [HttpGet("{name}",Name = "GetAccomodationTypeByName")]
+        [HttpGet("{name}", Name = "GetAccomodationTypeByName")]
         [ProducesDefaultResponseType]
         public async Task<ActionResult<AccomodationTypeByNameViewModel>> GetAccomodationTypeByName(string name)
         {
@@ -40,6 +39,7 @@ namespace PlannR.API.Controllers
             return Ok(result);
         }
 
+        [Authorize]
         [HttpPost(Name = "AddAccomodationType")]
         public async Task<ActionResult<Guid>> Create([FromBody] CreateAccomodationTypeCommand createAccomodationTypeCommand)
         {

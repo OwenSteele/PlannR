@@ -1,4 +1,5 @@
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PlannR.Application.Features.Accomodations.Bookings.Commands.CreateAccomodationBooking;
@@ -9,12 +10,11 @@ using PlannR.Application.Features.Accomodations.Bookings.Queries.GetAccomodation
 using PlannR.Application.Features.Accomodations.Bookings.Queries.GetAccomodationBookingListByTripId;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace PlannR.API.Controllers
 {
+    [Authorize]
     [Route("api/Accomodation/Bookings")]
     [ApiController]
     public class AccomodationBookingController : ControllerBase
@@ -24,7 +24,7 @@ namespace PlannR.API.Controllers
         public AccomodationBookingController(IMediator mediator)
         {
             _mediator = mediator;
-        }  
+        }
 
         [HttpGet(Name = "GetAllAccomodationBookings")]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -34,7 +34,7 @@ namespace PlannR.API.Controllers
             return Ok(result);
         }
 
-        [HttpGet("{id}",Name = "GetAccomodationBookingById")]
+        [HttpGet("{id}", Name = "GetAccomodationBookingById")]
         [ProducesDefaultResponseType]
         public async Task<ActionResult<AccomodationBookingDetailViewModel>> GetAccomodationBookingById(Guid id)
         {
@@ -43,7 +43,7 @@ namespace PlannR.API.Controllers
             return Ok(result);
         }
 
-        [HttpGet("{tripId}", Name = "GetAllAccomodationBookingsByTripId")]
+        [HttpGet("trip/{tripId}", Name = "GetAllAccomodationBookingsByTripId")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesDefaultResponseType]
         public async Task<ActionResult<ICollection<AccomodationBookingListByTripIdViewModel>>> GetAllAccomodationBookingsByTripId(Guid tripId)
@@ -78,6 +78,6 @@ namespace PlannR.API.Controllers
             var deleteAccomodationBookingCommand = new DeleteAccomodationBookingCommand() { BookingId = id };
             await _mediator.Send(deleteAccomodationBookingCommand);
             return NoContent();
-        }  
+        }
     }
 }

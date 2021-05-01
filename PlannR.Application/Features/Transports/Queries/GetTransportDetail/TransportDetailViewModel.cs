@@ -6,7 +6,6 @@ namespace PlannR.Application.Features.Transports.Queries.GetTransportsDetail
     public class TransportDetailViewModel
     {
         public Guid TransportId { get; set; }
-        public Guid TripId { get; set; }
         public TransportTripDto Trip { get; set; }
         public string Name { get; set; }
         public TransportTypeDto TransportType { get; set; }
