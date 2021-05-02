@@ -362,3 +362,4 @@ MigrationBackup/
 FodyWeavers.xsd
 
 *Migrations
+*PlannR.API.Tests\Controllers
