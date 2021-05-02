@@ -137,6 +137,10 @@ namespace PlannR.Application.Profiles
             CreateMap<AccomodationBooking, AccomodationBookingDetailViewModel>().ReverseMap();
             CreateMap<AccomodationBooking, AccomodationBookingListByTripIdViewModel>().ReverseMap();
 
+            CreateMap<TransportBooking, TransportBookingDto>().ReverseMap();
+            CreateMap<EventBooking, EventBookingDto>().ReverseMap();
+            CreateMap<AccomodationBooking, AccomodationBookingDto>().ReverseMap();
+
             CreateMap<TransportType, TransportTypeDto>();
             CreateMap<EventType, EventTypeDto>();
             CreateMap<AccomodationType, AccomodationTypeDto>();

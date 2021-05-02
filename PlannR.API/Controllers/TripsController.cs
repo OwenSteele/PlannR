@@ -40,7 +40,7 @@ namespace PlannR.API.Controllers
         [ProducesDefaultResponseType]
         public async Task<ActionResult<TripDetailViewModel>> GetTripById(Guid id)
         {
-            var query = new GetTripDetailQuery() { Id = id };
+            var query = new GetTripDetailQuery() { TripId = id };
             var result = await _mediator.Send(query);
             return Ok(result);
         }
@@ -65,12 +65,14 @@ namespace PlannR.API.Controllers
             return Ok(result);
         }
 
+        [Authorize]
         [HttpPost(Name = "AddTrip")]
         public async Task<ActionResult<Guid>> Create([FromBody] CreateTripCommand createTripCommand)
         {
             var id = await _mediator.Send(createTripCommand);
             return Ok(id);
         }
+        [Authorize]
         [HttpPut(Name = "UpdateTrip")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -81,6 +83,7 @@ namespace PlannR.API.Controllers
             return NoContent();
         }
 
+        [Authorize]
         [HttpDelete("{id}", Name = "DeleteTrip")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]

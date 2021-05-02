@@ -19,7 +19,7 @@ namespace PlannR.Application.Features.Trips.Queries.GetTripsDetail
 
         public async Task<TripDetailViewModel> Handle(GetTripDetailQuery request, CancellationToken cancellationToken)
         {
-            var result = (await _repository.GetByIdAsync(request.Id));
+            var result = (await _repository.GetByIdAsync(request.TripId));
 
             return _mapper.Map<TripDetailViewModel>(result);
         }

@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Accomodations.Bookings.Commands.DeleteAccomodationBooking
 {
-    public class DeleteAccomodationCommandHandler : IRequestHandler<DeleteAccomodationBookingCommand>
+    public class DeleteAccomodationBookingCommandHandler : IRequestHandler<DeleteAccomodationBookingCommand>
     {
         private readonly IAsyncRepository<AccomodationBooking> _accomodationBookingRepository;
         private readonly IMapper _mapper;
 
-        public DeleteAccomodationCommandHandler(IMapper mapper, IAsyncRepository<AccomodationBooking> accomodationBookingRepository)
+        public DeleteAccomodationBookingCommandHandler(IMapper mapper, IAsyncRepository<AccomodationBooking> accomodationBookingRepository)
         {
             _mapper = mapper;
             _accomodationBookingRepository = accomodationBookingRepository;

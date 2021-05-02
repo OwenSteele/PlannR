@@ -5,6 +5,6 @@ namespace PlannR.Application.Features.Trips.Queries.GetTripsDetail
 {
     public class GetTripDetailQuery : IRequest<TripDetailViewModel>
     {
-        public Guid Id { get; set; }
+        public Guid TripId { get; set; }
     }
 }

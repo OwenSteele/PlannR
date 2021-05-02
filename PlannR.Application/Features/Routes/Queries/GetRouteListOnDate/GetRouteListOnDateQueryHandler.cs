@@ -23,6 +23,7 @@ namespace PlannR.Application.Features.Routes.Queries.GetRouteListOnDate
         public async Task<ICollection<RouteListOnDateViewModel>> Handle(GetRouteListOnDateQuery request, CancellationToken cancellationToken)
         {
             var result = (await _accomodationRepository.GetAllRoutesOnDate(request.Date))
+                .Where(x => x.TripId == request.TripId)
                 .OrderBy(x => x.Name);
 
             return _mapper.Map<ICollection<RouteListOnDateViewModel>>(result);

@@ -27,7 +27,7 @@ namespace PlannR.Persistence.Repositories
         public async Task<ICollection<Trip>> GetAllTripsOnTheseDateTimes(DateTime start, DateTime end)
         {
             return await _dbContext.Trips
-                .Where(x => x.StartDateTime <= end || x.EndDateTime >= start)
+                .Where(x => x.StartDateTime <= end && x.EndDateTime >= start)
                 .Include(x => x.Routes)
                 .Include(x => x.Transports)
                 .Include(x => x.Events)

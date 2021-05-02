@@ -10,6 +10,9 @@ namespace PlannR.Application.Features.Routes.Commands.CreateRoute
                 .NotEmpty().WithMessage("{PropertyName} is required.")
                 .NotNull()
                 .MaximumLength(50).WithMessage("{PropertyName} must not exceed 50 characters.");
+            RuleFor(p => p.TripId)
+                .NotEmpty().WithMessage("{PropertyName} is required.")
+                .NotNull();
         }
     }
 }
