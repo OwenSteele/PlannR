@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
+using PlannR.Application.Contracts.Identity;
 using PlannR.Application.Contracts.Persistence;
 using System.Threading;
 using System.Threading.Tasks;
@@ -11,7 +12,9 @@ namespace PlannR.Application.Features.Trips.Queries.GetTripsDetail
         private readonly IMapper _mapper;
         private readonly ITripRepository _repository;
 
-        public GetTripDetailQueryHandler(IMapper mapper, ITripRepository repository)
+        public GetTripDetailQueryHandler(IMapper mapper
+            , ITripRepository repository,
+            ILoggedInService loggedInService)
         {
             _mapper = mapper;
             _repository = repository;
