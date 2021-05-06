@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 
 namespace PlannR.Application.Features.Accomodations.Bookings.Queries.GetAccomodationBookingDetail
 {

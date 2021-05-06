@@ -12,7 +12,7 @@ namespace PlannR.Application.Tests.BaseRoute.Commands
         [Fact]
         public async Task WHEN_acommodation_is_deleted_with_handler_THEN_acommodation_is_missing_in_repository()
         {
-            var handler = new DeleteRouteCommandHandler(_mapper, _mockRepository.Object);
+            var handler = new DeleteRouteCommandHandler(_mockAuthorisationService.Object, _mapper, _mockRepository.Object);
 
             var existing = (await _mockRepository.Object.ListAllAsync()).FirstOrDefault();
 

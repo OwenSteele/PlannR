@@ -1,17 +1,17 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using PlannR.Application.Models.Authentication;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
-using PlannR.Identity.Models;
+using Newtonsoft.Json;
 using PlannR.Application.Contracts.Identity;
+using PlannR.Application.Models.Authentication;
+using PlannR.Identity.Models;
 using PlannR.Identity.Services;
 using System;
 using System.Text;
-using Newtonsoft.Json;
 
 namespace PlannR.Identity
 {

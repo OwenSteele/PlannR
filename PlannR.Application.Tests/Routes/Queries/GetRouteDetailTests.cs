@@ -14,7 +14,7 @@ namespace PlannR.Application.Tests.BaseRoute.Queries
         [Fact]
         public async Task WHEN_repository_is_queried_with_routeId_THEN_matching_entity_is_returned()
         {
-            var handler = new GetRouteDetailQueryHandler(_mapper, _mockRepository.Object);
+            var handler = new GetRouteDetailQueryHandler(_mockAuthorisationService.Object, _mapper, _mockRepository.Object);
 
             var existing = (await _mockRepository.Object.ListAllAsync()).FirstOrDefault();
             var query = new GetRouteDetailQuery() { RouteId = existing.RouteId };
@@ -30,7 +30,7 @@ namespace PlannR.Application.Tests.BaseRoute.Queries
         [Fact]
         public async Task WHEN_repository_is_queried_with_InvalidRouteId_THEN_null_is_returned()
         {
-            var handler = new GetRouteDetailQueryHandler(_mapper, _mockRepository.Object);
+            var handler = new GetRouteDetailQueryHandler(_mockAuthorisationService.Object, _mapper, _mockRepository.Object);
 
             var query = new GetRouteDetailQuery() { RouteId = new Guid() };
 

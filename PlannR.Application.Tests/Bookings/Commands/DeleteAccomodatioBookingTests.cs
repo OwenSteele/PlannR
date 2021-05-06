@@ -13,7 +13,7 @@ namespace PlannR.Application.Tests.Bookings.Commands
         [Fact]
         public async Task WHEN_acommodationBooking_is_deleted_with_handler_THEN_acommodationBooking_is_missing_in_repository()
         {
-            var handler = new DeleteAccomodationBookingCommandHandler(_mapper, _mockRepository.Object);
+            var handler = new DeleteAccomodationBookingCommandHandler(_mockAuthorisationService.Object, _mapper, _mockRepository.Object);
 
             var existing = (await _mockRepository.Object.ListAllAsync()).FirstOrDefault();
 

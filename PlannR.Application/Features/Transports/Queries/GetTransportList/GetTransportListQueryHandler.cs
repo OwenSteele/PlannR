@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using MediatR;
+using PlannR.Application.Contracts.Identity;
 using PlannR.Application.Contracts.Persistence;
+using PlannR.Domain.Entities;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -11,20 +13,24 @@ namespace PlannR.Application.Features.Transports.Queries.GetTransportsList
     public class GetTransportListQueryHandler : IRequestHandler<GetTransportListQuery, ICollection<TransportListViewModel>>
     {
         private readonly IMapper _mapper;
+        private readonly IAuthorisationService<Transport> _authorisationService;
         private readonly ITransportRepository _transportRepository;
 
-        public GetTransportListQueryHandler(IMapper mapper,
+        public GetTransportListQueryHandler(IAuthorisationService<Transport> authorisationService, IMapper mapper,
             ITransportRepository transportRepository)
         {
             _mapper = mapper;
+            _authorisationService = authorisationService;
             _transportRepository = transportRepository;
         }
 
         public async Task<ICollection<TransportListViewModel>> Handle(GetTransportListQuery request, CancellationToken cancellationToken)
         {
-            var result = (await _transportRepository.ListAllAsync()).OrderBy(x => x.StartDateTime);
+            var result = (await _transportRepository.ListAllAsync()).OrderBy(x => x.StartDateTime).ToList();
 
-            return _mapper.Map<ICollection<TransportListViewModel>>(result);
+            var authorisedResult = _authorisationService.RemoveInAccessibleEntities(result);
+
+            return _mapper.Map<ICollection<TransportListViewModel>>(authorisedResult);
         }
     }
 }

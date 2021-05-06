@@ -45,7 +45,7 @@ namespace PlannR.API.Controllers
             return Ok(result);
         }
 
-        [HttpGet("{start},{end}", Name = "GetAllTripsBetweenDates")]
+        [HttpGet("{start:DateTime},{end:DateTime}", Name = "GetAllTripsBetweenDates")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesDefaultResponseType]
         public async Task<ActionResult<ICollection<TripListBetweenDatesViewModel>>> GetAllTripsBetweenDates(DateTime start, DateTime end)
@@ -55,7 +55,7 @@ namespace PlannR.API.Controllers
             return Ok(result);
         }
 
-        [HttpGet("{date}", Name = "GetAllTripOnDate")]
+        [HttpGet("{date:DateTime}", Name = "GetAllTripOnDate")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesDefaultResponseType]
         public async Task<ActionResult<ICollection<TripListOnDateViewModel>>> GetAllTripOnDate(DateTime date)

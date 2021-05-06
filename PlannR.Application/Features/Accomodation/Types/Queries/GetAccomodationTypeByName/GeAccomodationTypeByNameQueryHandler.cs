@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
+using PlannR.Application.Contracts.Identity;
 using PlannR.Application.Contracts.Persistence;
 using PlannR.Domain.EntityTypes;
 using System.Linq;
@@ -11,12 +12,14 @@ namespace PlannR.Application.Features.Accomodations.Types.Queries.GetAccomodatio
     public class GetAccomodationTypeByNameQueryHandler : IRequestHandler<GetAccomodationTypeByNameQuery, AccomodationTypeByNameViewModel>
     {
         private readonly IMapper _mapper;
+        private readonly IAuthorisationService<AccomodationType> _authorisationService;
         private readonly IAsyncRepository<AccomodationType> _accomodationTypeRepository;
 
-        public GetAccomodationTypeByNameQueryHandler(IMapper mapper,
+        public GetAccomodationTypeByNameQueryHandler(IAuthorisationService<AccomodationType> authorisationService, IMapper mapper,
            IAsyncRepository<AccomodationType> accomodationTypeRepository)
         {
             _mapper = mapper;
+            _authorisationService = authorisationService;
             _accomodationTypeRepository = accomodationTypeRepository;
         }
 
@@ -24,6 +27,9 @@ namespace PlannR.Application.Features.Accomodations.Types.Queries.GetAccomodatio
         {
             var result = (await _accomodationTypeRepository.ListAllAsync())
                 .Where(x => x.Name == request.Name).FirstOrDefault();
+
+
+            if (!_authorisationService.CanAccessEntity(result)) throw new Exceptions.NotAuthorisedException();
 
             return _mapper.Map<AccomodationTypeByNameViewModel>(result);
         }

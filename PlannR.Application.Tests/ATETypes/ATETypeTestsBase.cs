@@ -7,7 +7,7 @@ using PlannR.Domain.EntityTypes;
 
 namespace PlannR.Application.Tests.ATETypes
 {
-    public class ATETypeTestsBase
+    public class ATETypeTestsBase : HandlerTestsBase<AccomodationType>
     {
         protected readonly Mock<IAsyncRepository<AccomodationType>> _mockRepository;
         protected readonly IMapper _mapper;

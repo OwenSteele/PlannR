@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
+using PlannR.Application.Contracts.Identity;
 using PlannR.Application.Contracts.Persistence;
+using PlannR.Domain.Entities;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -10,21 +12,25 @@ namespace PlannR.Application.Features.Events.Queries.GetEventListByTripIdWithBoo
     public class GetEventListByTripIdWithBookingsQueryHandler
     {
         private readonly IMapper _mapper;
+        private readonly IAuthorisationService<Event> _authorisationService;
         private readonly IEventRepository _eventRepository;
 
-        public GetEventListByTripIdWithBookingsQueryHandler(IMapper mapper,
+        public GetEventListByTripIdWithBookingsQueryHandler(IAuthorisationService<Event> authorisationService, IMapper mapper,
             IEventRepository eventRepository)
         {
             _mapper = mapper;
+            _authorisationService = authorisationService;
             _eventRepository = eventRepository;
         }
 
         public async Task<ICollection<EventListByTripIdWithBookingsViewModel>> Handle(EventListByTripIdWithBookingsViewModel request, CancellationToken cancellationToken)
         {
             var result = (await _eventRepository.GetAllOfTripById(request.TripId))
-                .OrderBy(x => x.StartDateTime);
+                .OrderBy(x => x.StartDateTime).ToList();
 
-            return _mapper.Map<ICollection<EventListByTripIdWithBookingsViewModel>>(result);
+            var authorisedResult = _authorisationService.RemoveInAccessibleEntities(result);
+
+            return _mapper.Map<ICollection<EventListByTripIdWithBookingsViewModel>>(authorisedResult);
         }
     }
 }

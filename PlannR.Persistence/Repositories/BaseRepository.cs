@@ -21,12 +21,12 @@ namespace PlannR.Persistence.Repositories
             return await _dbContext.Set<T>().FindAsync(id);
         }
 
-        public async Task<IReadOnlyCollection<T>> ListAllAsync()
+        public async Task<ICollection<T>> ListAllAsync()
         {
             return await _dbContext.Set<T>().ToArrayAsync();
         }
 
-        public async virtual Task<IReadOnlyList<T>> GetPagedReponseAsync(int page, int size)
+        public async virtual Task<ICollection<T>> GetPagedReponseAsync(int page, int size)
         {
             return await _dbContext.Set<T>().Skip((page - 1) * size).Take(size).AsNoTracking().ToArrayAsync();
         }
@@ -51,7 +51,7 @@ namespace PlannR.Persistence.Repositories
             await _dbContext.SaveChangesAsync();
         }
 
-        public Task<IReadOnlyCollection<T>> GetPagedListAsync(int page, int size)
+        public Task<ICollection<T>> GetPagedListAsync(int page, int size)
         {
             throw new NotImplementedException();
         }

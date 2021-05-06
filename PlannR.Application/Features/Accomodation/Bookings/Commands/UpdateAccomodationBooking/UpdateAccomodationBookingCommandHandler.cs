@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
+using PlannR.Application.Contracts.Identity;
 using PlannR.Application.Contracts.Persistence;
 using PlannR.Application.Exceptions;
 using PlannR.Domain.Entities;
@@ -12,10 +13,12 @@ namespace PlannR.Application.Features.Accomodations.Bookings.Commands.UpdateAcco
     {
         private readonly IAsyncRepository<AccomodationBooking> _accomodationBookingRepository;
         private readonly IMapper _mapper;
+        private readonly IAuthorisationService<AccomodationBooking> _authorisationService;
 
-        public UpdateAccomodationBookingCommandHandler(IMapper mapper, IAsyncRepository<AccomodationBooking> accomodationBookingRepository)
+        public UpdateAccomodationBookingCommandHandler(IAuthorisationService<AccomodationBooking> authorisationService, IMapper mapper, IAsyncRepository<AccomodationBooking> accomodationBookingRepository)
         {
             _mapper = mapper;
+            _authorisationService = authorisationService;
             _accomodationBookingRepository = accomodationBookingRepository;
         }
 

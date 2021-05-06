@@ -7,7 +7,7 @@ using PlannR.Domain.Entities;
 
 namespace PlannR.Application.Tests.Bookings
 {
-    public class BookingTestsBase
+    public class BookingTestsBase : HandlerTestsBase<AccomodationBooking>
     {
         protected readonly Mock<IAsyncRepository<AccomodationBooking>> _mockRepository;
         protected readonly IMapper _mapper;

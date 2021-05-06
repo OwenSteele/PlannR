@@ -7,10 +7,10 @@ namespace PlannR.Application.Contracts.Persistence
     public interface IAsyncRepository<T> where T : class
     {
         Task<T> GetByIdAsync(Guid id);
-        Task<IReadOnlyCollection<T>> ListAllAsync();
+        Task<ICollection<T>> ListAllAsync();
         Task<T> AddAsync(T entity);
         Task UpdateAsync(T entity);
         Task DeleteAsync(T entity);
-        Task<IReadOnlyCollection<T>> GetPagedListAsync(int page, int size);
+        Task<ICollection<T>> GetPagedListAsync(int page, int size);
     }
 }

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
+using PlannR.Application.Contracts.Identity;
 using PlannR.Application.Contracts.Persistence;
 using PlannR.Domain.Entities;
 using System.Collections.Generic;
@@ -12,20 +13,24 @@ namespace PlannR.Application.Features.Events.Bookings.Queries.GetEventBookingLis
     public class GetEventBookingListQueryHandler : IRequestHandler<GetEventBookingListQuery, ICollection<EventBookingListViewModel>>
     {
         private readonly IMapper _mapper;
+        private readonly IAuthorisationService<EventBooking> _authorisationService;
         private readonly IAsyncRepository<EventBooking> _eventBookingRepository;
 
-        public GetEventBookingListQueryHandler(IMapper mapper,
+        public GetEventBookingListQueryHandler(IAuthorisationService<EventBooking> authorisationService, IMapper mapper,
             IAsyncRepository<EventBooking> eventBookingRepository)
         {
             _mapper = mapper;
+            _authorisationService = authorisationService;
             _eventBookingRepository = eventBookingRepository;
         }
 
         public async Task<ICollection<EventBookingListViewModel>> Handle(GetEventBookingListQuery request, CancellationToken cancellationToken)
         {
-            var result = (await _eventBookingRepository.ListAllAsync()).OrderBy(x => x.Name);
+            var result = (await _eventBookingRepository.ListAllAsync()).OrderBy(x => x.Name).ToList();
 
-            return _mapper.Map<ICollection<EventBookingListViewModel>>(result);
+            var authorisedResult = _authorisationService.RemoveInAccessibleEntities(result);
+
+            return _mapper.Map<ICollection<EventBookingListViewModel>>(authorisedResult);
         }
     }
 }

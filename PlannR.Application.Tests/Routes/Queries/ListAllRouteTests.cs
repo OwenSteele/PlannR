@@ -12,7 +12,7 @@ namespace PlannR.Application.Tests.BaseRoute.Queries
         [Fact]
         public async Task WHEN_repository_is_queried_ListAllAsync_THEN_all_entities_are_returned()
         {
-            var handler = new GetRouteListQueryHandler(_mapper, _mockRepository.Object);
+            var handler = new GetRouteListQueryHandler(_mockAuthorisationService.Object, _mapper, _mockRepository.Object);
 
             var query = new GetRouteListQuery();
 

@@ -11,7 +11,7 @@ namespace PlannR.Application.Tests.ATETypes.Queries
         [Fact]
         public async Task WHEN_repository_is_queried_ListAllAsync_THEN_all_entities_are_returned()
         {
-            var handler = new GetAccomodationTypeListQueryHandler(_mapper, _mockRepository.Object);
+            var handler = new GetAccomodationTypeListQueryHandler(_mockAuthorisationService.Object, _mapper, _mockRepository.Object);
 
             var query = new GetAccomodationTypeListQuery();
 

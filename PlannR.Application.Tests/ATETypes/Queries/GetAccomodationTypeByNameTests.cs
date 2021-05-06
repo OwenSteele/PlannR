@@ -12,7 +12,7 @@ namespace PlannR.Application.Tests.ATETypes.Queries
         [Fact]
         public async Task WHEN_repository_is_queried_with_typeName_THEN_matching_entity_is_returned()
         {
-            var handler = new GetAccomodationTypeByNameQueryHandler(_mapper, _mockRepository.Object);
+            var handler = new GetAccomodationTypeByNameQueryHandler(_mockAuthorisationService.Object, _mapper, _mockRepository.Object);
 
             var existing = (await _mockRepository.Object.ListAllAsync()).FirstOrDefault();
             var query = new GetAccomodationTypeByNameQuery() { Name = existing.Name };
@@ -27,7 +27,7 @@ namespace PlannR.Application.Tests.ATETypes.Queries
         [Fact]
         public async Task WHEN_repository_is_queried_with_InvalidAccomodationId_THEN_null_is_returned()
         {
-            var handler = new GetAccomodationTypeByNameQueryHandler(_mapper, _mockRepository.Object);
+            var handler = new GetAccomodationTypeByNameQueryHandler(_mockAuthorisationService.Object, _mapper, _mockRepository.Object);
 
             var query = new GetAccomodationTypeByNameQuery() { Name = string.Empty };
 

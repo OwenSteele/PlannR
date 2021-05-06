@@ -40,13 +40,16 @@ namespace PlannR.API.Middleware
             {
                 case ValidationException validationException:
                     httpStatusCode = HttpStatusCode.BadRequest;
-                    result = JsonConvert.SerializeObject(validationException.ValdationErrors);
+                    result = JsonConvert.SerializeObject(validationException.ValidationErrors);
                     break;
                 case BadRequestException badRequestException:
                     httpStatusCode = HttpStatusCode.BadRequest;
                     result = badRequestException.Message;
                     break;
                 case NotFoundException:
+                    httpStatusCode = HttpStatusCode.NotFound;
+                    break;
+                case NotAuthorisedException:
                     httpStatusCode = HttpStatusCode.NotFound;
                     break;
                 case Exception:

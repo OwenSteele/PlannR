@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
+using PlannR.Application.Contracts.Identity;
 using PlannR.Application.Contracts.Persistence;
 using PlannR.Application.Exceptions;
 using PlannR.Domain.Entities;
@@ -12,10 +13,12 @@ namespace PlannR.Application.Features.Trips.Commands.DeleteTrip
     {
         private readonly ITripRepository _tripRepository;
         private readonly IMapper _mapper;
+        private readonly IAuthorisationService<Trip> _authorisationService;
 
-        public DeleteTripCommandHandler(IMapper mapper, ITripRepository tripRepository)
+        public DeleteTripCommandHandler(IAuthorisationService<Trip> authorisationService, IMapper mapper, ITripRepository tripRepository)
         {
             _mapper = mapper;
+            _authorisationService = authorisationService;
             _tripRepository = tripRepository;
         }
 

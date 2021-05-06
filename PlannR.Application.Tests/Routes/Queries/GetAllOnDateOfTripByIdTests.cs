@@ -19,7 +19,7 @@ namespace PlannR.Application.Tests.BaseRoute.Queries
             var guid = Guid.Parse(guidString);
             var date = DateTime.Parse(dateString);
 
-            var handler = new GetRouteListOnDateQueryHandler(_mapper, _mockRepository.Object);
+            var handler = new GetRouteListOnDateQueryHandler(_mockAuthorisationService.Object, _mapper, _mockRepository.Object);
 
             var query = new GetRouteListOnDateQuery() { TripId = guid, Date = date };
 

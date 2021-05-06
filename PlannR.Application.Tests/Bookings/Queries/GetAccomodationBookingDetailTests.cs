@@ -14,7 +14,7 @@ namespace PlannR.Application.Tests.Bookings.Queries
         [Fact]
         public async Task WHEN_repository_is_queried_with_accomodationBookingId_THEN_matching_entity_is_returned()
         {
-            var handler = new GetAccomodationBookingDetailQueryHandler(_mapper, _mockRepository.Object);
+            var handler = new GetAccomodationBookingDetailQueryHandler(_mockAuthorisationService.Object, _mapper, _mockRepository.Object);
 
             var existing = (await _mockRepository.Object.ListAllAsync()).FirstOrDefault();
 
@@ -29,7 +29,7 @@ namespace PlannR.Application.Tests.Bookings.Queries
         [Fact]
         public async Task WHEN_repository_is_queried_with_InvalidAccomodationBookingId_THEN_null_is_returned()
         {
-            var handler = new GetAccomodationBookingDetailQueryHandler(_mapper, _mockRepository.Object);
+            var handler = new GetAccomodationBookingDetailQueryHandler(_mockAuthorisationService.Object, _mapper, _mockRepository.Object);
 
             var query = new GetAccomodationBookingDetailQuery() { Id = new Guid() };
 

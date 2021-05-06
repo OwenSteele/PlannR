@@ -12,7 +12,7 @@ namespace PlannR.Application.Tests.Bookings.Queries
         [Fact]
         public async Task WHEN_repository_is_queried_ListAllAsync_THEN_all_entities_are_returned()
         {
-            var handler = new GetAccomodationBookingListQueryHandler(_mapper, _mockRepository.Object);
+            var handler = new GetAccomodationBookingListQueryHandler(_mockAuthorisationService.Object, _mapper, _mockRepository.Object);
 
             var query = new GetAccomodationBookingListQuery();
 
