@@ -3,8 +3,8 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:50123",
-      "sslPort": 44375
+      "applicationUrl": "http://localhost:14739",
+      "sslPort": 44321
     }
   },
   "profiles": {
@@ -16,7 +16,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "PlannR.Client": {
+    "Plannr.App": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,

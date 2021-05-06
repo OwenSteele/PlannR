@@ -33,7 +33,7 @@ namespace PlannR.API
                 .AddIdentityServices(Configuration);
 
             services.AddScoped<ILoggedInService, LoggedInService>();
-            services.AddScoped(typeof(IAuthorisationService<>),typeof(AuthorisationService<>));
+            services.AddScoped(typeof(IAuthorisationService<>), typeof(AuthorisationService<>));
 
             services.AddControllers();
 
