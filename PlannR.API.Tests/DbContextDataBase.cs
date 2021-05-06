@@ -104,8 +104,6 @@ namespace PlannR.API.Tests
                 StartDateTime = DateTime.Parse("2023-12-25T12:00:00.000Z"),
                 EndDateTime = DateTime.Parse("2023-12-27T12:00:00.000Z")
             });
-
-            await dbContext.SaveChangesAsync();
         }
     }
 }

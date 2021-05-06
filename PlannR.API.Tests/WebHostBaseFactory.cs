@@ -20,19 +20,15 @@ namespace PlannR.API.Tests
                 var serviceProvider = services.BuildServiceProvider();
                 using (var scope = serviceProvider.CreateScope())
                 {
-
                     var scopedServices = scope.ServiceProvider;
                     var dbContext = scopedServices.GetRequiredService<PlannrDbContext>();
-
-                    dbContext.Database.EnsureCreated();
 
                     try
                     {
                         DbContextDataBase.SeedMockDbContext(dbContext).Wait();
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
-                        //throw new Exception(ex.Message);
                     }
                 }
             });
