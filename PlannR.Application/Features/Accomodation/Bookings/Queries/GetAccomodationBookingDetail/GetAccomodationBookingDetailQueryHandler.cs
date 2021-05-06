@@ -11,24 +11,22 @@ namespace PlannR.Application.Features.Accomodations.Bookings.Queries.GetAccomoda
     public class GetAccomodationBookingDetailQueryHandler : IRequestHandler<GetAccomodationBookingDetailQuery, AccomodationBookingDetailViewModel>
     {
         private readonly IMapper _mapper;
+        private readonly IAuthorisationService<AccomodationBooking> _authorisationService;
         private readonly IAsyncRepository<AccomodationBooking> _accomodationBookingRepository;
-        private readonly ILoggedInService _loggedinService;
 
-        public GetAccomodationBookingDetailQueryHandler(IMapper mapper,
-           IAsyncRepository<AccomodationBooking> accomodationBookingRepository,
-           ILoggedInService loggedinService)
+        public GetAccomodationBookingDetailQueryHandler(IAuthorisationService<AccomodationBooking> authorisationService, IMapper mapper,
+           IAsyncRepository<AccomodationBooking> accomodationBookingRepository)
         {
             _mapper = mapper;
+            _authorisationService = authorisationService;
             _accomodationBookingRepository = accomodationBookingRepository;
-            _loggedinService = loggedinService;
         }
 
         public async Task<AccomodationBookingDetailViewModel> Handle(GetAccomodationBookingDetailQuery request, CancellationToken cancellationToken)
         {
             var result = (await _accomodationBookingRepository.GetByIdAsync(request.Id));
 
-            if (!string.IsNullOrWhiteSpace(result.CreatedBy) && result.CreatedBy != _loggedinService.UserId)
-                throw new Exceptions.NotAuthorisedException();
+            if (!_authorisationService.CanAccessEntity(result)) throw new Exceptions.NotAuthorisedException();
 
             return _mapper.Map<AccomodationBookingDetailViewModel>(result);
         }

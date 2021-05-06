@@ -10,4 +10,13 @@
     <PackageReference Include="System.Net.Http.Json" Version="5.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Pages\Authentication\" />
+    <Folder Include="Pages\Home\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PlannR.Client.Infrastructure\PlannR.Client.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

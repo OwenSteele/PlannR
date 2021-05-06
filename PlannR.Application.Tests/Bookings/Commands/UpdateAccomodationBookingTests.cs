@@ -15,7 +15,7 @@ namespace PlannR.Application.Tests.Bookings.Commands
         [Fact]
         public async Task WHEN_acommodationBooking_is_updated_with_handler_THEN_acommodationBooking_is_updated_in_repository()
         {
-            var handler = new UpdateAccomodationBookingCommandHandler(_mapper, _mockRepository.Object);
+            var handler = new UpdateAccomodationBookingCommandHandler(_mockAuthorisationService.Object, _mapper, _mockRepository.Object);
 
             var existing = (await _mockRepository.Object.ListAllAsync()).FirstOrDefault();
 
@@ -36,7 +36,7 @@ namespace PlannR.Application.Tests.Bookings.Commands
         [Fact]
         public async Task WHEN_acommodationBooking_is_updated_without_BookingId_THEN_validationException_is_thrown()
         {
-            var handler = new UpdateAccomodationBookingCommandHandler(_mapper, _mockRepository.Object);
+            var handler = new UpdateAccomodationBookingCommandHandler(_mockAuthorisationService.Object, _mapper, _mockRepository.Object);
 
             var existing = (await _mockRepository.Object.ListAllAsync()).FirstOrDefault();
 

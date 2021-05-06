@@ -1,9 +1,8 @@
 ﻿using AutoMapper;
 using MediatR;
+using PlannR.Application.Contracts.Identity;
 using PlannR.Application.Contracts.Persistence;
 using PlannR.Domain.Entities;
-using PlannR.Domain.EntityTypes;
-using PlannR.Domain.Shared;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -12,18 +11,23 @@ namespace PlannR.Application.Features.Accomodations.Queries.GetAccomodationsDeta
     public class GetAccomodationDetailQueryHandler : IRequestHandler<GetAccomodationDetailQuery, AccomodationDetailViewModel>
     {
         private readonly IMapper _mapper;
+        private readonly IAuthorisationService<Accomodation> _authorisationService;
         private readonly IAccomodationRepository _repository;
 
-        public GetAccomodationDetailQueryHandler(IMapper mapper,
+        public GetAccomodationDetailQueryHandler(IAuthorisationService<Accomodation> authorisationService, IMapper mapper,
             IAccomodationRepository repository)
         {
             _mapper = mapper;
+            _authorisationService = authorisationService;
             _repository = repository;
         }
 
         public async Task<AccomodationDetailViewModel> Handle(GetAccomodationDetailQuery request, CancellationToken cancellationToken)
         {
             var result = (await _repository.GetWithRelated(request.Id));
+
+
+            if (!_authorisationService.CanAccessEntity(result)) throw new Exceptions.NotAuthorisedException();
 
             return _mapper.Map<AccomodationDetailViewModel>(result);
         }

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
+using PlannR.Application.Contracts.Identity;
 using PlannR.Application.Contracts.Persistence;
 using PlannR.Application.Exceptions;
 using PlannR.Domain.Entities;
@@ -12,10 +13,12 @@ namespace PlannR.Application.Features.Events.Bookings.Commands.UpdateEventBookin
     {
         private readonly IAsyncRepository<EventBooking> _eventBookingRepository;
         private readonly IMapper _mapper;
+        private readonly IAuthorisationService<EventBooking> _authorisationService;
 
-        public UpdateEventBookingCommandHandler(IMapper mapper, IAsyncRepository<EventBooking> eventBookingRepository)
+        public UpdateEventBookingCommandHandler(IAuthorisationService<EventBooking> authorisationService, IMapper mapper, IAsyncRepository<EventBooking> eventBookingRepository)
         {
             _mapper = mapper;
+            _authorisationService = authorisationService;
             _eventBookingRepository = eventBookingRepository;
         }
 

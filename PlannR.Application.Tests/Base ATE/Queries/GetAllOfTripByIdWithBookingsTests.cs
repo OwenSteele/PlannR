@@ -18,7 +18,7 @@ namespace PlannR.Application.Tests.BaseATE.Queries
         {
             var guid = Guid.Parse(guidString);
 
-            var handler = new GetAccomodationListByTripIdWithBookingsQueryHandler(_mapper, _mockRepository.Object);
+            var handler = new GetAccomodationListByTripIdWithBookingsQueryHandler(_mockAuthorisationService.Object, _mapper, _mockRepository.Object);
 
             var query = new GetAccomodationListByTripIdWithBookingsQuery() { TripId = guid };
 

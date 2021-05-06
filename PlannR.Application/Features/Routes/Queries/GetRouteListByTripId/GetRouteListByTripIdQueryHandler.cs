@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using MediatR;
+using PlannR.Application.Contracts.Identity;
 using PlannR.Application.Contracts.Persistence;
+using PlannR.Domain.Entities;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -11,21 +13,25 @@ namespace PlannR.Application.Features.Routes.Queries.GetRouteListByTripId
     public class GetRouteListByTripIdQueryHandler : IRequestHandler<GetRouteListByTripIdQuery, ICollection<RouteListByTripIdViewModel>>
     {
         private readonly IMapper _mapper;
+        private readonly IAuthorisationService<Route> _authorisationService;
         private readonly IRouteRepository _accomodationRepository;
 
-        public GetRouteListByTripIdQueryHandler(IMapper mapper,
+        public GetRouteListByTripIdQueryHandler(IAuthorisationService<Route> authorisationService, IMapper mapper,
             IRouteRepository accomodationRepository)
         {
             _mapper = mapper;
+            _authorisationService = authorisationService;
             _accomodationRepository = accomodationRepository;
         }
 
         public async Task<ICollection<RouteListByTripIdViewModel>> Handle(GetRouteListByTripIdQuery request, CancellationToken cancellationToken)
         {
             var result = (await _accomodationRepository.GetAllRoutesOfTripById(request.TripId))
-                .OrderBy(x => x.StartDateTime);
+                .OrderBy(x => x.StartDateTime).ToList();
 
-            return _mapper.Map<ICollection<RouteListByTripIdViewModel>>(result);
+            var authorisedResult = _authorisationService.RemoveInAccessibleEntities(result);
+
+            return _mapper.Map<ICollection<RouteListByTripIdViewModel>>(authorisedResult);
         }
 
     }

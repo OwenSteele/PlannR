@@ -12,7 +12,7 @@ namespace PlannR.Application.Tests.BaseATE.Queries
         [Fact]
         public async Task WHEN_repository_is_queried_ListAllAsync_THEN_all_entities_are_returned()
         {
-            var handler = new GetAccomodationListQueryHandler(_mapper, _mockRepository.Object);
+            var handler = new GetAccomodationListQueryHandler(_mockAuthorisationService.Object, _mapper, _mockRepository.Object);
 
             var query = new GetAccomodationListQuery();
 

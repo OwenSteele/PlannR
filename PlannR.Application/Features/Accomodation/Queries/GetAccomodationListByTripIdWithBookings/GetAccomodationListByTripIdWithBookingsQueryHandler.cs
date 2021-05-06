@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using MediatR;
+using PlannR.Application.Contracts.Identity;
 using PlannR.Application.Contracts.Persistence;
+using PlannR.Domain.Entities;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -12,12 +14,14 @@ namespace PlannR.Application.Features.Accomodations.Queries.GetAccomodationListB
         : IRequestHandler<GetAccomodationListByTripIdWithBookingsQuery, ICollection<AccomodationListByTripIdWithBookingsViewModel>>
     {
         private readonly IMapper _mapper;
+        private readonly IAuthorisationService<Accomodation> _authorisationService;
         private readonly IAccomodationRepository _accomodationRepository;
 
-        public GetAccomodationListByTripIdWithBookingsQueryHandler(IMapper mapper,
+        public GetAccomodationListByTripIdWithBookingsQueryHandler(IAuthorisationService<Accomodation> authorisationService, IMapper mapper,
             IAccomodationRepository accomodationRepository)
         {
             _mapper = mapper;
+            _authorisationService = authorisationService;
             _accomodationRepository = accomodationRepository;
         }
 
@@ -25,9 +29,11 @@ namespace PlannR.Application.Features.Accomodations.Queries.GetAccomodationListB
         {
             var result = (await _accomodationRepository.GetAllOfTripByIdWithBookings(request.TripId))
                 .Where(x => x.TripId == request.TripId)
-                .OrderBy(x => x.StartDateTime);
+                .OrderBy(x => x.StartDateTime).ToList();
 
-            return _mapper.Map<ICollection<AccomodationListByTripIdWithBookingsViewModel>>(result);
+            var authorisedResult = _authorisationService.RemoveInAccessibleEntities(result);
+
+            return _mapper.Map<ICollection<AccomodationListByTripIdWithBookingsViewModel>>(authorisedResult);
         }
     }
 }

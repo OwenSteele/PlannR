@@ -14,7 +14,7 @@ namespace PlannR.Application.Tests.BaseTrip.Commands
         [Fact]
         public async Task WHEN_acommodation_is_updated_with_handler_THEN_acommodation_is_updated_in_repository()
         {
-            var handler = new UpdateTripCommandHandler(_mapper, _mockRepository.Object);
+            var handler = new UpdateTripCommandHandler(_mockAuthorisationService.Object, _mapper, _mockRepository.Object);
 
             var existing = (await _mockRepository.Object.ListAllAsync()).FirstOrDefault();
 
@@ -35,7 +35,7 @@ namespace PlannR.Application.Tests.BaseTrip.Commands
         [Fact]
         public async Task WHEN_acommodation_is_updated_without_TripId_THEN_validationException_is_thrown()
         {
-            var handler = new UpdateTripCommandHandler(_mapper, _mockRepository.Object);
+            var handler = new UpdateTripCommandHandler(_mockAuthorisationService.Object, _mapper, _mockRepository.Object);
 
             var existing = (await _mockRepository.Object.ListAllAsync()).FirstOrDefault();
 

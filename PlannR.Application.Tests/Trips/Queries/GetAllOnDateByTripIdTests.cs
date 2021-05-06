@@ -17,7 +17,7 @@ namespace PlannR.Application.Tests.BaseTrip.Queries
         {
             var date = DateTime.Parse(dateString);
 
-            var handler = new GetTripListOnDateQueryHandler(_mapper, _mockRepository.Object);
+            var handler = new GetTripListOnDateQueryHandler(_mockAuthorisationService.Object, _mapper, _mockRepository.Object);
 
             var query = new GetTripListOnDateQuery() { DateTime = date };
 

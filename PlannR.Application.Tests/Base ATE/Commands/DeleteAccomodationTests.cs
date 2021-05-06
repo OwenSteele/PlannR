@@ -13,7 +13,7 @@ namespace PlannR.Application.Tests.BaseATE.Commands
         [Fact]
         public async Task WHEN_acommodation_is_deleted_with_handler_THEN_acommodation_is_missing_in_repository()
         {
-            var handler = new DeleteAccomodationCommandHandler(_mapper, _mockRepository.Object);
+            var handler = new DeleteAccomodationCommandHandler(_mockAuthorisationService.Object, _mapper, _mockRepository.Object);
 
             var existing = (await _mockRepository.Object.ListAllAsync()).FirstOrDefault();
 

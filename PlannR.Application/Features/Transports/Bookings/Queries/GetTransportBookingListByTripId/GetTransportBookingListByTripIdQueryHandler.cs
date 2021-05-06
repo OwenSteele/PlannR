@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
+using PlannR.Application.Contracts.Identity;
 using PlannR.Application.Contracts.Persistence;
 using PlannR.Domain.Entities;
 using System.Collections.Generic;
@@ -13,12 +14,14 @@ namespace PlannR.Application.Features.Transports.Bookings.Queries.GetTransportBo
      : IRequestHandler<GetTransportBookingListByTripIdQuery, ICollection<TransportBookingListByTripIdViewModel>>
     {
         private readonly IMapper _mapper;
+        private readonly IAuthorisationService<TransportBooking> _authorisationService;
         private readonly IAsyncRepository<TransportBooking> _transportBookingRepository;
 
-        public GetTransportBookingListByTripIdQueryHandler(IMapper mapper,
+        public GetTransportBookingListByTripIdQueryHandler(IAuthorisationService<TransportBooking> authorisationService, IMapper mapper,
             IAsyncRepository<TransportBooking> transportBookingRepository)
         {
             _mapper = mapper;
+            _authorisationService = authorisationService;
             _transportBookingRepository = transportBookingRepository;
         }
 
@@ -27,9 +30,11 @@ namespace PlannR.Application.Features.Transports.Bookings.Queries.GetTransportBo
         {
             var result = (await _transportBookingRepository.ListAllAsync())
                 .Where(x => x.Transport.TripId == request.TripId)
-                .OrderBy(x => x.Name);
+                .OrderBy(x => x.Name).ToList();
 
-            return _mapper.Map<ICollection<TransportBookingListByTripIdViewModel>>(result);
+            var authorisedResult = _authorisationService.RemoveInAccessibleEntities(result);
+
+            return _mapper.Map<ICollection<TransportBookingListByTripIdViewModel>>(authorisedResult);
         }
 
     }

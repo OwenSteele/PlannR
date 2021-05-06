@@ -4,15 +4,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using PlannR.Persistence;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PlannR.API.Tests
 {
-    public class WebHostBaseFactory<T>: WebApplicationFactory<T> where T : class
+    public class WebHostBaseFactory<T> : WebApplicationFactory<T> where T : class
     {
         protected override void ConfigureWebHost(IWebHostBuilder builder)
         {
@@ -22,7 +18,8 @@ namespace PlannR.API.Tests
                     options.UseInMemoryDatabase(Guid.NewGuid().ToString()));
 
                 var serviceProvider = services.BuildServiceProvider();
-                using (var scope = serviceProvider.CreateScope()){
+                using (var scope = serviceProvider.CreateScope())
+                {
 
                     var scopedServices = scope.ServiceProvider;
                     var dbContext = scopedServices.GetRequiredService<PlannrDbContext>();

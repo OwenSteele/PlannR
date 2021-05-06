@@ -14,7 +14,7 @@ namespace PlannR.Application.Tests.BaseATE.Queries
         [Fact]
         public async Task WHEN_repository_is_queried_with_tripId_THEN_matching_entity_is_returned()
         {
-            var handler = new GetAccomodationDetailQueryHandler(_mapper, _mockRepository.Object);
+            var handler = new GetAccomodationDetailQueryHandler(_mockAuthorisationService.Object, _mapper, _mockRepository.Object);
 
             var existing = (await _mockRepository.Object.ListAllAsync()).FirstOrDefault();
             var query = new GetAccomodationDetailQuery() { Id = existing.AccomodationId };
@@ -32,7 +32,7 @@ namespace PlannR.Application.Tests.BaseATE.Queries
         [Fact]
         public async Task WHEN_repository_is_queried_with_InvalidAccomodationId_THEN_null_is_returned()
         {
-            var handler = new GetAccomodationDetailQueryHandler(_mapper, _mockRepository.Object);
+            var handler = new GetAccomodationDetailQueryHandler(_mockAuthorisationService.Object, _mapper, _mockRepository.Object);
 
             var query = new GetAccomodationDetailQuery() { Id = new Guid() };
 

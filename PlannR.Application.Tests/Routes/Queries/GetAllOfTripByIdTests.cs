@@ -18,7 +18,7 @@ namespace PlannR.Application.Tests.BaseRoute.Queries
         {
             var guid = Guid.Parse(guidString);
 
-            var handler = new GetRouteListByTripIdQueryHandler(_mapper, _mockRepository.Object);
+            var handler = new GetRouteListByTripIdQueryHandler(_mockAuthorisationService.Object, _mapper, _mockRepository.Object);
 
             var query = new GetRouteListByTripIdQuery() { TripId = guid };
 
@@ -30,7 +30,7 @@ namespace PlannR.Application.Tests.BaseRoute.Queries
         [Fact]
         public async Task WHEN_repository_is_queried_with_InvalidTripId_THEN_null_is_returned()
         {
-            var handler = new GetRouteListByTripIdQueryHandler(_mapper, _mockRepository.Object);
+            var handler = new GetRouteListByTripIdQueryHandler(_mockAuthorisationService.Object, _mapper, _mockRepository.Object);
 
             var query = new GetRouteListByTripIdQuery() { TripId = new Guid() };
 

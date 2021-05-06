@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
+using PlannR.Application.Contracts.Identity;
 using PlannR.Application.Contracts.Persistence;
 using PlannR.Application.Exceptions;
 using PlannR.Domain.Entities;
@@ -12,10 +13,12 @@ namespace PlannR.Application.Features.Events.Commands.UpdateEvent
     {
         private readonly IEventRepository _eventRepository;
         private readonly IMapper _mapper;
+        private readonly IAuthorisationService<Event> _authorisationService;
 
-        public UpdateEventCommandHandler(IMapper mapper, IEventRepository eventRepository)
+        public UpdateEventCommandHandler(IAuthorisationService<Event> authorisationService, IMapper mapper, IEventRepository eventRepository)
         {
             _mapper = mapper;
+            _authorisationService = authorisationService;
             _eventRepository = eventRepository;
         }
 

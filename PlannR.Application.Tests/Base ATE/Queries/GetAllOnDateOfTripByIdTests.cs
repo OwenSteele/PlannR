@@ -19,7 +19,7 @@ namespace PlannR.Application.Tests.BaseATE.Queries
             var guid = Guid.Parse(guidString);
             var date = DateTime.Parse(dateString);
 
-            var handler = new GetAccomodationListOnDateQueryHandler(_mapper, _mockRepository.Object);
+            var handler = new GetAccomodationListOnDateQueryHandler(_mockAuthorisationService.Object, _mapper, _mockRepository.Object);
 
             var query = new GetAccomodationListOnDateQuery() { TripId = guid, Date = date };
 
