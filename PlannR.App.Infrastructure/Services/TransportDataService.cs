@@ -1,4 +1,5 @@
-﻿using Blazored.LocalStorage;
+﻿using AutoMapper;
+using Blazored.LocalStorage;
 using Plannr.App.Infrastructure.Contracts;
 using Plannr.App.Infrastructure.Services.Base;
 

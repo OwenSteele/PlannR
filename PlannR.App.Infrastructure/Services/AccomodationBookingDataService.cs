@@ -1,4 +1,5 @@
-﻿using Blazored.LocalStorage;
+﻿using AutoMapper;
+using Blazored.LocalStorage;
 using Plannr.App.Infrastructure.Contracts;
 using Plannr.App.Infrastructure.Services.Base;
 
@@ -6,8 +7,10 @@ namespace Plannr.App.Infrastructure.Services
 {
     public class AccomodationBookingDataService : BaseDataService, IAccomodationBookingDataService
     {
-        public AccomodationBookingDataService(IClient client, ILocalStorageService localStorage) : base(client, localStorage)
+        private readonly IMapper _mapper;
+        public AccomodationBookingDataService(IMapper mapper, IClient client, ILocalStorageService localStorage) : base(client, localStorage)
         {
+            _mapper = mapper;
         }
     }
 }

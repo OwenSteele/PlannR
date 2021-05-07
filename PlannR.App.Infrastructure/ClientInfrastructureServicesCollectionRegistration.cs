@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.Extensions.DependencyInjection;
+using Plannr.App.Infrastructure.Contracts;
+using Plannr.App.Infrastructure.Services;
 using Plannr.App.Infrastructure.Services.Base;
 using PlannR.App.Infrastructure.Authentication;
 using System;
@@ -20,7 +22,23 @@ namespace PlannR.App.Infrastructure
                 BaseAddress = new Uri("https://localhost:5001")
             });
 
-            //services.AddHttpClient<IClient, Client>(client => client.BaseAddress = new Uri("https://localhost:5001"));
+
+            services.AddHttpClient<IClient, Client>(client => client.BaseAddress = new Uri("https://localhost:5001"));
+
+            services.AddScoped<IAccomodationDataService, AccomodationDataService>();
+            services.AddScoped<ITransportDataService, TransportDataService>();
+            services.AddScoped<IEventDataService, EventDataService>();
+
+            services.AddScoped<IAccomodationBookingDataService, AccomodationBookingDataService>();
+            services.AddScoped<ITransportBookingDataService, TransportBookingDataService>();
+            services.AddScoped<IEventBookingDataService, EventBookingDataService>();
+
+            services.AddScoped<IAccomodationTypeDataService, AccomodationTypeDataService>();
+            services.AddScoped<IEventTypeDataService, EventTypeDataService>();
+            services.AddScoped<ITransportTypeDataService, TransportTypeDataService>();
+
+            services.AddScoped<ITripDataService, TripDataService>();
+            services.AddScoped<IRouteDataService, RouteDataService>();
 
             return services;
         }
