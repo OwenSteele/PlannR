@@ -28,7 +28,9 @@ namespace PlannR.Persistence.Repositories
         public async Task<ICollection<Route>> GetAllRoutesOnDate(DateTime date)
         {
             return await _dbContext.Routes
-                .Where(x => (x.StartDateTime <= date && x.EndDateTime >= date)).ToArrayAsync();
+                .Where(x => (x.StartDateTime <= date && x.EndDateTime >= date))
+                .Include(x => x.Trip)
+                .ToArrayAsync();
         }
         public Task<ICollection<Route>> GetAllRoutesOfTripById(Guid tripId)
         {

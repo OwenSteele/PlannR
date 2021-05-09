@@ -2,6 +2,10 @@
 using Blazored.LocalStorage;
 using Plannr.App.Infrastructure.Contracts;
 using Plannr.App.Infrastructure.Services.Base;
+using Plannr.App.Infrastructure.ViewModels.Accomodation;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Plannr.App.Infrastructure.Services
 {
@@ -11,6 +15,46 @@ namespace Plannr.App.Infrastructure.Services
         public AccomodationDataService(IMapper mapper, IClient client, ILocalStorageService localStorage) : base(client, localStorage)
         {
             _mapper = mapper;
+        }
+
+        public Task<ApiResponse<Guid>> CreateAsync(AccomodationDetailViewModel viewModel)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<ApiResponse<Guid>> DeleteAsync(Guid bookingId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<ICollection<AccomodationDetailViewModel>> GetAccomodationByIdAsync(Guid id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<ICollection<AccomodationListViewModel>> GetAllAccomodationAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<ICollection<AccomodationListOfTripViewModel>> GetAllAccomodationOfTripIdAsync(Guid tripId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<ICollection<AccomodationListWithBookingsViewModel>> GetAllAccomodationOfTripWithBookingsAsync(Guid tripId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<ICollection<AccomodationListOnDateViewModel>> GetAllAccomodationOnDateAsync(DateTime date)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<ApiResponse<Guid>> UpdateAsync(AccomodationDetailViewModel viewModel)
+        {
+            throw new NotImplementedException();
         }
     }
 }

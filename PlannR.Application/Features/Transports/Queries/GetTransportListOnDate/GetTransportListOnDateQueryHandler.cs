@@ -26,8 +26,7 @@ namespace PlannR.Application.Features.Transports.Queries.GetTransportListOnDate
 
         public async Task<ICollection<TransportListOnDateDataModel>> Handle(GetTransportListOnDateQuery request, CancellationToken cancellationToken)
         {
-            var result = (await _transportRepository.GetAllOfTripById(request.TripId))
-                .Where(x => x.StartDateTime <= request.Date && x.EndDateTime >= request.Date)
+            var result = (await _transportRepository.GetAllOnDateOfTripById(request.TripId, request.Date))
                 .OrderBy(x => x.Name).ToList();
 
             var authorisedResult = _authorisationService.RemoveInAccessibleEntities(result);

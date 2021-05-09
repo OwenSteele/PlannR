@@ -2,6 +2,10 @@
 using Blazored.LocalStorage;
 using Plannr.App.Infrastructure.Contracts;
 using Plannr.App.Infrastructure.Services.Base;
+using Plannr.App.Infrastructure.ViewModels.Event;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Plannr.App.Infrastructure.Services
 {
@@ -11,6 +15,46 @@ namespace Plannr.App.Infrastructure.Services
         public EventDataService(IMapper mapper, IClient client, ILocalStorageService localStorage) : base(client, localStorage)
         {
             _mapper = mapper;
+        }
+
+        public Task<ApiResponse<Guid>> CreateAsync(EventDetailViewModel viewModel)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<ApiResponse<Guid>> DeleteAsync(Guid bookingId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<ICollection<EventListViewModel>> GetAllEventsAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<ICollection<EventListOfTripViewModel>> GetAllEventsOfTripIdAsync(Guid tripId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<ICollection<EventListWithBookingsViewModel>> GetAllEventsOfTripWithBookingsAsync(Guid tripId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<ICollection<EventListOnDateViewModel>> GetAllEventsOnDateAsync(DateTime date)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<ICollection<EventDetailViewModel>> GetEventByIdAsync(Guid id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<ApiResponse<Guid>> UpdateAsync(EventDetailViewModel viewModel)
+        {
+            throw new NotImplementedException();
         }
     }
 }

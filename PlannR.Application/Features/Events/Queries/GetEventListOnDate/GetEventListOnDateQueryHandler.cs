@@ -26,8 +26,7 @@ namespace PlannR.Application.Features.Events.Queries.GetEventListOnDate
 
         public async Task<ICollection<EventListOnDateDataModel>> Handle(GetEventListOnDateQuery request, CancellationToken cancellationToken)
         {
-            var result = (await _eventRepository.GetAllOfTripById(request.TripId))
-                .Where(x => x.StartDateTime <= request.Date && x.EndDateTime >= request.Date)
+            var result = (await _eventRepository.GetAllOnDateOfTripById(request.TripId, request.Date))
                 .OrderBy(x => x.Name).ToList();
 
             var authorisedResult = _authorisationService.RemoveInAccessibleEntities(result);

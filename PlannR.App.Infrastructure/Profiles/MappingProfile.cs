@@ -6,6 +6,7 @@ namespace Plannr.App.Infrastructure.Profiles
     {
         public MappingProfile()
         {
+
         }
     }
 }
