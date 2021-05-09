@@ -23,14 +23,14 @@ namespace PlannR.Application.Features.Events.Queries.GetEventListByTripIdWithBoo
             _eventRepository = eventRepository;
         }
 
-        public async Task<ICollection<EventListByTripIdWithBookingsViewModel>> Handle(EventListByTripIdWithBookingsViewModel request, CancellationToken cancellationToken)
+        public async Task<ICollection<EventListByTripIdWithBookingsDataModel>> Handle(EventListByTripIdWithBookingsDataModel request, CancellationToken cancellationToken)
         {
             var result = (await _eventRepository.GetAllOfTripById(request.TripId))
                 .OrderBy(x => x.StartDateTime).ToList();
 
             var authorisedResult = _authorisationService.RemoveInAccessibleEntities(result);
 
-            return _mapper.Map<ICollection<EventListByTripIdWithBookingsViewModel>>(authorisedResult);
+            return _mapper.Map<ICollection<EventListByTripIdWithBookingsDataModel>>(authorisedResult);
         }
     }
 }

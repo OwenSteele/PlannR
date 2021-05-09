@@ -24,7 +24,7 @@ namespace PlannR.API.Controllers
 
         [HttpGet(Name = "GetAllTransportTypes")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<ActionResult<ICollection<TransportTypeListViewModel>>> GetAllTransportTypes()
+        public async Task<ActionResult<ICollection<TransportTypeListDataModel>>> GetAllTransportTypes()
         {
             var result = await _mediator.Send(new GetTransportTypeListQuery());
             return Ok(result);
@@ -32,7 +32,7 @@ namespace PlannR.API.Controllers
 
         [HttpGet("{name}", Name = "GetTransportTypeByName")]
         [ProducesDefaultResponseType]
-        public async Task<ActionResult<TransportTypeByNameViewModel>> GetTransportTypeByName(string name)
+        public async Task<ActionResult<TransportTypeByNameDataModel>> GetTransportTypeByName(string name)
         {
             var query = new GetTransportTypeByNameQuery() { Name = name };
             var result = await _mediator.Send(query);

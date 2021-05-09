@@ -2,7 +2,7 @@
 
 namespace PlannR.Application.Features.Routes.Queries.GetRouteListByTripId
 {
-    public class RouteListByTripIdViewModel
+    public class RouteListByTripIdDataModel
     {
         public Guid RouteId { get; set; }
         public Guid TripId { get; set; }

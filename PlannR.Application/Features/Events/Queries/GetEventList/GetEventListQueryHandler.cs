@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Events.Queries.GetEventsList
 {
-    public class GetEventListQueryHandler : IRequestHandler<GetEventListQuery, ICollection<EventListViewModel>>
+    public class GetEventListQueryHandler : IRequestHandler<GetEventListQuery, ICollection<EventListDataModel>>
     {
         private readonly IMapper _mapper;
         private readonly IAuthorisationService<Event> _authorisationService;
@@ -24,13 +24,13 @@ namespace PlannR.Application.Features.Events.Queries.GetEventsList
             _eventRepository = eventRepository;
         }
 
-        public async Task<ICollection<EventListViewModel>> Handle(GetEventListQuery request, CancellationToken cancellationToken)
+        public async Task<ICollection<EventListDataModel>> Handle(GetEventListQuery request, CancellationToken cancellationToken)
         {
             var result = (await _eventRepository.ListAllAsync()).OrderBy(x => x.StartDateTime).ToList();
 
             var authorisedResult = _authorisationService.RemoveInAccessibleEntities(result);
 
-            return _mapper.Map<ICollection<EventListViewModel>>(authorisedResult);
+            return _mapper.Map<ICollection<EventListDataModel>>(authorisedResult);
         }
     }
 }

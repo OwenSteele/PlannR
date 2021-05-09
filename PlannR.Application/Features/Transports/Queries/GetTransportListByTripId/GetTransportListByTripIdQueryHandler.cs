@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Transports.Queries.GetTransportListByTripId
 {
-    public class GetTransportListByTripIdQueryHandler : IRequestHandler<GetTransportListByTripIdQuery, ICollection<TransportListByTripIdViewModel>>
+    public class GetTransportListByTripIdQueryHandler : IRequestHandler<GetTransportListByTripIdQuery, ICollection<TransportListByTripIdDataModel>>
     {
         private readonly IMapper _mapper;
         private readonly IAuthorisationService<Transport> _authorisationService;
@@ -24,7 +24,7 @@ namespace PlannR.Application.Features.Transports.Queries.GetTransportListByTripI
             _transportRepository = transportRepository;
         }
 
-        public async Task<ICollection<TransportListByTripIdViewModel>> Handle(GetTransportListByTripIdQuery request, CancellationToken cancellationToken)
+        public async Task<ICollection<TransportListByTripIdDataModel>> Handle(GetTransportListByTripIdQuery request, CancellationToken cancellationToken)
         {
             var result = (await _transportRepository.GetAllOfTripById(request.TripId))
                 .Where(x => x.TripId == request.TripId)
@@ -32,7 +32,7 @@ namespace PlannR.Application.Features.Transports.Queries.GetTransportListByTripI
 
             var authorisedResult = _authorisationService.RemoveInAccessibleEntities(result);
 
-            return _mapper.Map<ICollection<TransportListByTripIdViewModel>>(authorisedResult);
+            return _mapper.Map<ICollection<TransportListByTripIdDataModel>>(authorisedResult);
         }
 
     }

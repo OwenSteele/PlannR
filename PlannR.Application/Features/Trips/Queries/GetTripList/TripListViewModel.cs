@@ -3,7 +3,7 @@ using System;
 
 namespace PlannR.Application.Features.Trips.Queries.GetTripsList
 {
-    public class TripListViewModel
+    public class TripListDataModel
     {
         public Guid TripId { get; set; }
         public string Name { get; set; }

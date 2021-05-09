@@ -2,7 +2,7 @@
 
 namespace PlannR.Application.Features.Events.Bookings.Queries.GetEventBookingListByTripId
 {
-    public class EventBookingListByTripIdViewModel
+    public class EventBookingListByTripIdDataModel
     {
         public Guid BookingId { get; set; }
         public Guid EventId { get; set; }

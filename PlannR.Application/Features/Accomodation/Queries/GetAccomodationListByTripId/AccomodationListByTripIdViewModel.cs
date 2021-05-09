@@ -3,7 +3,7 @@ using System;
 
 namespace PlannR.Application.Features.Accomodations.Queries.GetAccomodationListByTripId
 {
-    public class AccomodationListByTripIdViewModel
+    public class AccomodationListByTripIdDataModel
     {
         public Guid AccomodationId { get; set; }
         public Guid TripId { get; set; }

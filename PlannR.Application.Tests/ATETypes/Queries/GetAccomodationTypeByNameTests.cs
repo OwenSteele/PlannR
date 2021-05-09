@@ -19,7 +19,7 @@ namespace PlannR.Application.Tests.ATETypes.Queries
 
             var result = await handler.Handle(query, CancellationToken.None);
 
-            result.ShouldBeOfType<AccomodationTypeByNameViewModel>();
+            result.ShouldBeOfType<AccomodationTypeByNameDataModel>();
             result.Name.ShouldBeEquivalentTo(existing.Name);
             result.AccomodationTypeId.ShouldBeEquivalentTo(existing.AccomodationTypeId);
         }

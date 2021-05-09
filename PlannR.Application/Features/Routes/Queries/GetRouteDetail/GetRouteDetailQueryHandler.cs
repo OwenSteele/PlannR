@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Routes.Queries.GetRouteDetail
 {
-    public class GetRouteDetailQueryHandler : IRequestHandler<GetRouteDetailQuery, RouteDetailViewModel>
+    public class GetRouteDetailQueryHandler : IRequestHandler<GetRouteDetailQuery, RouteDetailDataModel>
     {
         private readonly IMapper _mapper;
         private readonly IAuthorisationService<Route> _authorisationService;
@@ -21,14 +21,14 @@ namespace PlannR.Application.Features.Routes.Queries.GetRouteDetail
             _repository = repository;
         }
 
-        public async Task<RouteDetailViewModel> Handle(GetRouteDetailQuery request, CancellationToken cancellationToken)
+        public async Task<RouteDetailDataModel> Handle(GetRouteDetailQuery request, CancellationToken cancellationToken)
         {
             var result = (await _repository.GetWithRelated(request.RouteId));
 
 
             if (!_authorisationService.CanAccessEntity(result)) throw new Exceptions.NotAuthorisedException();
 
-            return _mapper.Map<RouteDetailViewModel>(result);
+            return _mapper.Map<RouteDetailDataModel>(result);
         }
     }
 }

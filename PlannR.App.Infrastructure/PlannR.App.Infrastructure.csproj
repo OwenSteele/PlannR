@@ -17,8 +17,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ViewModels\Bookings\" />
-    <Folder Include="ViewModels\Types\" />
+    <Folder Include="DataModels\Bookings\" />
+    <Folder Include="DataModels\Types\" />
   </ItemGroup>
 
 </Project>

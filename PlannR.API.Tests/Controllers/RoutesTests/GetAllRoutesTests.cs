@@ -24,9 +24,9 @@
 
 //            var message = await response.Content.ReadAsStringAsync();
 
-//            var model = JsonConvert.DeserializeObject<ICollection<RouteListViewModel>>(message);
+//            var model = JsonConvert.DeserializeObject<ICollection<RouteListDataModel>>(message);
 
-//            Assert.IsType<List<RouteListViewModel>>(model);
+//            Assert.IsType<List<RouteListDataModel>>(model);
 //        }
 //    }
 //}

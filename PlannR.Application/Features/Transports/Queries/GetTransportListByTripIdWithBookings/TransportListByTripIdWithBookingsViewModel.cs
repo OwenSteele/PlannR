@@ -3,7 +3,7 @@ using System;
 
 namespace PlannR.Application.Features.Transports.Queries.GetTransportListByTripIdWithBookings
 {
-    public class TransportListByTripIdWithBookingsViewModel
+    public class TransportListByTripIdWithBookingsDataModel
     {
         public Guid TransportId { get; set; }
         public Guid TripId { get; set; }

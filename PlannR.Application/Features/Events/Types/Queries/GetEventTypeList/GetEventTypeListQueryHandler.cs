@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Events.Types.Queries.GetEventTypeList
 {
-    public class GetEventTypeListQueryHandler : IRequestHandler<GetEventTypeListQuery, ICollection<EventTypeListViewModel>>
+    public class GetEventTypeListQueryHandler : IRequestHandler<GetEventTypeListQuery, ICollection<EventTypeListDataModel>>
     {
         private readonly IMapper _mapper;
         private readonly IAuthorisationService<EventType> _authorisationService;
@@ -24,13 +24,13 @@ namespace PlannR.Application.Features.Events.Types.Queries.GetEventTypeList
             _eventTypeRepository = eventTypeRepository;
         }
 
-        public async Task<ICollection<EventTypeListViewModel>> Handle(GetEventTypeListQuery request, CancellationToken cancellationToken)
+        public async Task<ICollection<EventTypeListDataModel>> Handle(GetEventTypeListQuery request, CancellationToken cancellationToken)
         {
             var result = (await _eventTypeRepository.ListAllAsync()).OrderBy(x => x.Name).ToList();
 
             var authorisedResult = _authorisationService.RemoveInAccessibleEntities(result);
 
-            return _mapper.Map<ICollection<EventTypeListViewModel>>(authorisedResult);
+            return _mapper.Map<ICollection<EventTypeListDataModel>>(authorisedResult);
         }
 
     }

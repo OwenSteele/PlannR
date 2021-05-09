@@ -24,7 +24,7 @@ namespace PlannR.API.Controllers
 
         [HttpGet(Name = "GetAllAccomodationTypes")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<ActionResult<ICollection<AccomodationTypeListViewModel>>> GetAllAccomodationTypes()
+        public async Task<ActionResult<ICollection<AccomodationTypeListDataModel>>> GetAllAccomodationTypes()
         {
             var result = await _mediator.Send(new GetAccomodationTypeListQuery());
             return Ok(result);
@@ -32,7 +32,7 @@ namespace PlannR.API.Controllers
 
         [HttpGet("{name}", Name = "GetAccomodationTypeByName")]
         [ProducesDefaultResponseType]
-        public async Task<ActionResult<AccomodationTypeByNameViewModel>> GetAccomodationTypeByName(string name)
+        public async Task<ActionResult<AccomodationTypeByNameDataModel>> GetAccomodationTypeByName(string name)
         {
             var query = new GetAccomodationTypeByNameQuery() { Name = name };
             var result = await _mediator.Send(query);

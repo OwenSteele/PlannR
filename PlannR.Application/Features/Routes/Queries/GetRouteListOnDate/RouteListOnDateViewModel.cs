@@ -2,7 +2,7 @@
 
 namespace PlannR.Application.Features.Routes.Queries.GetRouteListOnDate
 {
-    public class RouteListOnDateViewModel
+    public class RouteListOnDateDataModel
     {
         public Guid RouteId { get; set; }
         public Guid TripId { get; set; }

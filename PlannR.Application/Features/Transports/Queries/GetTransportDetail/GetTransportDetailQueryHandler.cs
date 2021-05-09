@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Transports.Queries.GetTransportsDetail
 {
-    public class GetTransportDetailQueryHandler : IRequestHandler<GetTransportDetailQuery, TransportDetailViewModel>
+    public class GetTransportDetailQueryHandler : IRequestHandler<GetTransportDetailQuery, TransportDetailDataModel>
     {
         private readonly IMapper _mapper;
         private readonly IAuthorisationService<Transport> _authorisationService;
@@ -21,14 +21,14 @@ namespace PlannR.Application.Features.Transports.Queries.GetTransportsDetail
             _repository = repository;
         }
 
-        public async Task<TransportDetailViewModel> Handle(GetTransportDetailQuery request, CancellationToken cancellationToken)
+        public async Task<TransportDetailDataModel> Handle(GetTransportDetailQuery request, CancellationToken cancellationToken)
         {
             var result = (await _repository.GetWithRelated(request.Id));
 
 
             if (!_authorisationService.CanAccessEntity(result)) throw new Exceptions.NotAuthorisedException();
 
-            return _mapper.Map<TransportDetailViewModel>(result);
+            return _mapper.Map<TransportDetailDataModel>(result);
         }
     }
 }

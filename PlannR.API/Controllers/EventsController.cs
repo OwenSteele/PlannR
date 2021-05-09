@@ -29,7 +29,7 @@ namespace PlannR.API.Controllers
 
         [HttpGet(Name = "GetAllEvents")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<ActionResult<ICollection<EventListViewModel>>> GetAllEvents()
+        public async Task<ActionResult<ICollection<EventListDataModel>>> GetAllEvents()
         {
             var result = await _mediator.Send(new GetEventListQuery());
             return Ok(result);
@@ -38,7 +38,7 @@ namespace PlannR.API.Controllers
         [Authorize]
         [HttpGet("{id}", Name = "GetEventById")]
         [ProducesDefaultResponseType]
-        public async Task<ActionResult<EventDetailViewModel>> GetEventById(Guid id)
+        public async Task<ActionResult<EventDetailDataModel>> GetEventById(Guid id)
         {
             var query = new GetEventDetailQuery() { Id = id };
             var result = await _mediator.Send(query);
@@ -49,7 +49,7 @@ namespace PlannR.API.Controllers
         [HttpGet("trip/{tripId}", Name = "GetAllEventsByTripId")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesDefaultResponseType]
-        public async Task<ActionResult<ICollection<EventListByTripIdViewModel>>> GetAllEventsByTripId(Guid tripId)
+        public async Task<ActionResult<ICollection<EventListByTripIdDataModel>>> GetAllEventsByTripId(Guid tripId)
         {
             var query = new GetEventListByTripIdQuery() { TripId = tripId };
             var result = await _mediator.Send(query);
@@ -60,7 +60,7 @@ namespace PlannR.API.Controllers
         [HttpGet("trip/{tripId}/Bookings", Name = "GetAllEventsByTripIdWithBookings")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesDefaultResponseType]
-        public async Task<ActionResult<ICollection<EventListByTripIdWithBookingsViewModel>>> GetAllEventsByTripIdWithBookings(Guid tripId)
+        public async Task<ActionResult<ICollection<EventListByTripIdWithBookingsDataModel>>> GetAllEventsByTripIdWithBookings(Guid tripId)
         {
             var query = new GetEventListByTripIdWithBookingsQuery() { TripId = tripId };
             var result = await _mediator.Send(query);
@@ -70,7 +70,7 @@ namespace PlannR.API.Controllers
         [HttpGet("{date:DateTime}", Name = "GetAllEventsOnDate")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesDefaultResponseType]
-        public async Task<ActionResult<ICollection<EventListOnDateViewModel>>> GetAllEventsOnDate(DateTime date)
+        public async Task<ActionResult<ICollection<EventListOnDateDataModel>>> GetAllEventsOnDate(DateTime date)
         {
             var query = new GetEventListOnDateQuery() { Date = date };
             var result = await _mediator.Send(query);

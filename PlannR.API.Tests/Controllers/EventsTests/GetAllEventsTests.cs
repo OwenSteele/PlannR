@@ -24,9 +24,9 @@
 
 //            var message = await response.Content.ReadAsStringAsync();
 
-//            var model = JsonConvert.DeserializeObject<ICollection<EventListViewModel>>(message);
+//            var model = JsonConvert.DeserializeObject<ICollection<EventListDataModel>>(message);
 
-//            Assert.IsType<List<EventListViewModel>>(model);
+//            Assert.IsType<List<EventListDataModel>>(model);
 //        }
 //    }
 //}

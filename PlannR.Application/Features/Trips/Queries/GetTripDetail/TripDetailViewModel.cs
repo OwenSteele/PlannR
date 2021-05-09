@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace PlannR.Application.Features.Trips.Queries.GetTripsDetail
 {
-    public class TripDetailViewModel
+    public class TripDetailDataModel
     {
         public Guid TripId { get; set; }
         public string Name { get; set; }

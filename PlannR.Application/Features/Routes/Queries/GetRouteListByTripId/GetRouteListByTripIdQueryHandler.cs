@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Routes.Queries.GetRouteListByTripId
 {
-    public class GetRouteListByTripIdQueryHandler : IRequestHandler<GetRouteListByTripIdQuery, ICollection<RouteListByTripIdViewModel>>
+    public class GetRouteListByTripIdQueryHandler : IRequestHandler<GetRouteListByTripIdQuery, ICollection<RouteListByTripIdDataModel>>
     {
         private readonly IMapper _mapper;
         private readonly IAuthorisationService<Route> _authorisationService;
@@ -24,14 +24,14 @@ namespace PlannR.Application.Features.Routes.Queries.GetRouteListByTripId
             _accomodationRepository = accomodationRepository;
         }
 
-        public async Task<ICollection<RouteListByTripIdViewModel>> Handle(GetRouteListByTripIdQuery request, CancellationToken cancellationToken)
+        public async Task<ICollection<RouteListByTripIdDataModel>> Handle(GetRouteListByTripIdQuery request, CancellationToken cancellationToken)
         {
             var result = (await _accomodationRepository.GetAllRoutesOfTripById(request.TripId))
                 .OrderBy(x => x.StartDateTime).ToList();
 
             var authorisedResult = _authorisationService.RemoveInAccessibleEntities(result);
 
-            return _mapper.Map<ICollection<RouteListByTripIdViewModel>>(authorisedResult);
+            return _mapper.Map<ICollection<RouteListByTripIdDataModel>>(authorisedResult);
         }
 
     }

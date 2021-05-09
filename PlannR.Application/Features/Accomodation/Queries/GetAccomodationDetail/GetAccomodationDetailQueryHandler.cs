@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Accomodations.Queries.GetAccomodationsDetail
 {
-    public class GetAccomodationDetailQueryHandler : IRequestHandler<GetAccomodationDetailQuery, AccomodationDetailViewModel>
+    public class GetAccomodationDetailQueryHandler : IRequestHandler<GetAccomodationDetailQuery, AccomodationDetailDataModel>
     {
         private readonly IMapper _mapper;
         private readonly IAuthorisationService<Accomodation> _authorisationService;
@@ -22,14 +22,14 @@ namespace PlannR.Application.Features.Accomodations.Queries.GetAccomodationsDeta
             _repository = repository;
         }
 
-        public async Task<AccomodationDetailViewModel> Handle(GetAccomodationDetailQuery request, CancellationToken cancellationToken)
+        public async Task<AccomodationDetailDataModel> Handle(GetAccomodationDetailQuery request, CancellationToken cancellationToken)
         {
             var result = (await _repository.GetWithRelated(request.Id));
 
 
             if (!_authorisationService.CanAccessEntity(result)) throw new Exceptions.NotAuthorisedException();
 
-            return _mapper.Map<AccomodationDetailViewModel>(result);
+            return _mapper.Map<AccomodationDetailDataModel>(result);
         }
     }
 }

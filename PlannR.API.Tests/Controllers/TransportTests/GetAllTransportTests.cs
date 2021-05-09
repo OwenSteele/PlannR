@@ -24,9 +24,9 @@
 
 //            var message = await response.Content.ReadAsStringAsync();
 
-//            var model = JsonConvert.DeserializeObject<ICollection<TransportListViewModel>>(message);
+//            var model = JsonConvert.DeserializeObject<ICollection<TransportListDataModel>>(message);
 
-//            Assert.IsType<List<TransportListViewModel>>(model);
+//            Assert.IsType<List<TransportListDataModel>>(model);
 //        }
 //    }
 //}

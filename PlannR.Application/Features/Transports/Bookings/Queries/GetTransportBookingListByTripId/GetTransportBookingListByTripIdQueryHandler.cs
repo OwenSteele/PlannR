@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace PlannR.Application.Features.Transports.Bookings.Queries.GetTransportBookingListByTripId
 {
     public class GetTransportBookingListByTripIdQueryHandler
-     : IRequestHandler<GetTransportBookingListByTripIdQuery, ICollection<TransportBookingListByTripIdViewModel>>
+     : IRequestHandler<GetTransportBookingListByTripIdQuery, ICollection<TransportBookingListByTripIdDataModel>>
     {
         private readonly IMapper _mapper;
         private readonly IAuthorisationService<TransportBooking> _authorisationService;
@@ -25,7 +25,7 @@ namespace PlannR.Application.Features.Transports.Bookings.Queries.GetTransportBo
             _transportBookingRepository = transportBookingRepository;
         }
 
-        public async Task<ICollection<TransportBookingListByTripIdViewModel>> Handle(
+        public async Task<ICollection<TransportBookingListByTripIdDataModel>> Handle(
             GetTransportBookingListByTripIdQuery request, CancellationToken cancellationToken)
         {
             var result = (await _transportBookingRepository.ListAllAsync())
@@ -34,7 +34,7 @@ namespace PlannR.Application.Features.Transports.Bookings.Queries.GetTransportBo
 
             var authorisedResult = _authorisationService.RemoveInAccessibleEntities(result);
 
-            return _mapper.Map<ICollection<TransportBookingListByTripIdViewModel>>(authorisedResult);
+            return _mapper.Map<ICollection<TransportBookingListByTripIdDataModel>>(authorisedResult);
         }
 
     }

@@ -22,7 +22,7 @@ namespace PlannR.Application.Tests.Bookings.Queries
 
             var result = await handler.Handle(query, CancellationToken.None);
 
-            result.ShouldBeOfType<AccomodationBookingDetailViewModel>();
+            result.ShouldBeOfType<AccomodationBookingDetailDataModel>();
             result.BookingId.ShouldBeEquivalentTo(existing.BookingId);
         }
 

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Transports.Queries.GetTransportListOnDate
 {
-    public class GetTransportListOnDateQueryHandler : IRequestHandler<GetTransportListOnDateQuery, ICollection<TransportListOnDateViewModel>>
+    public class GetTransportListOnDateQueryHandler : IRequestHandler<GetTransportListOnDateQuery, ICollection<TransportListOnDateDataModel>>
     {
         private readonly IMapper _mapper;
         private readonly IAuthorisationService<Transport> _authorisationService;
@@ -24,7 +24,7 @@ namespace PlannR.Application.Features.Transports.Queries.GetTransportListOnDate
             _transportRepository = transportRepository;
         }
 
-        public async Task<ICollection<TransportListOnDateViewModel>> Handle(GetTransportListOnDateQuery request, CancellationToken cancellationToken)
+        public async Task<ICollection<TransportListOnDateDataModel>> Handle(GetTransportListOnDateQuery request, CancellationToken cancellationToken)
         {
             var result = (await _transportRepository.GetAllOfTripById(request.TripId))
                 .Where(x => x.StartDateTime <= request.Date && x.EndDateTime >= request.Date)
@@ -32,7 +32,7 @@ namespace PlannR.Application.Features.Transports.Queries.GetTransportListOnDate
 
             var authorisedResult = _authorisationService.RemoveInAccessibleEntities(result);
 
-            return _mapper.Map<ICollection<TransportListOnDateViewModel>>(authorisedResult);
+            return _mapper.Map<ICollection<TransportListOnDateDataModel>>(authorisedResult);
         }
     }
 }

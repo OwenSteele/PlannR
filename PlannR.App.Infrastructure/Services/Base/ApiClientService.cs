@@ -20,12 +20,12 @@ namespace Plannr.App.Infrastructure.Services.Base
     {
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AccomodationListViewModel>> GetAllAccomodationsAsync();
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AccomodationListDataModel>> GetAllAccomodationsAsync();
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AccomodationListViewModel>> GetAllAccomodationsAsync(System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AccomodationListDataModel>> GetAllAccomodationsAsync(System.Threading.CancellationToken cancellationToken);
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -65,39 +65,39 @@ namespace Plannr.App.Infrastructure.Services.Base
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AccomodationListByTripIdViewModel>> GetAllAccomodationByTripIdAsync(System.Guid tripId);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AccomodationListByTripIdDataModel>> GetAllAccomodationByTripIdAsync(System.Guid tripId);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AccomodationListByTripIdViewModel>> GetAllAccomodationByTripIdAsync(System.Guid tripId, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AccomodationListByTripIdDataModel>> GetAllAccomodationByTripIdAsync(System.Guid tripId, System.Threading.CancellationToken cancellationToken);
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AccomodationListByTripIdWithBookingsViewModel>> GetAllAccomodationByTripIdWithBookingsAsync(System.Guid tripId);
-
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <returns>Success</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AccomodationListByTripIdWithBookingsViewModel>> GetAllAccomodationByTripIdWithBookingsAsync(System.Guid tripId, System.Threading.CancellationToken cancellationToken);
-
-        /// <returns>Success</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AccomodationListOnDateViewModel>> GetAllAccomodationOnDateAsync(System.DateTimeOffset date);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AccomodationListByTripIdWithBookingsDataModel>> GetAllAccomodationByTripIdWithBookingsAsync(System.Guid tripId);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AccomodationListOnDateViewModel>> GetAllAccomodationOnDateAsync(System.DateTimeOffset date, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AccomodationListByTripIdWithBookingsDataModel>> GetAllAccomodationByTripIdWithBookingsAsync(System.Guid tripId, System.Threading.CancellationToken cancellationToken);
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AccomodationBookingListViewModel>> GetAllAccomodationBookingsAsync();
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AccomodationListOnDateDataModel>> GetAllAccomodationOnDateAsync(System.DateTimeOffset date);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AccomodationBookingListViewModel>> GetAllAccomodationBookingsAsync(System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AccomodationListOnDateDataModel>> GetAllAccomodationOnDateAsync(System.DateTimeOffset date, System.Threading.CancellationToken cancellationToken);
+
+        /// <returns>Success</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AccomodationBookingListDataModel>> GetAllAccomodationBookingsAsync();
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>Success</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AccomodationBookingListDataModel>> GetAllAccomodationBookingsAsync(System.Threading.CancellationToken cancellationToken);
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -137,21 +137,21 @@ namespace Plannr.App.Infrastructure.Services.Base
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AccomodationBookingListByTripIdViewModel>> GetAllAccomodationBookingsByTripIdAsync(System.Guid tripId);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AccomodationBookingListByTripIdDataModel>> GetAllAccomodationBookingsByTripIdAsync(System.Guid tripId);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AccomodationBookingListByTripIdViewModel>> GetAllAccomodationBookingsByTripIdAsync(System.Guid tripId, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AccomodationBookingListByTripIdDataModel>> GetAllAccomodationBookingsByTripIdAsync(System.Guid tripId, System.Threading.CancellationToken cancellationToken);
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AccomodationTypeListViewModel>> GetAllAccomodationTypesAsync();
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AccomodationTypeListDataModel>> GetAllAccomodationTypesAsync();
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AccomodationTypeListViewModel>> GetAllAccomodationTypesAsync(System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AccomodationTypeListDataModel>> GetAllAccomodationTypesAsync(System.Threading.CancellationToken cancellationToken);
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -191,12 +191,12 @@ namespace Plannr.App.Infrastructure.Services.Base
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EventBookingListViewModel>> GetAllEventBookingsAsync();
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EventBookingListDataModel>> GetAllEventBookingsAsync();
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EventBookingListViewModel>> GetAllEventBookingsAsync(System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EventBookingListDataModel>> GetAllEventBookingsAsync(System.Threading.CancellationToken cancellationToken);
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -236,21 +236,21 @@ namespace Plannr.App.Infrastructure.Services.Base
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EventBookingListByTripIdViewModel>> GetAllEventBookingsByTripIdAsync(System.Guid tripId);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EventBookingListByTripIdDataModel>> GetAllEventBookingsByTripIdAsync(System.Guid tripId);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EventBookingListByTripIdViewModel>> GetAllEventBookingsByTripIdAsync(System.Guid tripId, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EventBookingListByTripIdDataModel>> GetAllEventBookingsByTripIdAsync(System.Guid tripId, System.Threading.CancellationToken cancellationToken);
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EventListViewModel>> GetAllEventsAsync();
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EventListDataModel>> GetAllEventsAsync();
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EventListViewModel>> GetAllEventsAsync(System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EventListDataModel>> GetAllEventsAsync(System.Threading.CancellationToken cancellationToken);
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -290,39 +290,39 @@ namespace Plannr.App.Infrastructure.Services.Base
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EventListByTripIdViewModel>> GetAllEventsByTripIdAsync(System.Guid tripId);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EventListByTripIdDataModel>> GetAllEventsByTripIdAsync(System.Guid tripId);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EventListByTripIdViewModel>> GetAllEventsByTripIdAsync(System.Guid tripId, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EventListByTripIdDataModel>> GetAllEventsByTripIdAsync(System.Guid tripId, System.Threading.CancellationToken cancellationToken);
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EventListByTripIdWithBookingsViewModel>> GetAllEventsByTripIdWithBookingsAsync(System.Guid tripId);
-
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <returns>Success</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EventListByTripIdWithBookingsViewModel>> GetAllEventsByTripIdWithBookingsAsync(System.Guid tripId, System.Threading.CancellationToken cancellationToken);
-
-        /// <returns>Success</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EventListOnDateViewModel>> GetAllEventsOnDateAsync(System.DateTimeOffset date);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EventListByTripIdWithBookingsDataModel>> GetAllEventsByTripIdWithBookingsAsync(System.Guid tripId);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EventListOnDateViewModel>> GetAllEventsOnDateAsync(System.DateTimeOffset date, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EventListByTripIdWithBookingsDataModel>> GetAllEventsByTripIdWithBookingsAsync(System.Guid tripId, System.Threading.CancellationToken cancellationToken);
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EventTypeListViewModel>> GetAllEventTypesAsync();
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EventListOnDateDataModel>> GetAllEventsOnDateAsync(System.DateTimeOffset date);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EventTypeListViewModel>> GetAllEventTypesAsync(System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EventListOnDateDataModel>> GetAllEventsOnDateAsync(System.DateTimeOffset date, System.Threading.CancellationToken cancellationToken);
+
+        /// <returns>Success</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EventTypeListDataModel>> GetAllEventTypesAsync();
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>Success</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EventTypeListDataModel>> GetAllEventTypesAsync(System.Threading.CancellationToken cancellationToken);
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -344,12 +344,12 @@ namespace Plannr.App.Infrastructure.Services.Base
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<RouteListViewModel>> GetAllRoutesAsync();
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<RouteListDataModel>> GetAllRoutesAsync();
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<RouteListViewModel>> GetAllRoutesAsync(System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<RouteListDataModel>> GetAllRoutesAsync(System.Threading.CancellationToken cancellationToken);
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -389,21 +389,21 @@ namespace Plannr.App.Infrastructure.Services.Base
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<RouteListOnDateViewModel>> GetAllRouteOnDateAsync(System.DateTimeOffset date);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<RouteListOnDateDataModel>> GetAllRouteOnDateAsync(System.DateTimeOffset date);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<RouteListOnDateViewModel>> GetAllRouteOnDateAsync(System.DateTimeOffset date, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<RouteListOnDateDataModel>> GetAllRouteOnDateAsync(System.DateTimeOffset date, System.Threading.CancellationToken cancellationToken);
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TransportListViewModel>> GetAllTransportsAsync();
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TransportListDataModel>> GetAllTransportsAsync();
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TransportListViewModel>> GetAllTransportsAsync(System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TransportListDataModel>> GetAllTransportsAsync(System.Threading.CancellationToken cancellationToken);
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -443,39 +443,39 @@ namespace Plannr.App.Infrastructure.Services.Base
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TransportListByTripIdViewModel>> GetAllTransportByTripIdAsync(System.Guid tripId);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TransportListByTripIdDataModel>> GetAllTransportByTripIdAsync(System.Guid tripId);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TransportListByTripIdViewModel>> GetAllTransportByTripIdAsync(System.Guid tripId, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TransportListByTripIdDataModel>> GetAllTransportByTripIdAsync(System.Guid tripId, System.Threading.CancellationToken cancellationToken);
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TransportListByTripIdWithBookingsViewModel>> GetAllTransportByTripIdWithBookingsAsync(System.Guid tripId);
-
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <returns>Success</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TransportListByTripIdWithBookingsViewModel>> GetAllTransportByTripIdWithBookingsAsync(System.Guid tripId, System.Threading.CancellationToken cancellationToken);
-
-        /// <returns>Success</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TransportListOnDateViewModel>> GetAllTransportOnDateAsync(System.DateTimeOffset date);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TransportListByTripIdWithBookingsDataModel>> GetAllTransportByTripIdWithBookingsAsync(System.Guid tripId);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TransportListOnDateViewModel>> GetAllTransportOnDateAsync(System.DateTimeOffset date, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TransportListByTripIdWithBookingsDataModel>> GetAllTransportByTripIdWithBookingsAsync(System.Guid tripId, System.Threading.CancellationToken cancellationToken);
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TransportBookingListViewModel>> GetAllTransportBookingsAsync();
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TransportListOnDateDataModel>> GetAllTransportOnDateAsync(System.DateTimeOffset date);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TransportBookingListViewModel>> GetAllTransportBookingsAsync(System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TransportListOnDateDataModel>> GetAllTransportOnDateAsync(System.DateTimeOffset date, System.Threading.CancellationToken cancellationToken);
+
+        /// <returns>Success</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TransportBookingListDataModel>> GetAllTransportBookingsAsync();
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>Success</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TransportBookingListDataModel>> GetAllTransportBookingsAsync(System.Threading.CancellationToken cancellationToken);
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -515,21 +515,21 @@ namespace Plannr.App.Infrastructure.Services.Base
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TransportBookingListByTripIdViewModel>> GetAllTransportBookingsByTripIdAsync(System.Guid tripId);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TransportBookingListByTripIdDataModel>> GetAllTransportBookingsByTripIdAsync(System.Guid tripId);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TransportBookingListByTripIdViewModel>> GetAllTransportBookingsByTripIdAsync(System.Guid tripId, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TransportBookingListByTripIdDataModel>> GetAllTransportBookingsByTripIdAsync(System.Guid tripId, System.Threading.CancellationToken cancellationToken);
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TransportTypeListViewModel>> GetAllTransportTypesAsync();
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TransportTypeListDataModel>> GetAllTransportTypesAsync();
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TransportTypeListViewModel>> GetAllTransportTypesAsync(System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TransportTypeListDataModel>> GetAllTransportTypesAsync(System.Threading.CancellationToken cancellationToken);
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -551,12 +551,12 @@ namespace Plannr.App.Infrastructure.Services.Base
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TripListViewModel>> GetAllTripsAsync();
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TripListDataModel>> GetAllTripsAsync();
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TripListViewModel>> GetAllTripsAsync(System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TripListDataModel>> GetAllTripsAsync(System.Threading.CancellationToken cancellationToken);
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -596,21 +596,21 @@ namespace Plannr.App.Infrastructure.Services.Base
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TripListBetweenDatesViewModel>> GetAllTripsBetweenDatesAsync(System.DateTimeOffset start, System.DateTimeOffset end);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TripListBetweenDatesDataModel>> GetAllTripsBetweenDatesAsync(System.DateTimeOffset start, System.DateTimeOffset end);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TripListBetweenDatesViewModel>> GetAllTripsBetweenDatesAsync(System.DateTimeOffset start, System.DateTimeOffset end, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TripListBetweenDatesDataModel>> GetAllTripsBetweenDatesAsync(System.DateTimeOffset start, System.DateTimeOffset end, System.Threading.CancellationToken cancellationToken);
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TripListOnDateViewModel>> GetAllTripOnDateAsync(System.DateTimeOffset date);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TripListOnDateDataModel>> GetAllTripOnDateAsync(System.DateTimeOffset date);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TripListOnDateViewModel>> GetAllTripOnDateAsync(System.DateTimeOffset date, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TripListOnDateDataModel>> GetAllTripOnDateAsync(System.DateTimeOffset date, System.Threading.CancellationToken cancellationToken);
 
     }
 
@@ -651,7 +651,7 @@ namespace Plannr.App.Infrastructure.Services.Base
         partial void ProcessResponse(System.Net.Http.HttpClient client, System.Net.Http.HttpResponseMessage response);
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AccomodationListViewModel>> GetAllAccomodationsAsync()
+        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AccomodationListDataModel>> GetAllAccomodationsAsync()
         {
             return GetAllAccomodationsAsync(System.Threading.CancellationToken.None);
         }
@@ -659,7 +659,7 @@ namespace Plannr.App.Infrastructure.Services.Base
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AccomodationListViewModel>> GetAllAccomodationsAsync(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AccomodationListDataModel>> GetAllAccomodationsAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Accomodation");
@@ -696,7 +696,7 @@ namespace Plannr.App.Infrastructure.Services.Base
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<AccomodationListViewModel>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<AccomodationListDataModel>>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -1045,7 +1045,7 @@ namespace Plannr.App.Infrastructure.Services.Base
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AccomodationListByTripIdViewModel>> GetAllAccomodationByTripIdAsync(System.Guid tripId)
+        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AccomodationListByTripIdDataModel>> GetAllAccomodationByTripIdAsync(System.Guid tripId)
         {
             return GetAllAccomodationByTripIdAsync(tripId, System.Threading.CancellationToken.None);
         }
@@ -1053,7 +1053,7 @@ namespace Plannr.App.Infrastructure.Services.Base
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AccomodationListByTripIdViewModel>> GetAllAccomodationByTripIdAsync(System.Guid tripId, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AccomodationListByTripIdDataModel>> GetAllAccomodationByTripIdAsync(System.Guid tripId, System.Threading.CancellationToken cancellationToken)
         {
             if (tripId == null)
                 throw new System.ArgumentNullException("tripId");
@@ -1094,7 +1094,7 @@ namespace Plannr.App.Infrastructure.Services.Base
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<AccomodationListByTripIdViewModel>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<AccomodationListByTripIdDataModel>>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -1127,7 +1127,7 @@ namespace Plannr.App.Infrastructure.Services.Base
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AccomodationListByTripIdWithBookingsViewModel>> GetAllAccomodationByTripIdWithBookingsAsync(System.Guid tripId)
+        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AccomodationListByTripIdWithBookingsDataModel>> GetAllAccomodationByTripIdWithBookingsAsync(System.Guid tripId)
         {
             return GetAllAccomodationByTripIdWithBookingsAsync(tripId, System.Threading.CancellationToken.None);
         }
@@ -1135,7 +1135,7 @@ namespace Plannr.App.Infrastructure.Services.Base
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AccomodationListByTripIdWithBookingsViewModel>> GetAllAccomodationByTripIdWithBookingsAsync(System.Guid tripId, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AccomodationListByTripIdWithBookingsDataModel>> GetAllAccomodationByTripIdWithBookingsAsync(System.Guid tripId, System.Threading.CancellationToken cancellationToken)
         {
             if (tripId == null)
                 throw new System.ArgumentNullException("tripId");
@@ -1176,7 +1176,7 @@ namespace Plannr.App.Infrastructure.Services.Base
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<AccomodationListByTripIdWithBookingsViewModel>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<AccomodationListByTripIdWithBookingsDataModel>>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -1209,7 +1209,7 @@ namespace Plannr.App.Infrastructure.Services.Base
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AccomodationListOnDateViewModel>> GetAllAccomodationOnDateAsync(System.DateTimeOffset date)
+        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AccomodationListOnDateDataModel>> GetAllAccomodationOnDateAsync(System.DateTimeOffset date)
         {
             return GetAllAccomodationOnDateAsync(date, System.Threading.CancellationToken.None);
         }
@@ -1217,7 +1217,7 @@ namespace Plannr.App.Infrastructure.Services.Base
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AccomodationListOnDateViewModel>> GetAllAccomodationOnDateAsync(System.DateTimeOffset date, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AccomodationListOnDateDataModel>> GetAllAccomodationOnDateAsync(System.DateTimeOffset date, System.Threading.CancellationToken cancellationToken)
         {
             if (date == null)
                 throw new System.ArgumentNullException("date");
@@ -1258,7 +1258,7 @@ namespace Plannr.App.Infrastructure.Services.Base
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<AccomodationListOnDateViewModel>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<AccomodationListOnDateDataModel>>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -1291,7 +1291,7 @@ namespace Plannr.App.Infrastructure.Services.Base
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AccomodationBookingListViewModel>> GetAllAccomodationBookingsAsync()
+        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AccomodationBookingListDataModel>> GetAllAccomodationBookingsAsync()
         {
             return GetAllAccomodationBookingsAsync(System.Threading.CancellationToken.None);
         }
@@ -1299,7 +1299,7 @@ namespace Plannr.App.Infrastructure.Services.Base
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AccomodationBookingListViewModel>> GetAllAccomodationBookingsAsync(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AccomodationBookingListDataModel>> GetAllAccomodationBookingsAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Accomodation/Bookings");
@@ -1336,7 +1336,7 @@ namespace Plannr.App.Infrastructure.Services.Base
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<AccomodationBookingListViewModel>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<AccomodationBookingListDataModel>>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -1685,7 +1685,7 @@ namespace Plannr.App.Infrastructure.Services.Base
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AccomodationBookingListByTripIdViewModel>> GetAllAccomodationBookingsByTripIdAsync(System.Guid tripId)
+        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AccomodationBookingListByTripIdDataModel>> GetAllAccomodationBookingsByTripIdAsync(System.Guid tripId)
         {
             return GetAllAccomodationBookingsByTripIdAsync(tripId, System.Threading.CancellationToken.None);
         }
@@ -1693,7 +1693,7 @@ namespace Plannr.App.Infrastructure.Services.Base
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AccomodationBookingListByTripIdViewModel>> GetAllAccomodationBookingsByTripIdAsync(System.Guid tripId, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AccomodationBookingListByTripIdDataModel>> GetAllAccomodationBookingsByTripIdAsync(System.Guid tripId, System.Threading.CancellationToken cancellationToken)
         {
             if (tripId == null)
                 throw new System.ArgumentNullException("tripId");
@@ -1734,7 +1734,7 @@ namespace Plannr.App.Infrastructure.Services.Base
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<AccomodationBookingListByTripIdViewModel>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<AccomodationBookingListByTripIdDataModel>>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -1767,7 +1767,7 @@ namespace Plannr.App.Infrastructure.Services.Base
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AccomodationTypeListViewModel>> GetAllAccomodationTypesAsync()
+        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AccomodationTypeListDataModel>> GetAllAccomodationTypesAsync()
         {
             return GetAllAccomodationTypesAsync(System.Threading.CancellationToken.None);
         }
@@ -1775,7 +1775,7 @@ namespace Plannr.App.Infrastructure.Services.Base
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AccomodationTypeListViewModel>> GetAllAccomodationTypesAsync(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AccomodationTypeListDataModel>> GetAllAccomodationTypesAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Accomodation/Types");
@@ -1812,7 +1812,7 @@ namespace Plannr.App.Infrastructure.Services.Base
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<AccomodationTypeListViewModel>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<AccomodationTypeListDataModel>>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -2141,7 +2141,7 @@ namespace Plannr.App.Infrastructure.Services.Base
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EventBookingListViewModel>> GetAllEventBookingsAsync()
+        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EventBookingListDataModel>> GetAllEventBookingsAsync()
         {
             return GetAllEventBookingsAsync(System.Threading.CancellationToken.None);
         }
@@ -2149,7 +2149,7 @@ namespace Plannr.App.Infrastructure.Services.Base
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EventBookingListViewModel>> GetAllEventBookingsAsync(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EventBookingListDataModel>> GetAllEventBookingsAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Event/Bookings");
@@ -2186,7 +2186,7 @@ namespace Plannr.App.Infrastructure.Services.Base
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<EventBookingListViewModel>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<EventBookingListDataModel>>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -2535,7 +2535,7 @@ namespace Plannr.App.Infrastructure.Services.Base
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EventBookingListByTripIdViewModel>> GetAllEventBookingsByTripIdAsync(System.Guid tripId)
+        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EventBookingListByTripIdDataModel>> GetAllEventBookingsByTripIdAsync(System.Guid tripId)
         {
             return GetAllEventBookingsByTripIdAsync(tripId, System.Threading.CancellationToken.None);
         }
@@ -2543,7 +2543,7 @@ namespace Plannr.App.Infrastructure.Services.Base
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EventBookingListByTripIdViewModel>> GetAllEventBookingsByTripIdAsync(System.Guid tripId, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EventBookingListByTripIdDataModel>> GetAllEventBookingsByTripIdAsync(System.Guid tripId, System.Threading.CancellationToken cancellationToken)
         {
             if (tripId == null)
                 throw new System.ArgumentNullException("tripId");
@@ -2584,7 +2584,7 @@ namespace Plannr.App.Infrastructure.Services.Base
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<EventBookingListByTripIdViewModel>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<EventBookingListByTripIdDataModel>>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -2617,7 +2617,7 @@ namespace Plannr.App.Infrastructure.Services.Base
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EventListViewModel>> GetAllEventsAsync()
+        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EventListDataModel>> GetAllEventsAsync()
         {
             return GetAllEventsAsync(System.Threading.CancellationToken.None);
         }
@@ -2625,7 +2625,7 @@ namespace Plannr.App.Infrastructure.Services.Base
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EventListViewModel>> GetAllEventsAsync(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EventListDataModel>> GetAllEventsAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Events");
@@ -2662,7 +2662,7 @@ namespace Plannr.App.Infrastructure.Services.Base
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<EventListViewModel>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<EventListDataModel>>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -3011,7 +3011,7 @@ namespace Plannr.App.Infrastructure.Services.Base
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EventListByTripIdViewModel>> GetAllEventsByTripIdAsync(System.Guid tripId)
+        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EventListByTripIdDataModel>> GetAllEventsByTripIdAsync(System.Guid tripId)
         {
             return GetAllEventsByTripIdAsync(tripId, System.Threading.CancellationToken.None);
         }
@@ -3019,7 +3019,7 @@ namespace Plannr.App.Infrastructure.Services.Base
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EventListByTripIdViewModel>> GetAllEventsByTripIdAsync(System.Guid tripId, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EventListByTripIdDataModel>> GetAllEventsByTripIdAsync(System.Guid tripId, System.Threading.CancellationToken cancellationToken)
         {
             if (tripId == null)
                 throw new System.ArgumentNullException("tripId");
@@ -3060,7 +3060,7 @@ namespace Plannr.App.Infrastructure.Services.Base
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<EventListByTripIdViewModel>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<EventListByTripIdDataModel>>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -3093,7 +3093,7 @@ namespace Plannr.App.Infrastructure.Services.Base
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EventListByTripIdWithBookingsViewModel>> GetAllEventsByTripIdWithBookingsAsync(System.Guid tripId)
+        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EventListByTripIdWithBookingsDataModel>> GetAllEventsByTripIdWithBookingsAsync(System.Guid tripId)
         {
             return GetAllEventsByTripIdWithBookingsAsync(tripId, System.Threading.CancellationToken.None);
         }
@@ -3101,7 +3101,7 @@ namespace Plannr.App.Infrastructure.Services.Base
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EventListByTripIdWithBookingsViewModel>> GetAllEventsByTripIdWithBookingsAsync(System.Guid tripId, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EventListByTripIdWithBookingsDataModel>> GetAllEventsByTripIdWithBookingsAsync(System.Guid tripId, System.Threading.CancellationToken cancellationToken)
         {
             if (tripId == null)
                 throw new System.ArgumentNullException("tripId");
@@ -3142,7 +3142,7 @@ namespace Plannr.App.Infrastructure.Services.Base
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<EventListByTripIdWithBookingsViewModel>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<EventListByTripIdWithBookingsDataModel>>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -3175,7 +3175,7 @@ namespace Plannr.App.Infrastructure.Services.Base
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EventListOnDateViewModel>> GetAllEventsOnDateAsync(System.DateTimeOffset date)
+        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EventListOnDateDataModel>> GetAllEventsOnDateAsync(System.DateTimeOffset date)
         {
             return GetAllEventsOnDateAsync(date, System.Threading.CancellationToken.None);
         }
@@ -3183,7 +3183,7 @@ namespace Plannr.App.Infrastructure.Services.Base
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EventListOnDateViewModel>> GetAllEventsOnDateAsync(System.DateTimeOffset date, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EventListOnDateDataModel>> GetAllEventsOnDateAsync(System.DateTimeOffset date, System.Threading.CancellationToken cancellationToken)
         {
             if (date == null)
                 throw new System.ArgumentNullException("date");
@@ -3224,7 +3224,7 @@ namespace Plannr.App.Infrastructure.Services.Base
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<EventListOnDateViewModel>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<EventListOnDateDataModel>>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -3257,7 +3257,7 @@ namespace Plannr.App.Infrastructure.Services.Base
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EventTypeListViewModel>> GetAllEventTypesAsync()
+        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EventTypeListDataModel>> GetAllEventTypesAsync()
         {
             return GetAllEventTypesAsync(System.Threading.CancellationToken.None);
         }
@@ -3265,7 +3265,7 @@ namespace Plannr.App.Infrastructure.Services.Base
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EventTypeListViewModel>> GetAllEventTypesAsync(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EventTypeListDataModel>> GetAllEventTypesAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Event/Types");
@@ -3302,7 +3302,7 @@ namespace Plannr.App.Infrastructure.Services.Base
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<EventTypeListViewModel>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<EventTypeListDataModel>>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -3477,7 +3477,7 @@ namespace Plannr.App.Infrastructure.Services.Base
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<RouteListViewModel>> GetAllRoutesAsync()
+        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<RouteListDataModel>> GetAllRoutesAsync()
         {
             return GetAllRoutesAsync(System.Threading.CancellationToken.None);
         }
@@ -3485,7 +3485,7 @@ namespace Plannr.App.Infrastructure.Services.Base
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<RouteListViewModel>> GetAllRoutesAsync(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<RouteListDataModel>> GetAllRoutesAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Routes");
@@ -3522,7 +3522,7 @@ namespace Plannr.App.Infrastructure.Services.Base
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<RouteListViewModel>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<RouteListDataModel>>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -3871,7 +3871,7 @@ namespace Plannr.App.Infrastructure.Services.Base
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<RouteListOnDateViewModel>> GetAllRouteOnDateAsync(System.DateTimeOffset date)
+        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<RouteListOnDateDataModel>> GetAllRouteOnDateAsync(System.DateTimeOffset date)
         {
             return GetAllRouteOnDateAsync(date, System.Threading.CancellationToken.None);
         }
@@ -3879,7 +3879,7 @@ namespace Plannr.App.Infrastructure.Services.Base
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<RouteListOnDateViewModel>> GetAllRouteOnDateAsync(System.DateTimeOffset date, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<RouteListOnDateDataModel>> GetAllRouteOnDateAsync(System.DateTimeOffset date, System.Threading.CancellationToken cancellationToken)
         {
             if (date == null)
                 throw new System.ArgumentNullException("date");
@@ -3920,7 +3920,7 @@ namespace Plannr.App.Infrastructure.Services.Base
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<RouteListOnDateViewModel>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<RouteListOnDateDataModel>>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -3953,7 +3953,7 @@ namespace Plannr.App.Infrastructure.Services.Base
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TransportListViewModel>> GetAllTransportsAsync()
+        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TransportListDataModel>> GetAllTransportsAsync()
         {
             return GetAllTransportsAsync(System.Threading.CancellationToken.None);
         }
@@ -3961,7 +3961,7 @@ namespace Plannr.App.Infrastructure.Services.Base
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TransportListViewModel>> GetAllTransportsAsync(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TransportListDataModel>> GetAllTransportsAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Transport");
@@ -3998,7 +3998,7 @@ namespace Plannr.App.Infrastructure.Services.Base
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<TransportListViewModel>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<TransportListDataModel>>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -4347,7 +4347,7 @@ namespace Plannr.App.Infrastructure.Services.Base
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TransportListByTripIdViewModel>> GetAllTransportByTripIdAsync(System.Guid tripId)
+        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TransportListByTripIdDataModel>> GetAllTransportByTripIdAsync(System.Guid tripId)
         {
             return GetAllTransportByTripIdAsync(tripId, System.Threading.CancellationToken.None);
         }
@@ -4355,7 +4355,7 @@ namespace Plannr.App.Infrastructure.Services.Base
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TransportListByTripIdViewModel>> GetAllTransportByTripIdAsync(System.Guid tripId, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TransportListByTripIdDataModel>> GetAllTransportByTripIdAsync(System.Guid tripId, System.Threading.CancellationToken cancellationToken)
         {
             if (tripId == null)
                 throw new System.ArgumentNullException("tripId");
@@ -4396,7 +4396,7 @@ namespace Plannr.App.Infrastructure.Services.Base
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<TransportListByTripIdViewModel>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<TransportListByTripIdDataModel>>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -4429,7 +4429,7 @@ namespace Plannr.App.Infrastructure.Services.Base
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TransportListByTripIdWithBookingsViewModel>> GetAllTransportByTripIdWithBookingsAsync(System.Guid tripId)
+        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TransportListByTripIdWithBookingsDataModel>> GetAllTransportByTripIdWithBookingsAsync(System.Guid tripId)
         {
             return GetAllTransportByTripIdWithBookingsAsync(tripId, System.Threading.CancellationToken.None);
         }
@@ -4437,7 +4437,7 @@ namespace Plannr.App.Infrastructure.Services.Base
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TransportListByTripIdWithBookingsViewModel>> GetAllTransportByTripIdWithBookingsAsync(System.Guid tripId, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TransportListByTripIdWithBookingsDataModel>> GetAllTransportByTripIdWithBookingsAsync(System.Guid tripId, System.Threading.CancellationToken cancellationToken)
         {
             if (tripId == null)
                 throw new System.ArgumentNullException("tripId");
@@ -4478,7 +4478,7 @@ namespace Plannr.App.Infrastructure.Services.Base
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<TransportListByTripIdWithBookingsViewModel>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<TransportListByTripIdWithBookingsDataModel>>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -4511,7 +4511,7 @@ namespace Plannr.App.Infrastructure.Services.Base
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TransportListOnDateViewModel>> GetAllTransportOnDateAsync(System.DateTimeOffset date)
+        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TransportListOnDateDataModel>> GetAllTransportOnDateAsync(System.DateTimeOffset date)
         {
             return GetAllTransportOnDateAsync(date, System.Threading.CancellationToken.None);
         }
@@ -4519,7 +4519,7 @@ namespace Plannr.App.Infrastructure.Services.Base
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TransportListOnDateViewModel>> GetAllTransportOnDateAsync(System.DateTimeOffset date, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TransportListOnDateDataModel>> GetAllTransportOnDateAsync(System.DateTimeOffset date, System.Threading.CancellationToken cancellationToken)
         {
             if (date == null)
                 throw new System.ArgumentNullException("date");
@@ -4560,7 +4560,7 @@ namespace Plannr.App.Infrastructure.Services.Base
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<TransportListOnDateViewModel>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<TransportListOnDateDataModel>>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -4593,7 +4593,7 @@ namespace Plannr.App.Infrastructure.Services.Base
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TransportBookingListViewModel>> GetAllTransportBookingsAsync()
+        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TransportBookingListDataModel>> GetAllTransportBookingsAsync()
         {
             return GetAllTransportBookingsAsync(System.Threading.CancellationToken.None);
         }
@@ -4601,7 +4601,7 @@ namespace Plannr.App.Infrastructure.Services.Base
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TransportBookingListViewModel>> GetAllTransportBookingsAsync(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TransportBookingListDataModel>> GetAllTransportBookingsAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Transport/Bookings");
@@ -4638,7 +4638,7 @@ namespace Plannr.App.Infrastructure.Services.Base
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<TransportBookingListViewModel>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<TransportBookingListDataModel>>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -4987,7 +4987,7 @@ namespace Plannr.App.Infrastructure.Services.Base
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TransportBookingListByTripIdViewModel>> GetAllTransportBookingsByTripIdAsync(System.Guid tripId)
+        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TransportBookingListByTripIdDataModel>> GetAllTransportBookingsByTripIdAsync(System.Guid tripId)
         {
             return GetAllTransportBookingsByTripIdAsync(tripId, System.Threading.CancellationToken.None);
         }
@@ -4995,7 +4995,7 @@ namespace Plannr.App.Infrastructure.Services.Base
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TransportBookingListByTripIdViewModel>> GetAllTransportBookingsByTripIdAsync(System.Guid tripId, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TransportBookingListByTripIdDataModel>> GetAllTransportBookingsByTripIdAsync(System.Guid tripId, System.Threading.CancellationToken cancellationToken)
         {
             if (tripId == null)
                 throw new System.ArgumentNullException("tripId");
@@ -5036,7 +5036,7 @@ namespace Plannr.App.Infrastructure.Services.Base
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<TransportBookingListByTripIdViewModel>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<TransportBookingListByTripIdDataModel>>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -5069,7 +5069,7 @@ namespace Plannr.App.Infrastructure.Services.Base
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TransportTypeListViewModel>> GetAllTransportTypesAsync()
+        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TransportTypeListDataModel>> GetAllTransportTypesAsync()
         {
             return GetAllTransportTypesAsync(System.Threading.CancellationToken.None);
         }
@@ -5077,7 +5077,7 @@ namespace Plannr.App.Infrastructure.Services.Base
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TransportTypeListViewModel>> GetAllTransportTypesAsync(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TransportTypeListDataModel>> GetAllTransportTypesAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Transport/Types");
@@ -5114,7 +5114,7 @@ namespace Plannr.App.Infrastructure.Services.Base
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<TransportTypeListViewModel>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<TransportTypeListDataModel>>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -5289,7 +5289,7 @@ namespace Plannr.App.Infrastructure.Services.Base
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TripListViewModel>> GetAllTripsAsync()
+        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TripListDataModel>> GetAllTripsAsync()
         {
             return GetAllTripsAsync(System.Threading.CancellationToken.None);
         }
@@ -5297,7 +5297,7 @@ namespace Plannr.App.Infrastructure.Services.Base
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TripListViewModel>> GetAllTripsAsync(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TripListDataModel>> GetAllTripsAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Trips");
@@ -5334,7 +5334,7 @@ namespace Plannr.App.Infrastructure.Services.Base
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<TripListViewModel>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<TripListDataModel>>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -5683,7 +5683,7 @@ namespace Plannr.App.Infrastructure.Services.Base
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TripListBetweenDatesViewModel>> GetAllTripsBetweenDatesAsync(System.DateTimeOffset start, System.DateTimeOffset end)
+        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TripListBetweenDatesDataModel>> GetAllTripsBetweenDatesAsync(System.DateTimeOffset start, System.DateTimeOffset end)
         {
             return GetAllTripsBetweenDatesAsync(start, end, System.Threading.CancellationToken.None);
         }
@@ -5691,7 +5691,7 @@ namespace Plannr.App.Infrastructure.Services.Base
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TripListBetweenDatesViewModel>> GetAllTripsBetweenDatesAsync(System.DateTimeOffset start, System.DateTimeOffset end, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TripListBetweenDatesDataModel>> GetAllTripsBetweenDatesAsync(System.DateTimeOffset start, System.DateTimeOffset end, System.Threading.CancellationToken cancellationToken)
         {
             if (start == null)
                 throw new System.ArgumentNullException("start");
@@ -5736,7 +5736,7 @@ namespace Plannr.App.Infrastructure.Services.Base
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<TripListBetweenDatesViewModel>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<TripListBetweenDatesDataModel>>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -5769,7 +5769,7 @@ namespace Plannr.App.Infrastructure.Services.Base
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TripListOnDateViewModel>> GetAllTripOnDateAsync(System.DateTimeOffset date)
+        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TripListOnDateDataModel>> GetAllTripOnDateAsync(System.DateTimeOffset date)
         {
             return GetAllTripOnDateAsync(date, System.Threading.CancellationToken.None);
         }
@@ -5777,7 +5777,7 @@ namespace Plannr.App.Infrastructure.Services.Base
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TripListOnDateViewModel>> GetAllTripOnDateAsync(System.DateTimeOffset date, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TripListOnDateDataModel>> GetAllTripOnDateAsync(System.DateTimeOffset date, System.Threading.CancellationToken cancellationToken)
         {
             if (date == null)
                 throw new System.ArgumentNullException("date");
@@ -5818,7 +5818,7 @@ namespace Plannr.App.Infrastructure.Services.Base
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<TripListOnDateViewModel>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<TripListOnDateDataModel>>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -6001,7 +6001,7 @@ namespace Plannr.App.Infrastructure.Services.Base
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.1.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class AccomodationListViewModel
+    public partial class AccomodationListDataModel
     {
         [Newtonsoft.Json.JsonProperty("accomodationId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Guid AccomodationId { get; set; }
@@ -6154,7 +6154,7 @@ namespace Plannr.App.Infrastructure.Services.Base
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.1.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class AccomodationListByTripIdViewModel
+    public partial class AccomodationListByTripIdDataModel
     {
         [Newtonsoft.Json.JsonProperty("accomodationId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Guid AccomodationId { get; set; }
@@ -6214,7 +6214,7 @@ namespace Plannr.App.Infrastructure.Services.Base
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.1.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class AccomodationListByTripIdWithBookingsViewModel
+    public partial class AccomodationListByTripIdWithBookingsDataModel
     {
         [Newtonsoft.Json.JsonProperty("accomodationId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Guid AccomodationId { get; set; }
@@ -6253,7 +6253,7 @@ namespace Plannr.App.Infrastructure.Services.Base
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.1.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class AccomodationListOnDateViewModel
+    public partial class AccomodationListOnDateDataModel
     {
         [Newtonsoft.Json.JsonProperty("accomodationId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Guid AccomodationId { get; set; }
@@ -6286,7 +6286,7 @@ namespace Plannr.App.Infrastructure.Services.Base
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.1.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class AccomodationBookingListViewModel
+    public partial class AccomodationBookingListDataModel
     {
         [Newtonsoft.Json.JsonProperty("bookingId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Guid BookingId { get; set; }
@@ -6370,7 +6370,7 @@ namespace Plannr.App.Infrastructure.Services.Base
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.1.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class AccomodationBookingListByTripIdViewModel
+    public partial class AccomodationBookingListByTripIdDataModel
     {
         [Newtonsoft.Json.JsonProperty("bookingId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Guid BookingId { get; set; }
@@ -6397,7 +6397,7 @@ namespace Plannr.App.Infrastructure.Services.Base
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.1.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class AccomodationTypeListViewModel
+    public partial class AccomodationTypeListDataModel
     {
         [Newtonsoft.Json.JsonProperty("accomodationTypeId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Guid AccomodationTypeId { get; set; }
@@ -6485,7 +6485,7 @@ namespace Plannr.App.Infrastructure.Services.Base
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.1.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class EventBookingListViewModel
+    public partial class EventBookingListDataModel
     {
         [Newtonsoft.Json.JsonProperty("bookingId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Guid BookingId { get; set; }
@@ -6569,7 +6569,7 @@ namespace Plannr.App.Infrastructure.Services.Base
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.1.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class EventBookingListByTripIdViewModel
+    public partial class EventBookingListByTripIdDataModel
     {
         [Newtonsoft.Json.JsonProperty("bookingId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Guid BookingId { get; set; }
@@ -6644,7 +6644,7 @@ namespace Plannr.App.Infrastructure.Services.Base
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.1.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class EventListViewModel
+    public partial class EventListDataModel
     {
         [Newtonsoft.Json.JsonProperty("eventId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Guid EventId { get; set; }
@@ -6800,7 +6800,7 @@ namespace Plannr.App.Infrastructure.Services.Base
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.1.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class EventListByTripIdViewModel
+    public partial class EventListByTripIdDataModel
     {
         [Newtonsoft.Json.JsonProperty("eventId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Guid EventId { get; set; }
@@ -6860,7 +6860,7 @@ namespace Plannr.App.Infrastructure.Services.Base
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.1.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class EventListByTripIdWithBookingsViewModel
+    public partial class EventListByTripIdWithBookingsDataModel
     {
         [Newtonsoft.Json.JsonProperty("eventId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Guid EventId { get; set; }
@@ -6899,7 +6899,7 @@ namespace Plannr.App.Infrastructure.Services.Base
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.1.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class EventListOnDateViewModel
+    public partial class EventListOnDateDataModel
     {
         [Newtonsoft.Json.JsonProperty("eventId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Guid EventId { get; set; }
@@ -6935,7 +6935,7 @@ namespace Plannr.App.Infrastructure.Services.Base
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.1.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class EventTypeListViewModel
+    public partial class EventTypeListDataModel
     {
         [Newtonsoft.Json.JsonProperty("eventTypeId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Guid EventTypeId { get; set; }
@@ -6956,7 +6956,7 @@ namespace Plannr.App.Infrastructure.Services.Base
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.1.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class RouteListViewModel
+    public partial class RouteListDataModel
     {
         [Newtonsoft.Json.JsonProperty("routeId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Guid RouteId { get; set; }
@@ -7058,7 +7058,7 @@ namespace Plannr.App.Infrastructure.Services.Base
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.1.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class RouteListOnDateViewModel
+    public partial class RouteListOnDateDataModel
     {
         [Newtonsoft.Json.JsonProperty("routeId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Guid RouteId { get; set; }
@@ -7133,7 +7133,7 @@ namespace Plannr.App.Infrastructure.Services.Base
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.1.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class TransportListViewModel
+    public partial class TransportListDataModel
     {
         [Newtonsoft.Json.JsonProperty("transportId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Guid TransportId { get; set; }
@@ -7238,7 +7238,7 @@ namespace Plannr.App.Infrastructure.Services.Base
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.1.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class TransportListByTripIdViewModel
+    public partial class TransportListByTripIdDataModel
     {
         [Newtonsoft.Json.JsonProperty("transportId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Guid TransportId { get; set; }
@@ -7301,7 +7301,7 @@ namespace Plannr.App.Infrastructure.Services.Base
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.1.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class TransportListByTripIdWithBookingsViewModel
+    public partial class TransportListByTripIdWithBookingsDataModel
     {
         [Newtonsoft.Json.JsonProperty("transportId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Guid TransportId { get; set; }
@@ -7343,7 +7343,7 @@ namespace Plannr.App.Infrastructure.Services.Base
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.1.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class TransportListOnDateViewModel
+    public partial class TransportListOnDateDataModel
     {
         [Newtonsoft.Json.JsonProperty("transportId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Guid TransportId { get; set; }
@@ -7382,7 +7382,7 @@ namespace Plannr.App.Infrastructure.Services.Base
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.1.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class TransportBookingListViewModel
+    public partial class TransportBookingListDataModel
     {
         [Newtonsoft.Json.JsonProperty("bookingId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Guid BookingId { get; set; }
@@ -7466,7 +7466,7 @@ namespace Plannr.App.Infrastructure.Services.Base
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.1.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class TransportBookingListByTripIdViewModel
+    public partial class TransportBookingListByTripIdDataModel
     {
         [Newtonsoft.Json.JsonProperty("bookingId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Guid BookingId { get; set; }
@@ -7493,7 +7493,7 @@ namespace Plannr.App.Infrastructure.Services.Base
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.1.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class TransportTypeListViewModel
+    public partial class TransportTypeListDataModel
     {
         [Newtonsoft.Json.JsonProperty("transportTypeId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Guid TransportTypeId { get; set; }
@@ -7547,7 +7547,7 @@ namespace Plannr.App.Infrastructure.Services.Base
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.1.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class TripListViewModel
+    public partial class TripListDataModel
     {
         [Newtonsoft.Json.JsonProperty("tripId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Guid TripId { get; set; }
@@ -7628,7 +7628,7 @@ namespace Plannr.App.Infrastructure.Services.Base
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.1.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class TripListBetweenDatesViewModel
+    public partial class TripListBetweenDatesDataModel
     {
         [Newtonsoft.Json.JsonProperty("tripId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Guid TripId { get; set; }
@@ -7652,7 +7652,7 @@ namespace Plannr.App.Infrastructure.Services.Base
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.1.0 (Newtonsoft.Json v12.0.0.0)")]
-    public partial class TripListOnDateViewModel
+    public partial class TripListOnDateDataModel
     {
         [Newtonsoft.Json.JsonProperty("tripId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Guid TripId { get; set; }

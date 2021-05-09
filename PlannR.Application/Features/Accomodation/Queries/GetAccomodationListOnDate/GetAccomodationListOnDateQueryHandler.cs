@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Accomodations.Queries.GetAccomodationListOnDate
 {
-    public class GetAccomodationListOnDateQueryHandler : IRequestHandler<GetAccomodationListOnDateQuery, ICollection<AccomodationListOnDateViewModel>>
+    public class GetAccomodationListOnDateQueryHandler : IRequestHandler<GetAccomodationListOnDateQuery, ICollection<AccomodationListOnDateDataModel>>
     {
         private readonly IMapper _mapper;
         private readonly IAuthorisationService<Accomodation> _authorisationService;
@@ -24,7 +24,7 @@ namespace PlannR.Application.Features.Accomodations.Queries.GetAccomodationListO
             _accomodationRepository = accomodationRepository;
         }
 
-        public async Task<ICollection<AccomodationListOnDateViewModel>> Handle(GetAccomodationListOnDateQuery request, CancellationToken cancellationToken)
+        public async Task<ICollection<AccomodationListOnDateDataModel>> Handle(GetAccomodationListOnDateQuery request, CancellationToken cancellationToken)
         {
             var result = (await _accomodationRepository.GetAllOfTripById(request.TripId))
                 .Where(x => x.StartDateTime <= request.Date && x.EndDateTime >= request.Date)
@@ -32,7 +32,7 @@ namespace PlannR.Application.Features.Accomodations.Queries.GetAccomodationListO
 
             var authorisedResult = _authorisationService.RemoveInAccessibleEntities(result);
 
-            return _mapper.Map<ICollection<AccomodationListOnDateViewModel>>(authorisedResult);
+            return _mapper.Map<ICollection<AccomodationListOnDateDataModel>>(authorisedResult);
         }
     }
 }

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Events.Bookings.Queries.GetEventBookingListByTripId
 {
-    public class GetEventBookingListByTripIdQueryHandler : IRequestHandler<GetEventBookingListByTripIdQuery, ICollection<EventBookingListByTripIdViewModel>>
+    public class GetEventBookingListByTripIdQueryHandler : IRequestHandler<GetEventBookingListByTripIdQuery, ICollection<EventBookingListByTripIdDataModel>>
     {
         private readonly IMapper _mapper;
         private readonly IAuthorisationService<EventBooking> _authorisationService;
@@ -24,7 +24,7 @@ namespace PlannR.Application.Features.Events.Bookings.Queries.GetEventBookingLis
             _eventBookingRepository = eventBookingRepository;
         }
 
-        public async Task<ICollection<EventBookingListByTripIdViewModel>> Handle(
+        public async Task<ICollection<EventBookingListByTripIdDataModel>> Handle(
             GetEventBookingListByTripIdQuery request, CancellationToken cancellationToken)
         {
             var result = (await _eventBookingRepository.ListAllAsync())
@@ -33,7 +33,7 @@ namespace PlannR.Application.Features.Events.Bookings.Queries.GetEventBookingLis
 
             var authorisedResult = _authorisationService.RemoveInAccessibleEntities(result);
 
-            return _mapper.Map<ICollection<EventBookingListByTripIdViewModel>>(authorisedResult);
+            return _mapper.Map<ICollection<EventBookingListByTripIdDataModel>>(authorisedResult);
         }
 
     }

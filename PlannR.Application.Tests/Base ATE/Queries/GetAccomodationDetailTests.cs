@@ -21,7 +21,7 @@ namespace PlannR.Application.Tests.BaseATE.Queries
 
             var result = await handler.Handle(query, CancellationToken.None);
 
-            result.ShouldBeOfType<AccomodationDetailViewModel>();
+            result.ShouldBeOfType<AccomodationDetailDataModel>();
             result.AccomodationId.ShouldBeEquivalentTo(existing.AccomodationId);
 
             result.Location.ShouldNotBeNull();

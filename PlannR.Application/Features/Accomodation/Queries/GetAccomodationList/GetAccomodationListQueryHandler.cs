@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Accomodations.Queries.GetAccomodationsList
 {
-    public class GetAccomodationListQueryHandler : IRequestHandler<GetAccomodationListQuery, ICollection<AccomodationListViewModel>>
+    public class GetAccomodationListQueryHandler : IRequestHandler<GetAccomodationListQuery, ICollection<AccomodationListDataModel>>
     {
         private readonly IMapper _mapper;
         private readonly IAuthorisationService<Accomodation> _authorisationService;
@@ -24,13 +24,13 @@ namespace PlannR.Application.Features.Accomodations.Queries.GetAccomodationsList
             _accomodationRepository = accomodationRepository;
         }
 
-        public async Task<ICollection<AccomodationListViewModel>> Handle(GetAccomodationListQuery request, CancellationToken cancellationToken)
+        public async Task<ICollection<AccomodationListDataModel>> Handle(GetAccomodationListQuery request, CancellationToken cancellationToken)
         {
             var result = (await _accomodationRepository.ListAllAsync()).OrderBy(x => x.StartDateTime).ToList();
 
             var authorisedResult = _authorisationService.RemoveInAccessibleEntities(result);
 
-            return _mapper.Map<ICollection<AccomodationListViewModel>>(authorisedResult);
+            return _mapper.Map<ICollection<AccomodationListDataModel>>(authorisedResult);
         }
     }
 }

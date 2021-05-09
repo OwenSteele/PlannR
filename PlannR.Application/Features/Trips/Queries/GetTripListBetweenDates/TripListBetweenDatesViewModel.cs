@@ -3,7 +3,7 @@ using System;
 
 namespace PlannR.Application.Features.Trips.Queries.GetTripListBetweenDates
 {
-    public class TripListBetweenDatesViewModel
+    public class TripListBetweenDatesDataModel
     {
         public Guid TripId { get; set; }
         public string Name { get; set; }

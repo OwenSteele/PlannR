@@ -24,7 +24,7 @@ namespace PlannR.API.Controllers
 
         [HttpGet(Name = "GetAllEventTypes")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<ActionResult<ICollection<EventTypeListViewModel>>> GetAllEventTypes()
+        public async Task<ActionResult<ICollection<EventTypeListDataModel>>> GetAllEventTypes()
         {
             var result = await _mediator.Send(new GetEventTypeListQuery());
             return Ok(result);
@@ -32,7 +32,7 @@ namespace PlannR.API.Controllers
 
         [HttpGet("{name}", Name = "GetEventTypeByName")]
         [ProducesDefaultResponseType]
-        public async Task<ActionResult<EventTypeByNameViewModel>> GetEventTypeByName(string name)
+        public async Task<ActionResult<EventTypeByNameDataModel>> GetEventTypeByName(string name)
         {
             var query = new GetEventTypeByNameQuery() { Name = name };
             var result = await _mediator.Send(query);

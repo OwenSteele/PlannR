@@ -3,7 +3,7 @@ using System;
 
 namespace PlannR.Application.Features.Trips.Queries.GetTripListOnDate
 {
-    public class TripListOnDateViewModel
+    public class TripListOnDateDataModel
     {
         public Guid TripId { get; set; }
         public string Name { get; set; }

@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace PlannR.Application.Features.Accomodations.Queries.GetAccomodationListByTripIdWithBookings
 {
     public class GetAccomodationListByTripIdWithBookingsQueryHandler
-        : IRequestHandler<GetAccomodationListByTripIdWithBookingsQuery, ICollection<AccomodationListByTripIdWithBookingsViewModel>>
+        : IRequestHandler<GetAccomodationListByTripIdWithBookingsQuery, ICollection<AccomodationListByTripIdWithBookingsDataModel>>
     {
         private readonly IMapper _mapper;
         private readonly IAuthorisationService<Accomodation> _authorisationService;
@@ -25,7 +25,7 @@ namespace PlannR.Application.Features.Accomodations.Queries.GetAccomodationListB
             _accomodationRepository = accomodationRepository;
         }
 
-        public async Task<ICollection<AccomodationListByTripIdWithBookingsViewModel>> Handle(GetAccomodationListByTripIdWithBookingsQuery request, CancellationToken cancellationToken)
+        public async Task<ICollection<AccomodationListByTripIdWithBookingsDataModel>> Handle(GetAccomodationListByTripIdWithBookingsQuery request, CancellationToken cancellationToken)
         {
             var result = (await _accomodationRepository.GetAllOfTripByIdWithBookings(request.TripId))
                 .Where(x => x.TripId == request.TripId)
@@ -33,7 +33,7 @@ namespace PlannR.Application.Features.Accomodations.Queries.GetAccomodationListB
 
             var authorisedResult = _authorisationService.RemoveInAccessibleEntities(result);
 
-            return _mapper.Map<ICollection<AccomodationListByTripIdWithBookingsViewModel>>(authorisedResult);
+            return _mapper.Map<ICollection<AccomodationListByTripIdWithBookingsDataModel>>(authorisedResult);
         }
     }
 }

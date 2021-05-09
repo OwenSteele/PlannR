@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace PlannR.Application.Features.Transports.Bookings.Queries.GetTransportBookingDetail
 {
-    public class TransportBookingDetailViewModel
+    public class TransportBookingDetailDataModel
     {
         public Guid BookingId { get; set; }
         public Guid TransportId { get; set; }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Events.Queries.GetEventsDetail
 {
-    public class GetEventDetailQueryHandler : IRequestHandler<GetEventDetailQuery, EventDetailViewModel>
+    public class GetEventDetailQueryHandler : IRequestHandler<GetEventDetailQuery, EventDetailDataModel>
     {
         private readonly IMapper _mapper;
         private readonly IAuthorisationService<Event> _authorisationService;
@@ -21,14 +21,14 @@ namespace PlannR.Application.Features.Events.Queries.GetEventsDetail
             _repository = repository;
         }
 
-        public async Task<EventDetailViewModel> Handle(GetEventDetailQuery request, CancellationToken cancellationToken)
+        public async Task<EventDetailDataModel> Handle(GetEventDetailQuery request, CancellationToken cancellationToken)
         {
             var result = (await _repository.GetWithRelated(request.Id));
 
 
             if (!_authorisationService.CanAccessEntity(result)) throw new Exceptions.NotAuthorisedException();
 
-            return _mapper.Map<EventDetailViewModel>(result);
+            return _mapper.Map<EventDetailDataModel>(result);
         }
     }
 }

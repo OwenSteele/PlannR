@@ -2,7 +2,7 @@
 
 namespace PlannR.Application.Features.Accomodations.Bookings.Queries.GetAccomodationBookingListByTripId
 {
-    public class AccomodationBookingListByTripIdViewModel
+    public class AccomodationBookingListByTripIdDataModel
     {
         public Guid BookingId { get; set; }
         public Guid AccomodationId { get; set; }

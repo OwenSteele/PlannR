@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Transports.Types.Queries.GetTransportTypeList
 {
-    public class GetTransportTypeListQueryHandler : IRequestHandler<GetTransportTypeListQuery, ICollection<TransportTypeListViewModel>>
+    public class GetTransportTypeListQueryHandler : IRequestHandler<GetTransportTypeListQuery, ICollection<TransportTypeListDataModel>>
     {
         private readonly IMapper _mapper;
         private readonly IAuthorisationService<TransportType> _authorisationService;
@@ -24,13 +24,13 @@ namespace PlannR.Application.Features.Transports.Types.Queries.GetTransportTypeL
             _transportTypeRepository = transportTypeRepository;
         }
 
-        public async Task<ICollection<TransportTypeListViewModel>> Handle(GetTransportTypeListQuery request, CancellationToken cancellationToken)
+        public async Task<ICollection<TransportTypeListDataModel>> Handle(GetTransportTypeListQuery request, CancellationToken cancellationToken)
         {
             var result = (await _transportTypeRepository.ListAllAsync()).OrderBy(x => x.Name).ToList();
 
             var authorisedResult = _authorisationService.RemoveInAccessibleEntities(result);
 
-            return _mapper.Map<ICollection<TransportTypeListViewModel>>(authorisedResult);
+            return _mapper.Map<ICollection<TransportTypeListDataModel>>(authorisedResult);
         }
 
     }

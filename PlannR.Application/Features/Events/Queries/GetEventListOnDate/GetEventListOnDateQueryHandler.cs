@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Events.Queries.GetEventListOnDate
 {
-    public class GetEventListOnDateQueryHandler : IRequestHandler<GetEventListOnDateQuery, ICollection<EventListOnDateViewModel>>
+    public class GetEventListOnDateQueryHandler : IRequestHandler<GetEventListOnDateQuery, ICollection<EventListOnDateDataModel>>
     {
         private readonly IMapper _mapper;
         private readonly IAuthorisationService<Event> _authorisationService;
@@ -24,7 +24,7 @@ namespace PlannR.Application.Features.Events.Queries.GetEventListOnDate
             _eventRepository = eventRepository;
         }
 
-        public async Task<ICollection<EventListOnDateViewModel>> Handle(GetEventListOnDateQuery request, CancellationToken cancellationToken)
+        public async Task<ICollection<EventListOnDateDataModel>> Handle(GetEventListOnDateQuery request, CancellationToken cancellationToken)
         {
             var result = (await _eventRepository.GetAllOfTripById(request.TripId))
                 .Where(x => x.StartDateTime <= request.Date && x.EndDateTime >= request.Date)
@@ -32,7 +32,7 @@ namespace PlannR.Application.Features.Events.Queries.GetEventListOnDate
 
             var authorisedResult = _authorisationService.RemoveInAccessibleEntities(result);
 
-            return _mapper.Map<ICollection<EventListOnDateViewModel>>(authorisedResult);
+            return _mapper.Map<ICollection<EventListOnDateDataModel>>(authorisedResult);
         }
     }
 }

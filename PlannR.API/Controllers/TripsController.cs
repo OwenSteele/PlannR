@@ -29,7 +29,7 @@ namespace PlannR.API.Controllers
 
         [HttpGet(Name = "GetAllTrips")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<ActionResult<ICollection<TripListViewModel>>> GetAllTrips()
+        public async Task<ActionResult<ICollection<TripListDataModel>>> GetAllTrips()
         {
             var result = await _mediator.Send(new GetTripListQuery());
             return Ok(result);
@@ -38,7 +38,7 @@ namespace PlannR.API.Controllers
         [Authorize]
         [HttpGet("{id}", Name = "GetTripById")]
         [ProducesDefaultResponseType]
-        public async Task<ActionResult<TripDetailViewModel>> GetTripById(Guid id)
+        public async Task<ActionResult<TripDetailDataModel>> GetTripById(Guid id)
         {
             var query = new GetTripDetailQuery() { TripId = id };
             var result = await _mediator.Send(query);
@@ -48,7 +48,7 @@ namespace PlannR.API.Controllers
         [HttpGet("{start:DateTime},{end:DateTime}", Name = "GetAllTripsBetweenDates")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesDefaultResponseType]
-        public async Task<ActionResult<ICollection<TripListBetweenDatesViewModel>>> GetAllTripsBetweenDates(DateTime start, DateTime end)
+        public async Task<ActionResult<ICollection<TripListBetweenDatesDataModel>>> GetAllTripsBetweenDates(DateTime start, DateTime end)
         {
             var query = new GetTripListBetweenDatesQuery() { StartDateTime = start, EndDateTime = end };
             var result = await _mediator.Send(query);
@@ -58,7 +58,7 @@ namespace PlannR.API.Controllers
         [HttpGet("{date:DateTime}", Name = "GetAllTripOnDate")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesDefaultResponseType]
-        public async Task<ActionResult<ICollection<TripListOnDateViewModel>>> GetAllTripOnDate(DateTime date)
+        public async Task<ActionResult<ICollection<TripListOnDateDataModel>>> GetAllTripOnDate(DateTime date)
         {
             var query = new GetTripListOnDateQuery() { DateTime = date };
             var result = await _mediator.Send(query);

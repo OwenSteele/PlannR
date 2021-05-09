@@ -27,7 +27,7 @@ namespace PlannR.API.Controllers
 
         [HttpGet(Name = "GetAllRoutes")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<ActionResult<ICollection<RouteListViewModel>>> GetAllRoutes()
+        public async Task<ActionResult<ICollection<RouteListDataModel>>> GetAllRoutes()
         {
             var result = await _mediator.Send(new GetRouteListQuery());
             return Ok(result);
@@ -36,7 +36,7 @@ namespace PlannR.API.Controllers
         [Authorize]
         [HttpGet("{id}", Name = "GetRouteById")]
         [ProducesDefaultResponseType]
-        public async Task<ActionResult<RouteDetailViewModel>> GetRouteById(Guid id)
+        public async Task<ActionResult<RouteDetailDataModel>> GetRouteById(Guid id)
         {
             var query = new GetRouteDetailQuery() { RouteId = id };
             var result = await _mediator.Send(query);
@@ -46,7 +46,7 @@ namespace PlannR.API.Controllers
         [HttpGet("{date:DateTime}", Name = "GetAllRouteOnDate")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesDefaultResponseType]
-        public async Task<ActionResult<ICollection<RouteListOnDateViewModel>>> GetAllRouteOnDate(DateTime date)
+        public async Task<ActionResult<ICollection<RouteListOnDateDataModel>>> GetAllRouteOnDate(DateTime date)
         {
             var query = new GetRouteListOnDateQuery() { Date = date };
             var result = await _mediator.Send(query);

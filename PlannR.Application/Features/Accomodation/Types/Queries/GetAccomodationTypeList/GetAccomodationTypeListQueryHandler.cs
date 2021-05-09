@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Accomodations.Types.Queries.GetAccomodationTypeList
 {
-    public class GetAccomodationTypeListQueryHandler : IRequestHandler<GetAccomodationTypeListQuery, ICollection<AccomodationTypeListViewModel>>
+    public class GetAccomodationTypeListQueryHandler : IRequestHandler<GetAccomodationTypeListQuery, ICollection<AccomodationTypeListDataModel>>
     {
         private readonly IMapper _mapper;
         private readonly IAuthorisationService<AccomodationType> _authorisationService;
@@ -24,13 +24,13 @@ namespace PlannR.Application.Features.Accomodations.Types.Queries.GetAccomodatio
             _accomodationTypeRepository = accomodationTypeRepository;
         }
 
-        public async Task<ICollection<AccomodationTypeListViewModel>> Handle(GetAccomodationTypeListQuery request, CancellationToken cancellationToken)
+        public async Task<ICollection<AccomodationTypeListDataModel>> Handle(GetAccomodationTypeListQuery request, CancellationToken cancellationToken)
         {
             var result = (await _accomodationTypeRepository.ListAllAsync()).OrderBy(x => x.Name).ToList();
 
             var authorisedResult = _authorisationService.RemoveInAccessibleEntities(result);
 
-            return _mapper.Map<ICollection<AccomodationTypeListViewModel>>(authorisedResult);
+            return _mapper.Map<ICollection<AccomodationTypeListDataModel>>(authorisedResult);
         }
 
     }

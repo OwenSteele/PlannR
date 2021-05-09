@@ -2,7 +2,7 @@
 
 namespace PlannR.Application.Features.Transports.Types.Queries.GetTransportTypeByName
 {
-    public class TransportTypeByNameViewModel
+    public class TransportTypeByNameDataModel
     {
         public Guid TransportTypeId { get; set; }
         public string Name { get; set; }

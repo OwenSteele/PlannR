@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Trips.Queries.GetTripListOnDate
 {
-    public class GetTripListOnDateQueryHandler : IRequestHandler<GetTripListOnDateQuery, ICollection<TripListOnDateViewModel>>
+    public class GetTripListOnDateQueryHandler : IRequestHandler<GetTripListOnDateQuery, ICollection<TripListOnDateDataModel>>
     {
         private readonly IMapper _mapper;
         private readonly IAuthorisationService<Trip> _authorisationService;
@@ -24,14 +24,14 @@ namespace PlannR.Application.Features.Trips.Queries.GetTripListOnDate
             _tripRepository = tripRepository;
         }
 
-        public async Task<ICollection<TripListOnDateViewModel>> Handle(GetTripListOnDateQuery request, CancellationToken cancellationToken)
+        public async Task<ICollection<TripListOnDateDataModel>> Handle(GetTripListOnDateQuery request, CancellationToken cancellationToken)
         {
             var result = (await _tripRepository.GetAllTripsOnTheseDateTimes(request.DateTime, request.DateTime))
                 .OrderBy(x => x.Name).ToList();
 
             var authorisedResult = _authorisationService.RemoveInAccessibleEntities(result);
 
-            return _mapper.Map<ICollection<TripListOnDateViewModel>>(authorisedResult);
+            return _mapper.Map<ICollection<TripListOnDateDataModel>>(authorisedResult);
         }
     }
 }

@@ -29,9 +29,9 @@
 
 //            var message = await response.Content.ReadAsStringAsync();
 
-//            var model = JsonConvert.DeserializeObject<ICollection<TripListOnDateViewModel>>(message);
+//            var model = JsonConvert.DeserializeObject<ICollection<TripListOnDateDataModel>>(message);
 
-//            Assert.IsType<List<TripListOnDateViewModel>>(model);
+//            Assert.IsType<List<TripListOnDateDataModel>>(model);
 //            Assert.NotEmpty(model);
 //            Assert.InRange(DateTime.Parse(dateString),
 //                model.FirstOrDefault().StartDateTime,

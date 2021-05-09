@@ -21,7 +21,7 @@ namespace PlannR.Application.Tests.BaseRoute.Queries
 
             var result = await handler.Handle(query, CancellationToken.None);
 
-            result.ShouldBeOfType<RouteDetailViewModel>();
+            result.ShouldBeOfType<RouteDetailDataModel>();
             result.RouteId.ShouldBeEquivalentTo(existing.RouteId);
 
             result.Trip.ShouldNotBeNull();

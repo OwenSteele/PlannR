@@ -29,7 +29,7 @@ namespace PlannR.API.Controllers
 
         [HttpGet(Name = "GetAllTransports")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<ActionResult<ICollection<TransportListViewModel>>> GetAllTransports()
+        public async Task<ActionResult<ICollection<TransportListDataModel>>> GetAllTransports()
         {
             var result = await _mediator.Send(new GetTransportListQuery());
             return Ok(result);
@@ -38,7 +38,7 @@ namespace PlannR.API.Controllers
         [Authorize]
         [HttpGet("{id}", Name = "GetTransportById")]
         [ProducesDefaultResponseType]
-        public async Task<ActionResult<TransportDetailViewModel>> GetTransportById(Guid id)
+        public async Task<ActionResult<TransportDetailDataModel>> GetTransportById(Guid id)
         {
             var query = new GetTransportDetailQuery() { Id = id };
             var result = await _mediator.Send(query);
@@ -49,7 +49,7 @@ namespace PlannR.API.Controllers
         [HttpGet("trip/{tripId}", Name = "GetAllTransportByTripId")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesDefaultResponseType]
-        public async Task<ActionResult<ICollection<TransportListByTripIdViewModel>>> GetAllTransportByTripId(Guid tripId)
+        public async Task<ActionResult<ICollection<TransportListByTripIdDataModel>>> GetAllTransportByTripId(Guid tripId)
         {
             var query = new GetTransportListByTripIdQuery() { TripId = tripId };
             var result = await _mediator.Send(query);
@@ -60,7 +60,7 @@ namespace PlannR.API.Controllers
         [HttpGet("trip/{tripId}/Bookings", Name = "GetAllTransportByTripIdWithBookings")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesDefaultResponseType]
-        public async Task<ActionResult<ICollection<TransportListByTripIdWithBookingsViewModel>>> GetAllTransportByTripIdWithBookings(Guid tripId)
+        public async Task<ActionResult<ICollection<TransportListByTripIdWithBookingsDataModel>>> GetAllTransportByTripIdWithBookings(Guid tripId)
         {
             var query = new GetTransportListByTripIdWithBookingsQuery() { TripId = tripId };
             var result = await _mediator.Send(query);
@@ -70,7 +70,7 @@ namespace PlannR.API.Controllers
         [HttpGet("{date:DateTime}", Name = "GetAllTransportOnDate")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesDefaultResponseType]
-        public async Task<ActionResult<ICollection<TransportListOnDateViewModel>>> GetAllTransportOnDate(DateTime date)
+        public async Task<ActionResult<ICollection<TransportListOnDateDataModel>>> GetAllTransportOnDate(DateTime date)
         {
             var query = new GetTransportListOnDateQuery() { Date = date };
             var result = await _mediator.Send(query);

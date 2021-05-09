@@ -21,7 +21,7 @@ namespace PlannR.Application.Tests.BaseTrip.Queries
 
             var result = await handler.Handle(query, CancellationToken.None);
 
-            result.ShouldBeOfType<TripDetailViewModel>();
+            result.ShouldBeOfType<TripDetailDataModel>();
             result.TripId.ShouldBeEquivalentTo(existing.TripId);
         }
 

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Routes.Queries.GetRoutesList
 {
-    public class GetRouteListQueryHandler : IRequestHandler<GetRouteListQuery, ICollection<RouteListViewModel>>
+    public class GetRouteListQueryHandler : IRequestHandler<GetRouteListQuery, ICollection<RouteListDataModel>>
     {
         private readonly IMapper _mapper;
         private readonly IAuthorisationService<Route> _authorisationService;
@@ -24,13 +24,13 @@ namespace PlannR.Application.Features.Routes.Queries.GetRoutesList
             _accomodationRepository = accomodationRepository;
         }
 
-        public async Task<ICollection<RouteListViewModel>> Handle(GetRouteListQuery request, CancellationToken cancellationToken)
+        public async Task<ICollection<RouteListDataModel>> Handle(GetRouteListQuery request, CancellationToken cancellationToken)
         {
             var result = (await _accomodationRepository.ListAllAsync()).OrderBy(x => x.StartDateTime).ToList();
 
             var authorisedResult = _authorisationService.RemoveInAccessibleEntities(result);
 
-            return _mapper.Map<ICollection<RouteListViewModel>>(authorisedResult);
+            return _mapper.Map<ICollection<RouteListDataModel>>(authorisedResult);
         }
     }
 }

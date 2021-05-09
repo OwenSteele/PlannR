@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Trips.Queries.GetTripsDetail
 {
-    public class GetTripDetailQueryHandler : IRequestHandler<GetTripDetailQuery, TripDetailViewModel>
+    public class GetTripDetailQueryHandler : IRequestHandler<GetTripDetailQuery, TripDetailDataModel>
     {
         private readonly IMapper _mapper;
         private readonly IAuthorisationService<Trip> _authorisationService;
@@ -22,14 +22,14 @@ namespace PlannR.Application.Features.Trips.Queries.GetTripsDetail
             _repository = repository;
         }
 
-        public async Task<TripDetailViewModel> Handle(GetTripDetailQuery request, CancellationToken cancellationToken)
+        public async Task<TripDetailDataModel> Handle(GetTripDetailQuery request, CancellationToken cancellationToken)
         {
             var result = (await _repository.GetByIdAsync(request.TripId));
 
 
             if (!_authorisationService.CanAccessEntity(result)) throw new Exceptions.NotAuthorisedException();
 
-            return _mapper.Map<TripDetailViewModel>(result);
+            return _mapper.Map<TripDetailDataModel>(result);
         }
     }
 }

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Trips.Queries.GetTripListBetweenDates
 {
-    public class GetTripListBetweenDatesQueryHandler : IRequestHandler<GetTripListBetweenDatesQuery, ICollection<TripListBetweenDatesViewModel>>
+    public class GetTripListBetweenDatesQueryHandler : IRequestHandler<GetTripListBetweenDatesQuery, ICollection<TripListBetweenDatesDataModel>>
     {
         private readonly IMapper _mapper;
         private readonly IAuthorisationService<Trip> _authorisationService;
@@ -24,14 +24,14 @@ namespace PlannR.Application.Features.Trips.Queries.GetTripListBetweenDates
             _tripRepository = tripRepository;
         }
 
-        public async Task<ICollection<TripListBetweenDatesViewModel>> Handle(GetTripListBetweenDatesQuery request, CancellationToken cancellationToken)
+        public async Task<ICollection<TripListBetweenDatesDataModel>> Handle(GetTripListBetweenDatesQuery request, CancellationToken cancellationToken)
         {
             var result = (await _tripRepository.GetAllTripsOnTheseDateTimes(request.StartDateTime, request.EndDateTime))
                 .OrderBy(x => x.Name).ToList();
 
             var authorisedResult = _authorisationService.RemoveInAccessibleEntities(result);
 
-            return _mapper.Map<ICollection<TripListBetweenDatesViewModel>>(authorisedResult);
+            return _mapper.Map<ICollection<TripListBetweenDatesDataModel>>(authorisedResult);
         }
     }
 }

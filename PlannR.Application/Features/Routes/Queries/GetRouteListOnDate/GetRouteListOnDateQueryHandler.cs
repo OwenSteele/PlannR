@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Routes.Queries.GetRouteListOnDate
 {
-    public class GetRouteListOnDateQueryHandler : IRequestHandler<GetRouteListOnDateQuery, ICollection<RouteListOnDateViewModel>>
+    public class GetRouteListOnDateQueryHandler : IRequestHandler<GetRouteListOnDateQuery, ICollection<RouteListOnDateDataModel>>
     {
         private readonly IMapper _mapper;
         private readonly IAuthorisationService<Route> _authorisationService;
@@ -24,7 +24,7 @@ namespace PlannR.Application.Features.Routes.Queries.GetRouteListOnDate
             _accomodationRepository = accomodationRepository;
         }
 
-        public async Task<ICollection<RouteListOnDateViewModel>> Handle(GetRouteListOnDateQuery request, CancellationToken cancellationToken)
+        public async Task<ICollection<RouteListOnDateDataModel>> Handle(GetRouteListOnDateQuery request, CancellationToken cancellationToken)
         {
             var result = (await _accomodationRepository.GetAllRoutesOnDate(request.Date))
                 .Where(x => x.TripId == request.TripId)
@@ -32,7 +32,7 @@ namespace PlannR.Application.Features.Routes.Queries.GetRouteListOnDate
 
             var authorisedResult = _authorisationService.RemoveInAccessibleEntities(result);
 
-            return _mapper.Map<ICollection<RouteListOnDateViewModel>>(authorisedResult);
+            return _mapper.Map<ICollection<RouteListOnDateDataModel>>(authorisedResult);
         }
     }
 }

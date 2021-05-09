@@ -2,7 +2,7 @@
 
 namespace PlannR.Application.Features.Transports.Bookings.Queries.GetTransportBookingListByTripId
 {
-    public class TransportBookingListByTripIdViewModel
+    public class TransportBookingListByTripIdDataModel
     {
         public Guid BookingId { get; set; }
         public Guid TransportId { get; set; }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace PlannR.Application.Features.Routes.Queries.GetRouteDetail
 {
-    public class RouteDetailViewModel
+    public class RouteDetailDataModel
     {
         public Guid RouteId { get; set; }
         public RouteTripDto Trip { get; set; }

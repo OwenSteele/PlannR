@@ -3,7 +3,7 @@ using System;
 
 namespace PlannR.Application.Features.Events.Queries.GetEventsDetail
 {
-    public class EventDetailViewModel
+    public class EventDetailDataModel
     {
         public Guid EventId { get; set; }
         public EventTripDto Trip { get; set; }

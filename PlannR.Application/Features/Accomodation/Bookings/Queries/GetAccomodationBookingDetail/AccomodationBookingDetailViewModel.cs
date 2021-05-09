@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace PlannR.Application.Features.Accomodations.Bookings.Queries.GetAccomodationBookingDetail
 {
-    public class AccomodationBookingDetailViewModel
+    public class AccomodationBookingDetailDataModel
     {
         public Guid BookingId { get; set; }
         public Guid AccomodationId { get; set; }

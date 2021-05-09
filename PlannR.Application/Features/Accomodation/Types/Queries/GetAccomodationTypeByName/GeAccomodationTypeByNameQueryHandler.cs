@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Accomodations.Types.Queries.GetAccomodationTypeByName
 {
-    public class GetAccomodationTypeByNameQueryHandler : IRequestHandler<GetAccomodationTypeByNameQuery, AccomodationTypeByNameViewModel>
+    public class GetAccomodationTypeByNameQueryHandler : IRequestHandler<GetAccomodationTypeByNameQuery, AccomodationTypeByNameDataModel>
     {
         private readonly IMapper _mapper;
         private readonly IAuthorisationService<AccomodationType> _authorisationService;
@@ -23,7 +23,7 @@ namespace PlannR.Application.Features.Accomodations.Types.Queries.GetAccomodatio
             _accomodationTypeRepository = accomodationTypeRepository;
         }
 
-        public async Task<AccomodationTypeByNameViewModel> Handle(GetAccomodationTypeByNameQuery request, CancellationToken cancellationToken)
+        public async Task<AccomodationTypeByNameDataModel> Handle(GetAccomodationTypeByNameQuery request, CancellationToken cancellationToken)
         {
             var result = (await _accomodationTypeRepository.ListAllAsync())
                 .Where(x => x.Name == request.Name).FirstOrDefault();
@@ -31,7 +31,7 @@ namespace PlannR.Application.Features.Accomodations.Types.Queries.GetAccomodatio
 
             if (!_authorisationService.CanAccessEntity(result)) throw new Exceptions.NotAuthorisedException();
 
-            return _mapper.Map<AccomodationTypeByNameViewModel>(result);
+            return _mapper.Map<AccomodationTypeByNameDataModel>(result);
         }
     }
 }

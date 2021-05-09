@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Events.Bookings.Queries.GetEventBookingDetail
 {
-    public class GetEventBookingDetailQueryHandler : IRequestHandler<GetEventBookingDetailQuery, EventBookingDetailViewModel>
+    public class GetEventBookingDetailQueryHandler : IRequestHandler<GetEventBookingDetailQuery, EventBookingDetailDataModel>
     {
         private readonly IMapper _mapper;
         private readonly IAuthorisationService<EventBooking> _authorisationService;
@@ -22,14 +22,14 @@ namespace PlannR.Application.Features.Events.Bookings.Queries.GetEventBookingDet
             _eventBookingRepository = eventBookingRepository;
         }
 
-        public async Task<EventBookingDetailViewModel> Handle(GetEventBookingDetailQuery request, CancellationToken cancellationToken)
+        public async Task<EventBookingDetailDataModel> Handle(GetEventBookingDetailQuery request, CancellationToken cancellationToken)
         {
             var result = (await _eventBookingRepository.GetByIdAsync(request.Id));
 
 
             if (!_authorisationService.CanAccessEntity(result)) throw new Exceptions.NotAuthorisedException();
 
-            return _mapper.Map<EventBookingDetailViewModel>(result);
+            return _mapper.Map<EventBookingDetailDataModel>(result);
         }
     }
 }

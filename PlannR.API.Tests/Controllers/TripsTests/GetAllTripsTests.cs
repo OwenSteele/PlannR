@@ -24,9 +24,9 @@
 
 //            var message = await response.Content.ReadAsStringAsync();
 
-//            var model = JsonConvert.DeserializeObject<ICollection<TripListViewModel>>(message);
+//            var model = JsonConvert.DeserializeObject<ICollection<TripListDataModel>>(message);
 
-//            Assert.IsType<List<TripListViewModel>>(model);
+//            Assert.IsType<List<TripListDataModel>>(model);
 //            Assert.NotEmpty(model);
 //        }
 //    }
