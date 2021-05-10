@@ -87,8 +87,6 @@ namespace PlannR.App.Infrastructure.Services
         {
             try
             {
-                var response = new ApiResponse<AccomodationDto>();
-
                 var commandModel = _mapper.Map<UpdateAccomodationCommand>(viewModel);
 
                 await _client.UpdateAccomodationAsync(commandModel);

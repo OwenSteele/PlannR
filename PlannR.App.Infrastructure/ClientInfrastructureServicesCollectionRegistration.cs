@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.Extensions.DependencyInjection;
+using PlannR.App.Infrastructure.Authentication;
 using PlannR.App.Infrastructure.Contracts;
 using PlannR.App.Infrastructure.Services;
 using PlannR.App.Infrastructure.Services.Base;
-using PlannR.App.Infrastructure.Authentication;
 using System;
 using System.Net.Http;
 

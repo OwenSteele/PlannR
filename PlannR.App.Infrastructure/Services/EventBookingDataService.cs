@@ -75,8 +75,6 @@ namespace PlannR.App.Infrastructure.Services
         {
             try
             {
-                var response = new ApiResponse<EventBookingDto>();
-
                 var commandModel = _mapper.Map<UpdateEventBookingCommand>(viewModel);
 
                 await _client.UpdateEventBookingAsync(commandModel);

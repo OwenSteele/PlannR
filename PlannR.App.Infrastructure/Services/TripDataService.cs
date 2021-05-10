@@ -19,37 +19,79 @@ namespace PlannR.App.Infrastructure.Services
 
         public async Task<ApiResponse<Guid>> CreateAsync(TripDetailViewModel viewModel)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var response = new ApiResponse<Guid>();
+
+                var commandModel = _mapper.Map<CreateTripCommand>(viewModel);
+
+                var result = await _client.AddTripAsync(commandModel);
+
+                if (result.GetType() == typeof(Guid))
+                {
+                    response.Successful = true;
+                }
+                return response;
+            }
+            catch (ApiException ex)
+            {
+                return ConvertApiErrors<Guid>(ex);
+            }
         }
 
-        public async Task<ApiResponse<Guid>> DeleteAsync(Guid bookingId)
+        public async Task<ApiResponse<Guid>> DeleteAsync(Guid id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                await _client.DeleteTripAsync(id);
+
+                return new ApiResponse<Guid> { Successful = true };
+            }
+            catch (ApiException ex)
+            {
+                return ConvertApiErrors<Guid>(ex);
+            }
         }
 
         public async Task<ICollection<TripListViewModel>> GetAllTripsAsync()
         {
-            throw new NotImplementedException();
+            var result = await _client.GetAllTripsAsync();
+            return _mapper.Map<ICollection<TripListViewModel>>(result);
         }
 
         public async Task<ICollection<TripListBetweenDatesViewModel>> GetAllTripsBetweenDatesAsync(DateTime start, DateTime end)
         {
-            throw new NotImplementedException();
+            var result = await _client.GetAllTripsBetweenDatesAsync(start, end);
+            return _mapper.Map<ICollection<TripListBetweenDatesViewModel>>(result);
         }
 
         public async Task<ICollection<TripListOnDateViewModel>> GetAllTripsOnDateAsync(DateTime date)
         {
-            throw new NotImplementedException();
+            var result = await _client.GetAllTripOnDateAsync(date);
+            return _mapper.Map<ICollection<TripListOnDateViewModel>>(result);
         }
 
         public async Task<TripDetailViewModel> GetTripByIdAsync(Guid id)
         {
-            throw new NotImplementedException();
+            var result = await _client.GetTripByIdAsync(id);
+            return _mapper.Map<TripDetailViewModel>(result);
         }
 
         public async Task<ApiResponse<Guid>> UpdateAsync(TripDetailViewModel viewModel)
         {
-            throw new NotImplementedException();
+            try
+            {
+
+                var commandModel = _mapper.Map<UpdateTripCommand>(viewModel);
+
+                await _client.UpdateTripAsync(commandModel);
+
+                return new ApiResponse<Guid> { Successful = true };
+            }
+            catch (ApiException ex)
+            {
+                return ConvertApiErrors<Guid>(ex);
+            }
         }
     }
 }

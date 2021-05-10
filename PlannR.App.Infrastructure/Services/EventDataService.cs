@@ -87,8 +87,6 @@ namespace PlannR.App.Infrastructure.Services
         {
             try
             {
-                var response = new ApiResponse<EventDto>();
-
                 var commandModel = _mapper.Map<UpdateEventCommand>(viewModel);
 
                 await _client.UpdateEventAsync(commandModel);

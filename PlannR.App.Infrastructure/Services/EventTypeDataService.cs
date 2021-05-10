@@ -17,7 +17,7 @@ namespace PlannR.App.Infrastructure.Services
             _mapper = mapper;
         }
 
-         public async Task<ApiResponse<Guid>> CreateAsync(EventTypeOfNameViewModel viewModel)
+        public async Task<ApiResponse<Guid>> CreateAsync(EventTypeOfNameViewModel viewModel)
         {
             try
             {
@@ -39,13 +39,13 @@ namespace PlannR.App.Infrastructure.Services
             }
         }
 
-         public async Task<ICollection<EventTypeListViewModel>> GetAllTypesAsync()
+        public async Task<ICollection<EventTypeListViewModel>> GetAllTypesAsync()
         {
             var result = await _client.GetAllEventTypesAsync();
             return _mapper.Map<ICollection<EventTypeListViewModel>>(result);
         }
 
-         public async Task<EventTypeOfNameViewModel> GetTypeByNameAsync(string name)
+        public async Task<EventTypeOfNameViewModel> GetTypeByNameAsync(string name)
         {
             var result = await _client.GetEventTypeByNameAsync(name);
             return _mapper.Map<EventTypeOfNameViewModel>(result);

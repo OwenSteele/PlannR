@@ -75,8 +75,6 @@ namespace PlannR.App.Infrastructure.Services
         {
             try
             {
-                var response = new ApiResponse<TransportBookingDto>();
-
                 var commandModel = _mapper.Map<UpdateTransportBookingCommand>(viewModel);
 
                 await _client.UpdateTransportBookingAsync(commandModel);

@@ -18,7 +18,7 @@ namespace PlannR.App.Infrastructure.Services
             _mapper = mapper;
         }
 
-         public async Task<ApiResponse<Guid>> CreateAsync(TransportTypeOfNameViewModel viewModel)
+        public async Task<ApiResponse<Guid>> CreateAsync(TransportTypeOfNameViewModel viewModel)
         {
             try
             {
@@ -40,13 +40,13 @@ namespace PlannR.App.Infrastructure.Services
             }
         }
 
-         public async Task<ICollection<TransportTypeListViewModel>> GetAllTypesAsync()
+        public async Task<ICollection<TransportTypeListViewModel>> GetAllTypesAsync()
         {
             var result = await _client.GetAllTransportTypesAsync();
             return _mapper.Map<ICollection<TransportTypeListViewModel>>(result);
         }
 
-         public async Task<TransportTypeOfNameViewModel> GetTypeByNameAsync(string name)
+        public async Task<TransportTypeOfNameViewModel> GetTypeByNameAsync(string name)
         {
             var result = await _client.GetTransportTypeByNameAsync(name);
             return _mapper.Map<TransportTypeOfNameViewModel>(result);

@@ -29,7 +29,7 @@ namespace PlannR.App.Infrastructure.Services
 
                 if (result.GetType() == typeof(Guid))
                 {
-                    response.Successful = true;                    
+                    response.Successful = true;
                 }
                 return response;
             }
@@ -75,8 +75,6 @@ namespace PlannR.App.Infrastructure.Services
         {
             try
             {
-                var response = new ApiResponse<AccomodationBookingDto>();
-
                 var commandModel = _mapper.Map<UpdateAccomodationBookingCommand>(viewModel);
 
                 await _client.UpdateAccomodationBookingAsync(commandModel);

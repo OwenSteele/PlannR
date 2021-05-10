@@ -81,8 +81,6 @@ namespace PlannR.App.Infrastructure.Services
         {
             try
             {
-                var response = new ApiResponse<RouteDto>();
-
                 var commandModel = _mapper.Map<UpdateRouteCommand>(viewModel);
 
                 await _client.UpdateRouteAsync(commandModel);

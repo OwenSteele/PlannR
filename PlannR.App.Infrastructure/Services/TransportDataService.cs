@@ -87,8 +87,6 @@ namespace PlannR.App.Infrastructure.Services
         {
             try
             {
-                var response = new ApiResponse<TransportDto>();
-
                 var commandModel = _mapper.Map<UpdateTransportCommand>(viewModel);
 
                 await _client.UpdateTransportAsync(commandModel);
