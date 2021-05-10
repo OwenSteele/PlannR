@@ -1,6 +1,6 @@
 using System;
 
-namespace Plannr.App.Infrastructure.ViewModels.Event.Types
+namespace PlannR.App.Infrastructure.ViewModels.Event.Types
 {
     public class EventTypeListViewModel
     {

@@ -1,6 +1,6 @@
 using System;
 
-namespace Plannr.App.Infrastructure.ViewModels.Transport.Bookings
+namespace PlannR.App.Infrastructure.ViewModels.Transport.Bookings
 {
     public class TransportBookingListViewModel
     {

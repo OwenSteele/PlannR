@@ -1,9 +1,9 @@
-using Plannr.App.Infrastructure.ViewModels.Nested;
+using PlannR.App.Infrastructure.ViewModels.Nested;
 using System;
 using System.Collections.Generic;
 using System.IO;
 
-namespace Plannr.App.Infrastructure.ViewModels.Accomodation.Bookings
+namespace PlannR.App.Infrastructure.ViewModels.Accomodation.Bookings
 {
     public class AccomodationBookingDetailViewModel
     {

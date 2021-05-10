@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Plannr.App.Infrastructure.ViewModels.Nested
+namespace PlannR.App.Infrastructure.ViewModels.Nested
 {
     public class LocationNestedViewModel
     {

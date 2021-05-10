@@ -1,6 +1,6 @@
 using System;
 
-namespace Plannr.App.Infrastructure.ViewModels.Event.Bookings
+namespace PlannR.App.Infrastructure.ViewModels.Event.Bookings
 {
     public class EventBookingOfTripListViewModel
     {

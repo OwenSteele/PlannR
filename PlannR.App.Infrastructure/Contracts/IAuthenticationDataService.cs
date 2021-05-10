@@ -1,7 +1,7 @@
-﻿using Plannr.App.Infrastructure.ViewModels.Account;
+﻿using PlannR.App.Infrastructure.ViewModels.Account;
 using System.Threading.Tasks;
 
-namespace Plannr.App.Infrastructure.Contracts
+namespace PlannR.App.Infrastructure.Contracts
 {
     public interface IAuthenticationDataService
     {

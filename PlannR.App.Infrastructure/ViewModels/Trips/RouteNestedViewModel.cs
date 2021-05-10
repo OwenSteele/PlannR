@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Plannr.App.Infrastructure.ViewModels.Trips
+namespace PlannR.App.Infrastructure.ViewModels.Trips
 {
     public class RouteNestedViewModel
     {

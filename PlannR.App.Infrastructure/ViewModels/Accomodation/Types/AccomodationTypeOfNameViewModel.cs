@@ -1,6 +1,6 @@
 using System;
 
-namespace Plannr.App.Infrastructure.ViewModels.Accomodation.Types
+namespace PlannR.App.Infrastructure.ViewModels.Accomodation.Types
 {
     public class AccomodationTypeOfNameViewModel
     {

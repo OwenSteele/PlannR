@@ -1,4 +1,4 @@
-﻿namespace Plannr.App.Infrastructure.Services.Base
+﻿namespace PlannR.App.Infrastructure.Services.Base
 {
     public class ApiResponse<T>
     {

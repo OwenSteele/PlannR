@@ -13,7 +13,7 @@
 
 using Newtonsoft.Json;
 
-namespace Plannr.App.Infrastructure.Services.Base
+namespace PlannR.App.Infrastructure.Services.Base
 {
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.10.9.0 (NJsonSchema v10.4.1.0 (Newtonsoft.Json v12.0.0.0))")]
     public partial interface IClient

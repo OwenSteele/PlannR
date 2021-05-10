@@ -1,11 +1,11 @@
-﻿using Plannr.App.Infrastructure.ViewModels.Nested;
+﻿using PlannR.App.Infrastructure.ViewModels.Nested;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Plannr.App.Infrastructure.ViewModels.Routes
+namespace PlannR.App.Infrastructure.ViewModels.Routes
 {
     public class RoutePointNestedViewModel
     {

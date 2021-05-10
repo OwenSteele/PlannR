@@ -1,10 +1,10 @@
-﻿using Plannr.App.Infrastructure.Contracts.Base;
-using Plannr.App.Infrastructure.Services.Base;
-using Plannr.App.Infrastructure.ViewModels.Event.Bookings;
+﻿using PlannR.App.Infrastructure.Contracts.Base;
+using PlannR.App.Infrastructure.Services.Base;
+using PlannR.App.Infrastructure.ViewModels.Event.Bookings;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-namespace Plannr.App.Infrastructure.Contracts
+namespace PlannR.App.Infrastructure.Contracts
 {
     public interface IEventBookingDataService : IBaseDataService<EventBookingDetailViewModel>
     {

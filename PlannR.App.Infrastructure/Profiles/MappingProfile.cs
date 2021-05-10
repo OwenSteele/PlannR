@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 
-namespace Plannr.App.Infrastructure.Profiles
+namespace PlannR.App.Infrastructure.Profiles
 {
     public class MappingProfile : Profile
     {

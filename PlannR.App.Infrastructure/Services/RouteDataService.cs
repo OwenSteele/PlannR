@@ -1,13 +1,13 @@
 ﻿using AutoMapper;
 using Blazored.LocalStorage;
-using Plannr.App.Infrastructure.Contracts;
-using Plannr.App.Infrastructure.Services.Base;
-using Plannr.App.Infrastructure.ViewModels.Routes;
+using PlannR.App.Infrastructure.Contracts;
+using PlannR.App.Infrastructure.Services.Base;
+using PlannR.App.Infrastructure.ViewModels.Routes;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Plannr.App.Infrastructure.Services
+namespace PlannR.App.Infrastructure.Services
 {
     public class RouteDataService : BaseDataService, IRouteDataService
     {

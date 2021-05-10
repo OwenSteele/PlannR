@@ -1,6 +1,6 @@
 using System;
 
-namespace Plannr.App.Infrastructure.ViewModels.Transport.Types
+namespace PlannR.App.Infrastructure.ViewModels.Transport.Types
 {
     public class TransportTypeOfNameViewModel
     {

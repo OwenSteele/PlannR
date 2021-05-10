@@ -1,11 +1,11 @@
-﻿using Plannr.App.Infrastructure.Contracts.Base;
-using Plannr.App.Infrastructure.Services.Base;
-using Plannr.App.Infrastructure.ViewModels.Event.Types;
+﻿using PlannR.App.Infrastructure.Contracts.Base;
+using PlannR.App.Infrastructure.Services.Base;
+using PlannR.App.Infrastructure.ViewModels.Event.Types;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Plannr.App.Infrastructure.Contracts
+namespace PlannR.App.Infrastructure.Contracts
 {
     public interface IEventTypeDataService : ICreateBaseDataService<EventTypeOfNameViewModel>
     {

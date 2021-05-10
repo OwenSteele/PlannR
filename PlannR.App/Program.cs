@@ -5,7 +5,7 @@ using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace Plannr.App
+namespace PlannR.App
 {
     public class Program
     {

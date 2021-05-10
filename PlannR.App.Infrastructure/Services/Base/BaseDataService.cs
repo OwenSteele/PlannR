@@ -2,7 +2,7 @@
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
-namespace Plannr.App.Infrastructure.Services.Base
+namespace PlannR.App.Infrastructure.Services.Base
 {
     public class BaseDataService
     {
