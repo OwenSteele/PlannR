@@ -3,6 +3,7 @@ using PlannR.App.Infrastructure.Services.Base;
 using PlannR.App.Infrastructure.ViewModels.Accomodation;
 using PlannR.App.Infrastructure.ViewModels.Accomodation.Bookings;
 using PlannR.App.Infrastructure.ViewModels.Accomodation.Types;
+using PlannR.App.Infrastructure.ViewModels.Account;
 using PlannR.App.Infrastructure.ViewModels.Event;
 using PlannR.App.Infrastructure.ViewModels.Event.Bookings;
 using PlannR.App.Infrastructure.ViewModels.Event.Types;
@@ -70,6 +71,9 @@ namespace PlannR.App.Infrastructure.Profiles
             CreateMap<ICollection<TransportListDataModel>, ICollection<TransportListViewModel>>().ReverseMap();
             CreateMap<ICollection<TransportListByTripIdWithBookingsDataModel>, ICollection<TransportListWithBookingsViewModel>>().ReverseMap();
             CreateMap<ICollection<TransportListOnDateDataModel>, ICollection<TransportListOnDateViewModel>>().ReverseMap();
+
+            CreateMap<RegisterViewModel, RegistrationRequest>().ReverseMap();
+            CreateMap<AuthenticateViewModel, AuthenticationRequest>().ReverseMap();
         }
     }
 }

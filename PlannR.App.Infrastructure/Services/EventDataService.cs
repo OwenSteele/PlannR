@@ -19,6 +19,8 @@ namespace PlannR.App.Infrastructure.Services
 
         public async Task<ApiResponse<Guid>> CreateAsync(EventDetailViewModel viewModel)
         {
+            await AddBearerToken();
+
             try
             {
                 var response = new ApiResponse<Guid>();
@@ -41,6 +43,8 @@ namespace PlannR.App.Infrastructure.Services
 
         public async Task<ApiResponse<Guid>> DeleteAsync(Guid id)
         {
+            await AddBearerToken();
+
             try
             {
                 await _client.DeleteEventAsync(id);
@@ -55,30 +59,40 @@ namespace PlannR.App.Infrastructure.Services
 
         public async Task<ICollection<EventListViewModel>> GetAllEventsAsync()
         {
+            await AddBearerToken();
+
             var result = await _client.GetAllEventsAsync();
             return _mapper.Map<ICollection<EventListViewModel>>(result);
         }
 
         public async Task<ICollection<EventListOfTripViewModel>> GetAllEventsOfTripIdAsync(Guid tripId)
         {
+            await AddBearerToken();
+
             var result = await _client.GetAllEventsByTripIdAsync(tripId);
             return _mapper.Map<ICollection<EventListOfTripViewModel>>(result);
         }
 
         public async Task<ICollection<EventListWithBookingsViewModel>> GetAllEventsOfTripWithBookingsAsync(Guid tripId)
         {
+            await AddBearerToken();
+
             var result = await _client.GetAllEventBookingsByTripIdAsync(tripId);
             return _mapper.Map<ICollection<EventListWithBookingsViewModel>>(result);
         }
 
         public async Task<ICollection<EventListOnDateViewModel>> GetAllEventsOnDateAsync(DateTime date)
         {
+            await AddBearerToken();
+
             var result = await _client.GetAllEventsOnDateAsync(date);
             return _mapper.Map<ICollection<EventListOnDateViewModel>>(result);
         }
 
         public async Task<EventDetailViewModel> GetEventByIdAsync(Guid id)
         {
+            await AddBearerToken();
+
             var result = await _client.GetEventByIdAsync(id);
             return _mapper.Map<EventDetailViewModel>(result);
         }

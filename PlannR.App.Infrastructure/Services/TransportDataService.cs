@@ -19,6 +19,8 @@ namespace PlannR.App.Infrastructure.Services
 
         public async Task<ApiResponse<Guid>> CreateAsync(TransportDetailViewModel viewModel)
         {
+            await AddBearerToken();
+
             try
             {
                 var response = new ApiResponse<Guid>();
@@ -41,6 +43,8 @@ namespace PlannR.App.Infrastructure.Services
 
         public async Task<ApiResponse<Guid>> DeleteAsync(Guid id)
         {
+            await AddBearerToken();
+
             try
             {
                 await _client.DeleteTransportAsync(id);
@@ -55,36 +59,48 @@ namespace PlannR.App.Infrastructure.Services
 
         public async Task<ICollection<TransportListViewModel>> GetAllTransportAsync()
         {
-            var result = await _client.GetAllTransportsAsync();
+            await AddBearerToken();
+
+            var result =await _client.GetAllTransportsAsync();
             return _mapper.Map<ICollection<TransportListViewModel>>(result);
         }
 
         public async Task<ICollection<TransportListOfTripViewModel>> GetAllTransportOfTripIdAsync(Guid tripId)
         {
-            var result = await _client.GetAllTransportByTripIdAsync(tripId);
+            await AddBearerToken();
+
+            var result =await _client.GetAllTransportByTripIdAsync(tripId);
             return _mapper.Map<ICollection<TransportListOfTripViewModel>>(result);
         }
 
         public async Task<ICollection<TransportListWithBookingsViewModel>> GetAllTransportOfTripWithBookingsAsync(Guid tripId)
         {
-            var result = await _client.GetAllTransportBookingsByTripIdAsync(tripId);
+            await AddBearerToken();
+
+            var result =await _client.GetAllTransportBookingsByTripIdAsync(tripId);
             return _mapper.Map<ICollection<TransportListWithBookingsViewModel>>(result);
         }
 
         public async Task<ICollection<TransportListOnDateViewModel>> GetAllTransportOnDateAsync(DateTime date)
         {
-            var result = await _client.GetAllTransportOnDateAsync(date);
+            await AddBearerToken();
+
+            var result =await _client.GetAllTransportOnDateAsync(date);
             return _mapper.Map<ICollection<TransportListOnDateViewModel>>(result);
         }
 
         public async Task<TransportDetailViewModel> GetTransportByIdAsync(Guid id)
         {
-            var result = await _client.GetTransportByIdAsync(id);
+            await AddBearerToken();
+
+            var result =await _client.GetTransportByIdAsync(id);
             return _mapper.Map<TransportDetailViewModel>(result);
         }
 
         public async Task<ApiResponse<Guid>> UpdateAsync(TransportDetailViewModel viewModel)
         {
+            await AddBearerToken();
+
             try
             {
                 var commandModel = _mapper.Map<UpdateTransportCommand>(viewModel);

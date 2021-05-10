@@ -16,8 +16,6 @@ namespace PlannR.App
 
             builder.Services.AddClientInfrastructureServices();
 
-            builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
-
             await builder.Build().RunAsync();
         }
     }

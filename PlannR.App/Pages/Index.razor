@@ -1,1 +1,12 @@
-﻿
+﻿@page "/"
+
+<AuthorizeView>
+    <Authorized>
+        <button @onclick="NavigateToAccount">Logout</button>
+    </Authorized>
+    <NotAuthorized>
+        <button @onclick="NavigateToRegister">Register</button>
+    </NotAuthorized>
+</AuthorizeView>
+
+<h1>PLannR</h1>

@@ -19,6 +19,8 @@ namespace PlannR.App.Infrastructure.Services
 
         public async Task<ApiResponse<Guid>> CreateAsync(AccomodationBookingDetailViewModel viewModel)
         {
+            await AddBearerToken();
+
             try
             {
                 var response = new ApiResponse<Guid>();
@@ -41,6 +43,8 @@ namespace PlannR.App.Infrastructure.Services
 
         public async Task<ApiResponse<Guid>> DeleteAsync(Guid id)
         {
+            await AddBearerToken();
+
             try
             {
                 await _client.DeleteAccomodationBookingAsync(id);
@@ -55,24 +59,32 @@ namespace PlannR.App.Infrastructure.Services
 
         public async Task<ICollection<AccomodationBookingListViewModel>> GetAllBookingsAsync()
         {
-            var result = await _client.GetAllAccomodationBookingsAsync();
+            await AddBearerToken();
+
+            var result =await _client.GetAllAccomodationBookingsAsync();
             return _mapper.Map<ICollection<AccomodationBookingListViewModel>>(result);
         }
 
         public async Task<ICollection<AccomodationBookingOfTripListViewModel>> GetAllBookingsOfTripIdAsync(Guid tripId)
         {
-            var result = await _client.GetAllAccomodationBookingsByTripIdAsync(tripId);
+            await AddBearerToken();
+
+            var result =await _client.GetAllAccomodationBookingsByTripIdAsync(tripId);
             return _mapper.Map<ICollection<AccomodationBookingOfTripListViewModel>>(result);
         }
 
         public async Task<AccomodationBookingDetailViewModel> GetBookingByIdAsync(Guid id)
         {
-            var result = await _client.GetAccomodationBookingByIdAsync(id);
+            await AddBearerToken();
+
+            var result =await _client.GetAccomodationBookingByIdAsync(id);
             return _mapper.Map<AccomodationBookingDetailViewModel>(result);
         }
 
         public async Task<ApiResponse<Guid>> UpdateAsync(AccomodationBookingDetailViewModel viewModel)
         {
+            await AddBearerToken();
+
             try
             {
                 var commandModel = _mapper.Map<UpdateAccomodationBookingCommand>(viewModel);

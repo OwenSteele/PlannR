@@ -20,6 +20,8 @@ namespace PlannR.App.Infrastructure.Services
 
         public async Task<ApiResponse<Guid>> CreateAsync(TransportTypeOfNameViewModel viewModel)
         {
+            await AddBearerToken();
+
             try
             {
                 var response = new ApiResponse<Guid>();
@@ -42,13 +44,17 @@ namespace PlannR.App.Infrastructure.Services
 
         public async Task<ICollection<TransportTypeListViewModel>> GetAllTypesAsync()
         {
-            var result = await _client.GetAllTransportTypesAsync();
+            await AddBearerToken();
+
+            var result =await _client.GetAllTransportTypesAsync();
             return _mapper.Map<ICollection<TransportTypeListViewModel>>(result);
         }
 
         public async Task<TransportTypeOfNameViewModel> GetTypeByNameAsync(string name)
         {
-            var result = await _client.GetTransportTypeByNameAsync(name);
+            await AddBearerToken();
+
+            var result =await _client.GetTransportTypeByNameAsync(name);
             return _mapper.Map<TransportTypeOfNameViewModel>(result);
         }
     }

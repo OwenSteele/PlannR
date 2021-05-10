@@ -19,6 +19,8 @@ namespace PlannR.App.Infrastructure.Services
 
         public async Task<ApiResponse<Guid>> CreateAsync(TransportBookingDetailViewModel viewModel)
         {
+            await AddBearerToken();
+
             try
             {
                 var response = new ApiResponse<Guid>();
@@ -41,6 +43,8 @@ namespace PlannR.App.Infrastructure.Services
 
         public async Task<ApiResponse<Guid>> DeleteAsync(Guid id)
         {
+            await AddBearerToken();
+
             try
             {
                 await _client.DeleteTransportBookingAsync(id);
@@ -55,24 +59,32 @@ namespace PlannR.App.Infrastructure.Services
 
         public async Task<ICollection<TransportBookingListViewModel>> GetAllBookingsAsync()
         {
-            var result = await _client.GetAllTransportBookingsAsync();
+            await AddBearerToken();
+
+            var result =await _client.GetAllTransportBookingsAsync();
             return _mapper.Map<ICollection<TransportBookingListViewModel>>(result);
         }
 
         public async Task<ICollection<TransportBookingOfTripListViewModel>> GetAllBookingsOfTripIdAsync(Guid tripId)
         {
-            var result = await _client.GetAllTransportBookingsByTripIdAsync(tripId);
+            await AddBearerToken();
+
+            var result =await _client.GetAllTransportBookingsByTripIdAsync(tripId);
             return _mapper.Map<ICollection<TransportBookingOfTripListViewModel>>(result);
         }
 
         public async Task<TransportBookingDetailViewModel> GetBookingByIdAsync(Guid id)
         {
-            var result = await _client.GetTransportBookingByIdAsync(id);
+            await AddBearerToken();
+
+            var result =await _client.GetTransportBookingByIdAsync(id);
             return _mapper.Map<TransportBookingDetailViewModel>(result);
         }
 
         public async Task<ApiResponse<Guid>> UpdateAsync(TransportBookingDetailViewModel viewModel)
         {
+            await AddBearerToken();
+
             try
             {
                 var commandModel = _mapper.Map<UpdateTransportBookingCommand>(viewModel);

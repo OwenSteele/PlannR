@@ -10,12 +10,10 @@ namespace PlannR.App.Infrastructure.Services.Base
         protected IClient _client;
         protected readonly ILocalStorageService _localStorage;
 
-        public BaseDataService(IClient client, ILocalStorageService localStorage, bool addToken = true)
+        public BaseDataService(IClient client, ILocalStorageService localStorage)
         {
             _client = client;
             _localStorage = localStorage;
-
-            if (addToken) AddBearerToken().Wait();
         }
 
         protected static ApiResponse<Guid> ConvertApiErrors<Guid>(ApiException ex)

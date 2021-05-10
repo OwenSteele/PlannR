@@ -19,6 +19,8 @@ namespace PlannR.App.Infrastructure.Services
 
         public async Task<ApiResponse<Guid>> CreateAsync(RouteDetailViewModel viewModel)
         {
+            await AddBearerToken();
+
             try
             {
                 var response = new ApiResponse<Guid>();
@@ -41,6 +43,8 @@ namespace PlannR.App.Infrastructure.Services
 
         public async Task<ApiResponse<Guid>> DeleteAsync(Guid id)
         {
+            await AddBearerToken();
+
             try
             {
                 await _client.DeleteRouteAsync(id);
@@ -55,30 +59,40 @@ namespace PlannR.App.Infrastructure.Services
 
         public async Task<ICollection<RouteListViewModel>> GetAllRoutesAsync()
         {
-            var result = await _client.GetAllRoutesAsync();
+            await AddBearerToken();
+
+            var result =await _client.GetAllRoutesAsync();
             return _mapper.Map<ICollection<RouteListViewModel>>(result);
         }
 
         public async Task<ICollection<RouteListOfTripViewModel>> GetAllRoutesOfTripIdAsync(Guid tripId)
         {
-            var result = await _client.GetAllRoutesByTripIdAsync(tripId);
+            await AddBearerToken();
+
+            var result =await _client.GetAllRoutesByTripIdAsync(tripId);
             return _mapper.Map<ICollection<RouteListOfTripViewModel>>(result);
         }
 
         public async Task<ICollection<RouteListOnDateViewModel>> GetAllRoutesOnDateAsync(DateTime date)
         {
-            var result = await _client.GetAllRouteOnDateAsync(date);
+            await AddBearerToken();
+
+            var result =await _client.GetAllRouteOnDateAsync(date);
             return _mapper.Map<ICollection<RouteListOnDateViewModel>>(result);
         }
 
         public async Task<RouteDetailViewModel> GetRouteByIdAsync(Guid id)
         {
-            var result = await _client.GetRouteByIdAsync(id);
+            await AddBearerToken();
+
+            var result =await _client.GetRouteByIdAsync(id);
             return _mapper.Map<RouteDetailViewModel>(result);
         }
 
         public async Task<ApiResponse<Guid>> UpdateAsync(RouteDetailViewModel viewModel)
         {
+            await AddBearerToken();
+
             try
             {
                 var commandModel = _mapper.Map<UpdateRouteCommand>(viewModel);

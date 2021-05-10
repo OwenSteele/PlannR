@@ -19,6 +19,8 @@ namespace PlannR.App.Infrastructure.Services
 
         public async Task<ApiResponse<Guid>> CreateAsync(AccomodationTypeOfNameViewModel viewModel)
         {
+            await AddBearerToken();
+
             try
             {
                 var response = new ApiResponse<Guid>();
@@ -41,13 +43,17 @@ namespace PlannR.App.Infrastructure.Services
 
         public async Task<ICollection<AccomodationTypeListViewModel>> GetAllTypesAsync()
         {
-            var result = await _client.GetAllAccomodationTypesAsync();
+            await AddBearerToken();
+
+            var result =await _client.GetAllAccomodationTypesAsync();
             return _mapper.Map<ICollection<AccomodationTypeListViewModel>>(result);
         }
 
         public async Task<AccomodationTypeOfNameViewModel> GetTypeByNameAsync(string name)
         {
-            var result = await _client.GetAccomodationTypeByNameAsync(name);
+            await AddBearerToken();
+
+            var result =await _client.GetAccomodationTypeByNameAsync(name);
             return _mapper.Map<AccomodationTypeOfNameViewModel>(result);
         }
     }

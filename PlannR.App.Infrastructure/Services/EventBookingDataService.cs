@@ -19,6 +19,8 @@ namespace PlannR.App.Infrastructure.Services
 
         public async Task<ApiResponse<Guid>> CreateAsync(EventBookingDetailViewModel viewModel)
         {
+            await AddBearerToken();
+
             try
             {
                 var response = new ApiResponse<Guid>();
@@ -41,6 +43,8 @@ namespace PlannR.App.Infrastructure.Services
 
         public async Task<ApiResponse<Guid>> DeleteAsync(Guid id)
         {
+            await AddBearerToken();
+
             try
             {
                 await _client.DeleteEventBookingAsync(id);
@@ -55,24 +59,32 @@ namespace PlannR.App.Infrastructure.Services
 
         public async Task<ICollection<EventBookingListViewModel>> GetAllBookingsAsync()
         {
-            var result = await _client.GetAllEventBookingsAsync();
+            await AddBearerToken();
+
+            var result =await _client.GetAllEventBookingsAsync();
             return _mapper.Map<ICollection<EventBookingListViewModel>>(result);
         }
 
         public async Task<ICollection<EventBookingOfTripListViewModel>> GetAllBookingsOfTripIdAsync(Guid tripId)
         {
-            var result = await _client.GetAllEventBookingsByTripIdAsync(tripId);
+            await AddBearerToken();
+
+            var result =await _client.GetAllEventBookingsByTripIdAsync(tripId);
             return _mapper.Map<ICollection<EventBookingOfTripListViewModel>>(result);
         }
 
         public async Task<EventBookingDetailViewModel> GetBookingByIdAsync(Guid id)
         {
-            var result = await _client.GetEventBookingByIdAsync(id);
+            await AddBearerToken();
+
+            var result =await _client.GetEventBookingByIdAsync(id);
             return _mapper.Map<EventBookingDetailViewModel>(result);
         }
 
         public async Task<ApiResponse<Guid>> UpdateAsync(EventBookingDetailViewModel viewModel)
         {
+            await AddBearerToken();
+
             try
             {
                 var commandModel = _mapper.Map<UpdateEventBookingCommand>(viewModel);

@@ -1,30 +1,69 @@
-﻿using Blazored.LocalStorage;
+﻿using AutoMapper;
+using Blazored.LocalStorage;
+using Microsoft.AspNetCore.Components.Authorization;
+using PlannR.App.Infrastructure.Authentication;
 using PlannR.App.Infrastructure.Contracts;
 using PlannR.App.Infrastructure.Services.Base;
 using PlannR.App.Infrastructure.ViewModels.Account;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
 namespace PlannR.App.Infrastructure.Services
 {
     public class AuthenticationDataService : BaseDataService, IAuthenticationDataService
     {
-        public AuthenticationDataService(IClient client, ILocalStorageService localStorage) : base(client, localStorage)
+        private readonly AuthenticationStateProvider _authenticationStateProvider;
+        private readonly IMapper _mapper;
+
+        public AuthenticationDataService(IClient client, ILocalStorageService localStorage,
+            AuthenticationStateProvider authenticationStateProvider, IMapper mapper) : base(client, localStorage)
         {
+            _authenticationStateProvider = authenticationStateProvider;
+            _mapper = mapper;
         }
 
-        public Task<bool> Authenticate(AuthenticateViewModel viewModel)
+        public async Task<bool> Authenticate(AuthenticateViewModel viewModel)
         {
-            throw new System.NotImplementedException();
+            try
+            {
+                var request = _mapper.Map<AuthenticationRequest>(viewModel);
+                var response = await _client.AuthenticateAsync(request);
+
+                if (response.Token == string.Empty) return false;
+
+                await _localStorage.SetItemAsync("token", response.Token);
+
+                var plannrAuthenticationStateProvider = (PlannrAuthenticationStateProvider)_authenticationStateProvider;
+                plannrAuthenticationStateProvider.SetUserAuthenticated(viewModel.Email);
+
+                _client.HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", response.Token);
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+
         }
 
-        public Task Logout()
+        public async Task Logout()
         {
-            throw new System.NotImplementedException();
+            await _localStorage.RemoveItemAsync("token");
+
+            var plannrAuthenticationStateProvider = (PlannrAuthenticationStateProvider)_authenticationStateProvider;
+
+            plannrAuthenticationStateProvider.SetUserLoggedOut();
+
+            _client.HttpClient.DefaultRequestHeaders.Authorization = null;
         }
 
-        public Task<bool> Register(RegisterViewModel viewModel)
+        public async Task<bool> Register(RegisterViewModel viewModel)
         {
-            throw new System.NotImplementedException();
+            var request = _mapper.Map<RegistrationRequest>(viewModel);
+            var response = await _client.RegisterAsync(request);
+
+            return string.IsNullOrEmpty(response.UserId);
         }
     }
 }

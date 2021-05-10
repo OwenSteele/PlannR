@@ -19,6 +19,8 @@ namespace PlannR.App.Infrastructure.Services
 
         public async Task<ApiResponse<Guid>> CreateAsync(TripDetailViewModel viewModel)
         {
+            await AddBearerToken();
+
             try
             {
                 var response = new ApiResponse<Guid>();
@@ -41,6 +43,8 @@ namespace PlannR.App.Infrastructure.Services
 
         public async Task<ApiResponse<Guid>> DeleteAsync(Guid id)
         {
+            await AddBearerToken();
+
             try
             {
                 await _client.DeleteTripAsync(id);
@@ -55,30 +59,40 @@ namespace PlannR.App.Infrastructure.Services
 
         public async Task<ICollection<TripListViewModel>> GetAllTripsAsync()
         {
-            var result = await _client.GetAllTripsAsync();
+            await AddBearerToken();
+
+            var result =await _client.GetAllTripsAsync();
             return _mapper.Map<ICollection<TripListViewModel>>(result);
         }
 
         public async Task<ICollection<TripListBetweenDatesViewModel>> GetAllTripsBetweenDatesAsync(DateTime start, DateTime end)
         {
-            var result = await _client.GetAllTripsBetweenDatesAsync(start, end);
+            await AddBearerToken();
+
+            var result =await _client.GetAllTripsBetweenDatesAsync(start, end);
             return _mapper.Map<ICollection<TripListBetweenDatesViewModel>>(result);
         }
 
         public async Task<ICollection<TripListOnDateViewModel>> GetAllTripsOnDateAsync(DateTime date)
         {
-            var result = await _client.GetAllTripOnDateAsync(date);
+            await AddBearerToken();
+
+            var result =await _client.GetAllTripOnDateAsync(date);
             return _mapper.Map<ICollection<TripListOnDateViewModel>>(result);
         }
 
         public async Task<TripDetailViewModel> GetTripByIdAsync(Guid id)
         {
-            var result = await _client.GetTripByIdAsync(id);
+            await AddBearerToken();
+
+            var result =await _client.GetTripByIdAsync(id);
             return _mapper.Map<TripDetailViewModel>(result);
         }
 
         public async Task<ApiResponse<Guid>> UpdateAsync(TripDetailViewModel viewModel)
         {
+            await AddBearerToken();
+
             try
             {
 

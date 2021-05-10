@@ -19,6 +19,8 @@ namespace PlannR.App.Infrastructure.Services
 
         public async Task<ApiResponse<Guid>> CreateAsync(AccomodationDetailViewModel viewModel)
         {
+            await AddBearerToken();
+
             try
             {
                 var response = new ApiResponse<Guid>();
@@ -41,6 +43,8 @@ namespace PlannR.App.Infrastructure.Services
 
         public async Task<ApiResponse<Guid>> DeleteAsync(Guid id)
         {
+            await AddBearerToken();
+
             try
             {
                 await _client.DeleteAccomodationAsync(id);
@@ -55,36 +59,48 @@ namespace PlannR.App.Infrastructure.Services
 
         public async Task<AccomodationDetailViewModel> GetAccomodationByIdAsync(Guid id)
         {
-            var result = await _client.GetAccomodationByIdAsync(id);
+            await AddBearerToken();
+
+            var result =await _client.GetAccomodationByIdAsync(id);
             return _mapper.Map<AccomodationDetailViewModel>(result);
         }
 
         public async Task<ICollection<AccomodationListViewModel>> GetAllAccomodationAsync()
         {
-            var result = await _client.GetAllAccomodationsAsync();
+            await AddBearerToken();
+
+            var result =await _client.GetAllAccomodationsAsync();
             return _mapper.Map<ICollection<AccomodationListViewModel>>(result);
         }
 
         public async Task<ICollection<AccomodationListOfTripViewModel>> GetAllAccomodationOfTripIdAsync(Guid tripId)
         {
-            var result = await _client.GetAllAccomodationByTripIdAsync(tripId);
+            await AddBearerToken();
+
+            var result =await _client.GetAllAccomodationByTripIdAsync(tripId);
             return _mapper.Map<ICollection<AccomodationListOfTripViewModel>>(result);
         }
 
         public async Task<ICollection<AccomodationListWithBookingsViewModel>> GetAllAccomodationOfTripWithBookingsAsync(Guid tripId)
         {
-            var result = await _client.GetAllAccomodationBookingsByTripIdAsync(tripId);
+            await AddBearerToken();
+
+            var result =await _client.GetAllAccomodationBookingsByTripIdAsync(tripId);
             return _mapper.Map<ICollection<AccomodationListWithBookingsViewModel>>(result);
         }
 
         public async Task<ICollection<AccomodationListOnDateViewModel>> GetAllAccomodationOnDateAsync(DateTime date)
         {
-            var result = await _client.GetAllAccomodationOnDateAsync(date);
+            await AddBearerToken();
+
+            var result =await _client.GetAllAccomodationOnDateAsync(date);
             return _mapper.Map<ICollection<AccomodationListOnDateViewModel>>(result);
         }
 
         public async Task<ApiResponse<Guid>> UpdateAsync(AccomodationDetailViewModel viewModel)
         {
+            await AddBearerToken();
+
             try
             {
                 var commandModel = _mapper.Map<UpdateAccomodationCommand>(viewModel);
