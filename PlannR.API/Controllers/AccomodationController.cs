@@ -38,6 +38,7 @@ namespace PlannR.API.Controllers
         [Authorize]
         [HttpGet("{id}", Name = "GetAccomodationById")]
         [ProducesDefaultResponseType]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult<AccomodationDetailDataModel>> GetAccomodationById(Guid id)
         {
             var query = new GetAccomodationDetailQuery() { Id = id };
@@ -78,6 +79,7 @@ namespace PlannR.API.Controllers
         }
 
         [HttpPost(Name = "AddAccomodation")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult<Guid>> Create([FromBody] CreateAccomodationCommand createAccomodationCommand)
         {
             var id = await _mediator.Send(createAccomodationCommand);

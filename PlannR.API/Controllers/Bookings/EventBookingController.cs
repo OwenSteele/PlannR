@@ -35,6 +35,8 @@ namespace PlannR.API.Controllers
         }
 
         [HttpGet("{id}", Name = "GetEventBookingById")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
         public async Task<ActionResult<EventBookingDetailDataModel>> GetEventBookingById(Guid id)
         {
@@ -45,6 +47,7 @@ namespace PlannR.API.Controllers
 
         [HttpGet("trip/{tripId}", Name = "GetAllEventBookingsByTripId")]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
         public async Task<ActionResult<ICollection<EventBookingListByTripIdDataModel>>> GetAllEventBookingsByTripId(Guid tripId)
         {

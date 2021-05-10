@@ -31,6 +31,8 @@ namespace PlannR.API.Controllers
         }
 
         [HttpGet("{name}", Name = "GetTransportTypeByName")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
         public async Task<ActionResult<TransportTypeByNameDataModel>> GetTransportTypeByName(string name)
         {

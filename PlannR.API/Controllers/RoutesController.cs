@@ -35,6 +35,8 @@ namespace PlannR.API.Controllers
 
         [Authorize]
         [HttpGet("{id}", Name = "GetRouteById")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
         public async Task<ActionResult<RouteDetailDataModel>> GetRouteById(Guid id)
         {
@@ -45,6 +47,7 @@ namespace PlannR.API.Controllers
 
         [HttpGet("{date:DateTime}", Name = "GetAllRouteOnDate")]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
         public async Task<ActionResult<ICollection<RouteListOnDateDataModel>>> GetAllRouteOnDate(DateTime date)
         {

@@ -31,6 +31,8 @@ namespace PlannR.API.Controllers
         }
 
         [HttpGet("{name}", Name = "GetEventTypeByName")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
         public async Task<ActionResult<EventTypeByNameDataModel>> GetEventTypeByName(string name)
         {

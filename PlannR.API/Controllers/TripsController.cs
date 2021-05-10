@@ -37,6 +37,8 @@ namespace PlannR.API.Controllers
 
         [Authorize]
         [HttpGet("{id}", Name = "GetTripById")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
         public async Task<ActionResult<TripDetailDataModel>> GetTripById(Guid id)
         {
@@ -47,6 +49,7 @@ namespace PlannR.API.Controllers
 
         [HttpGet("{start:DateTime},{end:DateTime}", Name = "GetAllTripsBetweenDates")]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
         public async Task<ActionResult<ICollection<TripListBetweenDatesDataModel>>> GetAllTripsBetweenDates(DateTime start, DateTime end)
         {
@@ -57,6 +60,7 @@ namespace PlannR.API.Controllers
 
         [HttpGet("{date:DateTime}", Name = "GetAllTripOnDate")]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
         public async Task<ActionResult<ICollection<TripListOnDateDataModel>>> GetAllTripOnDate(DateTime date)
         {

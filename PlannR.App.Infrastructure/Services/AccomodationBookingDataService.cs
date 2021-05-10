@@ -17,9 +17,30 @@ namespace PlannR.App.Infrastructure.Services
             _mapper = mapper;
         }
 
-        public Task<ApiResponse<Guid>> CreateAsync(AccomodationBookingDetailViewModel viewModel)
+        public async Task<ApiResponse<Guid>> CreateAsync(AccomodationBookingDetailViewModel viewModel)
         {
-            throw new NotImplementedException();
+                var response = new ApiResponse<Guid>();
+            try
+            {
+
+                var commandModel = _mapper.Map<CreateAccomodationBookingCommand>(viewModel);
+
+                var result = await _client.AddAccomodationBookingAsync(commandModel);
+
+                if (result.GetType() == typeof(Guid))
+                {
+                    var newModel = await _client.GetEventBookingByIdAsync(result);
+
+                    //response.Context;
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return response;
         }
 
         public Task<ApiResponse<Guid>> DeleteAsync(Guid bookingId)

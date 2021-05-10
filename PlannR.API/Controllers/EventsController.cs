@@ -37,6 +37,8 @@ namespace PlannR.API.Controllers
 
         [Authorize]
         [HttpGet("{id}", Name = "GetEventById")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
         public async Task<ActionResult<EventDetailDataModel>> GetEventById(Guid id)
         {
@@ -48,6 +50,7 @@ namespace PlannR.API.Controllers
         [Authorize]
         [HttpGet("trip/{tripId}", Name = "GetAllEventsByTripId")]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
         public async Task<ActionResult<ICollection<EventListByTripIdDataModel>>> GetAllEventsByTripId(Guid tripId)
         {
@@ -59,6 +62,7 @@ namespace PlannR.API.Controllers
         [Authorize]
         [HttpGet("trip/{tripId}/Bookings", Name = "GetAllEventsByTripIdWithBookings")]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
         public async Task<ActionResult<ICollection<EventListByTripIdWithBookingsDataModel>>> GetAllEventsByTripIdWithBookings(Guid tripId)
         {
@@ -69,6 +73,7 @@ namespace PlannR.API.Controllers
 
         [HttpGet("{date:DateTime}", Name = "GetAllEventsOnDate")]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
         public async Task<ActionResult<ICollection<EventListOnDateDataModel>>> GetAllEventsOnDate(DateTime date)
         {
