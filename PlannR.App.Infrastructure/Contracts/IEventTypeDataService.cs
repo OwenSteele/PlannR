@@ -9,8 +9,8 @@ namespace PlannR.App.Infrastructure.Contracts
 {
     public interface IEventTypeDataService : ICreateBaseDataService<EventTypeOfNameViewModel>
     {
-        Task<ICollection<EventTypeListViewModel>> GetAllBookingsAsync();
-        Task<EventTypeOfNameViewModel> GetBookingByNameAsync(string name);
+        Task<ICollection<EventTypeListViewModel>> GetAllTypesAsync();
+        Task<EventTypeOfNameViewModel> GetTypeByNameAsync(string name);
 
     }
 }

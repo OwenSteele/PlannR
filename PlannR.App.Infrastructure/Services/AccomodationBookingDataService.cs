@@ -19,9 +19,9 @@ namespace PlannR.App.Infrastructure.Services
 
         public async Task<ApiResponse<Guid>> CreateAsync(AccomodationBookingDetailViewModel viewModel)
         {
-                var response = new ApiResponse<Guid>();
             try
             {
+                var response = new ApiResponse<Guid>();
 
                 var commandModel = _mapper.Map<CreateAccomodationBookingCommand>(viewModel);
 
@@ -29,43 +29,64 @@ namespace PlannR.App.Infrastructure.Services
 
                 if (result.GetType() == typeof(Guid))
                 {
-                    var newModel = await _client.GetEventBookingByIdAsync(result);
-
-                    //response.Context;
+                    response.Successful = true;                    
                 }
-
+                return response;
             }
-            catch (Exception)
+            catch (ApiException ex)
             {
-
-                throw;
+                return ConvertApiErrors<Guid>(ex);
             }
-            return response;
         }
 
-        public Task<ApiResponse<Guid>> DeleteAsync(Guid bookingId)
+        public async Task<ApiResponse<Guid>> DeleteAsync(Guid id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                await _client.DeleteAccomodationBookingAsync(id);
+
+                return new ApiResponse<Guid> { Successful = true };
+            }
+            catch (ApiException ex)
+            {
+                return ConvertApiErrors<Guid>(ex);
+            }
         }
 
-        public Task<ICollection<AccomodationBookingListViewModel>> GetAllBookingsAsync()
+        public async Task<ICollection<AccomodationBookingListViewModel>> GetAllBookingsAsync()
         {
-            throw new NotImplementedException();
+            var result = await _client.GetAllAccomodationBookingsAsync();
+            return _mapper.Map<ICollection<AccomodationBookingListViewModel>>(result);
         }
 
-        public Task<ICollection<AccomodationBookingOfTripListViewModel>> GetAllBookingsOfTripIdAsync(Guid tripId)
+        public async Task<ICollection<AccomodationBookingOfTripListViewModel>> GetAllBookingsOfTripIdAsync(Guid tripId)
         {
-            throw new NotImplementedException();
+            var result = await _client.GetAllAccomodationBookingsByTripIdAsync(tripId);
+            return _mapper.Map<ICollection<AccomodationBookingOfTripListViewModel>>(result);
         }
 
-        public Task<AccomodationBookingDetailViewModel> GetBookingByIdAsync(Guid id)
+        public async Task<AccomodationBookingDetailViewModel> GetBookingByIdAsync(Guid id)
         {
-            throw new NotImplementedException();
+            var result = await _client.GetAccomodationBookingByIdAsync(id);
+            return _mapper.Map<AccomodationBookingDetailViewModel>(result);
         }
 
-        public Task<ApiResponse<Guid>> UpdateAsync(AccomodationBookingDetailViewModel viewModel)
+        public async Task<ApiResponse<Guid>> UpdateAsync(AccomodationBookingDetailViewModel viewModel)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var response = new ApiResponse<AccomodationBookingDto>();
+
+                var commandModel = _mapper.Map<UpdateAccomodationBookingCommand>(viewModel);
+
+                await _client.UpdateAccomodationBookingAsync(commandModel);
+
+                return new ApiResponse<Guid> { Successful = true };
+            }
+            catch (ApiException ex)
+            {
+                return ConvertApiErrors<Guid>(ex);
+            }
         }
     }
 }

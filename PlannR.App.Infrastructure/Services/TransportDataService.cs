@@ -17,44 +17,88 @@ namespace PlannR.App.Infrastructure.Services
             _mapper = mapper;
         }
 
-        public Task<ApiResponse<Guid>> CreateAsync(TransportDetailViewModel viewModel)
+        public async Task<ApiResponse<Guid>> CreateAsync(TransportDetailViewModel viewModel)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var response = new ApiResponse<Guid>();
+
+                var commandModel = _mapper.Map<CreateTransportCommand>(viewModel);
+
+                var result = await _client.AddTransportAsync(commandModel);
+
+                if (result.GetType() == typeof(Guid))
+                {
+                    response.Successful = true;
+                }
+                return response;
+            }
+            catch (ApiException ex)
+            {
+                return ConvertApiErrors<Guid>(ex);
+            }
         }
 
-        public Task<ApiResponse<Guid>> DeleteAsync(Guid bookingId)
+        public async Task<ApiResponse<Guid>> DeleteAsync(Guid id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                await _client.DeleteTransportAsync(id);
+
+                return new ApiResponse<Guid> { Successful = true };
+            }
+            catch (ApiException ex)
+            {
+                return ConvertApiErrors<Guid>(ex);
+            }
         }
 
-        public Task<ICollection<TransportListViewModel>> GetAllTransportAsync()
+        public async Task<ICollection<TransportListViewModel>> GetAllTransportAsync()
         {
-            throw new NotImplementedException();
+            var result = await _client.GetAllTransportsAsync();
+            return _mapper.Map<ICollection<TransportListViewModel>>(result);
         }
 
-        public Task<ICollection<TransportListOfTripViewModel>> GetAllTransportOfTripIdAsync(Guid tripId)
+        public async Task<ICollection<TransportListOfTripViewModel>> GetAllTransportOfTripIdAsync(Guid tripId)
         {
-            throw new NotImplementedException();
+            var result = await _client.GetAllTransportByTripIdAsync(tripId);
+            return _mapper.Map<ICollection<TransportListOfTripViewModel>>(result);
         }
 
-        public Task<ICollection<TransportListWithBookingsViewModel>> GetAllTransportOfTripWithBookingsAsync(Guid tripId)
+        public async Task<ICollection<TransportListWithBookingsViewModel>> GetAllTransportOfTripWithBookingsAsync(Guid tripId)
         {
-            throw new NotImplementedException();
+            var result = await _client.GetAllTransportBookingsByTripIdAsync(tripId);
+            return _mapper.Map<ICollection<TransportListWithBookingsViewModel>>(result);
         }
 
-        public Task<ICollection<TransportListOnDateViewModel>> GetAllTransportOnDateAsync(DateTime date)
+        public async Task<ICollection<TransportListOnDateViewModel>> GetAllTransportOnDateAsync(DateTime date)
         {
-            throw new NotImplementedException();
+            var result = await _client.GetAllTransportOnDateAsync(date);
+            return _mapper.Map<ICollection<TransportListOnDateViewModel>>(result);
         }
 
-        public Task<ICollection<TransportDetailViewModel>> GetTransportByIdAsync(Guid id)
+        public async Task<TransportDetailViewModel> GetTransportByIdAsync(Guid id)
         {
-            throw new NotImplementedException();
+            var result = await _client.GetTransportByIdAsync(id);
+            return _mapper.Map<TransportDetailViewModel>(result);
         }
 
-        public Task<ApiResponse<Guid>> UpdateAsync(TransportDetailViewModel viewModel)
+        public async Task<ApiResponse<Guid>> UpdateAsync(TransportDetailViewModel viewModel)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var response = new ApiResponse<TransportDto>();
+
+                var commandModel = _mapper.Map<UpdateTransportCommand>(viewModel);
+
+                await _client.UpdateTransportAsync(commandModel);
+
+                return new ApiResponse<Guid> { Successful = true };
+            }
+            catch (ApiException ex)
+            {
+                return ConvertApiErrors<Guid>(ex);
+            }
         }
     }
 }

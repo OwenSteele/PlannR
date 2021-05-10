@@ -17,44 +17,88 @@ namespace PlannR.App.Infrastructure.Services
             _mapper = mapper;
         }
 
-        public Task<ApiResponse<Guid>> CreateAsync(AccomodationDetailViewModel viewModel)
+        public async Task<ApiResponse<Guid>> CreateAsync(AccomodationDetailViewModel viewModel)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var response = new ApiResponse<Guid>();
+
+                var commandModel = _mapper.Map<CreateAccomodationCommand>(viewModel);
+
+                var result = await _client.AddAccomodationAsync(commandModel);
+
+                if (result.GetType() == typeof(Guid))
+                {
+                    response.Successful = true;
+                }
+                return response;
+            }
+            catch (ApiException ex)
+            {
+                return ConvertApiErrors<Guid>(ex);
+            }
         }
 
-        public Task<ApiResponse<Guid>> DeleteAsync(Guid bookingId)
+        public async Task<ApiResponse<Guid>> DeleteAsync(Guid id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                await _client.DeleteAccomodationAsync(id);
+
+                return new ApiResponse<Guid> { Successful = true };
+            }
+            catch (ApiException ex)
+            {
+                return ConvertApiErrors<Guid>(ex);
+            }
         }
 
-        public Task<ICollection<AccomodationDetailViewModel>> GetAccomodationByIdAsync(Guid id)
+        public async Task<AccomodationDetailViewModel> GetAccomodationByIdAsync(Guid id)
         {
-            throw new NotImplementedException();
+            var result = await _client.GetAccomodationByIdAsync(id);
+            return _mapper.Map<AccomodationDetailViewModel>(result);
         }
 
-        public Task<ICollection<AccomodationListViewModel>> GetAllAccomodationAsync()
+        public async Task<ICollection<AccomodationListViewModel>> GetAllAccomodationAsync()
         {
-            throw new NotImplementedException();
+            var result = await _client.GetAllAccomodationsAsync();
+            return _mapper.Map<ICollection<AccomodationListViewModel>>(result);
         }
 
-        public Task<ICollection<AccomodationListOfTripViewModel>> GetAllAccomodationOfTripIdAsync(Guid tripId)
+        public async Task<ICollection<AccomodationListOfTripViewModel>> GetAllAccomodationOfTripIdAsync(Guid tripId)
         {
-            throw new NotImplementedException();
+            var result = await _client.GetAllAccomodationByTripIdAsync(tripId);
+            return _mapper.Map<ICollection<AccomodationListOfTripViewModel>>(result);
         }
 
-        public Task<ICollection<AccomodationListWithBookingsViewModel>> GetAllAccomodationOfTripWithBookingsAsync(Guid tripId)
+        public async Task<ICollection<AccomodationListWithBookingsViewModel>> GetAllAccomodationOfTripWithBookingsAsync(Guid tripId)
         {
-            throw new NotImplementedException();
+            var result = await _client.GetAllAccomodationBookingsByTripIdAsync(tripId);
+            return _mapper.Map<ICollection<AccomodationListWithBookingsViewModel>>(result);
         }
 
-        public Task<ICollection<AccomodationListOnDateViewModel>> GetAllAccomodationOnDateAsync(DateTime date)
+        public async Task<ICollection<AccomodationListOnDateViewModel>> GetAllAccomodationOnDateAsync(DateTime date)
         {
-            throw new NotImplementedException();
+            var result = await _client.GetAllAccomodationOnDateAsync(date);
+            return _mapper.Map<ICollection<AccomodationListOnDateViewModel>>(result);
         }
 
-        public Task<ApiResponse<Guid>> UpdateAsync(AccomodationDetailViewModel viewModel)
+        public async Task<ApiResponse<Guid>> UpdateAsync(AccomodationDetailViewModel viewModel)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var response = new ApiResponse<AccomodationDto>();
+
+                var commandModel = _mapper.Map<UpdateAccomodationCommand>(viewModel);
+
+                await _client.UpdateAccomodationAsync(commandModel);
+
+                return new ApiResponse<Guid> { Successful = true };
+            }
+            catch (ApiException ex)
+            {
+                return ConvertApiErrors<Guid>(ex);
+            }
         }
     }
 }

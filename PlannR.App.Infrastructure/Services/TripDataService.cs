@@ -17,37 +17,37 @@ namespace PlannR.App.Infrastructure.Services
             _mapper = mapper;
         }
 
-        public Task<ApiResponse<Guid>> CreateAsync(TripDetailViewModel viewModel)
+        public async Task<ApiResponse<Guid>> CreateAsync(TripDetailViewModel viewModel)
         {
             throw new NotImplementedException();
         }
 
-        public Task<ApiResponse<Guid>> DeleteAsync(Guid bookingId)
+        public async Task<ApiResponse<Guid>> DeleteAsync(Guid bookingId)
         {
             throw new NotImplementedException();
         }
 
-        public Task<ICollection<TripListViewModel>> GetAllTripsAsync()
+        public async Task<ICollection<TripListViewModel>> GetAllTripsAsync()
         {
             throw new NotImplementedException();
         }
 
-        public Task<ICollection<TripListBetweenDatesViewModel>> GetAllTripsBetweenDatesAsync(DateTime start, DateTime end)
+        public async Task<ICollection<TripListBetweenDatesViewModel>> GetAllTripsBetweenDatesAsync(DateTime start, DateTime end)
         {
             throw new NotImplementedException();
         }
 
-        public Task<ICollection<TripListOnDateViewModel>> GetAllTripsOnDateAsync(DateTime date)
+        public async Task<ICollection<TripListOnDateViewModel>> GetAllTripsOnDateAsync(DateTime date)
         {
             throw new NotImplementedException();
         }
 
-        public Task<ICollection<TripDetailViewModel>> GetTripByIdAsync(Guid id)
+        public async Task<TripDetailViewModel> GetTripByIdAsync(Guid id)
         {
             throw new NotImplementedException();
         }
 
-        public Task<ApiResponse<Guid>> UpdateAsync(TripDetailViewModel viewModel)
+        public async Task<ApiResponse<Guid>> UpdateAsync(TripDetailViewModel viewModel)
         {
             throw new NotImplementedException();
         }

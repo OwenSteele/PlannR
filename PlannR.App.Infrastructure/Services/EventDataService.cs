@@ -17,44 +17,88 @@ namespace PlannR.App.Infrastructure.Services
             _mapper = mapper;
         }
 
-        public Task<ApiResponse<Guid>> CreateAsync(EventDetailViewModel viewModel)
+        public async Task<ApiResponse<Guid>> CreateAsync(EventDetailViewModel viewModel)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var response = new ApiResponse<Guid>();
+
+                var commandModel = _mapper.Map<CreateEventCommand>(viewModel);
+
+                var result = await _client.AddEventAsync(commandModel);
+
+                if (result.GetType() == typeof(Guid))
+                {
+                    response.Successful = true;
+                }
+                return response;
+            }
+            catch (ApiException ex)
+            {
+                return ConvertApiErrors<Guid>(ex);
+            }
         }
 
-        public Task<ApiResponse<Guid>> DeleteAsync(Guid bookingId)
+        public async Task<ApiResponse<Guid>> DeleteAsync(Guid id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                await _client.DeleteEventAsync(id);
+
+                return new ApiResponse<Guid> { Successful = true };
+            }
+            catch (ApiException ex)
+            {
+                return ConvertApiErrors<Guid>(ex);
+            }
         }
 
-        public Task<ICollection<EventListViewModel>> GetAllEventsAsync()
+        public async Task<ICollection<EventListViewModel>> GetAllEventsAsync()
         {
-            throw new NotImplementedException();
+            var result = await _client.GetAllEventsAsync();
+            return _mapper.Map<ICollection<EventListViewModel>>(result);
         }
 
-        public Task<ICollection<EventListOfTripViewModel>> GetAllEventsOfTripIdAsync(Guid tripId)
+        public async Task<ICollection<EventListOfTripViewModel>> GetAllEventsOfTripIdAsync(Guid tripId)
         {
-            throw new NotImplementedException();
+            var result = await _client.GetAllEventsByTripIdAsync(tripId);
+            return _mapper.Map<ICollection<EventListOfTripViewModel>>(result);
         }
 
-        public Task<ICollection<EventListWithBookingsViewModel>> GetAllEventsOfTripWithBookingsAsync(Guid tripId)
+        public async Task<ICollection<EventListWithBookingsViewModel>> GetAllEventsOfTripWithBookingsAsync(Guid tripId)
         {
-            throw new NotImplementedException();
+            var result = await _client.GetAllEventBookingsByTripIdAsync(tripId);
+            return _mapper.Map<ICollection<EventListWithBookingsViewModel>>(result);
         }
 
-        public Task<ICollection<EventListOnDateViewModel>> GetAllEventsOnDateAsync(DateTime date)
+        public async Task<ICollection<EventListOnDateViewModel>> GetAllEventsOnDateAsync(DateTime date)
         {
-            throw new NotImplementedException();
+            var result = await _client.GetAllEventsOnDateAsync(date);
+            return _mapper.Map<ICollection<EventListOnDateViewModel>>(result);
         }
 
-        public Task<ICollection<EventDetailViewModel>> GetEventByIdAsync(Guid id)
+        public async Task<EventDetailViewModel> GetEventByIdAsync(Guid id)
         {
-            throw new NotImplementedException();
+            var result = await _client.GetEventByIdAsync(id);
+            return _mapper.Map<EventDetailViewModel>(result);
         }
 
-        public Task<ApiResponse<Guid>> UpdateAsync(EventDetailViewModel viewModel)
+        public async Task<ApiResponse<Guid>> UpdateAsync(EventDetailViewModel viewModel)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var response = new ApiResponse<EventDto>();
+
+                var commandModel = _mapper.Map<UpdateEventCommand>(viewModel);
+
+                await _client.UpdateEventAsync(commandModel);
+
+                return new ApiResponse<Guid> { Successful = true };
+            }
+            catch (ApiException ex)
+            {
+                return ConvertApiErrors<Guid>(ex);
+            }
         }
     }
 }

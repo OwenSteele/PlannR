@@ -17,39 +17,82 @@ namespace PlannR.App.Infrastructure.Services
             _mapper = mapper;
         }
 
-        public Task<ApiResponse<Guid>> CreateAsync(RouteDetailViewModel viewModel)
+        public async Task<ApiResponse<Guid>> CreateAsync(RouteDetailViewModel viewModel)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var response = new ApiResponse<Guid>();
+
+                var commandModel = _mapper.Map<CreateRouteCommand>(viewModel);
+
+                var result = await _client.AddRouteAsync(commandModel);
+
+                if (result.GetType() == typeof(Guid))
+                {
+                    response.Successful = true;
+                }
+                return response;
+            }
+            catch (ApiException ex)
+            {
+                return ConvertApiErrors<Guid>(ex);
+            }
         }
 
-        public Task<ApiResponse<Guid>> DeleteAsync(Guid bookingId)
+        public async Task<ApiResponse<Guid>> DeleteAsync(Guid id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                await _client.DeleteRouteAsync(id);
+
+                return new ApiResponse<Guid> { Successful = true };
+            }
+            catch (ApiException ex)
+            {
+                return ConvertApiErrors<Guid>(ex);
+            }
         }
 
-        public Task<ICollection<RouteListViewModel>> GetAllRoutesAsync()
+        public async Task<ICollection<RouteListViewModel>> GetAllRoutesAsync()
         {
-            throw new NotImplementedException();
+            var result = await _client.GetAllRoutesAsync();
+            return _mapper.Map<ICollection<RouteListViewModel>>(result);
         }
 
-        public Task<ICollection<RouteListOfTripViewModel>> GetAllRoutesOfTripIdAsync(Guid tripId)
+        public async Task<ICollection<RouteListOfTripViewModel>> GetAllRoutesOfTripIdAsync(Guid tripId)
         {
-            throw new NotImplementedException();
+            var result = await _client.GetAllRoutesByTripIdAsync(tripId);
+            return _mapper.Map<ICollection<RouteListOfTripViewModel>>(result);
         }
 
-        public Task<ICollection<RouteListOnDateViewModel>> GetAllRoutesOnDateAsync(DateTime date)
+        public async Task<ICollection<RouteListOnDateViewModel>> GetAllRoutesOnDateAsync(DateTime date)
         {
-            throw new NotImplementedException();
+            var result = await _client.GetAllRouteOnDateAsync(date);
+            return _mapper.Map<ICollection<RouteListOnDateViewModel>>(result);
         }
 
-        public Task<ICollection<RouteDetailViewModel>> GetRouteByIdAsync(Guid id)
+        public async Task<RouteDetailViewModel> GetRouteByIdAsync(Guid id)
         {
-            throw new NotImplementedException();
+            var result = await _client.GetRouteByIdAsync(id);
+            return _mapper.Map<RouteDetailViewModel>(result);
         }
 
-        public Task<ApiResponse<Guid>> UpdateAsync(RouteDetailViewModel viewModel)
+        public async Task<ApiResponse<Guid>> UpdateAsync(RouteDetailViewModel viewModel)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var response = new ApiResponse<RouteDto>();
+
+                var commandModel = _mapper.Map<UpdateRouteCommand>(viewModel);
+
+                await _client.UpdateRouteAsync(commandModel);
+
+                return new ApiResponse<Guid> { Successful = true };
+            }
+            catch (ApiException ex)
+            {
+                return ConvertApiErrors<Guid>(ex);
+            }
         }
     }
 }

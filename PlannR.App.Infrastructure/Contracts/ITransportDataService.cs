@@ -12,6 +12,6 @@ namespace PlannR.App.Infrastructure.Contracts
         Task<ICollection<TransportListOfTripViewModel>> GetAllTransportOfTripIdAsync(Guid tripId);
         Task<ICollection<TransportListOnDateViewModel>> GetAllTransportOnDateAsync(DateTime date);
         Task<ICollection<TransportListWithBookingsViewModel>> GetAllTransportOfTripWithBookingsAsync(Guid tripId);
-        Task<ICollection<TransportDetailViewModel>> GetTransportByIdAsync(Guid id);
+        Task<TransportDetailViewModel> GetTransportByIdAsync(Guid id);
     }
 }

@@ -12,6 +12,6 @@ namespace PlannR.App.Infrastructure.Contracts
         Task<ICollection<EventListOfTripViewModel>> GetAllEventsOfTripIdAsync(Guid tripId);
         Task<ICollection<EventListOnDateViewModel>> GetAllEventsOnDateAsync(DateTime date);
         Task<ICollection<EventListWithBookingsViewModel>> GetAllEventsOfTripWithBookingsAsync(Guid tripId);
-        Task<ICollection<EventDetailViewModel>> GetEventByIdAsync(Guid id);
+        Task<EventDetailViewModel> GetEventByIdAsync(Guid id);
     }
 }

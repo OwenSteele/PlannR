@@ -6,6 +6,7 @@ using PlannR.Application.Features.Routes.Commands.CreateRoute;
 using PlannR.Application.Features.Routes.Commands.DeleteRoute;
 using PlannR.Application.Features.Routes.Commands.UpdateRoute;
 using PlannR.Application.Features.Routes.Queries.GetRouteDetail;
+using PlannR.Application.Features.Routes.Queries.GetRouteListByTripId;
 using PlannR.Application.Features.Routes.Queries.GetRouteListOnDate;
 using PlannR.Application.Features.Routes.Queries.GetRoutesList;
 using System;
@@ -52,6 +53,18 @@ namespace PlannR.API.Controllers
         public async Task<ActionResult<ICollection<RouteListOnDateDataModel>>> GetAllRouteOnDate(DateTime date)
         {
             var query = new GetRouteListOnDateQuery() { Date = date };
+            var result = await _mediator.Send(query);
+            return Ok(result);
+        }
+
+        [Authorize]
+        [HttpGet("trip/{tripId}", Name = "GetAllRoutesByTripId")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesDefaultResponseType]
+        public async Task<ActionResult<ICollection<RouteListByTripIdDataModel>>> GetAllRouteByTripId(Guid tripId)
+        {
+            var query = new GetRouteListByTripIdQuery() { TripId = tripId };
             var result = await _mediator.Send(query);
             return Ok(result);
         }

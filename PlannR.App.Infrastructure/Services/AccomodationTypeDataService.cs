@@ -17,19 +17,38 @@ namespace PlannR.App.Infrastructure.Services
             _mapper = mapper;
         }
 
-        public Task<ApiResponse<Guid>> CreateAsync(AccomodationTypeOfNameViewModel viewModel)
+        public async Task<ApiResponse<Guid>> CreateAsync(AccomodationTypeOfNameViewModel viewModel)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var response = new ApiResponse<Guid>();
+
+                var commandModel = _mapper.Map<CreateAccomodationTypeCommand>(viewModel);
+
+                var result = await _client.AddAccomodationTypeAsync(commandModel);
+
+                if (result.GetType() == typeof(Guid))
+                {
+                    response.Successful = true;
+                }
+                return response;
+            }
+            catch (ApiException ex)
+            {
+                return ConvertApiErrors<Guid>(ex);
+            }
         }
 
-        public Task<ICollection<AccomodationTypeListViewModel>> GetAllBookingsAsync()
+        public async Task<ICollection<AccomodationTypeListViewModel>> GetAllTypesAsync()
         {
-            throw new NotImplementedException();
+            var result = await _client.GetAllAccomodationTypesAsync();
+            return _mapper.Map<ICollection<AccomodationTypeListViewModel>>(result);
         }
 
-        public Task<AccomodationTypeOfNameViewModel> GetBookingByNameAsync(string name)
+        public async Task<AccomodationTypeOfNameViewModel> GetTypeByNameAsync(string name)
         {
-            throw new NotImplementedException();
+            var result = await _client.GetAccomodationTypeByNameAsync(name);
+            return _mapper.Map<AccomodationTypeOfNameViewModel>(result);
         }
     }
 }

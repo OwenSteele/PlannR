@@ -17,19 +17,38 @@ namespace PlannR.App.Infrastructure.Services
             _mapper = mapper;
         }
 
-        public Task<ApiResponse<Guid>> CreateAsync(EventTypeOfNameViewModel viewModel)
+         public async Task<ApiResponse<Guid>> CreateAsync(EventTypeOfNameViewModel viewModel)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var response = new ApiResponse<Guid>();
+
+                var commandModel = _mapper.Map<CreateEventTypeCommand>(viewModel);
+
+                var result = await _client.AddEventTypeAsync(commandModel);
+
+                if (result.GetType() == typeof(Guid))
+                {
+                    response.Successful = true;
+                }
+                return response;
+            }
+            catch (ApiException ex)
+            {
+                return ConvertApiErrors<Guid>(ex);
+            }
         }
 
-        public Task<ICollection<EventTypeListViewModel>> GetAllBookingsAsync()
+         public async Task<ICollection<EventTypeListViewModel>> GetAllTypesAsync()
         {
-            throw new NotImplementedException();
+            var result = await _client.GetAllEventTypesAsync();
+            return _mapper.Map<ICollection<EventTypeListViewModel>>(result);
         }
 
-        public Task<EventTypeOfNameViewModel> GetBookingByNameAsync(string name)
+         public async Task<EventTypeOfNameViewModel> GetTypeByNameAsync(string name)
         {
-            throw new NotImplementedException();
+            var result = await _client.GetEventTypeByNameAsync(name);
+            return _mapper.Map<EventTypeOfNameViewModel>(result);
         }
     }
 }

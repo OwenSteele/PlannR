@@ -9,7 +9,7 @@ namespace PlannR.App.Infrastructure.Contracts
 {
     public interface ITransportTypeDataService : ICreateBaseDataService<TransportTypeOfNameViewModel>
     {
-        Task<ICollection<TransportTypeListViewModel>> GetAllBookingsAsync();
-        Task<TransportTypeOfNameViewModel> GetBookingByNameAsync(string name);
+        Task<ICollection<TransportTypeListViewModel>> GetAllTypesAsync();
+        Task<TransportTypeOfNameViewModel> GetTypeByNameAsync(string name);
     }
 }

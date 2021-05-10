@@ -9,7 +9,7 @@ namespace PlannR.App.Infrastructure.Contracts
 {
     public interface IAccomodationTypeDataService : ICreateBaseDataService<AccomodationTypeOfNameViewModel>
     {
-        Task<ICollection<AccomodationTypeListViewModel>> GetAllBookingsAsync();
-        Task<AccomodationTypeOfNameViewModel> GetBookingByNameAsync(string name);
+        Task<ICollection<AccomodationTypeListViewModel>> GetAllTypesAsync();
+        Task<AccomodationTypeOfNameViewModel> GetTypeByNameAsync(string name);
     }
 }
