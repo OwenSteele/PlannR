@@ -22,8 +22,9 @@ namespace PlannR.App.Infrastructure
                 BaseAddress = new Uri("https://localhost:5001")
             });
 
-
             services.AddHttpClient<IClient, Client>(client => client.BaseAddress = new Uri("https://localhost:5001"));
+
+            services.AddScoped<IAuthenticationDataService, AuthenticationDataService>();
 
             services.AddScoped<IAccomodationDataService, AccomodationDataService>();
             services.AddScoped<ITransportDataService, TransportDataService>();

@@ -16,7 +16,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "Plannr.App": {
+    "PlannR.App": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,

@@ -8,9 +8,9 @@ namespace Plannr.App.Infrastructure.Contracts
 {
     public interface ITripDataService : IBaseDataService<TripDetailViewModel>
     {
-        Task<ICollection<TripListViewModel>> GetAllTripAsync();
-        Task<ICollection<TripListOnDateViewModel>> GetAllTripOnDateAsync(DateTime date);
-        Task<ICollection<TripListBetweenDatesViewModel>> GetAllTripBetweenDatesAsync(DateTime start, DateTime end);
+        Task<ICollection<TripListViewModel>> GetAllTripsAsync();
+        Task<ICollection<TripListOnDateViewModel>> GetAllTripsOnDateAsync(DateTime date);
+        Task<ICollection<TripListBetweenDatesViewModel>> GetAllTripsBetweenDatesAsync(DateTime start, DateTime end);
         Task<ICollection<TripDetailViewModel>> GetTripByIdAsync(Guid id);
     }
 }

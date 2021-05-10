@@ -27,17 +27,17 @@ namespace Plannr.App.Infrastructure.Services
             throw new NotImplementedException();
         }
 
-        public Task<ICollection<TripListViewModel>> GetAllTripAsync()
+        public Task<ICollection<TripListViewModel>> GetAllTripsAsync()
         {
             throw new NotImplementedException();
         }
 
-        public Task<ICollection<TripListBetweenDatesViewModel>> GetAllTripBetweenDatesAsync(DateTime start, DateTime end)
+        public Task<ICollection<TripListBetweenDatesViewModel>> GetAllTripsBetweenDatesAsync(DateTime start, DateTime end)
         {
             throw new NotImplementedException();
         }
 
-        public Task<ICollection<TripListOnDateViewModel>> GetAllTripOnDateAsync(DateTime date)
+        public Task<ICollection<TripListOnDateViewModel>> GetAllTripsOnDateAsync(DateTime date)
         {
             throw new NotImplementedException();
         }

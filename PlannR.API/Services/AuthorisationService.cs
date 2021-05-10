@@ -24,9 +24,16 @@ namespace PlannR.API.Services
 
         public ICollection<T> RemoveInAccessibleEntities(ICollection<T> entities)
         {
+            var toRemove = new List<T>();
+
             foreach (var entity in entities)
             {
-                if (!CanAccessEntity(entity)) entities.Remove(entity);
+                if (!CanAccessEntity(entity)) toRemove.Add(entity);
+            }
+
+            foreach (var r in toRemove)
+            {
+                entities.Remove(r);
             }
             return entities;
         }

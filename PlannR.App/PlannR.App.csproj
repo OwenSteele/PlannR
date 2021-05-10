@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Plannr.App.Infrastructure\Plannr.App.Infrastructure.csproj" />
+    <ProjectReference Include="..\PlannR.App.Infrastructure\PlannR.App.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
