@@ -5,11 +5,14 @@ html, body {
 }
 
 a, .btn-link {
-    color: #0366d6;
+}
+
+a {
+    color: aliceblue;
 }
 
 .btn-primary {
-    color: #fff;
+    color: #ffffff;
     background-color: #1b6ec2;
     border-color: #1861ac;
 }

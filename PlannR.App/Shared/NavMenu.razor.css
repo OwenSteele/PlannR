@@ -1,61 +1,76 @@
-.navbar-toggler {
+
+.sidebar {
+    padding-top: 10px;
+    width: 100%;
+    font-size: 18px;
+    transition: 0.5s;
+    transition-delay: 0.5s;
+    transition-duration: 0.5s;
+    text-align:center;
 }
 
-.top-row {
-    height: 3.5rem;
-    background-color: rgba(0,0,0,0.4);
+a {
+    text-decoration: none !important;
+    color: #ffffff;
+}
+a:hover, a:active {
+    text-decoration: none !important;
+}
+a:focus {
+    text-decoration: none !important;
+}
+.nav-home {
+    color: #ffffff;
+    padding: 10px 15px;
+    font-size: 60px;
+    align-content: center;
+    font-weight: bolder;
 }
 
-.navbar-brand {
-    font-size: 1.1rem;
+.closebtn button {
+    bottom: 0;
+    position: sticky;
 }
 
-.oi {
-    width: 2rem;
-    font-size: 1.1rem;
-    vertical-align: text-top;
-    top: -2px;
+.closebtn button {
+    border: 0;
+    color: #00ff90;
+    background: none;
+    font-weight: bold;
+    font-size: 20px;
+    right: 0;
 }
 
-.nav-item {
-    font-size: 0.9rem;
-    padding-bottom: 0.5rem;
+.closebtn button:hover {
+    color: #ffffff;
 }
 
-    .nav-item:first-of-type {
-        padding-top: 1rem;
+.nav-link {
+    font-size: 30px;
+    transition: 0.5s;
+}
+    .nav-link:hover {
+        color: #ffffff;
+        padding-left: 16px;
+        padding-right: 0px;
+        transition: 0.5s;
     }
 
-    .nav-item:last-of-type {
-        padding-bottom: 1rem;
-    }
-
-    .nav-item a {
-        color: #d7d7d7;
-        border-radius: 4px;
-        height: 3rem;
-        display: flex;
-        align-items: center;
-        line-height: 3rem;
-    }
-
-.nav-item a.active {
-    background-color: rgba(255,255,255,0.25);
-    color: black;
+.important-text {
+    color: orange;
+    font-weight: bold;
 }
 
-.nav-item a:hover {
-    background-color: rgba(255,255,255,0.1);
-    color: black;
-}
-
-@media (min-width: 641px) {
-    .navbar-toggler {
-        display: none;
-    }
-
-    .collapse {
-        /* Never collapse the sidebar for wide screens */
-        display: block;
+@media (max-width: 500px) {
+    .sidebar {
+        padding-top: 10px;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: #111;
+        color: antiquewhite;
+        width: 100%;
+        overflow: auto
     }
 }

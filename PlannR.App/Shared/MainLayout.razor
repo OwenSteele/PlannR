@@ -1,13 +1,21 @@
 ﻿@inherits LayoutComponentBase
-
-<div class="page">
-    <div>
-        <NavMenu />
-    </div>
-
-    <div class="main">
-        <div class="content px-4">
-            @Body
+<div>
+    <div class="card bg-light w-auto position-fixed">
+        <div>
+            <div class="sidebar @NavMenuCssClass" @onclick="ToggleNavMenu">
+                <NavMenu />
+            </div>
         </div>
     </div>
+</div>
+<div class="main">
+    <button class="openbtn" @onclick="ToggleNavMenu">&#9776;</button>
+    <div class="content px-4">
+        @Body
+        <span>@NavMenuCssClass</span>
+    </div>
+</div>
+
+<div class="footer">
+    <Footer />
 </div>

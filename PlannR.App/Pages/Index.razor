@@ -1,12 +1,13 @@
 ﻿@page "/"
+    <CascadingAuthenticationState>
+    <AuthorizeView>
+        <Authorized>
+            <button @onclick="NavigateToAccount">Logout</button>
+        </Authorized>
+        <NotAuthorized>
+            <button @onclick="NavigateToRegister">Register</button>
+        </NotAuthorized>
+    </AuthorizeView>
+    </CascadingAuthenticationState>
 
-<AuthorizeView>
-    <Authorized>
-        <button @onclick="NavigateToAccount">Logout</button>
-    </Authorized>
-    <NotAuthorized>
-        <button @onclick="NavigateToRegister">Register</button>
-    </NotAuthorized>
-</AuthorizeView>
-
-<h1>PLannR</h1>
+    <h1>PLannR</h1>
