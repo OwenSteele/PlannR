@@ -1,1 +1,19 @@
-﻿
+﻿@page "/trips"
+<div class="trips">
+    <div class="heading">
+        <h1>Your Trips</h1>
+        <button><span>&#43;</span> Add New</button>
+    </div>
+    @if (Trips == null)
+    {
+        <p>Finding your trips..</p>
+    }
+    else
+    {<div class="trip-list">
+            @foreach (var trip in Trips)
+            {
+                <p>@trip.Name</p>
+            }
+        </div>
+    }
+</div>

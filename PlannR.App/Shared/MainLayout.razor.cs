@@ -13,11 +13,15 @@ namespace PlannR.App.Shared
     {
         [Inject]
         public NavigationManager NavigationManager { get; set; }
-        private string NavMenuCssClass { get; set; }
+        private string NavMenuCssClass { get; set; } = "sidebar";
+        private string ToggleNavMenuClass { get; set; } = "main";
         protected void ToggleNavMenu()
         {
-            if (NavMenuCssClass == "width: 300px;") NavMenuCssClass = "width: 0px;";
-            else NavMenuCssClass = "width: 300px;";
+            NavMenuCssClass = (NavMenuCssClass == "sidebar") ? 
+                "sidebar-collapsed" : "sidebar";
+
+            ToggleNavMenuClass = (ToggleNavMenuClass == "main") ?
+                "main-focused" : "main";
         }
     }
 }

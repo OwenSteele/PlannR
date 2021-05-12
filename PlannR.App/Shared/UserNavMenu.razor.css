@@ -1,21 +1,23 @@
 
 .sidebar {
-    padding-top: 10px;
+    padding-top: 80px;
     width: 100%;
     font-size: 18px;
     transition: 0.5s;
     transition-delay: 0.5s;
     transition-duration: 0.5s;
-    text-align:center;
+    text-align:center;    
 }
 
 a {
+    font-weight: bolder;
     text-decoration: none !important;
     color: #ffffff;
 }
-a:hover, a:active {
-    text-decoration: none !important;
-}
+    a:hover, a:active {
+        color: #00ff90;
+        text-decoration: none !important;
+    }
 a:focus {
     text-decoration: none !important;
 }
@@ -25,24 +27,6 @@ a:focus {
     font-size: 60px;
     align-content: center;
     font-weight: bolder;
-}
-
-.closebtn button {
-    bottom: 0;
-    position: sticky;
-}
-
-.closebtn button {
-    border: 0;
-    color: #00ff90;
-    background: none;
-    font-weight: bold;
-    font-size: 20px;
-    right: 0;
-}
-
-.closebtn button:hover {
-    color: #ffffff;
 }
 
 .nav-link {
@@ -63,7 +47,7 @@ a:focus {
 
 @media (max-width: 500px) {
     .sidebar {
-        padding-top: 10px;
+        padding-top: 80px;
         height: 100%;
         position: fixed;
         top: 0;

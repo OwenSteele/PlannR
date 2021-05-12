@@ -1,0 +1,33 @@
+﻿.trips {
+    padding: 0px 10px;
+}
+
+.heading {
+    width: 100%;
+    flex: auto;
+    flex-direction: row;
+    display: inline-flex;
+    justify-content: space-between;
+}
+
+.heading h1 {
+    font-weight: bolder;
+    font-size: 60px;
+}
+
+.heading button {
+    vertical-align: middle;
+    font-weight: bolder;
+    border-radius: 4px;
+    background-color: #00ff90;
+    border: none;
+    color: #000000;
+}
+    .heading button span {
+        font-size: 28px;
+    }
+
+    .heading button:hover {
+        color: #ffffff;
+    }
+
