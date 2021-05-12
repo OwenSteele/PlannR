@@ -7,9 +7,12 @@ using PlannR.App.Infrastructure.ViewModels.Account;
 using PlannR.App.Infrastructure.ViewModels.Event;
 using PlannR.App.Infrastructure.ViewModels.Event.Bookings;
 using PlannR.App.Infrastructure.ViewModels.Event.Types;
+using PlannR.App.Infrastructure.ViewModels.Routes;
 using PlannR.App.Infrastructure.ViewModels.Transport;
 using PlannR.App.Infrastructure.ViewModels.Transport.Bookings;
 using PlannR.App.Infrastructure.ViewModels.Transport.Types;
+using PlannR.App.Infrastructure.ViewModels.Trips;
+using System;
 using System.Collections.Generic;
 
 namespace PlannR.App.Infrastructure.Profiles
@@ -21,56 +24,70 @@ namespace PlannR.App.Infrastructure.Profiles
             CreateMap<AccomodationBookingDetailViewModel, UpdateAccomodationBookingCommand>().ReverseMap();
             CreateMap<AccomodationBookingDetailViewModel, CreateAccomodationBookingCommand>().ReverseMap();
             CreateMap<AccomodationBookingDetailDataModel, AccomodationBookingDetailViewModel>().ReverseMap();
-            CreateMap<ICollection<AccomodationBookingListByTripIdDataModel>, ICollection<AccomodationBookingOfTripListViewModel>>().ReverseMap();
-            CreateMap<ICollection<AccomodationBookingListDataModel>, ICollection<AccomodationBookingListViewModel>>().ReverseMap();
+            CreateMap<AccomodationBookingListByTripIdDataModel, AccomodationBookingOfTripListViewModel>().ReverseMap();
+            CreateMap<AccomodationBookingListDataModel, AccomodationBookingListViewModel>().ReverseMap();
 
             CreateMap<EventBookingDetailViewModel, UpdateEventBookingCommand>().ReverseMap();
             CreateMap<EventBookingDetailViewModel, CreateEventBookingCommand>().ReverseMap();
             CreateMap<EventBookingDetailDataModel, EventBookingDetailViewModel>().ReverseMap();
-            CreateMap<ICollection<EventBookingListByTripIdDataModel>, ICollection<EventBookingOfTripListViewModel>>().ReverseMap();
-            CreateMap<ICollection<EventBookingListDataModel>, ICollection<EventBookingListViewModel>>().ReverseMap();
+            CreateMap<EventBookingListByTripIdDataModel, EventBookingOfTripListViewModel>().ReverseMap();
+            CreateMap<EventBookingListDataModel, EventBookingListViewModel>().ReverseMap();
 
             CreateMap<TransportBookingDetailViewModel, UpdateTransportBookingCommand>().ReverseMap();
             CreateMap<TransportBookingDetailViewModel, CreateTransportBookingCommand>().ReverseMap();
             CreateMap<TransportBookingDetailDataModel, TransportBookingDetailViewModel>().ReverseMap();
-            CreateMap<ICollection<TransportBookingListByTripIdDataModel>, ICollection<TransportBookingOfTripListViewModel>>().ReverseMap();
-            CreateMap<ICollection<TransportBookingListDataModel>, ICollection<TransportBookingListViewModel>>().ReverseMap();
+            CreateMap<TransportBookingListByTripIdDataModel, TransportBookingOfTripListViewModel>().ReverseMap();
+            CreateMap<TransportBookingListDataModel, TransportBookingListViewModel>().ReverseMap();
 
             CreateMap<AccomodationTypeOfNameViewModel, CreateAccomodationTypeCommand>().ReverseMap();
-            CreateMap<ICollection<AccomodationTypeListDataModel>, ICollection<AccomodationTypeListViewModel>>().ReverseMap();
+            CreateMap<AccomodationTypeListDataModel, AccomodationTypeListViewModel>().ReverseMap();
             CreateMap<AccomodationTypeByNameDataModel, AccomodationTypeOfNameViewModel>().ReverseMap();
 
             CreateMap<EventTypeOfNameViewModel, CreateEventTypeCommand>().ReverseMap();
-            CreateMap<ICollection<EventTypeListDataModel>, ICollection<EventTypeListViewModel>>().ReverseMap();
+            CreateMap<EventTypeListDataModel, EventTypeListViewModel>().ReverseMap();
             CreateMap<EventTypeByNameDataModel, EventTypeOfNameViewModel>().ReverseMap();
 
             CreateMap<TransportTypeOfNameViewModel, CreateTransportTypeCommand>().ReverseMap();
-            CreateMap<ICollection<TransportTypeListDataModel>, ICollection<TransportTypeListViewModel>>().ReverseMap();
+            CreateMap<TransportTypeListDataModel, TransportTypeListViewModel>().ReverseMap();
             CreateMap<TransportTypeByNameDataModel, TransportTypeOfNameViewModel>().ReverseMap();
 
             CreateMap<AccomodationDetailViewModel, CreateAccomodationCommand>().ReverseMap();
             CreateMap<AccomodationDetailViewModel, UpdateAccomodationCommand>().ReverseMap();
             CreateMap<AccomodationDetailDataModel, AccomodationDetailViewModel>().ReverseMap();
-            CreateMap<ICollection<AccomodationListByTripIdDataModel>, ICollection<AccomodationListOfTripViewModel>>().ReverseMap();
-            CreateMap<ICollection<AccomodationListDataModel>, ICollection<AccomodationListViewModel>>().ReverseMap();
-            CreateMap<ICollection<AccomodationListByTripIdWithBookingsDataModel>, ICollection<AccomodationListWithBookingsViewModel>>().ReverseMap();
-            CreateMap<ICollection<AccomodationListOnDateDataModel>, ICollection<AccomodationListOnDateViewModel>>().ReverseMap();
+            CreateMap<AccomodationListByTripIdDataModel, AccomodationListOfTripViewModel>().ReverseMap();
+            CreateMap<AccomodationListDataModel, AccomodationListViewModel>().ReverseMap();
+            CreateMap<AccomodationListByTripIdWithBookingsDataModel, AccomodationListWithBookingsViewModel>().ReverseMap();
+            CreateMap<AccomodationListOnDateDataModel, AccomodationListOnDateViewModel>().ReverseMap();
 
             CreateMap<EventDetailViewModel, CreateEventCommand>().ReverseMap();
             CreateMap<EventDetailViewModel, UpdateEventCommand>().ReverseMap();
             CreateMap<EventDetailDataModel, EventDetailViewModel>().ReverseMap();
-            CreateMap<ICollection<EventListByTripIdDataModel>, ICollection<EventListOfTripViewModel>>().ReverseMap();
-            CreateMap<ICollection<EventListDataModel>, ICollection<EventListViewModel>>().ReverseMap();
-            CreateMap<ICollection<EventListByTripIdWithBookingsDataModel>, ICollection<EventListWithBookingsViewModel>>().ReverseMap();
-            CreateMap<ICollection<EventListOnDateDataModel>, ICollection<EventListOnDateViewModel>>().ReverseMap();
+            CreateMap<EventListByTripIdDataModel, EventListOfTripViewModel>().ReverseMap();
+            CreateMap<EventListDataModel, EventListViewModel>().ReverseMap();
+            CreateMap<EventListByTripIdWithBookingsDataModel, EventListWithBookingsViewModel>().ReverseMap();
+            CreateMap<EventListOnDateDataModel, EventListOnDateViewModel>().ReverseMap();
 
             CreateMap<TransportDetailViewModel, CreateTransportCommand>().ReverseMap();
             CreateMap<TransportDetailViewModel, UpdateTransportCommand>().ReverseMap();
             CreateMap<TransportDetailDataModel, TransportDetailViewModel>().ReverseMap();
-            CreateMap<ICollection<TransportListByTripIdDataModel>, ICollection<TransportListOfTripViewModel>>().ReverseMap();
-            CreateMap<ICollection<TransportListDataModel>, ICollection<TransportListViewModel>>().ReverseMap();
-            CreateMap<ICollection<TransportListByTripIdWithBookingsDataModel>, ICollection<TransportListWithBookingsViewModel>>().ReverseMap();
-            CreateMap<ICollection<TransportListOnDateDataModel>, ICollection<TransportListOnDateViewModel>>().ReverseMap();
+            CreateMap<TransportListByTripIdDataModel, TransportListOfTripViewModel>().ReverseMap();
+            CreateMap<TransportListDataModel, TransportListViewModel>().ReverseMap();
+            CreateMap<TransportListByTripIdWithBookingsDataModel, TransportListWithBookingsViewModel>().ReverseMap();
+            CreateMap<TransportListOnDateDataModel, TransportListOnDateViewModel>().ReverseMap();
+
+            CreateMap<RouteDetailDataModel, RouteDetailViewModel>().ReverseMap();
+            CreateMap<RouteDetailViewModel, UpdateRouteCommand>().ReverseMap();
+            CreateMap<RouteDetailDataModel, RouteDetailViewModel>().ReverseMap();
+            CreateMap<RouteListByTripIdDataModel, RouteListOfTripViewModel>().ReverseMap();
+            CreateMap<RouteListDataModel, RouteListViewModel>().ReverseMap();
+            CreateMap<RouteListOnDateDataModel, RouteListOnDateViewModel>().ReverseMap();
+
+            CreateMap<TripDetailDataModel, TripDetailViewModel>().ReverseMap();
+            CreateMap<TripDetailViewModel, UpdateTripCommand>().ReverseMap();
+            CreateMap<TripDetailDataModel, TripDetailViewModel>().ReverseMap();
+            CreateMap<TripListDataModel, TripListViewModel>().ReverseMap();
+            CreateMap<TripListOnDateDataModel, TripListOnDateViewModel>().ReverseMap();
+            CreateMap<TripListBetweenDatesDataModel, TripListBetweenDatesViewModel>().ReverseMap();
 
             CreateMap<RegisterViewModel, RegistrationRequest>().ReverseMap();
             CreateMap<AuthenticateViewModel, AuthenticationRequest>().ReverseMap();

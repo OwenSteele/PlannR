@@ -85,12 +85,12 @@ namespace PlannR.App.Infrastructure.Services.Base
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AccomodationListOnDateDataModel>> GetAllAccomodationOnDateAsync(System.DateTimeOffset date);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AccomodationListOnDateDataModel>> GetAllAccomodationOnDateAsync(System.DateTime date);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AccomodationListOnDateDataModel>> GetAllAccomodationOnDateAsync(System.DateTimeOffset date, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AccomodationListOnDateDataModel>> GetAllAccomodationOnDateAsync(System.DateTime date, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -310,12 +310,12 @@ namespace PlannR.App.Infrastructure.Services.Base
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EventListOnDateDataModel>> GetAllEventsOnDateAsync(System.DateTimeOffset date);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EventListOnDateDataModel>> GetAllEventsOnDateAsync(System.DateTime date);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EventListOnDateDataModel>> GetAllEventsOnDateAsync(System.DateTimeOffset date, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EventListOnDateDataModel>> GetAllEventsOnDateAsync(System.DateTime date, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -391,12 +391,12 @@ namespace PlannR.App.Infrastructure.Services.Base
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<RouteListOnDateDataModel>> GetAllRouteOnDateAsync(System.DateTimeOffset date);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<RouteListOnDateDataModel>> GetAllRouteOnDateAsync(System.DateTime date);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<RouteListOnDateDataModel>> GetAllRouteOnDateAsync(System.DateTimeOffset date, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<RouteListOnDateDataModel>> GetAllRouteOnDateAsync(System.DateTime date, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -472,12 +472,12 @@ namespace PlannR.App.Infrastructure.Services.Base
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TransportListOnDateDataModel>> GetAllTransportOnDateAsync(System.DateTimeOffset date);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TransportListOnDateDataModel>> GetAllTransportOnDateAsync(System.DateTime date);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TransportListOnDateDataModel>> GetAllTransportOnDateAsync(System.DateTimeOffset date, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TransportListOnDateDataModel>> GetAllTransportOnDateAsync(System.DateTime date, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -607,21 +607,21 @@ namespace PlannR.App.Infrastructure.Services.Base
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TripListBetweenDatesDataModel>> GetAllTripsBetweenDatesAsync(System.DateTimeOffset start, System.DateTimeOffset end);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TripListBetweenDatesDataModel>> GetAllTripsBetweenDatesAsync(System.DateTime start, System.DateTime end);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TripListBetweenDatesDataModel>> GetAllTripsBetweenDatesAsync(System.DateTimeOffset start, System.DateTimeOffset end, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TripListBetweenDatesDataModel>> GetAllTripsBetweenDatesAsync(System.DateTime start, System.DateTime end, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TripListOnDateDataModel>> GetAllTripOnDateAsync(System.DateTimeOffset date);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TripListOnDateDataModel>> GetAllTripOnDateAsync(System.DateTime date);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TripListOnDateDataModel>> GetAllTripOnDateAsync(System.DateTimeOffset date, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TripListOnDateDataModel>> GetAllTripOnDateAsync(System.DateTime date, System.Threading.CancellationToken cancellationToken);
     
     }
     
@@ -1230,7 +1230,7 @@ namespace PlannR.App.Infrastructure.Services.Base
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AccomodationListOnDateDataModel>> GetAllAccomodationOnDateAsync(System.DateTimeOffset date)
+        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AccomodationListOnDateDataModel>> GetAllAccomodationOnDateAsync(System.DateTime date)
         {
             return GetAllAccomodationOnDateAsync(date, System.Threading.CancellationToken.None);
         }
@@ -1238,7 +1238,7 @@ namespace PlannR.App.Infrastructure.Services.Base
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AccomodationListOnDateDataModel>> GetAllAccomodationOnDateAsync(System.DateTimeOffset date, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AccomodationListOnDateDataModel>> GetAllAccomodationOnDateAsync(System.DateTime date, System.Threading.CancellationToken cancellationToken)
         {
             if (date == null)
                 throw new System.ArgumentNullException("date");
@@ -3316,7 +3316,7 @@ namespace PlannR.App.Infrastructure.Services.Base
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EventListOnDateDataModel>> GetAllEventsOnDateAsync(System.DateTimeOffset date)
+        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EventListOnDateDataModel>> GetAllEventsOnDateAsync(System.DateTime date)
         {
             return GetAllEventsOnDateAsync(date, System.Threading.CancellationToken.None);
         }
@@ -3324,7 +3324,7 @@ namespace PlannR.App.Infrastructure.Services.Base
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EventListOnDateDataModel>> GetAllEventsOnDateAsync(System.DateTimeOffset date, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EventListOnDateDataModel>> GetAllEventsOnDateAsync(System.DateTime date, System.Threading.CancellationToken cancellationToken)
         {
             if (date == null)
                 throw new System.ArgumentNullException("date");
@@ -4062,7 +4062,7 @@ namespace PlannR.App.Infrastructure.Services.Base
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<RouteListOnDateDataModel>> GetAllRouteOnDateAsync(System.DateTimeOffset date)
+        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<RouteListOnDateDataModel>> GetAllRouteOnDateAsync(System.DateTime date)
         {
             return GetAllRouteOnDateAsync(date, System.Threading.CancellationToken.None);
         }
@@ -4070,7 +4070,7 @@ namespace PlannR.App.Infrastructure.Services.Base
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<RouteListOnDateDataModel>> GetAllRouteOnDateAsync(System.DateTimeOffset date, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<RouteListOnDateDataModel>> GetAllRouteOnDateAsync(System.DateTime date, System.Threading.CancellationToken cancellationToken)
         {
             if (date == null)
                 throw new System.ArgumentNullException("date");
@@ -4844,7 +4844,7 @@ namespace PlannR.App.Infrastructure.Services.Base
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TransportListOnDateDataModel>> GetAllTransportOnDateAsync(System.DateTimeOffset date)
+        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TransportListOnDateDataModel>> GetAllTransportOnDateAsync(System.DateTime date)
         {
             return GetAllTransportOnDateAsync(date, System.Threading.CancellationToken.None);
         }
@@ -4852,7 +4852,7 @@ namespace PlannR.App.Infrastructure.Services.Base
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TransportListOnDateDataModel>> GetAllTransportOnDateAsync(System.DateTimeOffset date, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TransportListOnDateDataModel>> GetAllTransportOnDateAsync(System.DateTime date, System.Threading.CancellationToken cancellationToken)
         {
             if (date == null)
                 throw new System.ArgumentNullException("date");
@@ -6096,7 +6096,7 @@ namespace PlannR.App.Infrastructure.Services.Base
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TripListBetweenDatesDataModel>> GetAllTripsBetweenDatesAsync(System.DateTimeOffset start, System.DateTimeOffset end)
+        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TripListBetweenDatesDataModel>> GetAllTripsBetweenDatesAsync(System.DateTime start, System.DateTime end)
         {
             return GetAllTripsBetweenDatesAsync(start, end, System.Threading.CancellationToken.None);
         }
@@ -6104,7 +6104,7 @@ namespace PlannR.App.Infrastructure.Services.Base
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TripListBetweenDatesDataModel>> GetAllTripsBetweenDatesAsync(System.DateTimeOffset start, System.DateTimeOffset end, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TripListBetweenDatesDataModel>> GetAllTripsBetweenDatesAsync(System.DateTime start, System.DateTime end, System.Threading.CancellationToken cancellationToken)
         {
             if (start == null)
                 throw new System.ArgumentNullException("start");
@@ -6192,7 +6192,7 @@ namespace PlannR.App.Infrastructure.Services.Base
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TripListOnDateDataModel>> GetAllTripOnDateAsync(System.DateTimeOffset date)
+        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TripListOnDateDataModel>> GetAllTripOnDateAsync(System.DateTime date)
         {
             return GetAllTripOnDateAsync(date, System.Threading.CancellationToken.None);
         }
@@ -6200,7 +6200,7 @@ namespace PlannR.App.Infrastructure.Services.Base
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TripListOnDateDataModel>> GetAllTripOnDateAsync(System.DateTimeOffset date, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<TripListOnDateDataModel>> GetAllTripOnDateAsync(System.DateTime date, System.Threading.CancellationToken cancellationToken)
         {
             if (date == null)
                 throw new System.ArgumentNullException("date");
@@ -6425,10 +6425,10 @@ namespace PlannR.App.Infrastructure.Services.Base
         public string? Description { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }= default!;
     
     
     }
@@ -6464,10 +6464,10 @@ namespace PlannR.App.Infrastructure.Services.Base
         public System.Guid LocationId { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }= default!;
     
     
     }
@@ -6506,10 +6506,10 @@ namespace PlannR.App.Infrastructure.Services.Base
         public System.Guid LocationId { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }= default!;
     
     
     }
@@ -6614,10 +6614,10 @@ namespace PlannR.App.Infrastructure.Services.Base
         public AccomodationLocationDto Location { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }= default!;
     
     
     }
@@ -6644,10 +6644,10 @@ namespace PlannR.App.Infrastructure.Services.Base
         public AccomodationLocationDto Location { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }= default!;
     
     
     }
@@ -6695,10 +6695,10 @@ namespace PlannR.App.Infrastructure.Services.Base
         public AccomodationLocationDto Location { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string? Description { get; set; }= default!;
@@ -6734,10 +6734,10 @@ namespace PlannR.App.Infrastructure.Services.Base
         public AccomodationLocationDto Location { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }= default!;
     
     
     }
@@ -7107,10 +7107,10 @@ namespace PlannR.App.Infrastructure.Services.Base
         public string? CompanyName { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string? Description { get; set; }= default!;
@@ -7182,10 +7182,10 @@ namespace PlannR.App.Infrastructure.Services.Base
         public System.Guid LocationId { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("bookingId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Guid BookingId { get; set; }= default!;
@@ -7224,10 +7224,10 @@ namespace PlannR.App.Infrastructure.Services.Base
         public System.Guid LocationId { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("bookingId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Guid BookingId { get; set; }= default!;
@@ -7302,10 +7302,10 @@ namespace PlannR.App.Infrastructure.Services.Base
         public EventLocationDto Location { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string? Description { get; set; }= default!;
@@ -7335,10 +7335,10 @@ namespace PlannR.App.Infrastructure.Services.Base
         public EventLocationDto Location { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string? Description { get; set; }= default!;
@@ -7389,10 +7389,10 @@ namespace PlannR.App.Infrastructure.Services.Base
         public EventLocationDto Location { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string? Description { get; set; }= default!;
@@ -7425,10 +7425,10 @@ namespace PlannR.App.Infrastructure.Services.Base
         public EventLocationDto Location { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string? Description { get; set; }= default!;
@@ -7482,10 +7482,10 @@ namespace PlannR.App.Infrastructure.Services.Base
         public string? Name { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }= default!;
     
     
     }
@@ -7521,10 +7521,10 @@ namespace PlannR.App.Infrastructure.Services.Base
         public System.Guid LocationId { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }= default!;
     
     
     }
@@ -7563,10 +7563,10 @@ namespace PlannR.App.Infrastructure.Services.Base
         public System.Guid LocationId { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }= default!;
     
     
     }
@@ -7620,10 +7620,10 @@ namespace PlannR.App.Infrastructure.Services.Base
         public System.Guid AssociatedEventId { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }= default!;
     
     
     }
@@ -7641,10 +7641,10 @@ namespace PlannR.App.Infrastructure.Services.Base
         public string? Name { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("points", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<RoutePointDto>? Points { get; set; }= default!;
@@ -7665,10 +7665,10 @@ namespace PlannR.App.Infrastructure.Services.Base
         public string? Name { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }= default!;
     
     
     }
@@ -7686,10 +7686,10 @@ namespace PlannR.App.Infrastructure.Services.Base
         public string? Name { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }= default!;
     
     
     }
@@ -7722,10 +7722,10 @@ namespace PlannR.App.Infrastructure.Services.Base
         public string? Name { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string? Description { get; set; }= default!;
@@ -7752,10 +7752,10 @@ namespace PlannR.App.Infrastructure.Services.Base
         public System.Guid EndLocationId { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string? Description { get; set; }= default!;
@@ -7785,10 +7785,10 @@ namespace PlannR.App.Infrastructure.Services.Base
         public System.Guid EndLocationId { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("transportBookingId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Guid TransportBookingId { get; set; }= default!;
@@ -7863,10 +7863,10 @@ namespace PlannR.App.Infrastructure.Services.Base
         public TransportLocationDto EndLocation { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string? Description { get; set; }= default!;
@@ -7896,10 +7896,10 @@ namespace PlannR.App.Infrastructure.Services.Base
         public TransportLocationDto EndLocation { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string? Description { get; set; }= default!;
@@ -7953,10 +7953,10 @@ namespace PlannR.App.Infrastructure.Services.Base
         public TransportLocationDto EndLocation { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string? Description { get; set; }= default!;
@@ -7992,10 +7992,10 @@ namespace PlannR.App.Infrastructure.Services.Base
         public TransportLocationDto EndLocation { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string? Description { get; set; }= default!;
@@ -8205,10 +8205,10 @@ namespace PlannR.App.Infrastructure.Services.Base
         public string? Name { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("startLocation", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public LocationDto StartLocation { get; set; }= default!;
@@ -8226,10 +8226,10 @@ namespace PlannR.App.Infrastructure.Services.Base
         public string? Name { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("transportIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<System.Guid>? TransportIds { get; set; }= default!;
@@ -8256,10 +8256,10 @@ namespace PlannR.App.Infrastructure.Services.Base
         public string? Name { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("transportIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<System.Guid>? TransportIds { get; set; }= default!;
@@ -8289,10 +8289,10 @@ namespace PlannR.App.Infrastructure.Services.Base
         public string? Name { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }= default!;
     
     
     }
@@ -8310,10 +8310,10 @@ namespace PlannR.App.Infrastructure.Services.Base
         public string? Name { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }= default!;
     
     
     }
@@ -8334,10 +8334,10 @@ namespace PlannR.App.Infrastructure.Services.Base
         public string? CompanyName { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }= default!;
     
     
     }
@@ -8358,10 +8358,10 @@ namespace PlannR.App.Infrastructure.Services.Base
         public int Nights { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }= default!;
     
     
     }
@@ -8376,10 +8376,10 @@ namespace PlannR.App.Infrastructure.Services.Base
         public string? Name { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("startLocation", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public LocationDto StartLocation { get; set; }= default!;
@@ -8412,10 +8412,10 @@ namespace PlannR.App.Infrastructure.Services.Base
         public string? Name { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("startLocation", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public LocationDto StartLocation { get; set; }= default!;
@@ -8436,10 +8436,10 @@ namespace PlannR.App.Infrastructure.Services.Base
         public string? Name { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }= default!;
     
         [Newtonsoft.Json.JsonProperty("startLocation", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public LocationDto StartLocation { get; set; }= default!;
