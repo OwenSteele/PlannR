@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -100,16 +101,16 @@ namespace PlannR.API
 
             app.UseRouting();
 
+            app.UseCors("Open");
+
             app.UseAuthentication();
+            app.UseAuthorization();
+
+            app.UsePlannrExceptionHandler();
 
             app.UseSwagger();
             app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "PlannR.API v1"));
 
-            app.UsePlannrExceptionHandler();
-
-            app.UseCors("Open");
-
-            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

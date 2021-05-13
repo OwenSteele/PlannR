@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Primitives;
 using PlannR.Application.Contracts.Identity;
 using PlannR.Domain.Common;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace PlannR.API.Services
 {
@@ -17,7 +19,7 @@ namespace PlannR.API.Services
 
         public bool CanAccessEntity(T entity)
         {
-            if (string.IsNullOrWhiteSpace(entity.CreatedBy)) return true;
+            if (string.IsNullOrWhiteSpace(entity.CreatedBy) && string.IsNullOrWhiteSpace(_userId)) return true;
 
             return _userId == entity.CreatedBy;
         }
@@ -26,14 +28,10 @@ namespace PlannR.API.Services
         {
             var toRemove = new List<T>();
 
-            foreach (var entity in entities)
+            for(int i = 0; i < entities.Count; i++)
             {
-                if (!CanAccessEntity(entity)) toRemove.Add(entity);
-            }
-
-            foreach (var r in toRemove)
-            {
-                entities.Remove(r);
+                var entity = entities.ElementAt(i);
+                if (!CanAccessEntity(entities.ElementAt(i))) entities.Remove(entity);
             }
             return entities;
         }

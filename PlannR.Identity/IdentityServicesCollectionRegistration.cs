@@ -29,6 +29,7 @@ namespace PlannR.Identity
                 .AddEntityFrameworkStores<PlannrIdentityDbContext>().AddDefaultTokenProviders();
 
             services.AddScoped<IAuthenticationService, AuthenticationService>();
+
             services.AddAuthentication(options =>
             {
                 options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
