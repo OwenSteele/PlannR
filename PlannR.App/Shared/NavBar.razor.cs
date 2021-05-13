@@ -2,10 +2,6 @@
 using Microsoft.AspNetCore.Components.Authorization;
 using PlannR.App.Infrastructure.Authentication;
 using PlannR.App.Infrastructure.Contracts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace PlannR.App.Shared
@@ -25,7 +21,10 @@ namespace PlannR.App.Shared
         {
             await ((PlannrAuthenticationStateProvider)AuthenticationStateProvider).GetAuthenticationStateAsync();
         }
-
+        protected void NavigateToAccount()
+        {
+            NavigationManager.NavigateTo("account");
+        }
         protected void NavigateToLogin()
         {
             NavigationManager.NavigateTo("login");

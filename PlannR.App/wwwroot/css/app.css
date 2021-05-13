@@ -8,7 +8,11 @@ a, .btn-link {
 }
 
 a {
-    color: aliceblue;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #00ff90;
 }
 
 .btn-primary {

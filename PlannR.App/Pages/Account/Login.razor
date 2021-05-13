@@ -1,0 +1,25 @@
+@page "/login"
+
+<div class="login">
+    <div class="heading">
+        <h1>Login</h1>
+        <a href="/signup">Don't have an account? Sign up</a>
+    </div>
+    <EditForm Model="@LoginViewModel"
+              OnValidSubmit="HandleValidSubmit" OnInvalidSubmit="HandleInvalidSubmit">
+        <DataAnnotationsValidator></DataAnnotationsValidator>
+        <span>@Message</span>
+        <div class="form-field">
+            <label for="email">Email</label>
+            <InputText id="email" @bind-Value="@LoginViewModel.Email"></InputText>
+            <ValidationMessage For="@(() => LoginViewModel.Email)" />
+        </div>
+        <div class="form-field">
+            <label for="password">Password</label>
+            <InputText id="password" @bind-Value="@LoginViewModel.Password"></InputText>
+            <ValidationMessage For="@(() => LoginViewModel.Password)" />
+        </div>
+
+        <button type="submit"><strong>Login</strong></button>
+    </EditForm>
+</div>

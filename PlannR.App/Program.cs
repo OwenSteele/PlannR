@@ -1,8 +1,6 @@
+using Blazored.Modal;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using Microsoft.Extensions.DependencyInjection;
 using PlannR.App.Infrastructure;
-using System;
-using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace PlannR.App
@@ -15,6 +13,8 @@ namespace PlannR.App
             builder.RootComponents.Add<App>("#app");
 
             builder.Services.AddClientInfrastructureServices();
+
+            builder.Services.AddBlazoredModal();
 
             await builder.Build().RunAsync();
         }

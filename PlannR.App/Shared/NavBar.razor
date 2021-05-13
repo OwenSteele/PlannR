@@ -7,11 +7,12 @@
             <CascadingAuthenticationState>
                 <AuthorizeView>
                     <Authorized>
+                        <button class="important-btn" @onclick="NavigateToAccount">@context.User?.Identity?.Name</button>
                         <button @onclick="Logout">Logout</button>
                     </Authorized>
                     <NotAuthorized>
                         <button @onclick="NavigateToLogin">Login</button>
-                        <button class="signup-btn" @onclick="NavigateToSignUp">Sign up</button>
+                        <button class="important-btn" @onclick="NavigateToSignUp">Sign up</button>
                     </NotAuthorized>
                 </AuthorizeView>
             </CascadingAuthenticationState>

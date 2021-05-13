@@ -9,17 +9,14 @@
     text-align:center;    
 }
 
-a {
+span {
     font-weight: bolder;
-    text-decoration: none !important;
     color: #ffffff;
 }
     a:hover, a:active {
         color: #00ff90;
-        text-decoration: none !important;
     }
 a:focus {
-    text-decoration: none !important;
 }
 .nav-home {
     color: #ffffff;
@@ -33,12 +30,12 @@ a:focus {
     font-size: 30px;
     transition: 0.5s;
 }
-    .nav-link:hover {
-        color: #ffffff;
-        padding-left: 16px;
-        padding-right: 0px;
-        transition: 0.5s;
-    }
+.nav-link:hover {
+    color: #ffffff;
+    padding-left: 16px;
+    padding-right: 0px;
+    transition: 0.5s;
+}
 
 .important-text {
     color: orange;

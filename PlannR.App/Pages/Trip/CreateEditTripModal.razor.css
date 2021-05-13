@@ -1,0 +1,29 @@
+﻿.login {
+    min-height: 100px;
+    min-width: 350px;
+}
+
+.login input {
+    width: 100%;
+}
+
+.login label {
+    font-weight: bolder;
+}
+.login span {
+    font-weight: bolder;
+    color: #ff0000;
+}
+
+.login .form-field {
+    display: flex;
+    justify-content: space-between;
+}
+
+.login button {
+    border: none;
+    padding: 0px;
+    font-size: 30px;
+    background-color: transparent;
+    align-self: end;
+}
