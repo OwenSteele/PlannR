@@ -4,8 +4,6 @@
 // </auto-generated>
 //----------------------
 
-#nullable enable
-
 #pragma warning disable 108 // Disable "CS0108 '{derivedDto}.ToJson()' hides inherited member '{dtoBase}.ToJson()'. Use the new keyword if hiding was intended."
 #pragma warning disable 114 // Disable "CS0114 '{derivedDto}.RaisePropertyChanged(String)' hides inherited member 'dtoBase.RaisePropertyChanged(String)'. To make the current member override that implementation, add the override keyword. Otherwise add the new keyword."
 #pragma warning disable 472 // Disable "CS0472 The result of the expression is always 'false' since a value of type 'Int32' is never equal to 'null' of type 'Int32?'
@@ -31,21 +29,21 @@ namespace PlannR.App.Infrastructure.Services.Base
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Guid> AddAccomodationAsync(CreateAccomodationCommand? body);
+        System.Threading.Tasks.Task<System.Guid> AddAccomodationAsync(CreateAccomodationCommand body);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Guid> AddAccomodationAsync(CreateAccomodationCommand? body, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Guid> AddAccomodationAsync(CreateAccomodationCommand body, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task UpdateAccomodationAsync(UpdateAccomodationCommand? body);
+        System.Threading.Tasks.Task UpdateAccomodationAsync(UpdateAccomodationCommand body);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task UpdateAccomodationAsync(UpdateAccomodationCommand? body, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task UpdateAccomodationAsync(UpdateAccomodationCommand body, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -103,21 +101,21 @@ namespace PlannR.App.Infrastructure.Services.Base
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Guid> AddAccomodationBookingAsync(CreateAccomodationBookingCommand? body);
+        System.Threading.Tasks.Task<System.Guid> AddAccomodationBookingAsync(CreateAccomodationBookingCommand body);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Guid> AddAccomodationBookingAsync(CreateAccomodationBookingCommand? body, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Guid> AddAccomodationBookingAsync(CreateAccomodationBookingCommand body, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task UpdateAccomodationBookingAsync(UpdateAccomodationBookingCommand? body);
+        System.Threading.Tasks.Task UpdateAccomodationBookingAsync(UpdateAccomodationBookingCommand body);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task UpdateAccomodationBookingAsync(UpdateAccomodationBookingCommand? body, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task UpdateAccomodationBookingAsync(UpdateAccomodationBookingCommand body, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -157,39 +155,39 @@ namespace PlannR.App.Infrastructure.Services.Base
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Guid> AddAccomodationTypeAsync(CreateAccomodationTypeCommand? body);
+        System.Threading.Tasks.Task<System.Guid> AddAccomodationTypeAsync(CreateAccomodationTypeCommand body);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Guid> AddAccomodationTypeAsync(CreateAccomodationTypeCommand? body, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Guid> AddAccomodationTypeAsync(CreateAccomodationTypeCommand body, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<AccomodationTypeByNameDataModel> GetAccomodationTypeByNameAsync(string? name);
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <returns>Success</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<AccomodationTypeByNameDataModel> GetAccomodationTypeByNameAsync(string? name, System.Threading.CancellationToken cancellationToken);
-    
-        /// <returns>Success</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<AuthenticationResponse> AuthenticateAsync(AuthenticationRequest? body);
+        System.Threading.Tasks.Task<AccomodationTypeByNameDataModel> GetAccomodationTypeByNameAsync(string name);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<AuthenticationResponse> AuthenticateAsync(AuthenticationRequest? body, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<AccomodationTypeByNameDataModel> GetAccomodationTypeByNameAsync(string name, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<RegistrationResponse> RegisterAsync(RegistrationRequest? body);
+        System.Threading.Tasks.Task<AuthenticationResponse> AuthenticateAsync(AuthenticationRequest body);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<RegistrationResponse> RegisterAsync(RegistrationRequest? body, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<AuthenticationResponse> AuthenticateAsync(AuthenticationRequest body, System.Threading.CancellationToken cancellationToken);
+    
+        /// <returns>Success</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<RegistrationResponse> RegisterAsync(RegistrationRequest body);
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>Success</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<RegistrationResponse> RegisterAsync(RegistrationRequest body, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -202,21 +200,21 @@ namespace PlannR.App.Infrastructure.Services.Base
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Guid> AddEventBookingAsync(CreateEventBookingCommand? body);
+        System.Threading.Tasks.Task<System.Guid> AddEventBookingAsync(CreateEventBookingCommand body);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Guid> AddEventBookingAsync(CreateEventBookingCommand? body, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Guid> AddEventBookingAsync(CreateEventBookingCommand body, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task UpdateEventBookingAsync(UpdateEventBookingCommand? body);
+        System.Threading.Tasks.Task UpdateEventBookingAsync(UpdateEventBookingCommand body);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task UpdateEventBookingAsync(UpdateEventBookingCommand? body, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task UpdateEventBookingAsync(UpdateEventBookingCommand body, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -256,21 +254,21 @@ namespace PlannR.App.Infrastructure.Services.Base
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Guid> AddEventAsync(CreateEventCommand? body);
+        System.Threading.Tasks.Task<System.Guid> AddEventAsync(CreateEventCommand body);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Guid> AddEventAsync(CreateEventCommand? body, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Guid> AddEventAsync(CreateEventCommand body, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task UpdateEventAsync(UpdateEventCommand? body);
+        System.Threading.Tasks.Task UpdateEventAsync(UpdateEventCommand body);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task UpdateEventAsync(UpdateEventCommand? body, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task UpdateEventAsync(UpdateEventCommand body, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -328,21 +326,21 @@ namespace PlannR.App.Infrastructure.Services.Base
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Guid> AddEventTypeAsync(CreateEventTypeCommand? body);
+        System.Threading.Tasks.Task<System.Guid> AddEventTypeAsync(CreateEventTypeCommand body);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Guid> AddEventTypeAsync(CreateEventTypeCommand? body, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Guid> AddEventTypeAsync(CreateEventTypeCommand body, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<EventTypeByNameDataModel> GetEventTypeByNameAsync(string? name);
+        System.Threading.Tasks.Task<EventTypeByNameDataModel> GetEventTypeByNameAsync(string name);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<EventTypeByNameDataModel> GetEventTypeByNameAsync(string? name, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<EventTypeByNameDataModel> GetEventTypeByNameAsync(string name, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -355,21 +353,21 @@ namespace PlannR.App.Infrastructure.Services.Base
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Guid> AddRouteAsync(CreateRouteCommand? body);
+        System.Threading.Tasks.Task<System.Guid> AddRouteAsync(CreateRouteCommand body);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Guid> AddRouteAsync(CreateRouteCommand? body, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Guid> AddRouteAsync(CreateRouteCommand body, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task UpdateRouteAsync(UpdateRouteCommand? body);
+        System.Threading.Tasks.Task UpdateRouteAsync(UpdateRouteCommand body);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task UpdateRouteAsync(UpdateRouteCommand? body, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task UpdateRouteAsync(UpdateRouteCommand body, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -418,21 +416,21 @@ namespace PlannR.App.Infrastructure.Services.Base
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Guid> AddTransportAsync(CreateTransportCommand? body);
+        System.Threading.Tasks.Task<System.Guid> AddTransportAsync(CreateTransportCommand body);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Guid> AddTransportAsync(CreateTransportCommand? body, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Guid> AddTransportAsync(CreateTransportCommand body, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task UpdateTransportAsync(UpdateTransportCommand? body);
+        System.Threading.Tasks.Task UpdateTransportAsync(UpdateTransportCommand body);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task UpdateTransportAsync(UpdateTransportCommand? body, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task UpdateTransportAsync(UpdateTransportCommand body, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -490,21 +488,21 @@ namespace PlannR.App.Infrastructure.Services.Base
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Guid> AddTransportBookingAsync(CreateTransportBookingCommand? body);
+        System.Threading.Tasks.Task<System.Guid> AddTransportBookingAsync(CreateTransportBookingCommand body);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Guid> AddTransportBookingAsync(CreateTransportBookingCommand? body, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Guid> AddTransportBookingAsync(CreateTransportBookingCommand body, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task UpdateTransportBookingAsync(UpdateTransportBookingCommand? body);
+        System.Threading.Tasks.Task UpdateTransportBookingAsync(UpdateTransportBookingCommand body);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task UpdateTransportBookingAsync(UpdateTransportBookingCommand? body, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task UpdateTransportBookingAsync(UpdateTransportBookingCommand body, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -544,21 +542,21 @@ namespace PlannR.App.Infrastructure.Services.Base
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Guid> AddTransportTypeAsync(CreateTransportTypeCommand? body);
+        System.Threading.Tasks.Task<System.Guid> AddTransportTypeAsync(CreateTransportTypeCommand body);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Guid> AddTransportTypeAsync(CreateTransportTypeCommand? body, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Guid> AddTransportTypeAsync(CreateTransportTypeCommand body, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<TransportTypeByNameDataModel> GetTransportTypeByNameAsync(string? name);
+        System.Threading.Tasks.Task<TransportTypeByNameDataModel> GetTransportTypeByNameAsync(string name);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<TransportTypeByNameDataModel> GetTransportTypeByNameAsync(string? name, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<TransportTypeByNameDataModel> GetTransportTypeByNameAsync(string name, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -571,21 +569,21 @@ namespace PlannR.App.Infrastructure.Services.Base
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Guid> AddTripAsync(CreateTripCommand? body);
+        System.Threading.Tasks.Task<System.Guid> AddTripAsync(CreateTripCommand body);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Guid> AddTripAsync(CreateTripCommand? body, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Guid> AddTripAsync(CreateTripCommand body, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task UpdateTripAsync(UpdateTripCommand? body);
+        System.Threading.Tasks.Task UpdateTripAsync(UpdateTripCommand body);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task UpdateTripAsync(UpdateTripCommand? body, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task UpdateTripAsync(UpdateTripCommand body, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -736,7 +734,7 @@ namespace PlannR.App.Infrastructure.Services.Base
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Guid> AddAccomodationAsync(CreateAccomodationCommand? body)
+        public System.Threading.Tasks.Task<System.Guid> AddAccomodationAsync(CreateAccomodationCommand body)
         {
             return AddAccomodationAsync(body, System.Threading.CancellationToken.None);
         }
@@ -744,7 +742,7 @@ namespace PlannR.App.Infrastructure.Services.Base
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Guid> AddAccomodationAsync(CreateAccomodationCommand? body, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Guid> AddAccomodationAsync(CreateAccomodationCommand body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Accomodation");
@@ -813,7 +811,7 @@ namespace PlannR.App.Infrastructure.Services.Base
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task UpdateAccomodationAsync(UpdateAccomodationCommand? body)
+        public System.Threading.Tasks.Task UpdateAccomodationAsync(UpdateAccomodationCommand body)
         {
             return UpdateAccomodationAsync(body, System.Threading.CancellationToken.None);
         }
@@ -821,7 +819,7 @@ namespace PlannR.App.Infrastructure.Services.Base
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task UpdateAccomodationAsync(UpdateAccomodationCommand? body, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task UpdateAccomodationAsync(UpdateAccomodationCommand body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Accomodation");
@@ -1386,7 +1384,7 @@ namespace PlannR.App.Infrastructure.Services.Base
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Guid> AddAccomodationBookingAsync(CreateAccomodationBookingCommand? body)
+        public System.Threading.Tasks.Task<System.Guid> AddAccomodationBookingAsync(CreateAccomodationBookingCommand body)
         {
             return AddAccomodationBookingAsync(body, System.Threading.CancellationToken.None);
         }
@@ -1394,7 +1392,7 @@ namespace PlannR.App.Infrastructure.Services.Base
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Guid> AddAccomodationBookingAsync(CreateAccomodationBookingCommand? body, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Guid> AddAccomodationBookingAsync(CreateAccomodationBookingCommand body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Accomodation/Bookings");
@@ -1463,7 +1461,7 @@ namespace PlannR.App.Infrastructure.Services.Base
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task UpdateAccomodationBookingAsync(UpdateAccomodationBookingCommand? body)
+        public System.Threading.Tasks.Task UpdateAccomodationBookingAsync(UpdateAccomodationBookingCommand body)
         {
             return UpdateAccomodationBookingAsync(body, System.Threading.CancellationToken.None);
         }
@@ -1471,7 +1469,7 @@ namespace PlannR.App.Infrastructure.Services.Base
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task UpdateAccomodationBookingAsync(UpdateAccomodationBookingCommand? body, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task UpdateAccomodationBookingAsync(UpdateAccomodationBookingCommand body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Accomodation/Bookings");
@@ -1892,7 +1890,7 @@ namespace PlannR.App.Infrastructure.Services.Base
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Guid> AddAccomodationTypeAsync(CreateAccomodationTypeCommand? body)
+        public System.Threading.Tasks.Task<System.Guid> AddAccomodationTypeAsync(CreateAccomodationTypeCommand body)
         {
             return AddAccomodationTypeAsync(body, System.Threading.CancellationToken.None);
         }
@@ -1900,7 +1898,7 @@ namespace PlannR.App.Infrastructure.Services.Base
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Guid> AddAccomodationTypeAsync(CreateAccomodationTypeCommand? body, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Guid> AddAccomodationTypeAsync(CreateAccomodationTypeCommand body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Accomodation/Types");
@@ -1969,7 +1967,7 @@ namespace PlannR.App.Infrastructure.Services.Base
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<AccomodationTypeByNameDataModel> GetAccomodationTypeByNameAsync(string? name)
+        public System.Threading.Tasks.Task<AccomodationTypeByNameDataModel> GetAccomodationTypeByNameAsync(string name)
         {
             return GetAccomodationTypeByNameAsync(name, System.Threading.CancellationToken.None);
         }
@@ -1977,7 +1975,7 @@ namespace PlannR.App.Infrastructure.Services.Base
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<AccomodationTypeByNameDataModel> GetAccomodationTypeByNameAsync(string? name, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<AccomodationTypeByNameDataModel> GetAccomodationTypeByNameAsync(string name, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Accomodation/Types/{name}");
@@ -2058,7 +2056,7 @@ namespace PlannR.App.Infrastructure.Services.Base
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<AuthenticationResponse> AuthenticateAsync(AuthenticationRequest? body)
+        public System.Threading.Tasks.Task<AuthenticationResponse> AuthenticateAsync(AuthenticationRequest body)
         {
             return AuthenticateAsync(body, System.Threading.CancellationToken.None);
         }
@@ -2066,7 +2064,7 @@ namespace PlannR.App.Infrastructure.Services.Base
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<AuthenticationResponse> AuthenticateAsync(AuthenticationRequest? body, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<AuthenticationResponse> AuthenticateAsync(AuthenticationRequest body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Account/Authenticate");
@@ -2135,7 +2133,7 @@ namespace PlannR.App.Infrastructure.Services.Base
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<RegistrationResponse> RegisterAsync(RegistrationRequest? body)
+        public System.Threading.Tasks.Task<RegistrationResponse> RegisterAsync(RegistrationRequest body)
         {
             return RegisterAsync(body, System.Threading.CancellationToken.None);
         }
@@ -2143,7 +2141,7 @@ namespace PlannR.App.Infrastructure.Services.Base
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<RegistrationResponse> RegisterAsync(RegistrationRequest? body, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<RegistrationResponse> RegisterAsync(RegistrationRequest body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Account/Register");
@@ -2286,7 +2284,7 @@ namespace PlannR.App.Infrastructure.Services.Base
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Guid> AddEventBookingAsync(CreateEventBookingCommand? body)
+        public System.Threading.Tasks.Task<System.Guid> AddEventBookingAsync(CreateEventBookingCommand body)
         {
             return AddEventBookingAsync(body, System.Threading.CancellationToken.None);
         }
@@ -2294,7 +2292,7 @@ namespace PlannR.App.Infrastructure.Services.Base
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Guid> AddEventBookingAsync(CreateEventBookingCommand? body, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Guid> AddEventBookingAsync(CreateEventBookingCommand body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Event/Bookings");
@@ -2363,7 +2361,7 @@ namespace PlannR.App.Infrastructure.Services.Base
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task UpdateEventBookingAsync(UpdateEventBookingCommand? body)
+        public System.Threading.Tasks.Task UpdateEventBookingAsync(UpdateEventBookingCommand body)
         {
             return UpdateEventBookingAsync(body, System.Threading.CancellationToken.None);
         }
@@ -2371,7 +2369,7 @@ namespace PlannR.App.Infrastructure.Services.Base
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task UpdateEventBookingAsync(UpdateEventBookingCommand? body, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task UpdateEventBookingAsync(UpdateEventBookingCommand body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Event/Bookings");
@@ -2792,7 +2790,7 @@ namespace PlannR.App.Infrastructure.Services.Base
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Guid> AddEventAsync(CreateEventCommand? body)
+        public System.Threading.Tasks.Task<System.Guid> AddEventAsync(CreateEventCommand body)
         {
             return AddEventAsync(body, System.Threading.CancellationToken.None);
         }
@@ -2800,7 +2798,7 @@ namespace PlannR.App.Infrastructure.Services.Base
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Guid> AddEventAsync(CreateEventCommand? body, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Guid> AddEventAsync(CreateEventCommand body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Events");
@@ -2869,7 +2867,7 @@ namespace PlannR.App.Infrastructure.Services.Base
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task UpdateEventAsync(UpdateEventCommand? body)
+        public System.Threading.Tasks.Task UpdateEventAsync(UpdateEventCommand body)
         {
             return UpdateEventAsync(body, System.Threading.CancellationToken.None);
         }
@@ -2877,7 +2875,7 @@ namespace PlannR.App.Infrastructure.Services.Base
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task UpdateEventAsync(UpdateEventCommand? body, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task UpdateEventAsync(UpdateEventCommand body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Events");
@@ -3482,7 +3480,7 @@ namespace PlannR.App.Infrastructure.Services.Base
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Guid> AddEventTypeAsync(CreateEventTypeCommand? body)
+        public System.Threading.Tasks.Task<System.Guid> AddEventTypeAsync(CreateEventTypeCommand body)
         {
             return AddEventTypeAsync(body, System.Threading.CancellationToken.None);
         }
@@ -3490,7 +3488,7 @@ namespace PlannR.App.Infrastructure.Services.Base
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Guid> AddEventTypeAsync(CreateEventTypeCommand? body, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Guid> AddEventTypeAsync(CreateEventTypeCommand body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Event/Types");
@@ -3559,7 +3557,7 @@ namespace PlannR.App.Infrastructure.Services.Base
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<EventTypeByNameDataModel> GetEventTypeByNameAsync(string? name)
+        public System.Threading.Tasks.Task<EventTypeByNameDataModel> GetEventTypeByNameAsync(string name)
         {
             return GetEventTypeByNameAsync(name, System.Threading.CancellationToken.None);
         }
@@ -3567,7 +3565,7 @@ namespace PlannR.App.Infrastructure.Services.Base
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<EventTypeByNameDataModel> GetEventTypeByNameAsync(string? name, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<EventTypeByNameDataModel> GetEventTypeByNameAsync(string name, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Event/Types/{name}");
@@ -3722,7 +3720,7 @@ namespace PlannR.App.Infrastructure.Services.Base
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Guid> AddRouteAsync(CreateRouteCommand? body)
+        public System.Threading.Tasks.Task<System.Guid> AddRouteAsync(CreateRouteCommand body)
         {
             return AddRouteAsync(body, System.Threading.CancellationToken.None);
         }
@@ -3730,7 +3728,7 @@ namespace PlannR.App.Infrastructure.Services.Base
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Guid> AddRouteAsync(CreateRouteCommand? body, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Guid> AddRouteAsync(CreateRouteCommand body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Routes");
@@ -3799,7 +3797,7 @@ namespace PlannR.App.Infrastructure.Services.Base
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task UpdateRouteAsync(UpdateRouteCommand? body)
+        public System.Threading.Tasks.Task UpdateRouteAsync(UpdateRouteCommand body)
         {
             return UpdateRouteAsync(body, System.Threading.CancellationToken.None);
         }
@@ -3807,7 +3805,7 @@ namespace PlannR.App.Infrastructure.Services.Base
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task UpdateRouteAsync(UpdateRouteCommand? body, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task UpdateRouteAsync(UpdateRouteCommand body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Routes");
@@ -4320,7 +4318,7 @@ namespace PlannR.App.Infrastructure.Services.Base
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Guid> AddTransportAsync(CreateTransportCommand? body)
+        public System.Threading.Tasks.Task<System.Guid> AddTransportAsync(CreateTransportCommand body)
         {
             return AddTransportAsync(body, System.Threading.CancellationToken.None);
         }
@@ -4328,7 +4326,7 @@ namespace PlannR.App.Infrastructure.Services.Base
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Guid> AddTransportAsync(CreateTransportCommand? body, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Guid> AddTransportAsync(CreateTransportCommand body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Transport");
@@ -4397,7 +4395,7 @@ namespace PlannR.App.Infrastructure.Services.Base
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task UpdateTransportAsync(UpdateTransportCommand? body)
+        public System.Threading.Tasks.Task UpdateTransportAsync(UpdateTransportCommand body)
         {
             return UpdateTransportAsync(body, System.Threading.CancellationToken.None);
         }
@@ -4405,7 +4403,7 @@ namespace PlannR.App.Infrastructure.Services.Base
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task UpdateTransportAsync(UpdateTransportCommand? body, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task UpdateTransportAsync(UpdateTransportCommand body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Transport");
@@ -5010,7 +5008,7 @@ namespace PlannR.App.Infrastructure.Services.Base
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Guid> AddTransportBookingAsync(CreateTransportBookingCommand? body)
+        public System.Threading.Tasks.Task<System.Guid> AddTransportBookingAsync(CreateTransportBookingCommand body)
         {
             return AddTransportBookingAsync(body, System.Threading.CancellationToken.None);
         }
@@ -5018,7 +5016,7 @@ namespace PlannR.App.Infrastructure.Services.Base
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Guid> AddTransportBookingAsync(CreateTransportBookingCommand? body, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Guid> AddTransportBookingAsync(CreateTransportBookingCommand body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Transport/Bookings");
@@ -5087,7 +5085,7 @@ namespace PlannR.App.Infrastructure.Services.Base
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task UpdateTransportBookingAsync(UpdateTransportBookingCommand? body)
+        public System.Threading.Tasks.Task UpdateTransportBookingAsync(UpdateTransportBookingCommand body)
         {
             return UpdateTransportBookingAsync(body, System.Threading.CancellationToken.None);
         }
@@ -5095,7 +5093,7 @@ namespace PlannR.App.Infrastructure.Services.Base
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task UpdateTransportBookingAsync(UpdateTransportBookingCommand? body, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task UpdateTransportBookingAsync(UpdateTransportBookingCommand body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Transport/Bookings");
@@ -5516,7 +5514,7 @@ namespace PlannR.App.Infrastructure.Services.Base
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Guid> AddTransportTypeAsync(CreateTransportTypeCommand? body)
+        public System.Threading.Tasks.Task<System.Guid> AddTransportTypeAsync(CreateTransportTypeCommand body)
         {
             return AddTransportTypeAsync(body, System.Threading.CancellationToken.None);
         }
@@ -5524,7 +5522,7 @@ namespace PlannR.App.Infrastructure.Services.Base
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Guid> AddTransportTypeAsync(CreateTransportTypeCommand? body, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Guid> AddTransportTypeAsync(CreateTransportTypeCommand body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Transport/Types");
@@ -5593,7 +5591,7 @@ namespace PlannR.App.Infrastructure.Services.Base
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<TransportTypeByNameDataModel> GetTransportTypeByNameAsync(string? name)
+        public System.Threading.Tasks.Task<TransportTypeByNameDataModel> GetTransportTypeByNameAsync(string name)
         {
             return GetTransportTypeByNameAsync(name, System.Threading.CancellationToken.None);
         }
@@ -5601,7 +5599,7 @@ namespace PlannR.App.Infrastructure.Services.Base
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<TransportTypeByNameDataModel> GetTransportTypeByNameAsync(string? name, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<TransportTypeByNameDataModel> GetTransportTypeByNameAsync(string name, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Transport/Types/{name}");
@@ -5756,7 +5754,7 @@ namespace PlannR.App.Infrastructure.Services.Base
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Guid> AddTripAsync(CreateTripCommand? body)
+        public System.Threading.Tasks.Task<System.Guid> AddTripAsync(CreateTripCommand body)
         {
             return AddTripAsync(body, System.Threading.CancellationToken.None);
         }
@@ -5764,7 +5762,7 @@ namespace PlannR.App.Infrastructure.Services.Base
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Guid> AddTripAsync(CreateTripCommand? body, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Guid> AddTripAsync(CreateTripCommand body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Trips");
@@ -5833,7 +5831,7 @@ namespace PlannR.App.Infrastructure.Services.Base
     
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task UpdateTripAsync(UpdateTripCommand? body)
+        public System.Threading.Tasks.Task UpdateTripAsync(UpdateTripCommand body)
         {
             return UpdateTripAsync(body, System.Threading.CancellationToken.None);
         }
@@ -5841,7 +5839,7 @@ namespace PlannR.App.Infrastructure.Services.Base
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task UpdateTripAsync(UpdateTripCommand? body, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task UpdateTripAsync(UpdateTripCommand body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Trips");
@@ -6301,7 +6299,7 @@ namespace PlannR.App.Infrastructure.Services.Base
         {
             if (response == null || response.Content == null)
             {
-                return new ObjectResponseResult<T>(default(T)!, string.Empty);
+                return new ObjectResponseResult<T>(default(T), string.Empty);
             }
         
             if (ReadResponseAsString)
@@ -6310,7 +6308,7 @@ namespace PlannR.App.Infrastructure.Services.Base
                 try
                 {
                     var typedBody = Newtonsoft.Json.JsonConvert.DeserializeObject<T>(responseText, JsonSerializerSettings);
-                    return new ObjectResponseResult<T>(typedBody!, responseText);
+                    return new ObjectResponseResult<T>(typedBody, responseText);
                 }
                 catch (Newtonsoft.Json.JsonException exception)
                 {
@@ -6328,7 +6326,7 @@ namespace PlannR.App.Infrastructure.Services.Base
                     {
                         var serializer = Newtonsoft.Json.JsonSerializer.Create(JsonSerializerSettings);
                         var typedBody = serializer.Deserialize<T>(jsonTextReader);
-                        return new ObjectResponseResult<T>(typedBody!, string.Empty);
+                        return new ObjectResponseResult<T>(typedBody, string.Empty);
                     }
                 }
                 catch (Newtonsoft.Json.JsonException exception)
@@ -6339,7 +6337,7 @@ namespace PlannR.App.Infrastructure.Services.Base
             }
         }
     
-        private string ConvertToString(object? value, System.Globalization.CultureInfo cultureInfo)
+        private string ConvertToString(object value, System.Globalization.CultureInfo cultureInfo)
         {
             if (value == null)
             {
@@ -6389,10 +6387,10 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class AccomodationTripDto 
     {
         [Newtonsoft.Json.JsonProperty("tripId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid TripId { get; set; }= default!;
+        public System.Guid TripId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
     
     }
@@ -6401,34 +6399,34 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class AccomodationListDataModel 
     {
         [Newtonsoft.Json.JsonProperty("accomodationId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid AccomodationId { get; set; }= default!;
+        public System.Guid AccomodationId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("tripId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid TripId { get; set; }= default!;
+        public System.Guid TripId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("trip", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public AccomodationTripDto Trip { get; set; }= default!;
+        public AccomodationTripDto Trip { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
         [Newtonsoft.Json.JsonProperty("costPerNight", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? CostPerNight { get; set; }= default!;
+        public double? CostPerNight { get; set; }
     
         [Newtonsoft.Json.JsonProperty("rooms", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int Rooms { get; set; }= default!;
+        public int Rooms { get; set; }
     
         [Newtonsoft.Json.JsonProperty("nights", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int Nights { get; set; }= default!;
+        public int Nights { get; set; }
     
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Description { get; set; }= default!;
+        public string Description { get; set; }
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }
     
     
     }
@@ -6437,37 +6435,37 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class CreateAccomodationCommand 
     {
         [Newtonsoft.Json.JsonProperty("tripId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid TripId { get; set; }= default!;
+        public System.Guid TripId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
         [Newtonsoft.Json.JsonProperty("accomodationTypeId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid AccomodationTypeId { get; set; }= default!;
+        public System.Guid AccomodationTypeId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("costPerNight", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? CostPerNight { get; set; }= default!;
+        public double? CostPerNight { get; set; }
     
         [Newtonsoft.Json.JsonProperty("rooms", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int Rooms { get; set; }= default!;
+        public int Rooms { get; set; }
     
         [Newtonsoft.Json.JsonProperty("nights", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int Nights { get; set; }= default!;
+        public int Nights { get; set; }
     
         [Newtonsoft.Json.JsonProperty("bookingId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid BookingId { get; set; }= default!;
+        public System.Guid BookingId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Description { get; set; }= default!;
+        public string Description { get; set; }
     
         [Newtonsoft.Json.JsonProperty("locationId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid LocationId { get; set; }= default!;
+        public System.Guid LocationId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }
     
     
     }
@@ -6476,40 +6474,40 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class UpdateAccomodationCommand 
     {
         [Newtonsoft.Json.JsonProperty("accomodationId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid AccomodationId { get; set; }= default!;
+        public System.Guid AccomodationId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("tripId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid TripId { get; set; }= default!;
+        public System.Guid TripId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
         [Newtonsoft.Json.JsonProperty("accomodationTypeId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid AccomodationTypeId { get; set; }= default!;
+        public System.Guid AccomodationTypeId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("costPerNight", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? CostPerNight { get; set; }= default!;
+        public double? CostPerNight { get; set; }
     
         [Newtonsoft.Json.JsonProperty("rooms", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int Rooms { get; set; }= default!;
+        public int Rooms { get; set; }
     
         [Newtonsoft.Json.JsonProperty("nights", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int Nights { get; set; }= default!;
+        public int Nights { get; set; }
     
         [Newtonsoft.Json.JsonProperty("bookingId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid BookingId { get; set; }= default!;
+        public System.Guid BookingId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Description { get; set; }= default!;
+        public string Description { get; set; }
     
         [Newtonsoft.Json.JsonProperty("locationId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid LocationId { get; set; }= default!;
+        public System.Guid LocationId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }
     
     
     }
@@ -6518,19 +6516,19 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class ProblemDetails 
     {
         [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Type { get; set; }= default!;
+        public string Type { get; set; }
     
         [Newtonsoft.Json.JsonProperty("title", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Title { get; set; }= default!;
+        public string Title { get; set; }
     
         [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Status { get; set; }= default!;
+        public int? Status { get; set; }
     
         [Newtonsoft.Json.JsonProperty("detail", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Detail { get; set; }= default!;
+        public string Detail { get; set; }
     
         [Newtonsoft.Json.JsonProperty("instance", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Instance { get; set; }= default!;
+        public string Instance { get; set; }
     
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
     
@@ -6548,10 +6546,10 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class AccomodationTypeDto 
     {
         [Newtonsoft.Json.JsonProperty("accomodationTypeId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid AccomodationTypeId { get; set; }= default!;
+        public System.Guid AccomodationTypeId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
     
     }
@@ -6560,22 +6558,22 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class AccomodationLocationDto 
     {
         [Newtonsoft.Json.JsonProperty("locationId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid LocationId { get; set; }= default!;
+        public System.Guid LocationId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("latitude", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double Latitude { get; set; }= default!;
+        public double Latitude { get; set; }
     
         [Newtonsoft.Json.JsonProperty("longitude", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double Longitude { get; set; }= default!;
+        public double Longitude { get; set; }
     
         [Newtonsoft.Json.JsonProperty("altitudeInMetres", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double AltitudeInMetres { get; set; }= default!;
+        public double AltitudeInMetres { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
         [Newtonsoft.Json.JsonProperty("address", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Address { get; set; }= default!;
+        public string Address { get; set; }
     
     
     }
@@ -6584,40 +6582,40 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class AccomodationDetailDataModel 
     {
         [Newtonsoft.Json.JsonProperty("accomodationId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid AccomodationId { get; set; }= default!;
+        public System.Guid AccomodationId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("trip", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public AccomodationTripDto Trip { get; set; }= default!;
+        public AccomodationTripDto Trip { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
         [Newtonsoft.Json.JsonProperty("accomodationType", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public AccomodationTypeDto AccomodationType { get; set; }= default!;
+        public AccomodationTypeDto AccomodationType { get; set; }
     
         [Newtonsoft.Json.JsonProperty("costPerNight", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? CostPerNight { get; set; }= default!;
+        public double? CostPerNight { get; set; }
     
         [Newtonsoft.Json.JsonProperty("rooms", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int Rooms { get; set; }= default!;
+        public int Rooms { get; set; }
     
         [Newtonsoft.Json.JsonProperty("nights", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int Nights { get; set; }= default!;
+        public int Nights { get; set; }
     
         [Newtonsoft.Json.JsonProperty("bookingId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid BookingId { get; set; }= default!;
+        public System.Guid BookingId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Description { get; set; }= default!;
+        public string Description { get; set; }
     
         [Newtonsoft.Json.JsonProperty("location", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public AccomodationLocationDto Location { get; set; }= default!;
+        public AccomodationLocationDto Location { get; set; }
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }
     
     
     }
@@ -6626,28 +6624,28 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class AccomodationListByTripIdDataModel 
     {
         [Newtonsoft.Json.JsonProperty("accomodationId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid AccomodationId { get; set; }= default!;
+        public System.Guid AccomodationId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("tripId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid TripId { get; set; }= default!;
+        public System.Guid TripId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
         [Newtonsoft.Json.JsonProperty("nights", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int Nights { get; set; }= default!;
+        public int Nights { get; set; }
     
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Description { get; set; }= default!;
+        public string Description { get; set; }
     
         [Newtonsoft.Json.JsonProperty("location", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public AccomodationLocationDto Location { get; set; }= default!;
+        public AccomodationLocationDto Location { get; set; }
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }
     
     
     }
@@ -6656,22 +6654,22 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class AccomodationBookingDto 
     {
         [Newtonsoft.Json.JsonProperty("bookingId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid BookingId { get; set; }= default!;
+        public System.Guid BookingId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("accomodationId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid AccomodationId { get; set; }= default!;
+        public System.Guid AccomodationId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("link", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Link { get; set; }= default!;
+        public string Link { get; set; }
     
         [Newtonsoft.Json.JsonProperty("email", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Email { get; set; }= default!;
+        public string Email { get; set; }
     
         [Newtonsoft.Json.JsonProperty("comments", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Comments { get; set; }= default!;
+        public string Comments { get; set; }
     
         [Newtonsoft.Json.JsonProperty("cost", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double Cost { get; set; }= default!;
+        public double Cost { get; set; }
     
     
     }
@@ -6680,31 +6678,31 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class AccomodationListByTripIdWithBookingsDataModel 
     {
         [Newtonsoft.Json.JsonProperty("accomodationId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid AccomodationId { get; set; }= default!;
+        public System.Guid AccomodationId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("tripId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid TripId { get; set; }= default!;
+        public System.Guid TripId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
         [Newtonsoft.Json.JsonProperty("companyName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? CompanyName { get; set; }= default!;
+        public string CompanyName { get; set; }
     
         [Newtonsoft.Json.JsonProperty("location", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public AccomodationLocationDto Location { get; set; }= default!;
+        public AccomodationLocationDto Location { get; set; }
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Description { get; set; }= default!;
+        public string Description { get; set; }
     
         [Newtonsoft.Json.JsonProperty("booking", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public AccomodationBookingDto Booking { get; set; }= default!;
+        public AccomodationBookingDto Booking { get; set; }
     
     
     }
@@ -6713,31 +6711,31 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class AccomodationListOnDateDataModel 
     {
         [Newtonsoft.Json.JsonProperty("accomodationId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid AccomodationId { get; set; }= default!;
+        public System.Guid AccomodationId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("tripId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid TripId { get; set; }= default!;
+        public System.Guid TripId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("trip", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public AccomodationTripDto Trip { get; set; }= default!;
+        public AccomodationTripDto Trip { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
         [Newtonsoft.Json.JsonProperty("nights", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int Nights { get; set; }= default!;
+        public int Nights { get; set; }
     
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Description { get; set; }= default!;
+        public string Description { get; set; }
     
         [Newtonsoft.Json.JsonProperty("location", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public AccomodationLocationDto Location { get; set; }= default!;
+        public AccomodationLocationDto Location { get; set; }
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }
     
     
     }
@@ -6746,13 +6744,13 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class AccomodationBookingListDataModel 
     {
         [Newtonsoft.Json.JsonProperty("bookingId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid BookingId { get; set; }= default!;
+        public System.Guid BookingId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("accomodationId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid AccomodationId { get; set; }= default!;
+        public System.Guid AccomodationId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
     
     }
@@ -6761,25 +6759,25 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class CreateAccomodationBookingCommand 
     {
         [Newtonsoft.Json.JsonProperty("accomodationId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid AccomodationId { get; set; }= default!;
+        public System.Guid AccomodationId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
         [Newtonsoft.Json.JsonProperty("link", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Link { get; set; }= default!;
+        public string Link { get; set; }
     
         [Newtonsoft.Json.JsonProperty("email", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Email { get; set; }= default!;
+        public string Email { get; set; }
     
         [Newtonsoft.Json.JsonProperty("comments", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Comments { get; set; }= default!;
+        public string Comments { get; set; }
     
         [Newtonsoft.Json.JsonProperty("reservations", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<byte[]>? Reservations { get; set; }= default!;
+        public System.Collections.Generic.ICollection<byte[]> Reservations { get; set; }
     
         [Newtonsoft.Json.JsonProperty("cost", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double Cost { get; set; }= default!;
+        public double Cost { get; set; }
     
     
     }
@@ -6788,28 +6786,28 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class UpdateAccomodationBookingCommand 
     {
         [Newtonsoft.Json.JsonProperty("bookingId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid BookingId { get; set; }= default!;
+        public System.Guid BookingId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("accomodationId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid AccomodationId { get; set; }= default!;
+        public System.Guid AccomodationId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
         [Newtonsoft.Json.JsonProperty("link", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Link { get; set; }= default!;
+        public string Link { get; set; }
     
         [Newtonsoft.Json.JsonProperty("email", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Email { get; set; }= default!;
+        public string Email { get; set; }
     
         [Newtonsoft.Json.JsonProperty("comments", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Comments { get; set; }= default!;
+        public string Comments { get; set; }
     
         [Newtonsoft.Json.JsonProperty("reservations", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<byte[]>? Reservations { get; set; }= default!;
+        public System.Collections.Generic.ICollection<byte[]> Reservations { get; set; }
     
         [Newtonsoft.Json.JsonProperty("cost", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double Cost { get; set; }= default!;
+        public double Cost { get; set; }
     
     
     }
@@ -6818,28 +6816,28 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class AccomodationBookingDetailDataModel 
     {
         [Newtonsoft.Json.JsonProperty("bookingId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid BookingId { get; set; }= default!;
+        public System.Guid BookingId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("accomodationId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid AccomodationId { get; set; }= default!;
+        public System.Guid AccomodationId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
         [Newtonsoft.Json.JsonProperty("link", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Link { get; set; }= default!;
+        public string Link { get; set; }
     
         [Newtonsoft.Json.JsonProperty("email", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Email { get; set; }= default!;
+        public string Email { get; set; }
     
         [Newtonsoft.Json.JsonProperty("comments", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Comments { get; set; }= default!;
+        public string Comments { get; set; }
     
         [Newtonsoft.Json.JsonProperty("cost", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double Cost { get; set; }= default!;
+        public double Cost { get; set; }
     
         [Newtonsoft.Json.JsonProperty("reservations", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<byte[]>? Reservations { get; set; }= default!;
+        public System.Collections.Generic.ICollection<byte[]> Reservations { get; set; }
     
     
     }
@@ -6848,13 +6846,13 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class AccomodationBookingListByTripIdDataModel 
     {
         [Newtonsoft.Json.JsonProperty("bookingId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid BookingId { get; set; }= default!;
+        public System.Guid BookingId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("accomodationId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid AccomodationId { get; set; }= default!;
+        public System.Guid AccomodationId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
     
     }
@@ -6863,10 +6861,10 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class AccomodationTypeListDataModel 
     {
         [Newtonsoft.Json.JsonProperty("accomodationTypeId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid AccomodationTypeId { get; set; }= default!;
+        public System.Guid AccomodationTypeId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
     
     }
@@ -6875,7 +6873,7 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class CreateAccomodationTypeCommand 
     {
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
     
     }
@@ -6884,10 +6882,10 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class AccomodationTypeByNameDataModel 
     {
         [Newtonsoft.Json.JsonProperty("accomodationTypeId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid AccomodationTypeId { get; set; }= default!;
+        public System.Guid AccomodationTypeId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
     
     }
@@ -6896,10 +6894,10 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class AuthenticationRequest 
     {
         [Newtonsoft.Json.JsonProperty("email", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Email { get; set; }= default!;
+        public string Email { get; set; }
     
         [Newtonsoft.Json.JsonProperty("password", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Password { get; set; }= default!;
+        public string Password { get; set; }
     
     
     }
@@ -6908,16 +6906,16 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class AuthenticationResponse 
     {
         [Newtonsoft.Json.JsonProperty("userId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? UserId { get; set; }= default!;
+        public string UserId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("userName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? UserName { get; set; }= default!;
+        public string UserName { get; set; }
     
         [Newtonsoft.Json.JsonProperty("email", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Email { get; set; }= default!;
+        public string Email { get; set; }
     
         [Newtonsoft.Json.JsonProperty("token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Token { get; set; }= default!;
+        public string Token { get; set; }
     
     
     }
@@ -6927,25 +6925,25 @@ namespace PlannR.App.Infrastructure.Services.Base
     {
         [Newtonsoft.Json.JsonProperty("email", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Email { get; set; }= default!;
+        public string Email { get; set; }
     
         [Newtonsoft.Json.JsonProperty("userName", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         [System.ComponentModel.DataAnnotations.StringLength(int.MaxValue, MinimumLength = 3)]
-        public string UserName { get; set; }= default!;
+        public string UserName { get; set; }
     
         [Newtonsoft.Json.JsonProperty("password", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         [System.ComponentModel.DataAnnotations.StringLength(int.MaxValue, MinimumLength = 8)]
-        public string Password { get; set; }= default!;
+        public string Password { get; set; }
     
         [Newtonsoft.Json.JsonProperty("firstName", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string FirstName { get; set; }= default!;
+        public string FirstName { get; set; }
     
         [Newtonsoft.Json.JsonProperty("lastName", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string LastName { get; set; }= default!;
+        public string LastName { get; set; }
     
     
     }
@@ -6954,7 +6952,7 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class RegistrationResponse 
     {
         [Newtonsoft.Json.JsonProperty("userId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? UserId { get; set; }= default!;
+        public string UserId { get; set; }
     
     
     }
@@ -6963,13 +6961,13 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class EventBookingListDataModel 
     {
         [Newtonsoft.Json.JsonProperty("bookingId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid BookingId { get; set; }= default!;
+        public System.Guid BookingId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("eventId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid EventId { get; set; }= default!;
+        public System.Guid EventId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
     
     }
@@ -6978,25 +6976,25 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class CreateEventBookingCommand 
     {
         [Newtonsoft.Json.JsonProperty("eventId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid EventId { get; set; }= default!;
+        public System.Guid EventId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
         [Newtonsoft.Json.JsonProperty("link", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Link { get; set; }= default!;
+        public string Link { get; set; }
     
         [Newtonsoft.Json.JsonProperty("email", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Email { get; set; }= default!;
+        public string Email { get; set; }
     
         [Newtonsoft.Json.JsonProperty("comments", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Comments { get; set; }= default!;
+        public string Comments { get; set; }
     
         [Newtonsoft.Json.JsonProperty("reservations", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<byte[]>? Reservations { get; set; }= default!;
+        public System.Collections.Generic.ICollection<byte[]> Reservations { get; set; }
     
         [Newtonsoft.Json.JsonProperty("cost", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double Cost { get; set; }= default!;
+        public double Cost { get; set; }
     
     
     }
@@ -7005,28 +7003,28 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class UpdateEventBookingCommand 
     {
         [Newtonsoft.Json.JsonProperty("bookingId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid BookingId { get; set; }= default!;
+        public System.Guid BookingId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("eventId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid EventId { get; set; }= default!;
+        public System.Guid EventId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
         [Newtonsoft.Json.JsonProperty("link", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Link { get; set; }= default!;
+        public string Link { get; set; }
     
         [Newtonsoft.Json.JsonProperty("email", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Email { get; set; }= default!;
+        public string Email { get; set; }
     
         [Newtonsoft.Json.JsonProperty("comments", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Comments { get; set; }= default!;
+        public string Comments { get; set; }
     
         [Newtonsoft.Json.JsonProperty("reservations", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<byte[]>? Reservations { get; set; }= default!;
+        public System.Collections.Generic.ICollection<byte[]> Reservations { get; set; }
     
         [Newtonsoft.Json.JsonProperty("cost", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double Cost { get; set; }= default!;
+        public double Cost { get; set; }
     
     
     }
@@ -7035,28 +7033,28 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class EventBookingDetailDataModel 
     {
         [Newtonsoft.Json.JsonProperty("bookingId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid BookingId { get; set; }= default!;
+        public System.Guid BookingId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("eventId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid EventId { get; set; }= default!;
+        public System.Guid EventId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
         [Newtonsoft.Json.JsonProperty("link", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Link { get; set; }= default!;
+        public string Link { get; set; }
     
         [Newtonsoft.Json.JsonProperty("email", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Email { get; set; }= default!;
+        public string Email { get; set; }
     
         [Newtonsoft.Json.JsonProperty("comments", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Comments { get; set; }= default!;
+        public string Comments { get; set; }
     
         [Newtonsoft.Json.JsonProperty("cost", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double Cost { get; set; }= default!;
+        public double Cost { get; set; }
     
         [Newtonsoft.Json.JsonProperty("reservations", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<byte[]>? Reservations { get; set; }= default!;
+        public System.Collections.Generic.ICollection<byte[]> Reservations { get; set; }
     
     
     }
@@ -7065,13 +7063,13 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class EventBookingListByTripIdDataModel 
     {
         [Newtonsoft.Json.JsonProperty("bookingId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid BookingId { get; set; }= default!;
+        public System.Guid BookingId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("eventId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid EventId { get; set; }= default!;
+        public System.Guid EventId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
     
     }
@@ -7080,10 +7078,10 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class EventTripDto 
     {
         [Newtonsoft.Json.JsonProperty("tripId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid TripId { get; set; }= default!;
+        public System.Guid TripId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
     
     }
@@ -7092,28 +7090,28 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class EventListDataModel 
     {
         [Newtonsoft.Json.JsonProperty("eventId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid EventId { get; set; }= default!;
+        public System.Guid EventId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("tripId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid TripId { get; set; }= default!;
+        public System.Guid TripId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("trip", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public EventTripDto Trip { get; set; }= default!;
+        public EventTripDto Trip { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
         [Newtonsoft.Json.JsonProperty("companyName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? CompanyName { get; set; }= default!;
+        public string CompanyName { get; set; }
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Description { get; set; }= default!;
+        public string Description { get; set; }
     
     
     }
@@ -7122,37 +7120,37 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class TimeSpan 
     {
         [Newtonsoft.Json.JsonProperty("ticks", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public long Ticks { get; set; }= default!;
+        public long Ticks { get; set; }
     
         [Newtonsoft.Json.JsonProperty("days", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int Days { get; set; }= default!;
+        public int Days { get; set; }
     
         [Newtonsoft.Json.JsonProperty("hours", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int Hours { get; set; }= default!;
+        public int Hours { get; set; }
     
         [Newtonsoft.Json.JsonProperty("milliseconds", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int Milliseconds { get; set; }= default!;
+        public int Milliseconds { get; set; }
     
         [Newtonsoft.Json.JsonProperty("minutes", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int Minutes { get; set; }= default!;
+        public int Minutes { get; set; }
     
         [Newtonsoft.Json.JsonProperty("seconds", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int Seconds { get; set; }= default!;
+        public int Seconds { get; set; }
     
         [Newtonsoft.Json.JsonProperty("totalDays", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double TotalDays { get; set; }= default!;
+        public double TotalDays { get; set; }
     
         [Newtonsoft.Json.JsonProperty("totalHours", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double TotalHours { get; set; }= default!;
+        public double TotalHours { get; set; }
     
         [Newtonsoft.Json.JsonProperty("totalMilliseconds", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double TotalMilliseconds { get; set; }= default!;
+        public double TotalMilliseconds { get; set; }
     
         [Newtonsoft.Json.JsonProperty("totalMinutes", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double TotalMinutes { get; set; }= default!;
+        public double TotalMinutes { get; set; }
     
         [Newtonsoft.Json.JsonProperty("totalSeconds", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double TotalSeconds { get; set; }= default!;
+        public double TotalSeconds { get; set; }
     
     
     }
@@ -7161,37 +7159,37 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class CreateEventCommand 
     {
         [Newtonsoft.Json.JsonProperty("tripId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid TripId { get; set; }= default!;
+        public System.Guid TripId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
         [Newtonsoft.Json.JsonProperty("companyName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? CompanyName { get; set; }= default!;
+        public string CompanyName { get; set; }
     
         [Newtonsoft.Json.JsonProperty("eventTypeId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid EventTypeId { get; set; }= default!;
+        public System.Guid EventTypeId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("emailReminderEnabled", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool EmailReminderEnabled { get; set; }= default!;
+        public bool EmailReminderEnabled { get; set; }
     
         [Newtonsoft.Json.JsonProperty("emailReminderTimer", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TimeSpan EmailReminderTimer { get; set; }= default!;
+        public TimeSpan EmailReminderTimer { get; set; }
     
         [Newtonsoft.Json.JsonProperty("locationId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid LocationId { get; set; }= default!;
+        public System.Guid LocationId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("bookingId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid BookingId { get; set; }= default!;
+        public System.Guid BookingId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Description { get; set; }= default!;
+        public string Description { get; set; }
     
     
     }
@@ -7200,40 +7198,40 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class UpdateEventCommand 
     {
         [Newtonsoft.Json.JsonProperty("eventId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid EventId { get; set; }= default!;
+        public System.Guid EventId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("tripId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid TripId { get; set; }= default!;
+        public System.Guid TripId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
         [Newtonsoft.Json.JsonProperty("companyName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? CompanyName { get; set; }= default!;
+        public string CompanyName { get; set; }
     
         [Newtonsoft.Json.JsonProperty("eventTypeId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid EventTypeId { get; set; }= default!;
+        public System.Guid EventTypeId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("emailReminderEnabled", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool EmailReminderEnabled { get; set; }= default!;
+        public bool EmailReminderEnabled { get; set; }
     
         [Newtonsoft.Json.JsonProperty("emailReminderTimer", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TimeSpan EmailReminderTimer { get; set; }= default!;
+        public TimeSpan EmailReminderTimer { get; set; }
     
         [Newtonsoft.Json.JsonProperty("locationId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid LocationId { get; set; }= default!;
+        public System.Guid LocationId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("bookingId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid BookingId { get; set; }= default!;
+        public System.Guid BookingId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Description { get; set; }= default!;
+        public string Description { get; set; }
     
     
     }
@@ -7242,10 +7240,10 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class EventTypeDto 
     {
         [Newtonsoft.Json.JsonProperty("eventTypeId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid EventTypeId { get; set; }= default!;
+        public System.Guid EventTypeId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
     
     }
@@ -7254,22 +7252,22 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class EventLocationDto 
     {
         [Newtonsoft.Json.JsonProperty("locationId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid LocationId { get; set; }= default!;
+        public System.Guid LocationId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("latitude", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double Latitude { get; set; }= default!;
+        public double Latitude { get; set; }
     
         [Newtonsoft.Json.JsonProperty("longitude", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double Longitude { get; set; }= default!;
+        public double Longitude { get; set; }
     
         [Newtonsoft.Json.JsonProperty("altitudeInMetres", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double AltitudeInMetres { get; set; }= default!;
+        public double AltitudeInMetres { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
         [Newtonsoft.Json.JsonProperty("address", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Address { get; set; }= default!;
+        public string Address { get; set; }
     
     
     }
@@ -7278,40 +7276,40 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class EventDetailDataModel 
     {
         [Newtonsoft.Json.JsonProperty("eventId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid EventId { get; set; }= default!;
+        public System.Guid EventId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("trip", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public EventTripDto Trip { get; set; }= default!;
+        public EventTripDto Trip { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
         [Newtonsoft.Json.JsonProperty("companyName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? CompanyName { get; set; }= default!;
+        public string CompanyName { get; set; }
     
         [Newtonsoft.Json.JsonProperty("eventType", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public EventTypeDto EventType { get; set; }= default!;
+        public EventTypeDto EventType { get; set; }
     
         [Newtonsoft.Json.JsonProperty("emailReminderEnabled", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool EmailReminderEnabled { get; set; }= default!;
+        public bool EmailReminderEnabled { get; set; }
     
         [Newtonsoft.Json.JsonProperty("emailReminderTimer", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TimeSpan EmailReminderTimer { get; set; }= default!;
+        public TimeSpan EmailReminderTimer { get; set; }
     
         [Newtonsoft.Json.JsonProperty("location", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public EventLocationDto Location { get; set; }= default!;
+        public EventLocationDto Location { get; set; }
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Description { get; set; }= default!;
+        public string Description { get; set; }
     
         [Newtonsoft.Json.JsonProperty("bookingId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid BookingId { get; set; }= default!;
+        public System.Guid BookingId { get; set; }
     
     
     }
@@ -7320,28 +7318,28 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class EventListByTripIdDataModel 
     {
         [Newtonsoft.Json.JsonProperty("eventId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid EventId { get; set; }= default!;
+        public System.Guid EventId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("tripId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid TripId { get; set; }= default!;
+        public System.Guid TripId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
         [Newtonsoft.Json.JsonProperty("companyName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? CompanyName { get; set; }= default!;
+        public string CompanyName { get; set; }
     
         [Newtonsoft.Json.JsonProperty("location", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public EventLocationDto Location { get; set; }= default!;
+        public EventLocationDto Location { get; set; }
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Description { get; set; }= default!;
+        public string Description { get; set; }
     
     
     }
@@ -7350,22 +7348,22 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class EventBookingDto 
     {
         [Newtonsoft.Json.JsonProperty("bookingId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid BookingId { get; set; }= default!;
+        public System.Guid BookingId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("eventId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid EventId { get; set; }= default!;
+        public System.Guid EventId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("link", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Link { get; set; }= default!;
+        public string Link { get; set; }
     
         [Newtonsoft.Json.JsonProperty("email", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Email { get; set; }= default!;
+        public string Email { get; set; }
     
         [Newtonsoft.Json.JsonProperty("comments", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Comments { get; set; }= default!;
+        public string Comments { get; set; }
     
         [Newtonsoft.Json.JsonProperty("cost", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double Cost { get; set; }= default!;
+        public double Cost { get; set; }
     
     
     }
@@ -7374,31 +7372,31 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class EventListByTripIdWithBookingsDataModel 
     {
         [Newtonsoft.Json.JsonProperty("eventId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid EventId { get; set; }= default!;
+        public System.Guid EventId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("tripId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid TripId { get; set; }= default!;
+        public System.Guid TripId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
         [Newtonsoft.Json.JsonProperty("companyName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? CompanyName { get; set; }= default!;
+        public string CompanyName { get; set; }
     
         [Newtonsoft.Json.JsonProperty("location", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public EventLocationDto Location { get; set; }= default!;
+        public EventLocationDto Location { get; set; }
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Description { get; set; }= default!;
+        public string Description { get; set; }
     
         [Newtonsoft.Json.JsonProperty("booking", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public EventBookingDto Booking { get; set; }= default!;
+        public EventBookingDto Booking { get; set; }
     
     
     }
@@ -7407,31 +7405,31 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class EventListOnDateDataModel 
     {
         [Newtonsoft.Json.JsonProperty("eventId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid EventId { get; set; }= default!;
+        public System.Guid EventId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("tripId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid TripId { get; set; }= default!;
+        public System.Guid TripId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("trip", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public EventTripDto Trip { get; set; }= default!;
+        public EventTripDto Trip { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
         [Newtonsoft.Json.JsonProperty("companyName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? CompanyName { get; set; }= default!;
+        public string CompanyName { get; set; }
     
         [Newtonsoft.Json.JsonProperty("location", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public EventLocationDto Location { get; set; }= default!;
+        public EventLocationDto Location { get; set; }
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Description { get; set; }= default!;
+        public string Description { get; set; }
     
     
     }
@@ -7440,10 +7438,10 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class EventTypeListDataModel 
     {
         [Newtonsoft.Json.JsonProperty("eventTypeId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid EventTypeId { get; set; }= default!;
+        public System.Guid EventTypeId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
     
     }
@@ -7452,7 +7450,7 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class CreateEventTypeCommand 
     {
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
     
     }
@@ -7461,10 +7459,10 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class EventTypeByNameDataModel 
     {
         [Newtonsoft.Json.JsonProperty("eventTypeId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid EventTypeId { get; set; }= default!;
+        public System.Guid EventTypeId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
     
     }
@@ -7473,19 +7471,19 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class RouteListDataModel 
     {
         [Newtonsoft.Json.JsonProperty("routeId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid RouteId { get; set; }= default!;
+        public System.Guid RouteId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("tripId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid TripId { get; set; }= default!;
+        public System.Guid TripId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }
     
     
     }
@@ -7494,37 +7492,37 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class CreateRouteCommand 
     {
         [Newtonsoft.Json.JsonProperty("tripId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid TripId { get; set; }= default!;
+        public System.Guid TripId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
         [Newtonsoft.Json.JsonProperty("routeTypeId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid RouteTypeId { get; set; }= default!;
+        public System.Guid RouteTypeId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("costPerNight", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? CostPerNight { get; set; }= default!;
+        public double? CostPerNight { get; set; }
     
         [Newtonsoft.Json.JsonProperty("rooms", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int Rooms { get; set; }= default!;
+        public int Rooms { get; set; }
     
         [Newtonsoft.Json.JsonProperty("nights", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int Nights { get; set; }= default!;
+        public int Nights { get; set; }
     
         [Newtonsoft.Json.JsonProperty("bookingId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid BookingId { get; set; }= default!;
+        public System.Guid BookingId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Description { get; set; }= default!;
+        public string Description { get; set; }
     
         [Newtonsoft.Json.JsonProperty("locationId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid LocationId { get; set; }= default!;
+        public System.Guid LocationId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }
     
     
     }
@@ -7533,40 +7531,40 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class UpdateRouteCommand 
     {
         [Newtonsoft.Json.JsonProperty("routeId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid RouteId { get; set; }= default!;
+        public System.Guid RouteId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("tripId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid TripId { get; set; }= default!;
+        public System.Guid TripId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
         [Newtonsoft.Json.JsonProperty("routeTypeId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid RouteTypeId { get; set; }= default!;
+        public System.Guid RouteTypeId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("costPerNight", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? CostPerNight { get; set; }= default!;
+        public double? CostPerNight { get; set; }
     
         [Newtonsoft.Json.JsonProperty("rooms", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int Rooms { get; set; }= default!;
+        public int Rooms { get; set; }
     
         [Newtonsoft.Json.JsonProperty("nights", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int Nights { get; set; }= default!;
+        public int Nights { get; set; }
     
         [Newtonsoft.Json.JsonProperty("bookingId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid BookingId { get; set; }= default!;
+        public System.Guid BookingId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Description { get; set; }= default!;
+        public string Description { get; set; }
     
         [Newtonsoft.Json.JsonProperty("locationId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid LocationId { get; set; }= default!;
+        public System.Guid LocationId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }
     
     
     }
@@ -7575,10 +7573,10 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class RouteTripDto 
     {
         [Newtonsoft.Json.JsonProperty("tripId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid TripId { get; set; }= default!;
+        public System.Guid TripId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
     
     }
@@ -7587,22 +7585,22 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class RouteLocationDto 
     {
         [Newtonsoft.Json.JsonProperty("locationId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid LocationId { get; set; }= default!;
+        public System.Guid LocationId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("latitude", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double Latitude { get; set; }= default!;
+        public double Latitude { get; set; }
     
         [Newtonsoft.Json.JsonProperty("longitude", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double Longitude { get; set; }= default!;
+        public double Longitude { get; set; }
     
         [Newtonsoft.Json.JsonProperty("altitudeInMetres", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double AltitudeInMetres { get; set; }= default!;
+        public double AltitudeInMetres { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
         [Newtonsoft.Json.JsonProperty("address", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Address { get; set; }= default!;
+        public string Address { get; set; }
     
     
     }
@@ -7611,19 +7609,19 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class RoutePointDto 
     {
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid Id { get; set; }= default!;
+        public System.Guid Id { get; set; }
     
         [Newtonsoft.Json.JsonProperty("location", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public RouteLocationDto Location { get; set; }= default!;
+        public RouteLocationDto Location { get; set; }
     
         [Newtonsoft.Json.JsonProperty("associatedEventId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid AssociatedEventId { get; set; }= default!;
+        public System.Guid AssociatedEventId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }
     
     
     }
@@ -7632,22 +7630,22 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class RouteDetailDataModel 
     {
         [Newtonsoft.Json.JsonProperty("routeId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid RouteId { get; set; }= default!;
+        public System.Guid RouteId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("trip", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public RouteTripDto Trip { get; set; }= default!;
+        public RouteTripDto Trip { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("points", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<RoutePointDto>? Points { get; set; }= default!;
+        public System.Collections.Generic.ICollection<RoutePointDto> Points { get; set; }
     
     
     }
@@ -7656,19 +7654,19 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class RouteListOnDateDataModel 
     {
         [Newtonsoft.Json.JsonProperty("routeId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid RouteId { get; set; }= default!;
+        public System.Guid RouteId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("tripId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid TripId { get; set; }= default!;
+        public System.Guid TripId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }
     
     
     }
@@ -7677,19 +7675,19 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class RouteListByTripIdDataModel 
     {
         [Newtonsoft.Json.JsonProperty("routeId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid RouteId { get; set; }= default!;
+        public System.Guid RouteId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("tripId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid TripId { get; set; }= default!;
+        public System.Guid TripId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }
     
     
     }
@@ -7698,10 +7696,10 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class TransportTripDto 
     {
         [Newtonsoft.Json.JsonProperty("tripId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid TripId { get; set; }= default!;
+        public System.Guid TripId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
     
     }
@@ -7710,25 +7708,25 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class TransportListDataModel 
     {
         [Newtonsoft.Json.JsonProperty("transportId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid TransportId { get; set; }= default!;
+        public System.Guid TransportId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("tripId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid TripId { get; set; }= default!;
+        public System.Guid TripId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("trip", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TransportTripDto Trip { get; set; }= default!;
+        public TransportTripDto Trip { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Description { get; set; }= default!;
+        public string Description { get; set; }
     
     
     }
@@ -7737,28 +7735,28 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class CreateTransportCommand 
     {
         [Newtonsoft.Json.JsonProperty("tripId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid TripId { get; set; }= default!;
+        public System.Guid TripId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
         [Newtonsoft.Json.JsonProperty("transportTypeId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid TransportTypeId { get; set; }= default!;
+        public System.Guid TransportTypeId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("startLocationId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid StartLocationId { get; set; }= default!;
+        public System.Guid StartLocationId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("endLocationId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid EndLocationId { get; set; }= default!;
+        public System.Guid EndLocationId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Description { get; set; }= default!;
+        public string Description { get; set; }
     
     
     }
@@ -7767,34 +7765,34 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class UpdateTransportCommand 
     {
         [Newtonsoft.Json.JsonProperty("transportId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid TransportId { get; set; }= default!;
+        public System.Guid TransportId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("tripId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid TripId { get; set; }= default!;
+        public System.Guid TripId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
         [Newtonsoft.Json.JsonProperty("transportTypeId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid TransportTypeId { get; set; }= default!;
+        public System.Guid TransportTypeId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("startLocationId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid StartLocationId { get; set; }= default!;
+        public System.Guid StartLocationId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("endLocationId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid EndLocationId { get; set; }= default!;
+        public System.Guid EndLocationId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("transportBookingId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid TransportBookingId { get; set; }= default!;
+        public System.Guid TransportBookingId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Description { get; set; }= default!;
+        public string Description { get; set; }
     
     
     }
@@ -7803,16 +7801,16 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class TransportTypeDto 
     {
         [Newtonsoft.Json.JsonProperty("transportTypeId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid TransportTypeId { get; set; }= default!;
+        public System.Guid TransportTypeId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
         [Newtonsoft.Json.JsonProperty("isPublic", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool IsPublic { get; set; }= default!;
+        public bool IsPublic { get; set; }
     
         [Newtonsoft.Json.JsonProperty("hasFixedRoute", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool HasFixedRoute { get; set; }= default!;
+        public bool HasFixedRoute { get; set; }
     
     
     }
@@ -7821,22 +7819,22 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class TransportLocationDto 
     {
         [Newtonsoft.Json.JsonProperty("locationId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid LocationId { get; set; }= default!;
+        public System.Guid LocationId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("latitude", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double Latitude { get; set; }= default!;
+        public double Latitude { get; set; }
     
         [Newtonsoft.Json.JsonProperty("longitude", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double Longitude { get; set; }= default!;
+        public double Longitude { get; set; }
     
         [Newtonsoft.Json.JsonProperty("altitudeInMetres", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double AltitudeInMetres { get; set; }= default!;
+        public double AltitudeInMetres { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
         [Newtonsoft.Json.JsonProperty("address", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Address { get; set; }= default!;
+        public string Address { get; set; }
     
     
     }
@@ -7845,34 +7843,34 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class TransportDetailDataModel 
     {
         [Newtonsoft.Json.JsonProperty("transportId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid TransportId { get; set; }= default!;
+        public System.Guid TransportId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("trip", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TransportTripDto Trip { get; set; }= default!;
+        public TransportTripDto Trip { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
         [Newtonsoft.Json.JsonProperty("transportType", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TransportTypeDto TransportType { get; set; }= default!;
+        public TransportTypeDto TransportType { get; set; }
     
         [Newtonsoft.Json.JsonProperty("startLocation", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TransportLocationDto StartLocation { get; set; }= default!;
+        public TransportLocationDto StartLocation { get; set; }
     
         [Newtonsoft.Json.JsonProperty("endLocation", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TransportLocationDto EndLocation { get; set; }= default!;
+        public TransportLocationDto EndLocation { get; set; }
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Description { get; set; }= default!;
+        public string Description { get; set; }
     
         [Newtonsoft.Json.JsonProperty("bookingId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid BookingId { get; set; }= default!;
+        public System.Guid BookingId { get; set; }
     
     
     }
@@ -7881,31 +7879,31 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class TransportListByTripIdDataModel 
     {
         [Newtonsoft.Json.JsonProperty("transportId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid TransportId { get; set; }= default!;
+        public System.Guid TransportId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("tripId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid TripId { get; set; }= default!;
+        public System.Guid TripId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
         [Newtonsoft.Json.JsonProperty("startLocation", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TransportLocationDto StartLocation { get; set; }= default!;
+        public TransportLocationDto StartLocation { get; set; }
     
         [Newtonsoft.Json.JsonProperty("endLocation", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TransportLocationDto EndLocation { get; set; }= default!;
+        public TransportLocationDto EndLocation { get; set; }
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Description { get; set; }= default!;
+        public string Description { get; set; }
     
         [Newtonsoft.Json.JsonProperty("bookingId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid BookingId { get; set; }= default!;
+        public System.Guid BookingId { get; set; }
     
     
     }
@@ -7914,22 +7912,22 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class TransportBookingDto 
     {
         [Newtonsoft.Json.JsonProperty("bookingId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid BookingId { get; set; }= default!;
+        public System.Guid BookingId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("transportId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid TransportId { get; set; }= default!;
+        public System.Guid TransportId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("link", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Link { get; set; }= default!;
+        public string Link { get; set; }
     
         [Newtonsoft.Json.JsonProperty("email", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Email { get; set; }= default!;
+        public string Email { get; set; }
     
         [Newtonsoft.Json.JsonProperty("comments", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Comments { get; set; }= default!;
+        public string Comments { get; set; }
     
         [Newtonsoft.Json.JsonProperty("cost", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double Cost { get; set; }= default!;
+        public double Cost { get; set; }
     
     
     }
@@ -7938,34 +7936,34 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class TransportListByTripIdWithBookingsDataModel 
     {
         [Newtonsoft.Json.JsonProperty("transportId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid TransportId { get; set; }= default!;
+        public System.Guid TransportId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("tripId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid TripId { get; set; }= default!;
+        public System.Guid TripId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
         [Newtonsoft.Json.JsonProperty("startLocation", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TransportLocationDto StartLocation { get; set; }= default!;
+        public TransportLocationDto StartLocation { get; set; }
     
         [Newtonsoft.Json.JsonProperty("endLocation", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TransportLocationDto EndLocation { get; set; }= default!;
+        public TransportLocationDto EndLocation { get; set; }
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Description { get; set; }= default!;
+        public string Description { get; set; }
     
         [Newtonsoft.Json.JsonProperty("bookingId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid BookingId { get; set; }= default!;
+        public System.Guid BookingId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("booking", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TransportBookingDto Booking { get; set; }= default!;
+        public TransportBookingDto Booking { get; set; }
     
     
     }
@@ -7974,34 +7972,34 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class TransportListOnDateDataModel 
     {
         [Newtonsoft.Json.JsonProperty("transportId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid TransportId { get; set; }= default!;
+        public System.Guid TransportId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("tripId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid TripId { get; set; }= default!;
+        public System.Guid TripId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("trip", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TransportTripDto Trip { get; set; }= default!;
+        public TransportTripDto Trip { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
         [Newtonsoft.Json.JsonProperty("startLocation", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TransportLocationDto StartLocation { get; set; }= default!;
+        public TransportLocationDto StartLocation { get; set; }
     
         [Newtonsoft.Json.JsonProperty("endLocation", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TransportLocationDto EndLocation { get; set; }= default!;
+        public TransportLocationDto EndLocation { get; set; }
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Description { get; set; }= default!;
+        public string Description { get; set; }
     
         [Newtonsoft.Json.JsonProperty("bookingId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid BookingId { get; set; }= default!;
+        public System.Guid BookingId { get; set; }
     
     
     }
@@ -8010,13 +8008,13 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class TransportBookingListDataModel 
     {
         [Newtonsoft.Json.JsonProperty("bookingId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid BookingId { get; set; }= default!;
+        public System.Guid BookingId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("transportId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid TransportId { get; set; }= default!;
+        public System.Guid TransportId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
     
     }
@@ -8025,25 +8023,25 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class CreateTransportBookingCommand 
     {
         [Newtonsoft.Json.JsonProperty("transportId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid TransportId { get; set; }= default!;
+        public System.Guid TransportId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
         [Newtonsoft.Json.JsonProperty("link", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Link { get; set; }= default!;
+        public string Link { get; set; }
     
         [Newtonsoft.Json.JsonProperty("email", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Email { get; set; }= default!;
+        public string Email { get; set; }
     
         [Newtonsoft.Json.JsonProperty("comments", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Comments { get; set; }= default!;
+        public string Comments { get; set; }
     
         [Newtonsoft.Json.JsonProperty("reservations", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<byte[]>? Reservations { get; set; }= default!;
+        public System.Collections.Generic.ICollection<byte[]> Reservations { get; set; }
     
         [Newtonsoft.Json.JsonProperty("cost", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double Cost { get; set; }= default!;
+        public double Cost { get; set; }
     
     
     }
@@ -8052,28 +8050,28 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class UpdateTransportBookingCommand 
     {
         [Newtonsoft.Json.JsonProperty("bookingId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid BookingId { get; set; }= default!;
+        public System.Guid BookingId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("transportId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid TransportId { get; set; }= default!;
+        public System.Guid TransportId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
         [Newtonsoft.Json.JsonProperty("link", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Link { get; set; }= default!;
+        public string Link { get; set; }
     
         [Newtonsoft.Json.JsonProperty("email", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Email { get; set; }= default!;
+        public string Email { get; set; }
     
         [Newtonsoft.Json.JsonProperty("comments", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Comments { get; set; }= default!;
+        public string Comments { get; set; }
     
         [Newtonsoft.Json.JsonProperty("reservations", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<byte[]>? Reservations { get; set; }= default!;
+        public System.Collections.Generic.ICollection<byte[]> Reservations { get; set; }
     
         [Newtonsoft.Json.JsonProperty("cost", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double Cost { get; set; }= default!;
+        public double Cost { get; set; }
     
     
     }
@@ -8082,28 +8080,28 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class TransportBookingDetailDataModel 
     {
         [Newtonsoft.Json.JsonProperty("bookingId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid BookingId { get; set; }= default!;
+        public System.Guid BookingId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("transportId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid TransportId { get; set; }= default!;
+        public System.Guid TransportId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
         [Newtonsoft.Json.JsonProperty("link", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Link { get; set; }= default!;
+        public string Link { get; set; }
     
         [Newtonsoft.Json.JsonProperty("email", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Email { get; set; }= default!;
+        public string Email { get; set; }
     
         [Newtonsoft.Json.JsonProperty("comments", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Comments { get; set; }= default!;
+        public string Comments { get; set; }
     
         [Newtonsoft.Json.JsonProperty("cost", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double Cost { get; set; }= default!;
+        public double Cost { get; set; }
     
         [Newtonsoft.Json.JsonProperty("reservations", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<byte[]>? Reservations { get; set; }= default!;
+        public System.Collections.Generic.ICollection<byte[]> Reservations { get; set; }
     
     
     }
@@ -8112,13 +8110,13 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class TransportBookingListByTripIdDataModel 
     {
         [Newtonsoft.Json.JsonProperty("bookingId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid BookingId { get; set; }= default!;
+        public System.Guid BookingId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("transportId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid TransportId { get; set; }= default!;
+        public System.Guid TransportId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
     
     }
@@ -8127,16 +8125,16 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class TransportTypeListDataModel 
     {
         [Newtonsoft.Json.JsonProperty("transportTypeId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid TransportTypeId { get; set; }= default!;
+        public System.Guid TransportTypeId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
         [Newtonsoft.Json.JsonProperty("isPublic", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool IsPublic { get; set; }= default!;
+        public bool IsPublic { get; set; }
     
         [Newtonsoft.Json.JsonProperty("hasFixedRoute", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool HasFixedRoute { get; set; }= default!;
+        public bool HasFixedRoute { get; set; }
     
     
     }
@@ -8145,13 +8143,13 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class CreateTransportTypeCommand 
     {
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
         [Newtonsoft.Json.JsonProperty("isPublic", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool IsPublic { get; set; }= default!;
+        public bool IsPublic { get; set; }
     
         [Newtonsoft.Json.JsonProperty("hasFixedRoute", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool HasFixedRoute { get; set; }= default!;
+        public bool HasFixedRoute { get; set; }
     
     
     }
@@ -8160,16 +8158,16 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class TransportTypeByNameDataModel 
     {
         [Newtonsoft.Json.JsonProperty("transportTypeId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid TransportTypeId { get; set; }= default!;
+        public System.Guid TransportTypeId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
         [Newtonsoft.Json.JsonProperty("isPublic", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool IsPublic { get; set; }= default!;
+        public bool IsPublic { get; set; }
     
         [Newtonsoft.Json.JsonProperty("hasFixedRoute", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool HasFixedRoute { get; set; }= default!;
+        public bool HasFixedRoute { get; set; }
     
     
     }
@@ -8178,19 +8176,19 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class LocationDto 
     {
         [Newtonsoft.Json.JsonProperty("locationId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid LocationId { get; set; }= default!;
+        public System.Guid LocationId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("latitude", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double Latitude { get; set; }= default!;
+        public double Latitude { get; set; }
     
         [Newtonsoft.Json.JsonProperty("longitude", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double Longitude { get; set; }= default!;
+        public double Longitude { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
         [Newtonsoft.Json.JsonProperty("address", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Address { get; set; }= default!;
+        public string Address { get; set; }
     
     
     }
@@ -8199,22 +8197,22 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class TripListDataModel 
     {
         [Newtonsoft.Json.JsonProperty("tripId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid TripId { get; set; }= default!;
+        public System.Guid TripId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("startLocation", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public LocationDto StartLocation { get; set; }= default!;
+        public LocationDto StartLocation { get; set; }
     
         [Newtonsoft.Json.JsonProperty("endLocation", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public LocationDto EndLocation { get; set; }= default!;
+        public LocationDto EndLocation { get; set; }
     
     
     }
@@ -8223,25 +8221,13 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class CreateTripCommand 
     {
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime EndDateTime { get; set; }= default!;
-    
-        [Newtonsoft.Json.JsonProperty("transportIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<System.Guid>? TransportIds { get; set; }= default!;
-    
-        [Newtonsoft.Json.JsonProperty("routeIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<System.Guid>? RouteIds { get; set; }= default!;
-    
-        [Newtonsoft.Json.JsonProperty("eventIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<System.Guid>? EventIds { get; set; }= default!;
-    
-        [Newtonsoft.Json.JsonProperty("accomodationIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<System.Guid>? AccomodationIds { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }
     
     
     }
@@ -8250,28 +8236,28 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class UpdateTripCommand 
     {
         [Newtonsoft.Json.JsonProperty("tripId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid TripId { get; set; }= default!;
+        public System.Guid TripId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("transportIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<System.Guid>? TransportIds { get; set; }= default!;
+        public System.Collections.Generic.ICollection<System.Guid> TransportIds { get; set; }
     
         [Newtonsoft.Json.JsonProperty("routeIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<System.Guid>? RouteIds { get; set; }= default!;
+        public System.Collections.Generic.ICollection<System.Guid> RouteIds { get; set; }
     
         [Newtonsoft.Json.JsonProperty("eventIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<System.Guid>? EventIds { get; set; }= default!;
+        public System.Collections.Generic.ICollection<System.Guid> EventIds { get; set; }
     
         [Newtonsoft.Json.JsonProperty("accomodationIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<System.Guid>? AccomodationIds { get; set; }= default!;
+        public System.Collections.Generic.ICollection<System.Guid> AccomodationIds { get; set; }
     
     
     }
@@ -8280,19 +8266,19 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class TransportDto 
     {
         [Newtonsoft.Json.JsonProperty("transportId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid TransportId { get; set; }= default!;
+        public System.Guid TransportId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("tripId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid TripId { get; set; }= default!;
+        public System.Guid TripId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }
     
     
     }
@@ -8301,19 +8287,19 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class RouteDto 
     {
         [Newtonsoft.Json.JsonProperty("routeId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid RouteId { get; set; }= default!;
+        public System.Guid RouteId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("tripId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid TripId { get; set; }= default!;
+        public System.Guid TripId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }
     
     
     }
@@ -8322,22 +8308,22 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class EventDto 
     {
         [Newtonsoft.Json.JsonProperty("eventId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid EventId { get; set; }= default!;
+        public System.Guid EventId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("tripId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid TripId { get; set; }= default!;
+        public System.Guid TripId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
         [Newtonsoft.Json.JsonProperty("companyName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? CompanyName { get; set; }= default!;
+        public string CompanyName { get; set; }
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }
     
     
     }
@@ -8346,22 +8332,22 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class AccomodationDto 
     {
         [Newtonsoft.Json.JsonProperty("accomodationId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid AccomodationId { get; set; }= default!;
+        public System.Guid AccomodationId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("tripId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid TripId { get; set; }= default!;
+        public System.Guid TripId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
         [Newtonsoft.Json.JsonProperty("nights", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int Nights { get; set; }= default!;
+        public int Nights { get; set; }
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }
     
     
     }
@@ -8370,34 +8356,34 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class TripDetailDataModel 
     {
         [Newtonsoft.Json.JsonProperty("tripId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid TripId { get; set; }= default!;
+        public System.Guid TripId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("startLocation", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public LocationDto StartLocation { get; set; }= default!;
+        public LocationDto StartLocation { get; set; }
     
         [Newtonsoft.Json.JsonProperty("endLocation", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public LocationDto EndLocation { get; set; }= default!;
+        public LocationDto EndLocation { get; set; }
     
         [Newtonsoft.Json.JsonProperty("transports", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<TransportDto>? Transports { get; set; }= default!;
+        public System.Collections.Generic.ICollection<TransportDto> Transports { get; set; }
     
         [Newtonsoft.Json.JsonProperty("routes", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<RouteDto>? Routes { get; set; }= default!;
+        public System.Collections.Generic.ICollection<RouteDto> Routes { get; set; }
     
         [Newtonsoft.Json.JsonProperty("events", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<EventDto>? Events { get; set; }= default!;
+        public System.Collections.Generic.ICollection<EventDto> Events { get; set; }
     
         [Newtonsoft.Json.JsonProperty("accomodations", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<AccomodationDto>? Accomodations { get; set; }= default!;
+        public System.Collections.Generic.ICollection<AccomodationDto> Accomodations { get; set; }
     
     
     }
@@ -8406,22 +8392,22 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class TripListBetweenDatesDataModel 
     {
         [Newtonsoft.Json.JsonProperty("tripId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid TripId { get; set; }= default!;
+        public System.Guid TripId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("startLocation", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public LocationDto StartLocation { get; set; }= default!;
+        public LocationDto StartLocation { get; set; }
     
         [Newtonsoft.Json.JsonProperty("endLocation", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public LocationDto EndLocation { get; set; }= default!;
+        public LocationDto EndLocation { get; set; }
     
     
     }
@@ -8430,22 +8416,22 @@ namespace PlannR.App.Infrastructure.Services.Base
     public partial class TripListOnDateDataModel 
     {
         [Newtonsoft.Json.JsonProperty("tripId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Guid TripId { get; set; }= default!;
+        public System.Guid TripId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; }= default!;
+        public string Name { get; set; }
     
         [Newtonsoft.Json.JsonProperty("startDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime StartDateTime { get; set; }= default!;
+        public System.DateTime StartDateTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime EndDateTime { get; set; }= default!;
+        public System.DateTime EndDateTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("startLocation", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public LocationDto StartLocation { get; set; }= default!;
+        public LocationDto StartLocation { get; set; }
     
         [Newtonsoft.Json.JsonProperty("endLocation", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public LocationDto EndLocation { get; set; }= default!;
+        public LocationDto EndLocation { get; set; }
     
     
     }
@@ -8455,11 +8441,11 @@ namespace PlannR.App.Infrastructure.Services.Base
     {
         public int StatusCode { get; private set; }
 
-        public string? Response { get; private set; }
+        public string Response { get; private set; }
 
         public System.Collections.Generic.IReadOnlyDictionary<string, System.Collections.Generic.IEnumerable<string>> Headers { get; private set; }
 
-        public ApiException(string message, int statusCode, string? response, System.Collections.Generic.IReadOnlyDictionary<string, System.Collections.Generic.IEnumerable<string>> headers, System.Exception? innerException)
+        public ApiException(string message, int statusCode, string response, System.Collections.Generic.IReadOnlyDictionary<string, System.Collections.Generic.IEnumerable<string>> headers, System.Exception innerException)
             : base(message + "\n\nStatus: " + statusCode + "\nResponse: \n" + ((response == null) ? "(null)" : response.Substring(0, response.Length >= 512 ? 512 : response.Length)), innerException)
         {
             StatusCode = statusCode;
@@ -8478,7 +8464,7 @@ namespace PlannR.App.Infrastructure.Services.Base
     {
         public TResult Result { get; private set; }
 
-        public ApiException(string message, int statusCode, string? response, System.Collections.Generic.IReadOnlyDictionary<string, System.Collections.Generic.IEnumerable<string>> headers, TResult result, System.Exception? innerException)
+        public ApiException(string message, int statusCode, string response, System.Collections.Generic.IReadOnlyDictionary<string, System.Collections.Generic.IEnumerable<string>> headers, TResult result, System.Exception innerException)
             : base(message, statusCode, response, headers, innerException)
         {
             Result = result;

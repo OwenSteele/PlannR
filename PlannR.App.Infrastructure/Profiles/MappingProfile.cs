@@ -67,8 +67,8 @@ namespace PlannR.App.Infrastructure.Profiles
             CreateMap<EventListByTripIdWithBookingsDataModel, EventListWithBookingsViewModel>().ReverseMap();
             CreateMap<EventListOnDateDataModel, EventListOnDateViewModel>().ReverseMap();
 
-            CreateMap<TransportDetailViewModel, CreateTransportCommand>().ReverseMap();
-            CreateMap<TransportDetailViewModel, UpdateTransportCommand>().ReverseMap();
+            CreateMap<TransportDetailDataModel, CreateTransportCommand>().ReverseMap();
+            CreateMap<TransportDetailDataModel, UpdateTransportCommand>().ReverseMap();
             CreateMap<TransportDetailDataModel, TransportDetailViewModel>().ReverseMap();
             CreateMap<TransportListByTripIdDataModel, TransportListOfTripViewModel>().ReverseMap();
             CreateMap<TransportListDataModel, TransportListViewModel>().ReverseMap();
@@ -82,8 +82,8 @@ namespace PlannR.App.Infrastructure.Profiles
             CreateMap<RouteListDataModel, RouteListViewModel>().ReverseMap();
             CreateMap<RouteListOnDateDataModel, RouteListOnDateViewModel>().ReverseMap();
 
-            CreateMap<TripDetailDataModel, TripDetailViewModel>().ReverseMap();
-            CreateMap<TripDetailViewModel, UpdateTripCommand>().ReverseMap();
+            CreateMap<EditTripViewModel, CreateTripCommand>().ReverseMap();
+            CreateMap<EditTripViewModel, UpdateTripCommand>().ReverseMap();
             CreateMap<TripDetailDataModel, TripDetailViewModel>().ReverseMap();
             CreateMap<TripListDataModel, TripListViewModel>().ReverseMap();
             CreateMap<TripListOnDateDataModel, TripListOnDateViewModel>().ReverseMap();
