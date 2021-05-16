@@ -2,7 +2,6 @@
 using PlannR.Application.Contracts.Identity;
 using PlannR.Domain.Common;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace PlannR.API.Services
 {

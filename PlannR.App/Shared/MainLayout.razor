@@ -6,18 +6,31 @@
         </div>
     </div>
 </div>
-<div>
-    <div>
-        <div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
-            <UserNavMenu/>
+<AuthorizeView>
+    <Authorized>
+        <div>
+            <div>
+                <div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
+                    <UserNavMenu />
+                </div>
+            </div>
         </div>
-    </div>
-</div>
+    </Authorized>
+    <NotAuthorized>
+        <div hidden="hidden" @onload="CollapseNavMenu"></div>
+    </NotAuthorized>
+</AuthorizeView>
 <div class="@ToggleNavMenuClass">
-    <button class="togglebtn @ToggleNavMenuClass" @onclick="ToggleNavMenu">&#9776;</button>
-    <div class="content">
-        @Body
-    </div>
+    <AuthorizeView>
+        <Authorized>
+            <button class="togglebtn @ToggleNavMenuClass" @onclick="ToggleNavMenu">&#9776;</button>
+        </Authorized>
+        <NotAuthorized>
+        </NotAuthorized>
+    </AuthorizeView>
+        <div class="content">
+            @Body
+        </div>
 </div>
 
 <div class="footer">

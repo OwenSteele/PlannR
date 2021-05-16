@@ -9,7 +9,6 @@ using PlannR.API.Services;
 using PlannR.Application;
 using PlannR.Application.Contracts.Identity;
 using PlannR.Identity;
-using PlannR.Identity.Services;
 using PlannR.Persistence;
 using System;
 using System.Collections.Generic;
@@ -32,7 +31,7 @@ namespace PlannR.API
                 //.AddInfrastructureServices()
                 .AddPersistenceServices(Configuration)
                 .AddIdentityServices(Configuration);
-            
+
             services.AddHttpContextAccessor();
 
             services.AddScoped<ILoggedInService, LoggedInService>();

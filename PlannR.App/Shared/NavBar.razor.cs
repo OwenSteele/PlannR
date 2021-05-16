@@ -21,8 +21,10 @@ namespace PlannR.App.Shared
         {
             await ((PlannrAuthenticationStateProvider)AuthenticationStateProvider).GetAuthenticationStateAsync();
         }
+
         protected void NavigateToAccount()
         {
+            StateHasChanged();
             NavigationManager.NavigateTo("account");
         }
         protected void NavigateToLogin()
@@ -35,7 +37,9 @@ namespace PlannR.App.Shared
         }
         protected void Logout()
         {
+            StateHasChanged();
             AuthenticationService.Logout();
+            NavigationManager.NavigateTo("/", true);
         }
     }
 }

@@ -21,9 +21,14 @@ namespace PlannR.App.Pages.Trip
         {
             Trips = await TripDataService.GetAllTripsAsync();
         }
-        private void ShowCreateTripModal()
+        private async Task ShowCreateTripModal()
         {
-            Modal.Show<CreateEditTripModal>("Add a new Trip");
+            var modal = Modal.Show<CreateEditTripModal>("Add a new Trip");
+
+            var result = await modal.Result;
+
+            if (result.Cancelled)
+                Trips = await TripDataService.GetAllTripsAsync();
         }
     }
 }

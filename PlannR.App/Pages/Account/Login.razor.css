@@ -1,5 +1,5 @@
 ﻿.login {
-    margin: 50px;
+    margin: 30px;
     border: 1px solid black;
     border-radius: 3px;
     padding: 10px 20px;
@@ -37,9 +37,20 @@
 .input-field {
     box-sizing: border-box;
 }
+.validation-message {
+}
 
-@media screen and (max-width: 500px){
+@media screen and (max-width: 500px) {
+    .login {
+        margin: 10px;
+        border: 1px solid black;
+        border-radius: 3px;
+        padding: 10px 20px;
+        max-width: 500px;
+    }
+}
+@media screen and (max-width: 850px) {
     .form-field {
-        flex-direction: row;
+        flex-direction: column;
     }
 }

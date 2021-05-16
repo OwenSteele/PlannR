@@ -22,9 +22,9 @@ namespace PlannR.App.Infrastructure.Services
             _mapper = mapper;
         }
 
-        public async Task<bool> IsLoggedInAsync()
+        public async Task<string> GetUsernameAsync()
         {
-            return (await _authenticationStateProvider.GetAuthenticationStateAsync()).User == null;
+            return await _localStorage.GetItemAsync<string>("username");
         }
 
         public async Task<bool> Authenticate(AuthenticateViewModel viewModel)
@@ -37,6 +37,7 @@ namespace PlannR.App.Infrastructure.Services
                 if (response.Token == string.Empty) return false;
 
                 await _localStorage.SetItemAsync("token", response.Token);
+                await _localStorage.SetItemAsync("username", response.UserName);
 
                 var plannrAuthenticationStateProvider = (PlannrAuthenticationStateProvider)_authenticationStateProvider;
                 plannrAuthenticationStateProvider.SetUserAuthenticated(viewModel.Email);
@@ -49,12 +50,12 @@ namespace PlannR.App.Infrastructure.Services
             {
                 return false;
             }
-
         }
 
         public async Task Logout()
         {
             await _localStorage.RemoveItemAsync("token");
+            await _localStorage.RemoveItemAsync("username");
 
             var plannrAuthenticationStateProvider = (PlannrAuthenticationStateProvider)_authenticationStateProvider;
 

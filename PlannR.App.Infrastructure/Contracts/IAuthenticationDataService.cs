@@ -5,7 +5,7 @@ namespace PlannR.App.Infrastructure.Contracts
 {
     public interface IAuthenticationDataService
     {
-        Task<bool> IsLoggedInAsync();
+        Task<string> GetUsernameAsync();
         Task<bool> Authenticate(AuthenticateViewModel viewModel);
         Task<bool> Register(RegisterViewModel viewModel);
         Task Logout();

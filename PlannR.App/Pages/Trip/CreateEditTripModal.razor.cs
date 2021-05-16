@@ -9,6 +9,9 @@ namespace PlannR.App.Pages.Trip
 {
     public partial class CreateEditTripModal
     {
+        [Parameter]
+        public EventCallback OnComplete { get; set; }
+
         [Inject]
         public ITripDataService TripDataService { get; set; }
 
@@ -39,6 +42,8 @@ namespace PlannR.App.Pages.Trip
 
             var response = await TripDataService.CreateAsync(EditTripViewModel);
             HandleResponse(response);
+
+            await OnComplete.InvokeAsync();
         }
         protected void HandleInvalidSubmit()
         {
@@ -52,8 +57,6 @@ namespace PlannR.App.Pages.Trip
                 Message = "Trip added successfully!";
 
                 Submitted = true;
-
-                StateHasChanged();
             }
             else
             {
