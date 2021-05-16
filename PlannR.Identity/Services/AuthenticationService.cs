@@ -49,6 +49,8 @@ namespace PlannR.Identity.Services
             if (!result.Succeeded) throw new Exception($"{result.Errors}");
 
             return new RegistrationResponse() { UserId = newUser.Id };
+
+
         }
         public async Task<AuthenticationResponse> AuthenticateAsync(AuthenticationRequest request)
         {
@@ -58,7 +60,7 @@ namespace PlannR.Identity.Services
             var result = await _signInManager.PasswordSignInAsync(
                 existing.UserName,
                 request.Password,
-                false,
+                true,
                 false);
 
             if (!result.Succeeded) throw new Exception($"Invalid details for '{request.Email}");
@@ -78,18 +80,14 @@ namespace PlannR.Identity.Services
         {
             var userClaims = await _userManager.GetClaimsAsync(user);
             var userRoles = await _userManager.GetRolesAsync(user);
-
-            var roleClaims = new List<Claim>();
-
-            foreach (var role in userRoles) roleClaims.Add(new Claim("roles", role));
-
-            var tokenClaims = new[]
+            var tokenClaims = new List<Claim>
             {
-                new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
-                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                new Claim(JwtRegisteredClaimNames.Email, user.Email),
-                new Claim("uid", user.Id),
-            };
+                    new Claim(JwtRegisteredClaimNames.UniqueName, user.UserName),
+                    new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                    new Claim(JwtRegisteredClaimNames.Email, user.Email)
+                };
+            foreach (var role in userRoles) tokenClaims.Add(new Claim("roles", role));
+            foreach (var claim in userClaims) tokenClaims.Add(claim);
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtOptions.Key));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
@@ -102,6 +100,31 @@ namespace PlannR.Identity.Services
                 signingCredentials: creds);
 
             return new JwtSecurityTokenHandler().WriteToken(token);
+
+
+            //var claims = new[]
+            //{
+            //    new Claim(JwtRegisteredClaimNames.Sub , user.Email),
+            //    new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+            //    new Claim(JwtRegisteredClaimNames.UniqueName, user.Userame)
+            //};
+
+            //var key = new SymmetricSecurityKey(
+            //    Encoding.UTF8.GetBytes(_configuration["Tokens:Key"]));
+
+            //var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+
+            //var tokenLifetime = 60;
+
+            //var token = new JwtSecurityToken(
+            //    _configuration["Tokens:Issuer"],
+            //    _configuration["Tokens:Audience"],
+            //    claims,
+            //    expires: DateTime.UtcNow.AddMinutes(tokenLifetime),
+            //    signingCredentials: credentials
+            //    );
+
+            //return new JwtSecurityTokenHandler().WriteToken(token);
         }
     }
 }

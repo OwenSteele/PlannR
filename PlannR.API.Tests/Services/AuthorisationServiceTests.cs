@@ -72,8 +72,8 @@ namespace PlannR.API.Tests.Services
             result.ShouldBe(false);
         }
 
-        [InlineData("",1)]
-        [InlineData("UserFour",3)]
+        [InlineData("", 1)]
+        [InlineData("UserFour", 3)]
         [InlineData("UserFive", 2)]
         [Theory]
         public void WHEN_Entities_have_partial_matching_userIds_THEN_only_matching_entities_are_returned(

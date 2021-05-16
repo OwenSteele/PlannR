@@ -61,7 +61,7 @@ namespace PlannR.App.Infrastructure.Services
         {
             await AddBearerToken();
 
-            var result =await _client.GetAccomodationByIdAsync(id);
+            var result = await _client.GetAccomodationByIdAsync(id);
             return _mapper.Map<AccomodationDetailViewModel>(result);
         }
 
@@ -69,7 +69,7 @@ namespace PlannR.App.Infrastructure.Services
         {
             await AddBearerToken();
 
-            var result =await _client.GetAllAccomodationsAsync();
+            var result = await _client.GetAllAccomodationsAsync();
             return _mapper.Map<ICollection<AccomodationListViewModel>>(result);
         }
 
@@ -77,7 +77,7 @@ namespace PlannR.App.Infrastructure.Services
         {
             await AddBearerToken();
 
-            var result =await _client.GetAllAccomodationByTripIdAsync(tripId);
+            var result = await _client.GetAllAccomodationByTripIdAsync(tripId);
             return _mapper.Map<ICollection<AccomodationListOfTripViewModel>>(result);
         }
 
@@ -85,7 +85,7 @@ namespace PlannR.App.Infrastructure.Services
         {
             await AddBearerToken();
 
-            var result =await _client.GetAllAccomodationBookingsByTripIdAsync(tripId);
+            var result = await _client.GetAllAccomodationBookingsByTripIdAsync(tripId);
             return _mapper.Map<ICollection<AccomodationListWithBookingsViewModel>>(result);
         }
 
@@ -93,7 +93,7 @@ namespace PlannR.App.Infrastructure.Services
         {
             await AddBearerToken();
 
-            var result =await _client.GetAllAccomodationOnDateAsync(date);
+            var result = await _client.GetAllAccomodationOnDateAsync(date);
             return _mapper.Map<ICollection<AccomodationListOnDateViewModel>>(result);
         }
 

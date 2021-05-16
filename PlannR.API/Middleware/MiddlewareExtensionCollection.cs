@@ -4,9 +4,11 @@ namespace PlannR.API.Middleware
 {
     public static class MiddlewareExtensionCollection
     {
-        public static IApplicationBuilder UsePlannrExceptionHandler(this IApplicationBuilder builder)
+        public static IApplicationBuilder UsePlannrMiddleware(this IApplicationBuilder builder)
         {
-            return builder.UseMiddleware<ExceptionHandlerMiddleware>();
+            builder.UseMiddleware<ExceptionHandlerMiddleware>();
+
+            return builder;
         }
     }
 }

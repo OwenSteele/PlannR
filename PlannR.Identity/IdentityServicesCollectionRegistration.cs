@@ -25,19 +25,25 @@ namespace PlannR.Identity
                 options.UseSqlServer(configuration.GetConnectionString("PlannrIdentity"),
                 builder => builder.MigrationsAssembly(typeof(PlannrIdentityDbContext).Assembly.FullName)));
 
-            services.AddIdentity<PlannrUser, IdentityRole>()
-                .AddEntityFrameworkStores<PlannrIdentityDbContext>().AddDefaultTokenProviders();
+            services.AddIdentity<PlannrUser, IdentityRole>(options =>
+            {
+                options.User.RequireUniqueEmail = true;
+            }
+               ).AddRoles<IdentityRole>()
+                .AddRoleManager<RoleManager<IdentityRole>>()
+                .AddEntityFrameworkStores<PlannrIdentityDbContext>();
 
             services.AddScoped<IAuthenticationService, AuthenticationService>();
 
             services.AddAuthentication(options =>
             {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
             })
                 .AddJwtBearer(options =>
                 {
                     options.RequireHttpsMetadata = false;
-                    options.SaveToken = false;
+                    options.SaveToken = true;
                     options.TokenValidationParameters = new TokenValidationParameters
                     {
                         ValidateIssuerSigningKey = true,
@@ -73,6 +79,8 @@ namespace PlannR.Identity
                             c.Response.StatusCode = 500;
                             c.Response.ContentType = "text/plain";
                             return c.Response.WriteAsync(c.Exception.ToString());
+
+
                         }
                     };
                 });

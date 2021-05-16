@@ -43,7 +43,7 @@ namespace PlannR.Persistence.Repositories
             return await _dbContext.Events
                 .Where(x => x.TripId == tripId &&
                 x.StartDateTime <= date && x.EndDateTime >= date)
-                .Include(x=>x.Trip)
+                .Include(x => x.Trip)
                 .Include(x => x.Location)
                 .ToArrayAsync();
         }

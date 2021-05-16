@@ -45,7 +45,7 @@ namespace PlannR.App.Infrastructure.Services
         {
             await AddBearerToken();
 
-            var result =await _client.GetAllAccomodationTypesAsync();
+            var result = await _client.GetAllAccomodationTypesAsync();
             return _mapper.Map<ICollection<AccomodationTypeListViewModel>>(result);
         }
 
@@ -53,7 +53,7 @@ namespace PlannR.App.Infrastructure.Services
         {
             await AddBearerToken();
 
-            var result =await _client.GetAccomodationTypeByNameAsync(name);
+            var result = await _client.GetAccomodationTypeByNameAsync(name);
             return _mapper.Map<AccomodationTypeOfNameViewModel>(result);
         }
     }

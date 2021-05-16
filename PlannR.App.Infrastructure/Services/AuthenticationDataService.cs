@@ -22,6 +22,11 @@ namespace PlannR.App.Infrastructure.Services
             _mapper = mapper;
         }
 
+        public async Task<bool> IsLoggedInAsync()
+        {
+            return (await _authenticationStateProvider.GetAuthenticationStateAsync()).User == null;
+        }
+
         public async Task<bool> Authenticate(AuthenticateViewModel viewModel)
         {
             try

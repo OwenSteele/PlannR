@@ -61,7 +61,7 @@ namespace PlannR.App.Infrastructure.Services
         {
             await AddBearerToken();
 
-            var result =await _client.GetAllEventBookingsAsync();
+            var result = await _client.GetAllEventBookingsAsync();
             return _mapper.Map<ICollection<EventBookingListViewModel>>(result);
         }
 
@@ -69,7 +69,7 @@ namespace PlannR.App.Infrastructure.Services
         {
             await AddBearerToken();
 
-            var result =await _client.GetAllEventBookingsByTripIdAsync(tripId);
+            var result = await _client.GetAllEventBookingsByTripIdAsync(tripId);
             return _mapper.Map<ICollection<EventBookingOfTripListViewModel>>(result);
         }
 
@@ -77,7 +77,7 @@ namespace PlannR.App.Infrastructure.Services
         {
             await AddBearerToken();
 
-            var result =await _client.GetEventBookingByIdAsync(id);
+            var result = await _client.GetEventBookingByIdAsync(id);
             return _mapper.Map<EventBookingDetailViewModel>(result);
         }
 

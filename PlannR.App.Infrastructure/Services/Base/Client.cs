@@ -9,7 +9,7 @@ namespace PlannR.App.Infrastructure.Services.Base
     {
         // As Client is produced by NSwag, need permanent access into _httpClient generated field without rebuidling in new NSwag versions
         public HttpClient HttpClient
-        {  
+        {
             get
             {
                 return _httpClient;

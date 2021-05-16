@@ -45,7 +45,7 @@ namespace PlannR.App.Infrastructure.Services
         {
             await AddBearerToken();
 
-            var result =await _client.GetAllEventTypesAsync();
+            var result = await _client.GetAllEventTypesAsync();
             return _mapper.Map<ICollection<EventTypeListViewModel>>(result);
         }
 
@@ -53,7 +53,7 @@ namespace PlannR.App.Infrastructure.Services
         {
             await AddBearerToken();
 
-            var result =await _client.GetEventTypeByNameAsync(name);
+            var result = await _client.GetEventTypeByNameAsync(name);
             return _mapper.Map<EventTypeOfNameViewModel>(result);
         }
     }

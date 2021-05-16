@@ -46,7 +46,7 @@ namespace PlannR.App.Infrastructure.Services
         {
             await AddBearerToken();
 
-            var result =await _client.GetAllTransportTypesAsync();
+            var result = await _client.GetAllTransportTypesAsync();
             return _mapper.Map<ICollection<TransportTypeListViewModel>>(result);
         }
 
@@ -54,7 +54,7 @@ namespace PlannR.App.Infrastructure.Services
         {
             await AddBearerToken();
 
-            var result =await _client.GetTransportTypeByNameAsync(name);
+            var result = await _client.GetTransportTypeByNameAsync(name);
             return _mapper.Map<TransportTypeOfNameViewModel>(result);
         }
     }

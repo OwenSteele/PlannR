@@ -61,7 +61,7 @@ namespace PlannR.App.Infrastructure.Services
         {
             await AddBearerToken();
 
-            var result =await _client.GetAllRoutesAsync();
+            var result = await _client.GetAllRoutesAsync();
             return _mapper.Map<ICollection<RouteListViewModel>>(result);
         }
 
@@ -69,7 +69,7 @@ namespace PlannR.App.Infrastructure.Services
         {
             await AddBearerToken();
 
-            var result =await _client.GetAllRoutesByTripIdAsync(tripId);
+            var result = await _client.GetAllRoutesByTripIdAsync(tripId);
             return _mapper.Map<ICollection<RouteListOfTripViewModel>>(result);
         }
 
@@ -77,7 +77,7 @@ namespace PlannR.App.Infrastructure.Services
         {
             await AddBearerToken();
 
-            var result =await _client.GetAllRouteOnDateAsync(date);
+            var result = await _client.GetAllRouteOnDateAsync(date);
             return _mapper.Map<ICollection<RouteListOnDateViewModel>>(result);
         }
 
@@ -85,7 +85,7 @@ namespace PlannR.App.Infrastructure.Services
         {
             await AddBearerToken();
 
-            var result =await _client.GetRouteByIdAsync(id);
+            var result = await _client.GetRouteByIdAsync(id);
             return _mapper.Map<RouteDetailViewModel>(result);
         }
 

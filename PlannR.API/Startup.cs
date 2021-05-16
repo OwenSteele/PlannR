@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -10,6 +9,7 @@ using PlannR.API.Services;
 using PlannR.Application;
 using PlannR.Application.Contracts.Identity;
 using PlannR.Identity;
+using PlannR.Identity.Services;
 using PlannR.Persistence;
 using System;
 using System.Collections.Generic;
@@ -32,6 +32,8 @@ namespace PlannR.API
                 //.AddInfrastructureServices()
                 .AddPersistenceServices(Configuration)
                 .AddIdentityServices(Configuration);
+            
+            services.AddHttpContextAccessor();
 
             services.AddScoped<ILoggedInService, LoggedInService>();
             services.AddScoped(typeof(IAuthorisationService<>), typeof(AuthorisationService<>));
@@ -101,12 +103,15 @@ namespace PlannR.API
 
             app.UseRouting();
 
-            app.UseCors("Open");
+            app.UseCors(x => x
+            .AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader());
 
             app.UseAuthentication();
             app.UseAuthorization();
 
-            app.UsePlannrExceptionHandler();
+            app.UsePlannrMiddleware();
 
             app.UseSwagger();
             app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "PlannR.API v1"));

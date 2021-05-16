@@ -22,8 +22,9 @@ namespace PlannR.API
                     var userManager = scope.ServiceProvider.GetRequiredService<UserManager<PlannrUser>>();
                     await CreatedSeededUsers.SeedAsync(userManager);
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
+                    throw new ApplicationException(ex.Message);
                 }
             }
 

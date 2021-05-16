@@ -20,7 +20,7 @@ namespace PlannR.Identity.Seed
             var result = await userManager.FindByEmailAsync(user.Email);
             if (result == null)
             {
-                await userManager.CreateAsync(result, "pl@nnrAdm1n!");
+                await userManager.CreateAsync(user, "Test1234!");
             }
         }
     }

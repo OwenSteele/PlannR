@@ -12,8 +12,6 @@ using PlannR.App.Infrastructure.ViewModels.Transport;
 using PlannR.App.Infrastructure.ViewModels.Transport.Bookings;
 using PlannR.App.Infrastructure.ViewModels.Transport.Types;
 using PlannR.App.Infrastructure.ViewModels.Trips;
-using System;
-using System.Collections.Generic;
 
 namespace PlannR.App.Infrastructure.Profiles
 {
