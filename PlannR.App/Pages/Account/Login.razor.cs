@@ -1,11 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 using PlannR.App.Infrastructure.Contracts;
-using PlannR.App.Infrastructure.Services.Base;
 using PlannR.App.Infrastructure.ViewModels.Account;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace PlannR.App.Pages.Account

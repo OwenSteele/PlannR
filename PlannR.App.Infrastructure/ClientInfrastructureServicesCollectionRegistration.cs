@@ -6,7 +6,6 @@ using PlannR.App.Infrastructure.Contracts;
 using PlannR.App.Infrastructure.Services;
 using PlannR.App.Infrastructure.Services.Base;
 using System;
-using AutoMapper;
 using System.Net.Http;
 using System.Reflection;
 
@@ -29,7 +28,7 @@ namespace PlannR.App.Infrastructure
                 BaseAddress = new Uri("https://localhost:44363")
             });
 
-            services.AddHttpClient<IClient,Client>(client => client.BaseAddress = new Uri("https://localhost:44363"));
+            services.AddHttpClient<IClient, Client>(client => client.BaseAddress = new Uri("https://localhost:44363"));
 
             services.AddScoped<IAuthenticationDataService, AuthenticationDataService>();
 

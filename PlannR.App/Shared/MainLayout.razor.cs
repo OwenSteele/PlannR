@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.JSInterop;
-using PlannR.App.Infrastructure.Authentication;
 
 namespace PlannR.App.Shared
 {

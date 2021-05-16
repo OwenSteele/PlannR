@@ -1,4 +1,5 @@
 ﻿using Blazored.Modal.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Components;
 using PlannR.App.Infrastructure.Contracts;
 using PlannR.App.Infrastructure.ViewModels.Trips;
@@ -7,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.App.Pages.Trip
 {
+    [Authorize]
     public partial class TripOverview
     {
         [CascadingParameter]

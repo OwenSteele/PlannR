@@ -22,7 +22,8 @@ namespace PlannR.App.Pages.Trip
 
         protected override void OnInitialized()
         {
-            EditTripViewModel = new EditTripViewModel { 
+            EditTripViewModel = new EditTripViewModel
+            {
                 StartDateTime = DateTime.Now,
                 EndDateTime = DateTime.Now
             };
@@ -30,7 +31,7 @@ namespace PlannR.App.Pages.Trip
 
         protected async Task HandleValidSubmit()
         {
-            if(EditTripViewModel.EndDateTime <= EditTripViewModel.StartDateTime)
+            if (EditTripViewModel.EndDateTime <= EditTripViewModel.StartDateTime)
             {
                 Message = "End date and time must be after the starting date and time.";
                 return;

@@ -6,9 +6,7 @@ using PlannR.App.Infrastructure.Services;
 using PlannR.App.Infrastructure.Services.Base;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -53,7 +51,8 @@ namespace PLannR.App.Infrastructure.Tests.IntegrationTests.Services
             var mockClient = new Mock<IClient>();
 
             mockClient.Setup(x => x.GetAllTripsAsync())
-                .ReturnsAsync(() => {
+                .ReturnsAsync(() =>
+                {
                     return new List<TripListDataModel>();
                 });
 

@@ -11,12 +11,12 @@
         <span>@Message</span>
         <div class="form-field">
             <label for="email">Email</label>
-            <InputText id="email" @bind-Value="@LoginViewModel.Email"></InputText>
+            <InputText class="input-field"  id="email" @bind-Value="@LoginViewModel.Email"></InputText>
             <ValidationMessage For="@(() => LoginViewModel.Email)" />
         </div>
         <div class="form-field">
             <label for="password">Password</label>
-            <InputText id="password" @bind-Value="@LoginViewModel.Password"></InputText>
+            <InputText class="input-field" id="password" @bind-Value="@LoginViewModel.Password"></InputText>
             <ValidationMessage For="@(() => LoginViewModel.Password)" />
         </div>
 

@@ -19,7 +19,7 @@
     font-weight: bolder;
 }
 
-.login .form-field {
+.form-field {
     margin: 10px 0px;
     display: flex;
     justify-content: space-between;
@@ -32,4 +32,14 @@
     background-color: #00ff90;
     color: #000000;
     padding: 5px;
+}
+
+.input-field {
+    box-sizing: border-box;
+}
+
+@media screen and (max-width: 500px){
+    .form-field {
+        flex-direction: row;
+    }
 }
