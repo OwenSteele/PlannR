@@ -12,11 +12,7 @@ namespace PlannR.App.Pages
 
         protected void NavigateToRegister()
         {
-            NavigationManager.NavigateTo("account/signup");
-        }
-        protected void NavigateToAccount()
-        {
-            NavigationManager.NavigateTo("account/index");
+            NavigationManager.NavigateTo("signup");
         }
     }
 }

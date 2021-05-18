@@ -5,30 +5,33 @@ using System.Threading.Tasks;
 
 namespace PlannR.App.Pages.Account
 {
-    public partial class Login
+
+    public partial class SignUp
     {
         [Inject]
         public IAuthenticationDataService AuthenticationDataService { get; set; }
         [Inject]
         public NavigationManager NavigationManager { get; set; }
-        public AuthenticateViewModel LoginViewModel { get; set; }
+        public RegisterViewModel RegisterViewModel { get; set; }
+
+        public string InputCssClass { get; } = "input-field";
 
         public string Message { get; set; }
         protected override void OnInitialized()
         {
-            LoginViewModel = new();
+            RegisterViewModel = new();
         }
 
         protected async Task HandleValidSubmit()
         {
-            var response = await AuthenticationDataService.Authenticate(LoginViewModel);
+            var response = await AuthenticationDataService.Register(RegisterViewModel);
 
             if (response) NavigationManager.NavigateTo("/account");
-            else Message = "Error on log in - Please ensure details are correct";
+            else Message = "Error on trying to register.";
         }
         protected void HandleInvalidSubmit()
         {
-            Message = "Invalid Email or Password.";
+            Message = "Invalid Details.";
         }
     }
 }

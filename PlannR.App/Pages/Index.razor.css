@@ -2,6 +2,87 @@
     border: 2px solid black;
 }
 
+.header {
+    width: 100px;
+    display: flex;
+    flex-direction:row;
+    margin: 20px 50px;
+    justify-content: space-between;
+}
+
+.header img {
+    min-width:100px;
+    min-height: 100px;
+}
+
+.info {
+}
+
+.main-text {
+    margin: 15px;
+}
+
 h1 {
-    color: blue;
+    color: #000000;
+    font-size: 60px;
+    font-weight: bolder;
+}
+
+h3 {
+    font-weight: bolder;
+}
+img {
+    width: 100%;
+    height: auto;
+    max-height:500px;
+    background-position: center;
+}
+
+button {
+    border: none;
+    background-color: #808080;
+    color: #00ff90;
+    font-weight: bold;
+    transition: 0.5s;
+}
+
+button:hover {
+    color: #ffffff;
+    transition: 0.5s;
+}
+
+.features p {
+    font-weight:bold;
+    text-align:right;
+}
+
+ul {
+    list-style: none;
+    padding-left: 10px;
+}
+
+    ul > li:nth-child(2) {
+        text-align: right;
+        margin: 10px 0px;
+        padding-left: 50px;
+        padding-right: 0px;
+    }
+
+    ul > li {
+        padding-right: 50px;
+    }
+
+
+
+@media screen and (max-width:500px) {
+    .header {
+        align-content: center;
+        margin: 10px 20px;
+        text-align: center;
+        align-content: center;
+    }
+
+    h1 {
+        text-align: center;
+    }
 }

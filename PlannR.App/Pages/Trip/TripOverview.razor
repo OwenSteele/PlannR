@@ -21,7 +21,7 @@
                 @foreach (var trip in Trips)
                 {
                     <li>
-                        <a href="@($"/tripdetails/{trip.TripId}")">
+                        <a href="@($"/trips/{trip.TripId}")">
                             <div class="trip-name">
                                 <h3>@trip.Name</h3>
                                 <span><strong>@trip.StartDateTime.ToShortDateString()</strong> - <strong>@trip.EndDateTime.ToShortDateString()</strong></span>

@@ -1,1 +1,11 @@
-﻿
+﻿.heading {
+    margin: 10px auto;
+}
+
+.heading > div {
+    margin-left: 10px;
+}
+
+h1 {
+    font-weight: bolder;
+}

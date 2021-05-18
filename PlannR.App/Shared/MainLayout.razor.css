@@ -26,8 +26,12 @@
 }
 
 .content {
-    margin-left: 50px;
+    margin-left: 60px;
     margin-top: 30px;
+    transition: 0.2s
+}
+.content-na {
+    margin-top: 50px;
     transition: 0.2s
 }
 

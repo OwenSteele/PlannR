@@ -1,0 +1,31 @@
+﻿.trip {
+    padding-right: 10px;
+}
+
+.heading {
+    border-bottom: 3px solid #00ff90;
+    margin: 15px auto;
+}
+
+h1 {
+    font-weight: bolder;
+    font-size: 48px;
+}
+
+.dates-locations {
+    font-weight: bold;
+    width: auto;
+}
+
+.dates-locations > div > div {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0px;
+}
+.dates-locations > div {
+    border-bottom: 1px solid #000000;
+}
+
+.val {
+    font-weight: 900;
+}

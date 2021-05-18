@@ -1,5 +1,5 @@
 ﻿.login {
-    margin: 30px;
+    margin: 30px auto;
     border: 1px solid black;
     border-radius: 3px;
     padding: 10px 20px;
@@ -16,11 +16,21 @@
     }
 
 .login label {
+   font-weight: bolder;
+}
+
+span {
     font-weight: bolder;
+    color: #ff0000;
+    margin: 20px 0px;
+    text-align: right;
 }
 
 .form-field {
     margin: 10px 0px;
+}
+
+.inputs {
     display: flex;
     justify-content: space-between;
 }
@@ -37,8 +47,6 @@
 .input-field {
     box-sizing: border-box;
 }
-.validation-message {
-}
 
 @media screen and (max-width: 500px) {
     .login {
@@ -49,8 +57,8 @@
         max-width: 500px;
     }
 }
-@media screen and (max-width: 850px) {
-    .form-field {
+@media screen and (max-width: 600px) {
+    .inputs {
         flex-direction: column;
     }
 }

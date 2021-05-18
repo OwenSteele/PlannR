@@ -34,7 +34,9 @@ namespace PlannR.App.Shared
 
         protected async Task<bool> EnableUserNavMenu()
         {
-            return (await AuthenticationStateProvider.GetAuthenticationStateAsync()).User != null;
+            var result = (await AuthenticationStateProvider.GetAuthenticationStateAsync()).User != null;
+
+            return result;
         }
     }
 }

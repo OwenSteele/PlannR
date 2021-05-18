@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using Blazored.Modal;
+using Microsoft.AspNetCore.Components;
 using PlannR.App.Infrastructure.Contracts;
 using PlannR.App.Infrastructure.Services.Base;
 using PlannR.App.Infrastructure.ViewModels.Trips;
@@ -9,6 +10,9 @@ namespace PlannR.App.Pages.Trip
 {
     public partial class CreateEditTripModal
     {
+        [CascadingParameter]
+        public ModalParameters Parameters { get; set; }
+
         [Parameter]
         public EventCallback OnComplete { get; set; }
 
@@ -25,11 +29,23 @@ namespace PlannR.App.Pages.Trip
 
         protected override void OnInitialized()
         {
-            EditTripViewModel = new EditTripViewModel
+            if (Parameters == null)
             {
-                StartDateTime = DateTime.Now,
-                EndDateTime = DateTime.Now
-            };
+                EditTripViewModel = new EditTripViewModel
+                {
+                    StartDateTime = DateTime.Now,
+                    EndDateTime = DateTime.Now
+                };
+            }
+            else
+            {
+                EditTripViewModel = new EditTripViewModel
+                {
+                    Name = Parameters.Get<string>("Name"),
+                    StartDateTime = Parameters.Get<DateTime>("Start"),
+                    EndDateTime = Parameters.Get<DateTime>("End"),
+                };
+            }
         }
 
         protected async Task HandleValidSubmit()

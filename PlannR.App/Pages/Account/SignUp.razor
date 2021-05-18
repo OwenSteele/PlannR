@@ -1,0 +1,83 @@
+@page "/signup"
+
+<div class="signup">
+    <div class="heading">
+        <h1>Sign Up with PlannR</h1>
+        <a href="/signup">Already have an account? signup here</a>
+        <p>
+            <strong>Having an account with PlannR opens a world of trip planning. </strong>
+            You can start planning new trips straight away, storing every part of your adventures, all here in your account.
+        </p>
+    </div>
+    <div class="reminder">
+        <h4>Kind Reminder:</h4>
+        <p>
+            As this is a portfolio project, you do not need to enter a real email address.
+            <strong>However you may lose some capabilities in relation to emailing functionality.</strong>
+            Any user details are not shared outside of the project, or used for any external purposes.
+        </p>
+    </div>
+    <EditForm Model="@RegisterViewModel"
+              OnValidSubmit="HandleValidSubmit" OnInvalidSubmit="HandleInvalidSubmit">
+        <DataAnnotationsValidator></DataAnnotationsValidator>
+        <span>@Message</span>
+        <div class="form-field">
+            <div class="inputs">
+                <label for="email">Account Email Address <span>*</span></label>
+                <InputText id="email" @bind-Value="@RegisterViewModel.Email" placeholder="plannr@owensteele.co.uk"></InputText>
+            </div>
+            <div>
+                <ValidationMessage For="@(() => RegisterViewModel.Email)" />
+            </div>
+        </div>
+        <div class="form-field">
+            <div class="inputs">
+                <label for="password">Password <span>*</span></label>
+                <InputText id="password" @bind-Value="@RegisterViewModel.Password"></InputText>
+            </div>
+            <div>
+                <ValidationMessage For="@(() => RegisterViewModel.Password)" />
+            </div>
+        </div>
+        <div class="form-field">
+            <div class="inputs">
+                <label for="passwordConfirm">Confirm Password <span>*</span></label>
+                <InputText id="passwordConfirm" @bind-Value="@RegisterViewModel.PasswordConfirm"></InputText>
+            </div>
+            <div>
+                <ValidationMessage For="@(() => RegisterViewModel.PasswordConfirm)" />
+            </div>
+        </div>
+        <div class="form-field">
+            <div class="inputs">
+                <label for="username">Account Username <span>*</span></label>
+                <InputText id="username" @bind-Value="@RegisterViewModel.Username" placeholder="PlannR User"></InputText>
+            </div>
+            <div>
+                <ValidationMessage For="@(() => RegisterViewModel.Username)" />
+            </div>
+        </div>
+        <div class="form-field">
+            <div class="inputs">
+                <label for="firstname">Forename <span>*</span></label>
+                <InputText class="@InputCssClass" id="firstname" @bind-Value="@RegisterViewModel.FirstName"></InputText>
+            </div>
+            <div>
+                <ValidationMessage For="@(() => RegisterViewModel.FirstName)" />
+            </div>
+        </div>
+        <div class="form-field">
+            <div class="inputs">
+                <label for="lastname">Surname <span>*</span></label>
+                <InputText id="lastname" @bind-Value="@RegisterViewModel.LastName"></InputText>
+            </div>
+            <div>
+                <ValidationMessage For="@(() => RegisterViewModel.LastName)" />
+            </div>
+        </div>
+        <div class="form-submit">
+            <button type="submit">sign up</button>
+            <span>* required fields</span>
+        </div>
+    </EditForm>
+</div>
