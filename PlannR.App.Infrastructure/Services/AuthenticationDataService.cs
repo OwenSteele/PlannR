@@ -66,10 +66,17 @@ namespace PlannR.App.Infrastructure.Services
 
         public async Task<bool> Register(RegisterViewModel viewModel)
         {
-            var request = _mapper.Map<RegistrationRequest>(viewModel);
-            var response = await _client.RegisterAsync(request);
+            try
+            {
+                var request = _mapper.Map<RegistrationRequest>(viewModel);
+                var response = await _client.RegisterAsync(request);
 
-            return string.IsNullOrEmpty(response.UserId);
+                return !string.IsNullOrWhiteSpace(response.UserId);
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }
