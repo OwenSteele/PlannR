@@ -2,13 +2,16 @@
 using Microsoft.AspNetCore.Components;
 using PlannR.App.Infrastructure.Contracts;
 using PlannR.App.Infrastructure.Services.Base;
-using PlannR.App.Infrastructure.ViewModels.Trips;
+using PlannR.App.Infrastructure.ViewModels.Locations;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
-namespace PlannR.App.Pages.Trip
+namespace PlannR.App.Pages.Modals
 {
-    public partial class CreateEditTripModal
+    public partial class CreateEditLocationModal
     {
         [CascadingParameter]
         public ModalParameters Parameters { get; set; }
@@ -17,44 +20,27 @@ namespace PlannR.App.Pages.Trip
         public EventCallback OnComplete { get; set; }
 
         [Inject]
-        public ITripDataService TripDataService { get; set; }
+        public ILocationDataService TripDataService { get; set; }
 
         [Inject]
         public NavigationManager NavigationManager { get; set; }
 
         [Parameter]
-        public EditTripViewModel EditTripViewModel { get; set; }
+        public EditLocationViewModel EditLocationViewModel { get; set; }
         public bool Submitted { get; set; } = false;
 
         public string Message { get; set; }
 
         protected override void OnInitialized()
         {
-            if (Parameters == null)
-            {
-                EditTripViewModel = new EditTripViewModel
-                {
-                    StartDateTime = DateTime.Now,
-                    EndDateTime = DateTime.Now
-                };
-            }
-            else
-            {
-                EditTripViewModel = Parameters.Get<EditTripViewModel>("EditTripViewModel");
-            }
+            if (Parameters == null) 
+                EditLocationViewModel = new EditLocationViewModel();
+            else 
+                EditLocationViewModel = Parameters.Get<EditLocationViewModel>("EditLocationViewModel");
         }
 
         protected async Task HandleValidSubmit()
         {
-            if (EditTripViewModel.EndDateTime <= EditTripViewModel.StartDateTime)
-            {
-                Message = "End date and time must be after the starting date and time.";
-                return;
-            }
-
-            var response = await TripDataService.CreateAsync(EditTripViewModel);
-            HandleResponse(response);
-
             await OnComplete.InvokeAsync();
         }
         protected void HandleInvalidSubmit()
@@ -66,7 +52,7 @@ namespace PlannR.App.Pages.Trip
         {
             if (response.Successful)
             {
-                Message = "Trip added successfully!";
+                Message = "Location added successfully!";
 
                 Submitted = true;
             }

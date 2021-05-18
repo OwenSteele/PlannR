@@ -28,12 +28,38 @@ namespace PlannR.App.Pages.Trip
         }
         private async Task ShowEditTripModal()
         {
+            var editModel = new EditTripViewModel
+            {
+                TripId = Trip.TripId,
+                Name = Trip.Name,
+                StartDateTime = Trip.StartDateTime,
+                EndDateTime = Trip.EndDateTime
+            };
+
             var parameters = new ModalParameters();
 
-            parameters.Add("Name", Trip.Name);
-            parameters.Add("Start", Trip.StartDateTime);
-            parameters.Add("End", Trip.EndDateTime);
+            parameters.Add("EditTripViewModel", editModel);
 
+            var modal = Modal.Show<CreateEditTripModal>($"Edit: '{Trip.Name}'", parameters);
+
+            var result = await modal.Result;
+
+            if (result.Cancelled)
+                Trip = await TripDataService.GetTripByIdAsync(_tripId);
+        }
+        private async Task ShowEditLocationModal()
+        {
+            var editModel = new EditTripViewModel
+            {
+                TripId = Trip.TripId,
+                Name = Trip.Name,
+                StartDateTime = Trip.StartDateTime,
+                EndDateTime = Trip.EndDateTime
+            };
+
+            var parameters = new ModalParameters();
+
+            parameters.Add("EditTripViewModel", editModel);
 
             var modal = Modal.Show<CreateEditTripModal>($"Edit {Trip.Name}", parameters);
 

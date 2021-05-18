@@ -10,7 +10,7 @@
     {
         <div class="heading">
             <h1>@Trip.Name</h1>
-            @*<button @onclick="ShowCreateTripModal"><span>&#43;</span> New</button>*@
+            <button @onclick="ShowEditTripModal">&#9998;</button>
         </div>
         <div class="trip-info">
             <div class="dates-locations">
@@ -18,11 +18,13 @@
                     <div>
                         <span>Starts:</span>
                         <span class="val">@Trip.StartDateTime.ToLongDateString()</span>
-                        <button @onclick="ShowEditTripModal">&#9998;</button>
                     </div>
                     <div>
                         <span>From:</span>
                         <span class="val">@(Trip.StartLocation == null ? "No Location Set" : Trip.StartLocation.Name)</span>
+                    </div>
+                    <div>
+                        <button @onclick="ShowEditLocationModal">&#9998;</button>
                     </div>
                 </div>
                 <div>
@@ -33,6 +35,9 @@
                     <div>
                         <span>At:</span>
                         <span class="val">@(Trip.StartLocation == null ? "No Location Set" : Trip.StartLocation.Name)</span>
+                    </div>
+                    <div>
+                            <button @onclick="ShowEditLocationModal">&#9998;</button>
                     </div>
                 </div>
             </div>

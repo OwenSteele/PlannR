@@ -1,26 +1,26 @@
-﻿.login {
+﻿.modal-parent {
     min-height: 100px;
     min-width: 350px;
 }
 
-.login input {
-    width: 100%;
-}
+    .modal-parent input {
+        width: 100%;
+    }
 
-.login label {
-    font-weight: bolder;
-}
-.login span {
-    font-weight: bolder;
-    color: #ff0000;
-}
+    .modal-parent label {
+        font-weight: bolder;
+    }
+    .modal-parent span {
+        font-weight: bolder;
+        color: #ff0000;
+    }
 
-.login .form-field {
-    display: flex;
-    justify-content: space-between;
-}
+    .modal-parent .form-field {
+        display: flex;
+        justify-content: space-between;
+    }
 
-.login button {
+.modal-parent button {
     border: none;
     padding: 0px;
     font-size: 30px;

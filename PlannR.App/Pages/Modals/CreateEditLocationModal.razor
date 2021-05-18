@@ -1,27 +1,27 @@
-<div class="modal-parent">
+﻿<div class="modal-parent">
     @if (!Submitted)
     {
-        <EditForm Model="@EditTripViewModel"
+        <EditForm Model="@EditLocationViewModel"
                   OnValidSubmit="HandleValidSubmit" OnInvalidSubmit="HandleInvalidSubmit">
             <DataAnnotationsValidator></DataAnnotationsValidator>
             <span>@Message</span>
             <div class="form-field">
                 <label for="tripName">Name<span>*</span></label>
-                <InputText id="tripName" @bind-Value="@EditTripViewModel.Name"
+                <InputText id="tripName" @bind-Value="@EditLocationViewModel.Name"
                            placeholder="My next adventure"></InputText>
-                <ValidationMessage For="@(() => EditTripViewModel.Name)" />
+                <ValidationMessage For="@(() => EditLocationViewModel.Name)" />
             </div>
             <div class="form-field">
                 <label for="tripName">Start Date<span>*</span></label>
-                <InputDate id="tripStartDate" @bind-Value="@EditTripViewModel.StartDateTime"
+                <InputDate id="tripStartDate" @bind-Value="@EditLocationViewModel"
                            placeholder="@DateTime.Now.ToShortTimeString()"></InputDate>
-                <ValidationMessage For="@(() => EditTripViewModel.StartDateTime)" />
+                <ValidationMessage For="@(() => EditLocationViewModel)" />
             </div>
             <div class="form-field">
                 <label for="tripName">End Date<span>*</span></label>
-                <InputDate id="tripStartDate" @bind-Value="@EditTripViewModel.EndDateTime"
+                <InputDate id="tripStartDate" @bind-Value="@EditLocationViewModel"
                            placeholder="@DateTime.Now.ToShortTimeString()"></InputDate>
-                <ValidationMessage For="@(() => EditTripViewModel.EndDateTime)" />
+                <ValidationMessage For="@(() => EditLocationViewModel)" />
             </div>
 
             <button type="submit"><strong>&#128190;</strong></button>
@@ -30,7 +30,7 @@
     else
     {
         <div class="submitted">
-            Your trip <strong>@EditTripViewModel.Name</strong> has been created!
+            Your trip <strong>@EditLocationViewModel.Name</strong> has been created!
         </div>
     }
 </div>
