@@ -26,6 +26,7 @@ namespace PlannR.Persistence
             services.AddScoped<IAccomodationRepository, AccomodationRepository>();
             services.AddScoped<ITransportRepository, TransportRepository>();
             services.AddScoped<IRouteRepository, RouteRepository>();
+            services.AddScoped<ILocationRepository, LocationRepository>();
 
             return services;
         }

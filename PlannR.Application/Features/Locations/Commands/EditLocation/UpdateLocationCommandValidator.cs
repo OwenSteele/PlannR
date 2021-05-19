@@ -13,8 +13,8 @@ namespace PlannR.Application.Features.Locations.Commands.UpdateLocation
 
             RuleFor(p => p.Latitude)
                 .NotEmpty().WithMessage("{PropertyName} is required.");
-        RuleFor(p => p.Longitude)
-                .NotEmpty().WithMessage("{PropertyName} is required.");
-    }
+            RuleFor(p => p.Longitude)
+                    .NotEmpty().WithMessage("{PropertyName} is required.");
+        }
     }
 }

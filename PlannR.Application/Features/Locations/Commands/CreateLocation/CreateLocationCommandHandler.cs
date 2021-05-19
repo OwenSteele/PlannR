@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
 using PlannR.Application.Contracts.Persistence;
-using PlannR.Domain.Entities;
 using PlannR.Domain.Shared;
 using System;
 using System.Threading;

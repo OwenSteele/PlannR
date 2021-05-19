@@ -1,10 +1,12 @@
-﻿using MediatR;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace PlannR.Application.Features.Locations.Commands.UpdateLocation
+namespace PlannR.App.Infrastructure.ViewModels.Locations
 {
-    public class UpdateLocationCommand : IRequest
+    public class LocationListViewModel
     {
         public Guid LocationId { get; set; }
         public double Latitude { get; set; }
