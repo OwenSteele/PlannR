@@ -40,7 +40,7 @@ namespace PlannR.API.Tests.Services
         [InlineData("")]
         [InlineData("UserTwo")]
         [Theory]
-        public void WHEN_Entity_has_no_createdBy_value_THEN_entity_is_always_returned(string userName)
+        public void WHEN_Entity_has_no_createdBy_value__THEN_entity_is_returned_only_when_no_user_logged_in(string userName)
         {
             var entity = new AuditableEntity
             {
@@ -53,7 +53,7 @@ namespace PlannR.API.Tests.Services
 
             var result = service.CanAccessEntity(entity);
 
-            result.ShouldBe(true);
+            result.ShouldBe(string.IsNullOrWhiteSpace(userName));
         }
         [Fact]
         public void WHEN_Entity_has_different_userId__THEN_false_is_returned_as_unauthorised()
@@ -73,8 +73,8 @@ namespace PlannR.API.Tests.Services
         }
 
         [InlineData("", 1)]
-        [InlineData("UserFour", 3)]
-        [InlineData("UserFive", 2)]
+        [InlineData("UserFour", 2)]
+        [InlineData("UserFive", 1)]
         [Theory]
         public void WHEN_Entities_have_partial_matching_userIds_THEN_only_matching_entities_are_returned(
             string userName, int expectedResults)
