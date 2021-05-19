@@ -30,30 +30,32 @@ namespace PlannR.App.Pages.Trip
 
         protected override void OnInitialized()
         {
-            if (Parameters == null)
+            EditTripViewModel = new EditTripViewModel
             {
-                EditTripViewModel = new EditTripViewModel
-                {
-                    StartDateTime = DateTime.Now,
-                    EndDateTime = DateTime.Now
-                };
-            }
-            else
-            {
-                EditTripViewModel = Parameters.Get<EditTripViewModel>("EditTripViewModel");
-            }
+                StartDateTime = DateTime.Now,
+                EndDateTime = DateTime.Now
+            };
         }
 
         protected async Task HandleValidSubmit()
         {
-            if (EditTripViewModel.EndDateTime <= EditTripViewModel.StartDateTime)
+
+            if (EditTripViewModel.EndDateTime < EditTripViewModel.StartDateTime)
             {
                 Message = "End date and time must be after the starting date and time.";
                 return;
             }
 
-            var response = await TripDataService.CreateAsync(EditTripViewModel);
-            HandleResponse(response);
+            if(EditTripViewModel.TripId == Guid.Empty)
+            {
+                var response = await TripDataService.CreateAsync(EditTripViewModel);
+                HandleResponse(response, "added");
+            }
+            else
+            {
+                var response = await TripDataService.UpdateAsync(EditTripViewModel);
+                HandleResponse(response, "changed");
+            }
 
             await OnComplete.InvokeAsync();
         }
@@ -62,11 +64,11 @@ namespace PlannR.App.Pages.Trip
             Message = "There are some validation errors. Please try again.";
         }
 
-        private void HandleResponse(ApiResponse<Guid> response)
+        private void HandleResponse(ApiResponse<Guid> response, string message)
         {
             if (response.Successful)
             {
-                Message = "Trip added successfully!";
+                Message = $"Trip {message} successfully!";
 
                 Submitted = true;
             }

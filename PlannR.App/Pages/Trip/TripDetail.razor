@@ -24,7 +24,7 @@
                         <span class="val">@(Trip.StartLocation == null ? "No Location Set" : Trip.StartLocation.Name)</span>
                     </div>
                     <div>
-                        <button @onclick="ShowEditLocationModal">&#9998;</button>
+                        <button @onclick="(() => ShowEditLocationModal(true))">&#9998;</button>
                     </div>
                 </div>
                 <div>
@@ -37,7 +37,7 @@
                         <span class="val">@(Trip.StartLocation == null ? "No Location Set" : Trip.StartLocation.Name)</span>
                     </div>
                     <div>
-                            <button @onclick="ShowEditLocationModal">&#9998;</button>
+                            <button @onclick="(() => ShowEditLocationModal(false))">&#9998;</button>
                     </div>
                 </div>
             </div>

@@ -4,12 +4,13 @@
 }
 
     .modal-parent input {
-        width: 100%;
+        max-width: 80%;
     }
 
     .modal-parent label {
         font-weight: bolder;
     }
+
     .modal-parent span {
         font-weight: bolder;
         color: #ff0000;
@@ -20,10 +21,15 @@
         justify-content: space-between;
     }
 
-.modal-parent button {
-    border: none;
-    padding: 0px;
-    font-size: 30px;
-    background-color: transparent;
-    align-self: end;
+    .modal-parent button {
+        border: none;
+        padding: 0px;
+        font-size: 30px;
+        background-color: transparent;
+        align-self: end;
+    }
+
+.form-submit {
+    display: flex;
+    justify-content: space-between;
 }

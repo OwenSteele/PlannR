@@ -2,7 +2,10 @@
 using Blazored.Modal.Services;
 using Microsoft.AspNetCore.Components;
 using PlannR.App.Infrastructure.Contracts;
+using PlannR.App.Infrastructure.ViewModels.Locations;
+using PlannR.App.Infrastructure.ViewModels.Nested;
 using PlannR.App.Infrastructure.ViewModels.Trips;
+using PlannR.App.Pages.Modals;
 using System;
 using System.Threading.Tasks;
 
@@ -47,26 +50,49 @@ namespace PlannR.App.Pages.Trip
             if (result.Cancelled)
                 Trip = await TripDataService.GetTripByIdAsync(_tripId);
         }
-        private async Task ShowEditLocationModal()
+        private async Task ShowEditLocationModal(bool IsStartLocation)
         {
-            var editModel = new EditTripViewModel
+            var model = IsStartLocation ? Trip.StartLocation : Trip.EndLocation;
+
+            if(model == null)
             {
-                TripId = Trip.TripId,
-                Name = Trip.Name,
-                StartDateTime = Trip.StartDateTime,
-                EndDateTime = Trip.EndDateTime
-            };
+                var modal = Modal.Show<CreateEditLocationModal>("New Location");
 
-            var parameters = new ModalParameters();
+                var result = await modal.Result;
 
-            parameters.Add("EditTripViewModel", editModel);
+                if (!result.Cancelled)
+                {
+                    var id = (Guid)result.Data;
 
-            var modal = Modal.Show<CreateEditTripModal>($"Edit {Trip.Name}", parameters);
+                    if (IsStartLocation) Trip.StartLocation.LocationId = id;
+                    else Trip.EndLocation.LocationId = id;
 
-            var result = await modal.Result;
+                    Trip = await TripDataService.GetTripByIdAsync(_tripId);
+                }                
+            }
+            else
+            {
+                var editModel = new EditLocationViewModel
+                {
+                    Name = model.Name,
+                    Address = model.Address,
+                    AltitudeInMetres = model.AltitudeInMetres,
+                    Latitude = model.Latitude,
+                    LocationId = model.LocationId,
+                    Longitude = model.Longitude
+                };
+                var parameters = new ModalParameters();
 
-            if (result.Cancelled)
-                Trip = await TripDataService.GetTripByIdAsync(_tripId);
+                parameters.Add("CreateEditLocationModal", editModel);
+
+                var modal = Modal.Show<CreateEditLocationModal>(
+                    $"Edit {Trip.StartLocation.Name}", parameters);
+
+                var result = await modal.Result;
+
+                if (!result.Cancelled)
+                    Trip = await TripDataService.GetTripByIdAsync(_tripId);
+            }
         }
     }
 }

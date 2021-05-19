@@ -31,6 +31,10 @@ using PlannR.Application.Features.Events.Queries.GetEventsList;
 using PlannR.Application.Features.Events.Types.Commands.CreateEventType;
 using PlannR.Application.Features.Events.Types.Queries.GetEventTypeByName;
 using PlannR.Application.Features.Events.Types.Queries.GetEventTypeList;
+using PlannR.Application.Features.Locations.Commands.CreateLocation;
+using PlannR.Application.Features.Locations.Commands.UpdateLocation;
+using PlannR.Application.Features.Locations.Queries.GetLocationsDetail;
+using PlannR.Application.Features.Locations.Queries.GetLocationsList;
 using PlannR.Application.Features.Routes.Commands.CreateRoute;
 using PlannR.Application.Features.Routes.Commands.UpdateRoute;
 using PlannR.Application.Features.Routes.Queries.GetRouteDetail;
@@ -99,6 +103,11 @@ namespace PlannR.Application.Profiles
             CreateMap<Trip, TripListDataModel>().ReverseMap();
             CreateMap<Trip, TripListBetweenDatesDataModel>().ReverseMap();
             CreateMap<Trip, TripListOnDateDataModel>().ReverseMap();
+
+            CreateMap<Location, CreateLocationCommand>().ReverseMap();
+            CreateMap<Location, UpdateLocationCommand>().ReverseMap();
+            CreateMap<Location, LocationDetailDataModel>().ReverseMap();
+            CreateMap<Location, LocationListDataModel>().ReverseMap();
 
             CreateMap<Route, CreateRouteCommand>().ReverseMap();
             CreateMap<Route, UpdateRouteCommand>().ReverseMap();

@@ -1,36 +1,49 @@
 ﻿<div class="modal-parent">
     @if (!Submitted)
     {
-        <EditForm Model="@EditLocationViewModel"
-                  OnValidSubmit="HandleValidSubmit" OnInvalidSubmit="HandleInvalidSubmit">
-            <DataAnnotationsValidator></DataAnnotationsValidator>
-            <span>@Message</span>
-            <div class="form-field">
-                <label for="tripName">Name<span>*</span></label>
-                <InputText id="tripName" @bind-Value="@EditLocationViewModel.Name"
-                           placeholder="My next adventure"></InputText>
-                <ValidationMessage For="@(() => EditLocationViewModel.Name)" />
-            </div>
-            <div class="form-field">
-                <label for="tripName">Start Date<span>*</span></label>
-                <InputDate id="tripStartDate" @bind-Value="@EditLocationViewModel"
-                           placeholder="@DateTime.Now.ToShortTimeString()"></InputDate>
-                <ValidationMessage For="@(() => EditLocationViewModel)" />
-            </div>
-            <div class="form-field">
-                <label for="tripName">End Date<span>*</span></label>
-                <InputDate id="tripStartDate" @bind-Value="@EditLocationViewModel"
-                           placeholder="@DateTime.Now.ToShortTimeString()"></InputDate>
-                <ValidationMessage For="@(() => EditLocationViewModel)" />
-            </div>
+    <EditForm Model="@EditLocationViewModel"
+              OnValidSubmit="HandleValidSubmit" OnInvalidSubmit="HandleInvalidSubmit">
+        <DataAnnotationsValidator></DataAnnotationsValidator>
+        <span>@Message</span>
+        <div class="form-field">
+            <label for="locationName">Name<span>*</span></label>
+            <InputText id="locationName" @bind-Value="@EditLocationViewModel.Name"
+                       placeholder="Location Name"></InputText>
+            <ValidationMessage For="@(() => EditLocationViewModel.Name)" />
+        </div>
+        <div class="form-field">
+            <label for="latitude">Latitude<span>*</span></label>
+            <InputNumber id="latitude" @bind-Value="@EditLocationViewModel.Latitude"
+                         placeholder="0.0000"></InputNumber>
+            <ValidationMessage For="@(() => EditLocationViewModel.Latitude)" />
+        </div>
+        <div class="form-field">
+            <label for="longitude">Longitude<span>*</span></label>
+            <InputNumber id="longitude" @bind-Value="@EditLocationViewModel.Longitude"
+                         placeholder="0.0000"></InputNumber>
+            <ValidationMessage For="@(() => EditLocationViewModel.Longitude)" />
+        </div>
+        <div class="form-field">
+            <label for="altitudeInMetres">Altitude (metres)</label>
+            <InputNumber id="altitudeInMetres" @bind-Value="@EditLocationViewModel.AltitudeInMetres"></InputNumber>
+            <ValidationMessage For="@(() => EditLocationViewModel.AltitudeInMetres)" />
+        </div>
+        <div class="form-field">
+            <label for="address">Address</label>
+            <InputText id="address" @bind-Value="@EditLocationViewModel.Address"></InputText>
+            <ValidationMessage For="@(() => EditLocationViewModel.Address)" />
+        </div>
 
+        <div class="form-submit">
             <button type="submit"><strong>&#128190;</strong></button>
-        </EditForm>
+            <span>* required fields</span>
+        </div>
+    </EditForm>
     }
     else
     {
         <div class="submitted">
-            Your trip <strong>@EditLocationViewModel.Name</strong> has been created!
+            Your location <strong>@EditLocationViewModel.Name</strong> has been updated!
         </div>
     }
 </div>

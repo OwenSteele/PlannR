@@ -675,12 +675,12 @@ namespace PlannR.App.Infrastructure.Services.Base
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
     
-        public Client(string baseUrl, System.Net.Http.HttpClient httpClient)
-        {
-            BaseUrl = baseUrl;
-            _httpClient = httpClient;
-            _settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(CreateSerializerSettings);
-        }
+        //public Client(string baseUrl, System.Net.Http.HttpClient httpClient)
+        //{
+        //    BaseUrl = baseUrl;
+        //    _httpClient = httpClient;
+        //    _settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(CreateSerializerSettings);
+        //}
     
         private Newtonsoft.Json.JsonSerializerSettings CreateSerializerSettings()
         {
@@ -8798,6 +8798,12 @@ namespace PlannR.App.Infrastructure.Services.Base
     
         [Newtonsoft.Json.JsonProperty("endDateTime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTime EndDateTime { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("startLocation", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Guid StartLocation { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("endLocation", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Guid EndLocation { get; set; }
     
         [Newtonsoft.Json.JsonProperty("transportIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<System.Guid> TransportIds { get; set; }

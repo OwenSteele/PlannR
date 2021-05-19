@@ -46,6 +46,7 @@ namespace PlannR.App.Infrastructure
 
             services.AddScoped<ITripDataService, TripDataService>();
             services.AddScoped<IRouteDataService, RouteDataService>();
+            services.AddScoped<ILocationDataService, LocationDataService>();
 
             return services;
         }

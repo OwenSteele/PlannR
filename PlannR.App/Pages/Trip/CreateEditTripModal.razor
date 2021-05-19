@@ -24,13 +24,16 @@
                 <ValidationMessage For="@(() => EditTripViewModel.EndDateTime)" />
             </div>
 
-            <button type="submit"><strong>&#128190;</strong></button>
+            <div class="form-submit">
+                <button type="submit"><strong>&#128190;</strong></button>
+                <span>* required fields</span>
+            </div>
         </EditForm>
     }
     else
     {
-        <div class="submitted">
-            Your trip <strong>@EditTripViewModel.Name</strong> has been created!
-        </div>
+<div class="submitted">
+    Your trip <strong>@EditTripViewModel.Name</strong> has been updated!
+</div>
     }
 </div>

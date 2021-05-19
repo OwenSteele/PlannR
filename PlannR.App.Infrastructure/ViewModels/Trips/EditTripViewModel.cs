@@ -16,5 +16,8 @@ namespace PlannR.App.Infrastructure.ViewModels.Trips
         [Required]
         [DateInFuture]
         public DateTime EndDateTime { get; set; }
+        public Guid StartLocationId { get; set; }
+        public Guid EndLocationId { get; set; }
+
     }
 }

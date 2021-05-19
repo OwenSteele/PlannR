@@ -7,6 +7,8 @@ using PlannR.App.Infrastructure.ViewModels.Account;
 using PlannR.App.Infrastructure.ViewModels.Event;
 using PlannR.App.Infrastructure.ViewModels.Event.Bookings;
 using PlannR.App.Infrastructure.ViewModels.Event.Types;
+using PlannR.App.Infrastructure.ViewModels.Locations;
+using PlannR.App.Infrastructure.ViewModels.Nested;
 using PlannR.App.Infrastructure.ViewModels.Routes;
 using PlannR.App.Infrastructure.ViewModels.Transport;
 using PlannR.App.Infrastructure.ViewModels.Transport.Bookings;
@@ -86,6 +88,12 @@ namespace PlannR.App.Infrastructure.Profiles
             CreateMap<TripListDataModel, TripListViewModel>().ReverseMap();
             CreateMap<TripListOnDateDataModel, TripListOnDateViewModel>().ReverseMap();
             CreateMap<TripListBetweenDatesDataModel, TripListBetweenDatesViewModel>().ReverseMap();
+
+            CreateMap<EditLocationViewModel, CreateLocationCommand>().ReverseMap();
+            CreateMap<EditLocationViewModel, UpdateLocationCommand>().ReverseMap();
+            CreateMap<LocationDetailDataModel, LocationDetailViewModel>().ReverseMap();
+            CreateMap<LocationListDataModel, LocationListViewModel>().ReverseMap();
+            CreateMap<LocationNestedViewModel, EditLocationViewModel>().ReverseMap();
 
             CreateMap<RegisterViewModel, RegistrationRequest>().ReverseMap();
             CreateMap<AuthenticateViewModel, AuthenticationRequest>().ReverseMap();
