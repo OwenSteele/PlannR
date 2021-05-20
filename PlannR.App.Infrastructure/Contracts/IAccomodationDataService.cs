@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.App.Infrastructure.Contracts
 {
-    public interface IAccomodationDataService : IBaseDataService<AccomodationDetailViewModel>
+    public interface IAccomodationDataService : IBaseDataService<EditAccomodationViewModel>
     {
         Task<ICollection<AccomodationListViewModel>> GetAllAccomodationAsync();
         Task<ICollection<AccomodationListOfTripViewModel>> GetAllAccomodationOfTripIdAsync(Guid tripId);

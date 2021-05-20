@@ -2,6 +2,7 @@
 using Blazored.LocalStorage;
 using PlannR.App.Infrastructure.Contracts;
 using PlannR.App.Infrastructure.Services.Base;
+using PlannR.App.Infrastructure.ViewModels.Accomodation;
 using PlannR.App.Infrastructure.ViewModels.Accomodation.Types;
 using System;
 using System.Collections.Generic;
@@ -39,6 +40,14 @@ namespace PlannR.App.Infrastructure.Services
             {
                 return ConvertApiErrors<Guid>(ex);
             }
+        }
+
+        public async Task<ICollection<AccomodationTypeNestedViewModel>> GetAllTypeNamesAsync()
+        {
+            await AddBearerToken();
+
+            var result = await _client.GetAllAccomodationTypesAsync();
+            return _mapper.Map<ICollection<AccomodationTypeNestedViewModel>>(result);
         }
 
         public async Task<ICollection<AccomodationTypeListViewModel>> GetAllTypesAsync()

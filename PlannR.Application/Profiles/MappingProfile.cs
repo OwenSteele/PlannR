@@ -61,6 +61,7 @@ using PlannR.Application.Features.Trips.Commands.CreateTrip;
 using PlannR.Application.Features.Trips.Commands.UpdateTrip;
 using PlannR.Application.Features.Trips.Queries.GetTripListBetweenDates;
 using PlannR.Application.Features.Trips.Queries.GetTripListOnDate;
+using PlannR.Application.Features.Trips.Queries.GetTripNameList;
 using PlannR.Application.Features.Trips.Queries.GetTripsDetail;
 using PlannR.Application.Features.Trips.Queries.GetTripsList;
 using PlannR.Domain.Entities;
@@ -103,6 +104,7 @@ namespace PlannR.Application.Profiles
             CreateMap<Trip, TripListDataModel>().ReverseMap();
             CreateMap<Trip, TripListBetweenDatesDataModel>().ReverseMap();
             CreateMap<Trip, TripListOnDateDataModel>().ReverseMap();
+            CreateMap<Trip, TripNameListDataModel>().ReverseMap();
 
             CreateMap<Location, CreateLocationCommand>().ReverseMap();
             CreateMap<Location, UpdateLocationCommand>().ReverseMap();

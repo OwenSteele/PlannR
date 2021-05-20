@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using PlannR.Application.Features.Trips.Queries.GetTripNameList;
 using PlannR.Application.Features.Trips.Commands.CreateTrip;
 using PlannR.Application.Features.Trips.Commands.DeleteTrip;
 using PlannR.Application.Features.Trips.Commands.UpdateTrip;
@@ -32,6 +33,13 @@ namespace PlannR.API.Controllers
         public async Task<ActionResult<ICollection<TripListDataModel>>> GetAllTrips()
         {
             var result = await _mediator.Send(new GetTripListQuery());
+            return Ok(result);
+        }
+        [HttpGet("names", Name = "GetAllTripNamesOnly")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<ActionResult<ICollection<TripNameListDataModel>>> GetAllTripNames()
+        {
+            var result = await _mediator.Send(new GetTripNameListQuery());
             return Ok(result);
         }
 

@@ -2,6 +2,7 @@
 using Blazored.LocalStorage;
 using PlannR.App.Infrastructure.Contracts;
 using PlannR.App.Infrastructure.Services.Base;
+using PlannR.App.Infrastructure.ViewModels.Nested;
 using PlannR.App.Infrastructure.ViewModels.Trips;
 using System;
 using System.Collections.Generic;
@@ -64,6 +65,13 @@ namespace PlannR.App.Infrastructure.Services
             var result = await _client.GetAllTripsAsync();
             return _mapper.Map<ICollection<TripListViewModel>>(result);
         }
+        public async Task<ICollection<TripNestedViewModel>> GetTripNamesAsync()
+        {
+            await AddBearerToken();
+
+            var result = await _client.GetAllTripNamesOnlyAsync();
+            return _mapper.Map<ICollection<TripNestedViewModel>>(result);
+        }
 
         public async Task<ICollection<TripListBetweenDatesViewModel>> GetAllTripsBetweenDatesAsync(DateTime start, DateTime end)
         {
@@ -95,7 +103,6 @@ namespace PlannR.App.Infrastructure.Services
 
             try
             {
-
                 var commandModel = _mapper.Map<UpdateTripCommand>(viewModel);
 
                 await _client.UpdateTripAsync(commandModel);

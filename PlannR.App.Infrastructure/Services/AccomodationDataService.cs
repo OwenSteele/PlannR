@@ -17,7 +17,7 @@ namespace PlannR.App.Infrastructure.Services
             _mapper = mapper;
         }
 
-        public async Task<ApiResponse<Guid>> CreateAsync(AccomodationDetailViewModel viewModel)
+        public async Task<ApiResponse<Guid>> CreateAsync(EditAccomodationViewModel viewModel)
         {
             await AddBearerToken();
 
@@ -97,7 +97,7 @@ namespace PlannR.App.Infrastructure.Services
             return _mapper.Map<ICollection<AccomodationListOnDateViewModel>>(result);
         }
 
-        public async Task<ApiResponse<Guid>> UpdateAsync(AccomodationDetailViewModel viewModel)
+        public async Task<ApiResponse<Guid>> UpdateAsync(EditAccomodationViewModel viewModel)
         {
             await AddBearerToken();
 
