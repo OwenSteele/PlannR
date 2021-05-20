@@ -12,7 +12,7 @@ namespace PlannR.Application.Tests.BaseTrip.Commands
     public class UpdateTripTests : TripTestsBase
     {
         [Fact]
-        public async Task WHEN_acommodation_is_updated_with_handler_THEN_acommodation_is_updated_in_repository()
+        public async Task WHEN_trip_is_updated_with_handler_THEN_trip_is_updated_in_repository()
         {
             var handler = new UpdateTripCommandHandler(_mockAuthorisationService.Object, _mapper, _mockRepository.Object);
 
