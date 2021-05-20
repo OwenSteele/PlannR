@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.API.Controllers
 {
+     //sample code change
     [Route("api/[controller]")]
     [ApiController]
     public class LocationsController : ControllerBase
