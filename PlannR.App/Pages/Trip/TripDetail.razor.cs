@@ -21,6 +21,8 @@ namespace PlannR.App.Pages.Trip
         public IModalService Modal { get; set; }
         [Inject]
         public ITripDataService TripDataService { get; set; }
+        [Inject]
+        public NavigationManager NavigationManager { get; set; }
         public TripDetailViewModel Trip { get; set; }
 
         protected async override Task OnInitializedAsync()
@@ -28,6 +30,22 @@ namespace PlannR.App.Pages.Trip
             Guid.TryParse(TripId, out _tripId);
 
             Trip = await TripDataService.GetTripByIdAsync(_tripId);
+        }
+        protected void NavigateToAccomodation(string uri)
+        {
+            NavigationManager.NavigateTo($"accomodation/{uri}");
+        }
+        protected void NavigateToTransport(string uri)
+        {
+            NavigationManager.NavigateTo($"transport/{uri}");
+        }
+        protected void NavigateToEvents(string uri)
+        {
+            NavigationManager.NavigateTo($"events/{uri}");
+        }
+        protected void NavigateToRoutes(string uri)
+        {
+            NavigationManager.NavigateTo($"routes/{uri}");
         }
         private async Task ShowEditTripModal()
         {
@@ -63,9 +81,6 @@ namespace PlannR.App.Pages.Trip
                 if (!result.Cancelled)
                 {
                     var id = (Guid)result.Data;
-
-                    if (IsStartLocation) Trip.StartLocation.LocationId = id;
-                    else Trip.EndLocation.LocationId = id;
 
                     Trip = await TripDataService.GetTripByIdAsync(_tripId);
                 }                
