@@ -1,0 +1,64 @@
+﻿.topnav {
+    height: 40px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #3d3d3d;
+    overflow-x: hidden;
+    z-index: 1;
+}
+.topnav > div {
+    flex: auto;
+    flex-direction: row;
+    display: inline-flex;
+    justify-content: space-between;
+}
+.nav-home a {
+    color: #00ff90;
+    padding: 0px 15px;
+    font-size: 30px;
+    align-content: center;
+    font-weight: bolder;
+}
+.account-info {
+    color: #00ff90;
+    padding: 0px 15px;
+    font-size: 30px;
+    right: 0;
+    align-content: center;
+    font-weight: bolder;
+    display: inline-flex;
+}
+button {
+    padding-right: 5px;
+    vertical-align: middle;
+    font-weight: bold;
+    background-color: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 20px;
+}
+
+button:hover {
+    color: #00ff90;
+}
+
+.important-btn {
+    color: #00ff90;
+}
+
+@media screen and (max-width: 500px) {
+    button {
+        padding-right: 0px;
+        font-weight: normal;
+        background-color: transparent;
+        border: none;
+        color: #ffffff;
+        font-size: 14px;
+    }
+    .nav-home a {
+        padding: 0px;
+        font-size: 24px;
+    }
+}

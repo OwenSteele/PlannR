@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Features\Accomodation\Booking\**" />
+    <Compile Remove="Features\Accomodation\Type\**" />
+    <Compile Remove="Features\Routes\Queries\Dtos\**" />
+    <EmbeddedResource Remove="Features\Accomodation\Booking\**" />
+    <EmbeddedResource Remove="Features\Accomodation\Type\**" />
+    <EmbeddedResource Remove="Features\Routes\Queries\Dtos\**" />
+    <None Remove="Features\Accomodation\Booking\**" />
+    <None Remove="Features\Accomodation\Type\**" />
+    <None Remove="Features\Routes\Queries\Dtos\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Features\Routes\Commands\" />
+    <Folder Include="Features\Accomodation\Commands\" />
+    <Folder Include="Features\Trips\Commands\" />
+    <Folder Include="Responses\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="10.0.4" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="5.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PlannR.Domain\PlannR.Domain.csproj"></ProjectReference>
+  </ItemGroup>
+
+</Project>

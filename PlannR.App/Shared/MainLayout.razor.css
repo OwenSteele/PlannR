@@ -1,0 +1,122 @@
+.sidebar {
+    height: 100%;
+    width: 300px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.2s;
+    display: block;
+}
+
+.sidebar-collapsed {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: 0.2s;
+}
+
+.main {
+    margin-left: 300px;
+}
+.main-focused {
+    margin-left: 0px;
+}
+
+.content {
+    margin-left: 60px;
+    margin-top: 30px;
+    transition: 0.2s
+}
+.content-na {
+    margin-top: 50px;
+    transition: 0.2s
+}
+
+
+.togglebtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #111;
+    color: #00ff90;
+    padding: 10px 15px;
+    border: none;
+    left: 0;
+    position: fixed;
+    top: 400px;
+    z-index: 1;
+    border-radius: 0px 10px 10px 0px;
+    outline: none;
+}
+
+.togglebtn:hover {
+    color: #ffffff;
+    border: none;
+}
+    .togglebtn:visited {
+        border: none;
+        color: #00ff90;
+    }
+    .togglebtn:active {
+        border: none;
+        color: #00ff90;
+    }
+
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-width: 500px) {
+    .sidebar {
+        width: 0%;
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+
+        .sidebar a {
+            font-size: 18px;
+        }
+
+    .sidebar-collapsed {
+        width: 100%;
+    }
+
+    .main {
+        margin-left: 100%;
+    }
+
+    .main-focused {
+        margin-left: 0px;
+    }
+
+
+    .togglebtn {
+        font-size: 20px;
+        cursor: pointer;
+        background-color: #111;
+        color: #00ff90;
+        padding: 10px 15px;
+        border: 1px solid #00ff90;
+        left: 0;
+        position: fixed;
+        top: 200px;
+        z-index: 1;
+        border-radius: 0px 10px 10px 0px;
+    }
+
+        .togglebtn:hover {
+            color: #00ff90;
+            border: none;
+        }
+
+        .togglebtn:visited {
+            border: none;
+            color: #00ff90;
+        }
+
+        .togglebtn:active {
+            border: none;
+            color: #00ff90;
+        }
+}

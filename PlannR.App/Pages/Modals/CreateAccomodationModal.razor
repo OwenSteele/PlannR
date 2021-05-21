@@ -1,0 +1,87 @@
+<div class="modal-parent">
+    @if (!Submitted)
+    {
+    <EditForm Model="@EditAccomodationViewModel"
+              OnValidSubmit="HandleValidSubmit" OnInvalidSubmit="HandleInvalidSubmit">
+        <DataAnnotationsValidator></DataAnnotationsValidator>
+        <span>@Message</span>
+        <div class="form-field">
+            <label for="AccomodationName">Name<span>*</span></label>
+            <InputText id="AccomodationName" @bind-Value="@EditAccomodationViewModel.Name"
+                       placeholder="Accomodation Name"></InputText>
+            <ValidationMessage For="@(() => EditAccomodationViewModel.Name)" />
+        </div>
+        <div class="form-field">
+            <label for="description">Description</label>
+            <InputText id="description" @bind-Value="@EditAccomodationViewModel.Description"
+                       placeholder="About the accomodation"></InputText>
+            <ValidationMessage For="@(() => EditAccomodationViewModel.Description)" />
+        </div>
+
+        <div class="form-field">
+            <label for="trip">Part of Trip<span>*</span></label>
+            @if (EditAccomodationViewModel.Trip == null)
+            {
+                <InputSelect id="trip" @bind-Value="@EditAccomodationViewModel.Trip"
+                             placeholder="Select a Trip">
+                    @foreach (var trip in UserTrips)
+                            {
+                        <option value="@trip">@trip.Name</option>
+                            }
+                </InputSelect>
+                <ValidationMessage For="@(() => EditAccomodationViewModel.Trip)" />
+            }
+            else
+            {
+                <span>@EditAccomodationViewModel.Trip.Name</span>
+            }
+        </div>
+        <div class="form-field">
+            <label for="type">Type<span>*</span></label>
+            <InputSelect id="type" @bind-Value="@EditAccomodationViewModel.AccomodationType"
+                         placeholder="Select accom type">
+                @foreach (var aType in AccomodationTypes)
+                    {
+                    <option value="@aType">@aType.Name</option>
+                    }
+            </InputSelect>
+            <ValidationMessage For="@(() => EditAccomodationViewModel.Trip)" />
+        </div>
+        <div class="form-field">
+            <label for="costPerNight">Cost Per Night</label>
+            <InputNumber id="costPerNight" @bind-Value="@EditAccomodationViewModel.CostPerNight"
+                         placeholder="0"></InputNumber>
+            <ValidationMessage For="@(() => EditAccomodationViewModel.CostPerNight)" />
+        </div>
+        <div class="form-field">
+            <label for="rooms">Rooms</label>
+            <InputNumber id="rooms" @bind-Value="@EditAccomodationViewModel.Rooms"
+                         placeholder="1"></InputNumber>
+            <ValidationMessage For="@(() => EditAccomodationViewModel.Rooms)" />
+        </div>
+        <div class="form-field">
+            <label for="nights">Nights</label>
+            <InputNumber id="nights" @bind-Value="@EditAccomodationViewModel.Nights"
+                         placeholder="1"></InputNumber>
+            <ValidationMessage For="@(() => EditAccomodationViewModel.Nights)" />
+        </div>
+        <div class="form-field">
+            <label for="start">Starting Date</label>
+            <InputDate id="start" @bind-Value="@EditAccomodationViewModel.StartDateTime"
+                         placeholder="1"></InputDate>
+            <ValidationMessage For="@(() => EditAccomodationViewModel.StartDateTime)" />
+        </div>
+
+        <div class="form-submit">
+            <button type="submit"><strong>&#128190;</strong></button>
+            <span>* required fields</span>
+        </div>
+    </EditForm>
+    }
+    else
+    {
+        <div class="submitted">
+            Your Accomodation <strong>@EditAccomodationViewModel.Name</strong> has been updated!
+        </div>
+    }
+</div>

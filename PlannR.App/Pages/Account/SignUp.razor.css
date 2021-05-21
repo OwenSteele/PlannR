@@ -1,0 +1,101 @@
+﻿.signup {
+    margin: 30px auto;
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 10px 20px;
+    max-width: 800px;
+}
+
+.signup h1 {
+    font-weight: bolder;
+    font-size: 40px;
+}
+
+.signup a {
+    font-weight: bold;
+    margin: 10px 0px;
+}
+
+.signup span {
+    font-weight: bolder;
+    color: #ff0000;
+}
+
+.required {
+    text-align: right;
+    align-self: flex-end;
+}
+
+.signup label {
+    font-weight: bolder;
+}
+
+.reminder {
+    background-color: #efed8e;
+    border-radius: 5px;
+    border: none;
+    margin: 10px 0px;
+    padding: 10px;
+    color: #ff0082;
+    font-weight: 500;
+    text-align: center;
+}
+
+.reminder h4 {
+    font-weight: bolder;
+    border-bottom: 1px solid #ff7800;
+}
+
+.signup p {
+    padding: 10px 0px;
+}
+
+.form-field {
+    margin: 10px 0px;
+}
+
+.inputs {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-submit {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-submit button {
+    border: none;
+    padding: 0px;
+    font-size: 20px;
+    background-color: #00ff90;
+    color: #000000;
+    padding: 5px;
+    font-weight: bolder;
+}
+
+.inputs input, ::deep input {
+    width: 50%;
+}
+
+@media screen and (max-width: 500px) {
+    .signup {
+        margin: 10px;
+        border: 1px solid black;
+        border-radius: 3px;
+        padding: 10px 20px;
+        max-width: 500px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .inputs {
+        flex-direction: column;
+    }
+    .inputs input, ::deep input {
+        width: 100%;
+    }
+    .form-submit {
+        display: block;
+    }
+}

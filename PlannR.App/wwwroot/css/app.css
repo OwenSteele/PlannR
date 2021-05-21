@@ -1,0 +1,92 @@
+﻿@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
+
+html, body {
+    font-family: 'Courier New', monospace;
+}
+
+a, .btn-link {
+}
+
+a {
+}
+
+a:hover {
+    text-decoration: none;
+    color: #00ff90;
+}
+
+.btn-primary {
+    color: #ffffff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.content {
+    padding-top: 1.1rem;
+}
+
+.valid.modified:not([type=checkbox]) {
+    outline: 1px solid #26b050;
+}
+
+.invalid {
+    outline: 1px solid red;
+}
+
+.validation-message {
+    color: red;
+}
+
+button:focus {
+    outline: none;
+}
+
+#blazor-error-ui {
+    background: lightyellow;
+    bottom: 0;
+    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
+    display: none;
+    left: 0;
+    padding: 0.6rem 1.25rem 0.7rem 1.25rem;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+    #blazor-error-ui .dismiss {
+        cursor: pointer;
+        position: absolute;
+        right: 0.75rem;
+        top: 0.5rem;
+    }
+
+.modal-parent {
+    min-height: 100px;
+    min-width: 350px;
+}
+
+.modal-parent input {
+    max-width: 80%;
+}
+
+.modal-parent label {
+    font-weight: bolder;
+}
+
+.modal-parent span {
+    font-weight: bolder;
+    color: #ff0000;
+}
+
+.modal-parent .form-field {
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal-parent button {
+    border: none;
+    padding: 0px;
+    font-size: 30px;
+    background-color: transparent;
+    align-self: end;
+}

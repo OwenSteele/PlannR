@@ -1,0 +1,21 @@
+﻿<div class="topnav">
+    <div>
+        <div class="nav-home">
+            <a href="">PlannR</a>
+        </div>
+        <div class="account-info">
+            <CascadingAuthenticationState>
+                <AuthorizeView>
+                    <Authorized>
+                        <button class="important-btn" @onclick="NavigateToAccount">Account</button>
+                        <button @onclick="Logout">Logout</button>
+                    </Authorized>
+                    <NotAuthorized>
+                        <button @onclick="NavigateToLogin">Login</button>
+                        <button class="important-btn" @onclick="NavigateToSignUp">Sign up</button>
+                    </NotAuthorized>
+                </AuthorizeView>
+            </CascadingAuthenticationState>
+        </div>
+    </div>
+</div>
