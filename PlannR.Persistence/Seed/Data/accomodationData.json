@@ -1,0 +1,11 @@
+{
+	"accomodationId": "30ecddd7-448c-41d7-bcc9-9af49bfd6d45",
+	"tripId": "95a8782b-74d3-4053-a372-0aa87c14e320",
+	"name": "accom1",
+	"costPerNight": 100,
+	"rooms": 1,
+	"nights": 2,
+	"startDateTime": "2021-01-01T00:00:00",
+	"endDateTime": "2021-01-03T00:00:00",
+	"description": "test accom"
+}

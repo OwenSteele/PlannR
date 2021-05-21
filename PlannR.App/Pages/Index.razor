@@ -1,0 +1,45 @@
+﻿@page "/"
+
+<AuthorizeView>
+    <Authorized>
+        <RedirectTo Page="account" />
+    </Authorized>
+</AuthorizeView>
+
+<div class="header">
+    <img src="/favicon.ico" alt="PlannR Logo" />
+    <h1>PLannR</h1>
+</div>
+
+<div class="info">
+    <div class="main-text">
+        <h3>Plan and store your trips. All in one place.</h3>
+        <p>
+            With PlannR you can organise and find every part of every trip and adventure.
+            From your bus journey and tickets, reservations at your hotels and hostels, to planning a big night outs and sharing routes with everyone
+            - All Stored in one place, simpler planning, quicker to find.
+        </p>
+        <button @onclick="NavigateToRegister">Sign up to start creating trips</button>
+    </div>
+    <img src="/images/index-map.jpg" alt="PlannR Info" />
+</div>
+
+<div class="features">
+    <div class="main-text">
+        <h3>Store every part of every adventure. </h3>
+        <p>Accomodation, Events, Transport, Routes, Locations and Bookings</p>
+        <ul>
+            <li>
+                If you're camping under the stars, in a luxury 5 star hotel, or just staying with a friend, leave it with Plannr to store all the details.
+            </li>
+            <li>
+                Want to have a wander of the city and finish in a bar, Plannr has the route feature to plot it out, adding events to any of your stops.
+            </li>
+            <li>
+                Any bookings, reservation, vouchers or tickets you need to want to use on your trip can be attached, making finding them when the flight or birthday dinner comes super easy!
+            </li>  
+        </ul>
+        <button >Take a look at a sample trip</button>
+    </div>
+    <img src="/images/index-route.jpg" alt="PlannR Info" />
+</div>

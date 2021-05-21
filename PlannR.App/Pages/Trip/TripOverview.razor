@@ -1,0 +1,54 @@
+﻿@page "/trips"
+@attribute [Authorize]
+
+<div class="trips">
+    <div class="heading">
+        <h1>Your Trips</h1>
+        <button @onclick="ShowCreateTripModal"><span>&#43;</span> New</button>
+    </div>
+    @if (Trips == null)
+    {
+        <p>Finding your trips..</p>
+    }
+    else if (Trips.Count == 0)
+            {
+                <strong>You don't have trips yet, starting planning one now!</strong>
+            }
+    else
+    {
+        <div class="trip-list">
+            <ul>
+                @foreach (var trip in Trips)
+                {
+                    <li>
+                        <a href="@($"/trips/{trip.TripId}")">
+                            <div class="trip-name">
+                                <h3>@trip.Name</h3>
+                                <span><strong>@trip.StartDateTime.ToShortDateString()</strong> - <strong>@trip.EndDateTime.ToShortDateString()</strong></span>
+                            </div>
+                            <div class="trip-info">
+                                @if (trip.StartLocation == null && trip.EndLocation == null)
+                                {
+                                    <strong>You haven't added where you're starting or ending up!</strong>
+                                }
+                                else if (trip.EndLocation == null)
+                                {
+                                    <span>
+                                Starting from <strong>@trip.StartLocation.Name</strong>
+                                    </span>
+                                }
+                                else
+                                {
+                                    <span>
+                                        <strong>@trip.StartLocation.Name</strong> to <strong>@trip.EndLocation.Name</strong>
+                                    </span>
+                                }
+
+                            </div>
+                        </a>
+                    </li>
+                }
+            </ul>
+        </div>
+    }
+</div>
