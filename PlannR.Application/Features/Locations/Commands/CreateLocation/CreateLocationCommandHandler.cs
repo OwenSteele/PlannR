@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Locations.Commands.CreateLocation
 {
-    public class CreateLocationCommandHandler : IRequestHandler<CreateLocationCommand, Guid>
+    public class CreateLocationCommandHandler : IRequestHandler<CreateLocationCommand, CreateLocationCommandResponse>
     {
         private readonly IMapper _mapper;
         private readonly ILocationRepository _LocationRepository;
@@ -20,7 +20,7 @@ namespace PlannR.Application.Features.Locations.Commands.CreateLocation
             _LocationRepository = LocationRepository;
         }
 
-        public async Task<Guid> Handle(CreateLocationCommand request, CancellationToken cancellationToken)
+        public async Task<CreateLocationCommandResponse> Handle(CreateLocationCommand request, CancellationToken cancellationToken)
         {
             var validator = new CreateLocationCommandValidator();
             var validationResult = await validator.ValidateAsync(request);
@@ -32,7 +32,13 @@ namespace PlannR.Application.Features.Locations.Commands.CreateLocation
 
             entity = await _LocationRepository.AddAsync(entity);
 
-            return entity.LocationId;
+            var response = new CreateLocationCommandResponse
+            {
+                LocationId = entity.LocationId,
+                Success = true
+            };
+            
+            return response;
         }
     }
 }

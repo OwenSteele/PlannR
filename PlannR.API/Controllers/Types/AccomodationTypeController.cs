@@ -43,7 +43,7 @@ namespace PlannR.API.Controllers
 
         [Authorize]
         [HttpPost(Name = "AddAccomodationType")]
-        public async Task<ActionResult<Guid>> Create([FromBody] CreateAccomodationTypeCommand createAccomodationTypeCommand)
+        public async Task<ActionResult<CreateAccomodationTypeCommandResponse>> Create([FromBody] CreateAccomodationTypeCommand createAccomodationTypeCommand)
         {
             var id = await _mediator.Send(createAccomodationTypeCommand);
             return Ok(id);

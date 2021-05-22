@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Transports.Types.Commands.CreateTransportType
 {
-    public class CreateTransportTypeCommandHandler : IRequestHandler<CreateTransportTypeCommand, Guid>
+    public class CreateTransportTypeCommandHandler : IRequestHandler<CreateTransportTypeCommand, CreateTransportTypeCommandResponse>
     {
         private readonly IMapper _mapper;
         private readonly IAsyncRepository<TransportType> _transportTypeRepository;
@@ -20,7 +20,7 @@ namespace PlannR.Application.Features.Transports.Types.Commands.CreateTransportT
             _transportTypeRepository = transportTypeRepository;
         }
 
-        public async Task<Guid> Handle(CreateTransportTypeCommand request, CancellationToken cancellationToken)
+        public async Task<CreateTransportTypeCommandResponse> Handle(CreateTransportTypeCommand request, CancellationToken cancellationToken)
         {
             var validator = new CreateTransportTypeCommandValidator();
             var validationResult = await validator.ValidateAsync(request);
@@ -32,7 +32,13 @@ namespace PlannR.Application.Features.Transports.Types.Commands.CreateTransportT
 
             entity = await _transportTypeRepository.AddAsync(entity);
 
-            return entity.TransportTypeId;
+            var response = new CreateTransportTypeCommandResponse
+            {
+                TransportTypeId = entity.TransportTypeId,
+                Success = true
+            };
+
+            return response;
         }
     }
 }

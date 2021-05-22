@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Accomodations.Bookings.Commands.CreateAccomodationBooking
 {
-    public class CreateAccomodationBookingCommandHandler : IRequestHandler<CreateAccomodationBookingCommand, Guid>
+    public class CreateAccomodationBookingCommandHandler : IRequestHandler<CreateAccomodationBookingCommand, CreateAccomodationBookingCommandResponse>
     {
         private readonly IMapper _mapper;
         private readonly IAsyncRepository<AccomodationBooking> _accomodationBookingRepository;
@@ -20,7 +20,7 @@ namespace PlannR.Application.Features.Accomodations.Bookings.Commands.CreateAcco
             _accomodationBookingRepository = accomodationBookingRepository;
         }
 
-        public async Task<Guid> Handle(CreateAccomodationBookingCommand request, CancellationToken cancellationToken)
+        public async Task<CreateAccomodationBookingCommandResponse> Handle(CreateAccomodationBookingCommand request, CancellationToken cancellationToken)
         {
             var validator = new CreateAccomodationBookingCommandValidator();
             var validationResult = await validator.ValidateAsync(request);
@@ -32,7 +32,13 @@ namespace PlannR.Application.Features.Accomodations.Bookings.Commands.CreateAcco
 
             entity = await _accomodationBookingRepository.AddAsync(entity);
 
-            return entity.AccomodationId;
+            var response = new CreateAccomodationBookingCommandResponse
+            {
+                BookingId = entity.BookingId,
+                Success = true
+            };
+
+            return response;
         }
     }
 }

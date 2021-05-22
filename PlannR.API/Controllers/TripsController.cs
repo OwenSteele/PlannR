@@ -77,7 +77,7 @@ namespace PlannR.API.Controllers
         }
 
         [HttpPost(Name = "AddTrip")]
-        public async Task<ActionResult<Guid>> Create([FromBody] CreateTripCommand createTripCommand)
+        public async Task<ActionResult<CreateTripCommandResponse>> Create([FromBody] CreateTripCommand createTripCommand)
         {
             var id = await _mediator.Send(createTripCommand);
             return Ok(id);

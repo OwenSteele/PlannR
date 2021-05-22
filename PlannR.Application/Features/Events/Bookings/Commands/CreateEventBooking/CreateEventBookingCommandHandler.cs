@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Events.Bookings.Commands.CreateEventBooking
 {
-    public class CreateEventBookingCommandHandler : IRequestHandler<CreateEventBookingCommand, Guid>
+    public class CreateEventBookingCommandHandler : IRequestHandler<CreateEventBookingCommand, CreateEventBookingCommandResponse>
     {
         private readonly IMapper _mapper;
         private readonly IAsyncRepository<EventBooking> _eventBookingRepository;
@@ -20,7 +20,7 @@ namespace PlannR.Application.Features.Events.Bookings.Commands.CreateEventBookin
             _eventBookingRepository = eventBookingRepository;
         }
 
-        public async Task<Guid> Handle(CreateEventBookingCommand request, CancellationToken cancellationToken)
+        public async Task<CreateEventBookingCommandResponse> Handle(CreateEventBookingCommand request, CancellationToken cancellationToken)
         {
             var validator = new CreateEventBookingCommandValidator();
             var validationResult = await validator.ValidateAsync(request);
@@ -32,7 +32,13 @@ namespace PlannR.Application.Features.Events.Bookings.Commands.CreateEventBookin
 
             entity = await _eventBookingRepository.AddAsync(entity);
 
-            return entity.EventId;
+            var response = new CreateEventBookingCommandResponse
+            {
+                BookingId = entity.BookingId,
+                Success = true
+            };
+
+            return response;
         }
     }
 }

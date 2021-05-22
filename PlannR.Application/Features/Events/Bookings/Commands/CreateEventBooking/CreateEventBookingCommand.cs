@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace PlannR.Application.Features.Events.Bookings.Commands.CreateEventBooking
 {
-    public class CreateEventBookingCommand : IRequest<Guid>
+    public class CreateEventBookingCommand : IRequest<CreateEventBookingCommandResponse>
     {
         public Guid EventId { get; set; }
         public string Name { get; set; }

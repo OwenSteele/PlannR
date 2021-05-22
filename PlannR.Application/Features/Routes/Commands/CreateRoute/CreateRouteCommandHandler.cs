@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Routes.Commands.CreateRoute
 {
-    public class CreateRouteCommandHandler : IRequestHandler<CreateRouteCommand, Guid>
+    public class CreateRouteCommandHandler : IRequestHandler<CreateRouteCommand, CreateRouteCommandResponse>
     {
         private readonly IMapper _mapper;
         private readonly IRouteRepository _accomodationRepository;
@@ -20,7 +20,7 @@ namespace PlannR.Application.Features.Routes.Commands.CreateRoute
             _accomodationRepository = accomodationRepository;
         }
 
-        public async Task<Guid> Handle(CreateRouteCommand request, CancellationToken cancellationToken)
+        public async Task<CreateRouteCommandResponse> Handle(CreateRouteCommand request, CancellationToken cancellationToken)
         {
             var validator = new CreateRouteCommandValidator();
             var validationResult = await validator.ValidateAsync(request);
@@ -32,7 +32,13 @@ namespace PlannR.Application.Features.Routes.Commands.CreateRoute
 
             entity = await _accomodationRepository.AddAsync(entity);
 
-            return entity.RouteId;
+            var response = new CreateRouteCommandResponse
+            {
+                RouteId = entity.RouteId,
+                Success = true
+            };
+
+            return response;
         }
     }
 }

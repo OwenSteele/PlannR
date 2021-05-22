@@ -3,7 +3,7 @@ using System;
 
 namespace PlannR.Application.Features.Transports.Types.Commands.CreateTransportType
 {
-    public class CreateTransportTypeCommand : IRequest<Guid>
+    public class CreateTransportTypeCommand : IRequest<CreateTransportTypeCommandResponse>
     {
         public string Name { get; set; }
         public bool IsPublic { get; set; }

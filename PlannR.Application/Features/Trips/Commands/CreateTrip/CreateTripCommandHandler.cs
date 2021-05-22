@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Trips.Commands.CreateTrip
 {
-    public class CreateTripCommandHandler : IRequestHandler<CreateTripCommand, Guid>
+    public class CreateTripCommandHandler : IRequestHandler<CreateTripCommand, CreateTripCommandResponse>
     {
         private readonly IMapper _mapper;
         private readonly ITripRepository _tripRepository;
@@ -20,7 +20,7 @@ namespace PlannR.Application.Features.Trips.Commands.CreateTrip
             _tripRepository = tripRepository;
         }
 
-        public async Task<Guid> Handle(CreateTripCommand request, CancellationToken cancellationToken)
+        public async Task<CreateTripCommandResponse> Handle(CreateTripCommand request, CancellationToken cancellationToken)
         {
             var validator = new CreateTripCommandValidator();
             var validationResult = await validator.ValidateAsync(request);
@@ -32,7 +32,13 @@ namespace PlannR.Application.Features.Trips.Commands.CreateTrip
 
             entity = await _tripRepository.AddAsync(entity);
 
-            return entity.TripId;
+            var response = new CreateTripCommandResponse
+            {
+                TripId = entity.TripId,
+                Success = true
+            };
+
+            return response;
         }
     }
 }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Transports.Bookings.Commands.CreateTransportBooking
 {
-    public class CreateTransportBookingCommandHandler : IRequestHandler<CreateTransportBookingCommand, Guid>
+    public class CreateTransportBookingCommandHandler : IRequestHandler<CreateTransportBookingCommand, CreateTransportBookingCommandResponse>
     {
         private readonly IMapper _mapper;
         private readonly IAsyncRepository<TransportBooking> _transportBookingRepository;
@@ -20,7 +20,7 @@ namespace PlannR.Application.Features.Transports.Bookings.Commands.CreateTranspo
             _transportBookingRepository = transportBookingRepository;
         }
 
-        public async Task<Guid> Handle(CreateTransportBookingCommand request, CancellationToken cancellationToken)
+        public async Task<CreateTransportBookingCommandResponse> Handle(CreateTransportBookingCommand request, CancellationToken cancellationToken)
         {
             var validator = new CreateTransportBookingCommandValidator();
             var validationResult = await validator.ValidateAsync(request);
@@ -32,7 +32,13 @@ namespace PlannR.Application.Features.Transports.Bookings.Commands.CreateTranspo
 
             entity = await _transportBookingRepository.AddAsync(entity);
 
-            return entity.TransportId;
+            var response = new CreateTransportBookingCommandResponse
+            {
+                BookingId = entity.BookingId,
+                Success = true
+            };
+
+            return response;
         }
     }
 }

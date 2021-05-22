@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace PlannR.Application.Features.Transports.Bookings.Commands.CreateTransportBooking
 {
-    public class CreateTransportBookingCommand : IRequest<Guid>
+    public class CreateTransportBookingCommand : IRequest<CreateTransportBookingCommandResponse>
     {
         public Guid TransportId { get; set; }
         public string Name { get; set; }

@@ -3,7 +3,7 @@ using System;
 
 namespace PlannR.Application.Features.Routes.Commands.CreateRoute
 {
-    public class CreateRouteCommand : IRequest<Guid>
+    public class CreateRouteCommand : IRequest<CreateRouteCommandResponse>
     {
         public Guid TripId { get; set; }
         public string Name { get; set; }

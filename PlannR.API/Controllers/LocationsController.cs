@@ -45,10 +45,12 @@ namespace PlannR.API.Controllers
         }
 
         [HttpPost(Name = "AddLocation")]
-        public async Task<ActionResult<Guid>> Create([FromBody] CreateLocationCommand createLocationCommand)
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesDefaultResponseType]
+        public async Task<ActionResult<CreateLocationCommandResponse>> Create([FromBody] CreateLocationCommand createLocationCommand)
         {
-            var id = await _mediator.Send(createLocationCommand);
-            return Ok(id);
+            var result = await _mediator.Send(createLocationCommand);
+            return Ok(result);
         }
         [HttpPut(Name = "UpdateLocation")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]

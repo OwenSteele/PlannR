@@ -83,7 +83,7 @@ namespace PlannR.API.Controllers
         }
 
         [HttpPost(Name = "AddEvent")]
-        public async Task<ActionResult<Guid>> Create([FromBody] CreateEventCommand createEventCommand)
+        public async Task<ActionResult<CreateEventCommandResponse>> Create([FromBody] CreateEventCommand createEventCommand)
         {
             var id = await _mediator.Send(createEventCommand);
             return Ok(id);

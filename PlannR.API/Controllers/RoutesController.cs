@@ -70,7 +70,7 @@ namespace PlannR.API.Controllers
         }
 
         [HttpPost(Name = "AddRoute")]
-        public async Task<ActionResult<Guid>> Create([FromBody] CreateRouteCommand createRouteCommand)
+        public async Task<ActionResult<CreateRouteCommandResponse>> Create([FromBody] CreateRouteCommand createRouteCommand)
         {
             var id = await _mediator.Send(createRouteCommand);
             return Ok(id);

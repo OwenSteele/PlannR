@@ -8,6 +8,7 @@ namespace PlannR.Application.Features.Trips.Queries.GetTripsDetail
     {
         public Guid TripId { get; set; }
         public string Name { get; set; }
+        public string Description { get; set; }
         public DateTime StartDateTime { get; set; }
         public DateTime EndDateTime { get; set; }
         public LocationDto StartLocation { get; set; }

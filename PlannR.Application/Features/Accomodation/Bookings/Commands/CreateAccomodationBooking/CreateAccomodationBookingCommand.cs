@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace PlannR.Application.Features.Accomodations.Bookings.Commands.CreateAccomodationBooking
 {
-    public class CreateAccomodationBookingCommand : IRequest<Guid>
+    public class CreateAccomodationBookingCommand : IRequest<CreateAccomodationBookingCommandResponse>
     {
         public Guid AccomodationId { get; set; }
         public string Name { get; set; }

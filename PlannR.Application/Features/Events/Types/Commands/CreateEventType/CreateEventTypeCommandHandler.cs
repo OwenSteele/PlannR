@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Events.Types.Commands.CreateEventType
 {
-    public class CreateEventTypeCommandHandler : IRequestHandler<CreateEventTypeCommand, Guid>
+    public class CreateEventTypeCommandHandler : IRequestHandler<CreateEventTypeCommand, CreateEventTypeCommandResponse>
     {
         private readonly IMapper _mapper;
         private readonly IAsyncRepository<EventType> _eventTypeRepository;
@@ -20,7 +20,7 @@ namespace PlannR.Application.Features.Events.Types.Commands.CreateEventType
             _eventTypeRepository = eventTypeRepository;
         }
 
-        public async Task<Guid> Handle(CreateEventTypeCommand request, CancellationToken cancellationToken)
+        public async Task<CreateEventTypeCommandResponse> Handle(CreateEventTypeCommand request, CancellationToken cancellationToken)
         {
             var validator = new CreateEventTypeCommandValidator();
             var validationResult = await validator.ValidateAsync(request);
@@ -32,7 +32,13 @@ namespace PlannR.Application.Features.Events.Types.Commands.CreateEventType
 
             entity = await _eventTypeRepository.AddAsync(entity);
 
-            return entity.EventTypeId;
+            var response = new CreateEventTypeCommandResponse
+            {
+                EventTypeId = entity.EventTypeId,
+                Success = true
+            };
+
+            return response;
         }
     }
 }

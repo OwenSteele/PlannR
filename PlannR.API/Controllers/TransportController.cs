@@ -83,7 +83,7 @@ namespace PlannR.API.Controllers
         }
 
         [HttpPost(Name = "AddTransport")]
-        public async Task<ActionResult<Guid>> Create([FromBody] CreateTransportCommand createTransportCommand)
+        public async Task<ActionResult<CreateTransportCommandResponse>> Create([FromBody] CreateTransportCommand createTransportCommand)
         {
             var id = await _mediator.Send(createTransportCommand);
             return Ok(id);

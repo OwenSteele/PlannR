@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Accomodations.Types.Commands.CreateAccomodationType
 {
-    public class CreateAccomodationTypeCommandHandler : IRequestHandler<CreateAccomodationTypeCommand, Guid>
+    public class CreateAccomodationTypeCommandHandler : IRequestHandler<CreateAccomodationTypeCommand, CreateAccomodationTypeCommandResponse>
     {
         private readonly IMapper _mapper;
         private readonly IAsyncRepository<AccomodationType> _accomodationTypeRepository;
@@ -20,7 +20,7 @@ namespace PlannR.Application.Features.Accomodations.Types.Commands.CreateAccomod
             _accomodationTypeRepository = accomodationTypeRepository;
         }
 
-        public async Task<Guid> Handle(CreateAccomodationTypeCommand request, CancellationToken cancellationToken)
+        public async Task<CreateAccomodationTypeCommandResponse> Handle(CreateAccomodationTypeCommand request, CancellationToken cancellationToken)
         {
             var validator = new CreateAccomodationTypeCommandValidator();
             var validationResult = await validator.ValidateAsync(request);
@@ -32,7 +32,13 @@ namespace PlannR.Application.Features.Accomodations.Types.Commands.CreateAccomod
 
             entity = await _accomodationTypeRepository.AddAsync(entity);
 
-            return entity.AccomodationTypeId;
+            var response = new CreateAccomodationTypeCommandResponse
+            {
+                AccomodationTypeId = entity.AccomodationTypeId,
+                Success = true
+            };
+
+            return response;
         }
     }
 }

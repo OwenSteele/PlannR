@@ -43,7 +43,7 @@ namespace PlannR.API.Controllers
 
         [Authorize]
         [HttpPost(Name = "AddEventType")]
-        public async Task<ActionResult<Guid>> Create([FromBody] CreateEventTypeCommand createEventTypeCommand)
+        public async Task<ActionResult<CreateEventTypeCommandResponse>> Create([FromBody] CreateEventTypeCommand createEventTypeCommand)
         {
             var id = await _mediator.Send(createEventTypeCommand);
             return Ok(id);

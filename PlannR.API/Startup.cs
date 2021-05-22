@@ -115,7 +115,6 @@ namespace PlannR.API
             app.UseSwagger();
             app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "PlannR.API v1"));
 
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

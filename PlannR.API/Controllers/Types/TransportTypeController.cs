@@ -43,7 +43,7 @@ namespace PlannR.API.Controllers
 
         [Authorize]
         [HttpPost(Name = "AddTransportType")]
-        public async Task<ActionResult<Guid>> Create([FromBody] CreateTransportTypeCommand createTransportTypeCommand)
+        public async Task<ActionResult<CreateTransportTypeCommandResponse>> Create([FromBody] CreateTransportTypeCommand createTransportTypeCommand)
         {
             var id = await _mediator.Send(createTransportTypeCommand);
             return Ok(id);

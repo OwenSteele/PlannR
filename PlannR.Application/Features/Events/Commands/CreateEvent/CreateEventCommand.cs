@@ -3,7 +3,7 @@ using System;
 
 namespace PlannR.Application.Features.Events.Commands.CreateEvent
 {
-    public class CreateEventCommand : IRequest<Guid>
+    public class CreateEventCommand : IRequest<CreateEventCommandResponse>
     {
         public Guid TripId { get; set; }
         public string Name { get; set; }

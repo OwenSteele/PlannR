@@ -3,7 +3,7 @@ using System;
 
 namespace PlannR.Application.Features.Locations.Commands.CreateLocation
 {
-    public class CreateLocationCommand : IRequest<Guid>
+    public class CreateLocationCommand : IRequest<CreateLocationCommandResponse>
     {
         public double Latitude { get; set; }
         public double Longitude { get; set; }
