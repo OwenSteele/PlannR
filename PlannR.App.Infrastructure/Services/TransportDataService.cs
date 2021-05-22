@@ -29,9 +29,10 @@ namespace PlannR.App.Infrastructure.Services
 
                 var result = await _client.AddTransportAsync(commandModel);
 
-                if (result.GetType() == typeof(Guid))
+                if (result.GetType() == typeof(CreateTransportCommandResponse))
                 {
-                    response.Successful = true;
+                    response.Data = result.TransportId;
+                    response.Success = true;
                 }
                 return response;
             }
@@ -49,7 +50,7 @@ namespace PlannR.App.Infrastructure.Services
             {
                 await _client.DeleteTransportAsync(id);
 
-                return new ApiResponse<Guid> { Successful = true };
+                return new ApiResponse<Guid> { Success = true };
             }
             catch (ApiException ex)
             {
@@ -107,7 +108,7 @@ namespace PlannR.App.Infrastructure.Services
 
                 await _client.UpdateTransportAsync(commandModel);
 
-                return new ApiResponse<Guid> { Successful = true };
+                return new ApiResponse<Guid> { Success = true };
             }
             catch (ApiException ex)
             {

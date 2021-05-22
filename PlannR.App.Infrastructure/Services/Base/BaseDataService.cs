@@ -20,10 +20,10 @@ namespace PlannR.App.Infrastructure.Services.Base
         {
             return ex.StatusCode switch
             {
-                400 => new ApiResponse<Guid>() { Message = "Validation errors have occured.", Errors = ex.Response, Successful = false },
-                401 => new ApiResponse<Guid>() { Message = "Access was denied.", Successful = false },
-                404 => new ApiResponse<Guid>() { Message = "The requested item could not be found.", Successful = false },
-                _ => new ApiResponse<Guid>() { Message = "Something went wrong, please try again.", Successful = false },
+                400 => new ApiResponse<Guid>() { Message = "Validation errors have occured.", Errors = ex.Response, Success = false },
+                401 => new ApiResponse<Guid>() { Message = "Access was denied.", Success = false },
+                404 => new ApiResponse<Guid>() { Message = "The requested item could not be found.", Success = false },
+                _ => new ApiResponse<Guid>() { Message = "Something went wrong, please try again.", Success = false },
             };
         }
 

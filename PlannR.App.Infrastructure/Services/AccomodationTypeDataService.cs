@@ -30,9 +30,10 @@ namespace PlannR.App.Infrastructure.Services
 
                 var result = await _client.AddAccomodationTypeAsync(commandModel);
 
-                if (result.GetType() == typeof(Guid))
+                if (result.GetType() == typeof(CreateAccomodationTypeCommandResponse))
                 {
-                    response.Successful = true;
+                    response.Data = result.AccomodationTypeId;
+                    response.Success = true;
                 }
                 return response;
             }

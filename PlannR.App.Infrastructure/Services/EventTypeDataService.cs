@@ -29,9 +29,10 @@ namespace PlannR.App.Infrastructure.Services
 
                 var result = await _client.AddEventTypeAsync(commandModel);
 
-                if (result.GetType() == typeof(Guid))
+                if (result.GetType() == typeof(CreateEventTypeCommandResponse))
                 {
-                    response.Successful = true;
+                    response.Data = result.EventTypeId;
+                    response.Success = true;
                 }
                 return response;
             }

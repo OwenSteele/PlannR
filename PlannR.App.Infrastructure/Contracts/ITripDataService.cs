@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.App.Infrastructure.Contracts
 {
-    public interface ITripDataService : IBaseDataService<EditTripViewModel>
+    public interface ITripDataService : IBaseDataService<EditTripViewModel, Guid>
     {
         Task<ICollection<TripListViewModel>> GetAllTripsAsync();
         Task<ICollection<TripNestedViewModel>> GetTripNamesAsync();

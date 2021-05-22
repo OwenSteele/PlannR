@@ -29,9 +29,10 @@ namespace PlannR.App.Infrastructure.Services
 
                 var result = await _client.AddAccomodationBookingAsync(commandModel);
 
-                if (result.GetType() == typeof(Guid))
+                if (result.GetType() == typeof(CreateAccomodationBookingCommandResponse))
                 {
-                    response.Successful = true;
+                    response.Data = result.BookingId;
+                    response.Success = true;
                 }
                 return response;
             }
@@ -49,7 +50,7 @@ namespace PlannR.App.Infrastructure.Services
             {
                 await _client.DeleteAccomodationBookingAsync(id);
 
-                return new ApiResponse<Guid> { Successful = true };
+                return new ApiResponse<Guid> { Success = true };
             }
             catch (ApiException ex)
             {
@@ -91,7 +92,7 @@ namespace PlannR.App.Infrastructure.Services
 
                 await _client.UpdateAccomodationBookingAsync(commandModel);
 
-                return new ApiResponse<Guid> { Successful = true };
+                return new ApiResponse<Guid> { Success = true };
             }
             catch (ApiException ex)
             {

@@ -30,9 +30,10 @@ namespace PlannR.App.Infrastructure.Services
 
                 var result = await _client.AddTripAsync(commandModel);
 
-                if (result.GetType() == typeof(Guid))
+                if (result.GetType() == typeof(CreateTripCommandResponse))
                 {
-                    response.Successful = true;
+                    response.Data = result.TripId;
+                    response.Success = true;
                 }
                 return response;
             }
@@ -50,7 +51,7 @@ namespace PlannR.App.Infrastructure.Services
             {
                 await _client.DeleteTripAsync(id);
 
-                return new ApiResponse<Guid> { Successful = true };
+                return new ApiResponse<Guid> { Success = true };
             }
             catch (ApiException ex)
             {
@@ -107,7 +108,7 @@ namespace PlannR.App.Infrastructure.Services
 
                 await _client.UpdateTripAsync(commandModel);
 
-                return new ApiResponse<Guid> { Successful = true };
+                return new ApiResponse<Guid> { Success = true };
             }
             catch (ApiException ex)
             {

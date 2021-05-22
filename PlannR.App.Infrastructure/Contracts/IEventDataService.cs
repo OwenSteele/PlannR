@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.App.Infrastructure.Contracts
 {
-    public interface IEventDataService : IBaseDataService<EventDetailViewModel>
+    public interface IEventDataService : IBaseDataService<EventDetailViewModel,Guid>
     {
         Task<ICollection<EventListViewModel>> GetAllEventsAsync();
         Task<ICollection<EventListOfTripViewModel>> GetAllEventsOfTripIdAsync(Guid tripId);

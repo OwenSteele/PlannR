@@ -29,9 +29,10 @@ namespace PlannR.App.Infrastructure.Services
 
                 var result = await _client.AddRouteAsync(commandModel);
 
-                if (result.GetType() == typeof(Guid))
+                if (result.GetType() == typeof(CreateRouteCommandResponse))
                 {
-                    response.Successful = true;
+                    response.Data = result.RouteId;
+                    response.Success = true;
                 }
                 return response;
             }
@@ -49,7 +50,7 @@ namespace PlannR.App.Infrastructure.Services
             {
                 await _client.DeleteRouteAsync(id);
 
-                return new ApiResponse<Guid> { Successful = true };
+                return new ApiResponse<Guid> { Success = true };
             }
             catch (ApiException ex)
             {
@@ -99,7 +100,7 @@ namespace PlannR.App.Infrastructure.Services
 
                 await _client.UpdateRouteAsync(commandModel);
 
-                return new ApiResponse<Guid> { Successful = true };
+                return new ApiResponse<Guid> { Success = true };
             }
             catch (ApiException ex)
             {

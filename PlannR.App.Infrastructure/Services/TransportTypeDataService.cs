@@ -30,9 +30,10 @@ namespace PlannR.App.Infrastructure.Services
 
                 var result = await _client.AddTransportTypeAsync(commandModel);
 
-                if (result.GetType() == typeof(Guid))
+                if (result.GetType() == typeof(CreateTransportTypeCommandResponse))
                 {
-                    response.Successful = true;
+                    response.Data = result.TransportTypeId;
+                    response.Success = true;
                 }
                 return response;
             }

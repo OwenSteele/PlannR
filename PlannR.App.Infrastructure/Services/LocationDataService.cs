@@ -31,9 +31,10 @@ namespace PlannR.App.Infrastructure.Services
 
                 var result = await _client.AddLocationAsync(commandModel);
 
-                if (result.GetType() == typeof(Guid))
+                if (result.GetType() == typeof(CreateLocationCommandResponse))
                 {
-                    response.Successful = true;
+                    response.Data = result.LocationId;
+                    response.Success = true;
                 }
                 return response;
             }
@@ -51,7 +52,7 @@ namespace PlannR.App.Infrastructure.Services
             {
                 await _client.DeleteLocationAsync(id);
 
-                return new ApiResponse<Guid> { Successful = true };
+                return new ApiResponse<Guid> { Success = true };
             }
             catch (ApiException ex)
             {
@@ -81,12 +82,11 @@ namespace PlannR.App.Infrastructure.Services
 
             try
             {
-
                 var commandModel = _mapper.Map<UpdateLocationCommand>(viewModel);
 
                 await _client.UpdateLocationAsync(commandModel);
 
-                return new ApiResponse<Guid> { Successful = true };
+                return new ApiResponse<Guid> { Success = true };
             }
             catch (ApiException ex)
             {

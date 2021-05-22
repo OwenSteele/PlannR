@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PlannR.App.Infrastructure.Contracts
 {
-    public interface ITransportDataService : IBaseDataService<TransportDetailViewModel>
+    public interface ITransportDataService : IBaseDataService<TransportDetailViewModel, Guid>
     {
         Task<ICollection<TransportListViewModel>> GetAllTransportAsync();
         Task<ICollection<TransportListOfTripViewModel>> GetAllTransportOfTripIdAsync(Guid tripId);
