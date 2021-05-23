@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.Extensions.DependencyInjection;
 using PlannR.App.Infrastructure.Authentication;
 using PlannR.App.Infrastructure.Contracts;
+using PlannR.App.Infrastructure.Contracts.View;
 using PlannR.App.Infrastructure.Services;
 using PlannR.App.Infrastructure.Services.Base;
 using System;
@@ -46,6 +47,7 @@ namespace PlannR.App.Infrastructure
 
             services.AddScoped<ITripDataService, TripDataService>();
             services.AddScoped<IRouteDataService, RouteDataService>();
+            services.AddScoped<IRoutePointDataService, RoutePointDataService>();
             services.AddScoped<ILocationDataService, LocationDataService>();
 
             return services;

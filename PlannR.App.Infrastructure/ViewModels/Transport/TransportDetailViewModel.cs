@@ -9,13 +9,11 @@ namespace PlannR.App.Infrastructure.ViewModels.Transport
         public TripNestedViewModel Trip { get; set; }
         public string Name { get; set; }
         public TransportTypeNestedViewModel TransportType { get; set; }
-        public decimal? CostPerNight { get; set; }
-        public int Rooms { get; set; }
-        public int Nights { get; set; }
-        public Guid BookingId { get; set; }
-        public string Description { get; set; }
-        public LocationNestedViewModel Location { get; set; }
+        public LocationNestedViewModel StartLocation { get; set; }
+        public LocationNestedViewModel EndLocation { get; set; }
         public DateTime StartDateTime { get; set; }
         public DateTime EndDateTime { get; set; }
+        public TransportBookingNestedViewModel Booking { get; set; }
+        public string Description { get; set; }
     }
 }

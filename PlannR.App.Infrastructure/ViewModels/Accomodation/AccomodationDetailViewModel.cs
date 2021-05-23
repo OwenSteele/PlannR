@@ -12,7 +12,7 @@ namespace PlannR.App.Infrastructure.ViewModels.Accomodation
         public decimal? CostPerNight { get; set; }
         public int Rooms { get; set; }
         public int Nights { get; set; }
-        public Guid BookingId { get; set; }
+        public Guid? BookingId { get; set; }
         public string Description { get; set; }
         public LocationNestedViewModel Location { get; set; }
         public DateTime StartDateTime { get; set; }

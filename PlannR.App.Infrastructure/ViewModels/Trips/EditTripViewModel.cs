@@ -1,5 +1,4 @@
-﻿using PlannR.App.Infrastructure.Validation;
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace PlannR.App.Infrastructure.ViewModels.Trips
@@ -17,7 +16,7 @@ namespace PlannR.App.Infrastructure.ViewModels.Trips
         public DateTime StartDateTime { get; set; }
         [Required]
         public DateTime EndDateTime { get; set; }
-        public Guid StartLocationId { get; set; }
-        public Guid EndLocationId { get; set; }
+        public Guid? StartLocationId { get; set; }
+        public Guid? EndLocationId { get; set; }
     }
 }

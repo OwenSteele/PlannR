@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace PlannR.App.Infrastructure.ViewModels.Accomodation.Types
 {
