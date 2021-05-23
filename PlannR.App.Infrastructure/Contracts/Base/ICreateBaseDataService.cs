@@ -1,5 +1,4 @@
 ﻿using PlannR.App.Infrastructure.Services.Base;
-using System;
 using System.Threading.Tasks;
 
 namespace PlannR.App.Infrastructure.Contracts.Base

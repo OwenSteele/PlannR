@@ -2,6 +2,7 @@
 using Blazored.LocalStorage;
 using PlannR.App.Infrastructure.Contracts;
 using PlannR.App.Infrastructure.Services.Base;
+using PlannR.App.Infrastructure.ViewModels.Transport;
 using PlannR.App.Infrastructure.ViewModels.Transport.Types;
 using System;
 using System.Collections.Generic;
@@ -42,7 +43,13 @@ namespace PlannR.App.Infrastructure.Services
                 return ConvertApiErrors<Guid>(ex);
             }
         }
+        public async Task<ICollection<TransportTypeNestedViewModel>> GetAllTypeNamesAsync()
+        {
+            await AddBearerToken();
 
+            var result = await _client.GetAllTransportTypesAsync();
+            return _mapper.Map<ICollection<TransportTypeNestedViewModel>>(result);
+        }
         public async Task<ICollection<TransportTypeListViewModel>> GetAllTypesAsync()
         {
             await AddBearerToken();

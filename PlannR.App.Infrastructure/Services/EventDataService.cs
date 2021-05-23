@@ -3,6 +3,7 @@ using Blazored.LocalStorage;
 using PlannR.App.Infrastructure.Contracts;
 using PlannR.App.Infrastructure.Services.Base;
 using PlannR.App.Infrastructure.ViewModels.Event;
+using PlannR.App.Infrastructure.ViewModels.Events;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -17,7 +18,7 @@ namespace PlannR.App.Infrastructure.Services
             _mapper = mapper;
         }
 
-        public async Task<ApiResponse<Guid>> CreateAsync(EventDetailViewModel viewModel)
+        public async Task<ApiResponse<Guid>> CreateAsync(EditEventViewModel viewModel)
         {
             await AddBearerToken();
 
@@ -98,7 +99,7 @@ namespace PlannR.App.Infrastructure.Services
             return _mapper.Map<EventDetailViewModel>(result);
         }
 
-        public async Task<ApiResponse<Guid>> UpdateAsync(EventDetailViewModel viewModel)
+        public async Task<ApiResponse<Guid>> UpdateAsync(EditEventViewModel viewModel)
         {
             try
             {

@@ -1,4 +1,5 @@
 ﻿using PlannR.App.Infrastructure.Contracts.Base;
+using PlannR.App.Infrastructure.ViewModels.Transport;
 using PlannR.App.Infrastructure.ViewModels.Transport.Types;
 using System;
 using System.Collections.Generic;
@@ -10,5 +11,6 @@ namespace PlannR.App.Infrastructure.Contracts
     {
         Task<ICollection<TransportTypeListViewModel>> GetAllTypesAsync();
         Task<TransportTypeOfNameViewModel> GetTypeByNameAsync(string name);
+        Task<ICollection<TransportTypeNestedViewModel>> GetAllTypeNamesAsync();
     }
 }

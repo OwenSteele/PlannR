@@ -2,6 +2,7 @@
 using Blazored.LocalStorage;
 using PlannR.App.Infrastructure.Contracts;
 using PlannR.App.Infrastructure.Services.Base;
+using PlannR.App.Infrastructure.ViewModels.Event;
 using PlannR.App.Infrastructure.ViewModels.Event.Types;
 using System;
 using System.Collections.Generic;
@@ -40,6 +41,14 @@ namespace PlannR.App.Infrastructure.Services
             {
                 return ConvertApiErrors<Guid>(ex);
             }
+        }
+
+        public async Task<ICollection<EventTypeNestedViewModel>> GetAllTypeNamesAsync()
+        {
+            await AddBearerToken();
+
+            var result = await _client.GetAllEventTypesAsync();
+            return _mapper.Map<ICollection<EventTypeNestedViewModel>>(result);
         }
 
         public async Task<ICollection<EventTypeListViewModel>> GetAllTypesAsync()
