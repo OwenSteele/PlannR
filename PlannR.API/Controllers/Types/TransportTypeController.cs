@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Mvc;
 using PlannR.Application.Features.Transports.Types.Commands.CreateTransportType;
 using PlannR.Application.Features.Transports.Types.Queries.GetTransportTypeByName;
 using PlannR.Application.Features.Transports.Types.Queries.GetTransportTypeList;
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

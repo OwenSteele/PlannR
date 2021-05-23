@@ -9,9 +9,12 @@ namespace PlannR.Domain.Entities
     {
         public Guid TripId { get; set; }
         public string Name { get; set; }
+        public string Description { get; set; }
         public DateTime StartDateTime { get; set; }
         public DateTime EndDateTime { get; set; }
+        public Guid? StartLocationId { get; set; }
         public Location StartLocation { get; set; }
+        public Guid? EndLocationId { get; set; }
         public Location EndLocation { get; set; }
         public ICollection<Transport> Transports { get; set; }
         public ICollection<Route> Routes { get; set; }

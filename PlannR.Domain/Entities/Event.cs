@@ -20,6 +20,7 @@ namespace PlannR.Domain.Entities
         public DateTime EndDateTime { get; set; }
         public EventBooking Booking { get; set; }
         public string Description { get; set; }
+        public Guid? LocationId { get; set; }
         public Location Location { get; set; }
     }
 }

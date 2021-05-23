@@ -1,6 +1,5 @@
 ﻿using PlannR.Domain.Common;
 using System;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PlannR.Domain.Shared
 {

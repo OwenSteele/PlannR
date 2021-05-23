@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Mvc;
 using PlannR.Application.Features.Events.Types.Commands.CreateEventType;
 using PlannR.Application.Features.Events.Types.Queries.GetEventTypeByName;
 using PlannR.Application.Features.Events.Types.Queries.GetEventTypeList;
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

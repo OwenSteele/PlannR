@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Mvc;
 using PlannR.Application.Features.Accomodations.Types.Commands.CreateAccomodationType;
 using PlannR.Application.Features.Accomodations.Types.Queries.GetAccomodationTypeByName;
 using PlannR.Application.Features.Accomodations.Types.Queries.GetAccomodationTypeList;
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
