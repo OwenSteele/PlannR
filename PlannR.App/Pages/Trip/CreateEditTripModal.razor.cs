@@ -1,8 +1,10 @@
 ﻿using Blazored.Modal;
+using Blazored.Modal.Services;
 using Microsoft.AspNetCore.Components;
 using PlannR.App.Infrastructure.Contracts;
 using PlannR.App.Infrastructure.Services.Base;
 using PlannR.App.Infrastructure.ViewModels.Trips;
+using PlannR.App.Pages.Modals;
 using System;
 using System.Threading.Tasks;
 
@@ -10,6 +12,11 @@ namespace PlannR.App.Pages.Trip
 {
     public partial class CreateEditTripModal
     {
+        [CascadingParameter]
+        IModalService Modal { get; set; }
+        [CascadingParameter]
+        BlazoredModalInstance ModalInstance { get; set; }
+
         [CascadingParameter]
         public ModalParameters Parameters { get; set; }
 
@@ -46,7 +53,7 @@ namespace PlannR.App.Pages.Trip
                 return;
             }
 
-            if(EditTripViewModel.TripId == Guid.Empty)
+            if (EditTripViewModel.TripId == Guid.Empty)
             {
                 var response = await TripDataService.CreateAsync(EditTripViewModel);
                 HandleResponse(response, "added");
@@ -66,7 +73,7 @@ namespace PlannR.App.Pages.Trip
 
         private void HandleResponse(ApiResponse<Guid> response, string message)
         {
-            if (response.Successful)
+            if (response.Success)
             {
                 Message = $"Trip {message} successfully!";
 
@@ -78,6 +85,27 @@ namespace PlannR.App.Pages.Trip
 
                 if (!string.IsNullOrEmpty(response.Errors)) Message += response.Errors;
             }
+        }
+
+        public async Task StartLocationModal()
+        {
+            var locationModal = Modal.Show<CreateEditLocationModal>();
+            var result = await locationModal.Result;
+
+            if (result.Cancelled) return;
+
+            if (EditTripViewModel.StartLocationId == null)
+                EditTripViewModel.StartLocationId = (Guid)result.Data;
+        }
+        public async Task EndLocationModal()
+        {
+            var locationModal = Modal.Show<CreateEditLocationModal>();
+            var result = await locationModal.Result;
+
+            if (result.Cancelled) return;
+
+            if (EditTripViewModel.EndLocationId == null)
+                EditTripViewModel.EndLocationId = (Guid)result.Data;
         }
     }
 }

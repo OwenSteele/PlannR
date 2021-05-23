@@ -3,15 +3,18 @@ using Blazored.Modal.Services;
 using Microsoft.AspNetCore.Components;
 using PlannR.App.Infrastructure.Contracts;
 using PlannR.App.Infrastructure.Services.Base;
-using PlannR.App.Infrastructure.ViewModels.Accomodation;
+using PlannR.App.Infrastructure.ViewModels.Event;
+using PlannR.App.Infrastructure.ViewModels.Events;
 using PlannR.App.Infrastructure.ViewModels.Nested;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace PlannR.App.Pages.Modals
 {
-    public partial class CreateAccomodationModal
+    public partial class CreateEventModal
     {
         [CascadingParameter]
         IModalService Modal { get; set; }
@@ -23,55 +26,56 @@ namespace PlannR.App.Pages.Modals
         [Inject]
         public ITripDataService TripDataService { get; set; }
         [Inject]
-        public IAccomodationDataService AccomodationDataService { get; set; }
+        public IEventDataService EventDataService { get; set; }
         [Inject]
-        public IAccomodationTypeDataService AccomodationTypeService { get; set; }
+        public IEventTypeDataService EventTypeService { get; set; }
 
         [Inject]
         public NavigationManager NavigationManager { get; set; }
 
-        public EditAccomodationViewModel EditAccomodationViewModel { get; set; }
+        public EditEventViewModel EditEventViewModel { get; set; }
         public ICollection<TripNestedViewModel> UserTrips { get; set; }
-        public ICollection<AccomodationTypeNestedViewModel> AccomodationTypes { get; set; }
+        public ICollection<EventTypeNestedViewModel> EventTypes { get; set; }
         public bool Submitted { get; set; } = false;
 
         public string Message { get; set; }
         protected async override Task OnInitializedAsync()
         {
-            EditAccomodationViewModel = new EditAccomodationViewModel
+            EditEventViewModel = new EditEventViewModel
             {
-                StartDateTime = DateTime.Today
+                StartDateTime = DateTime.Today,
+                EndDateTime = DateTime.Today
             };
             UserTrips = await TripDataService.GetTripNamesAsync();
-            AccomodationTypes = await AccomodationTypeService.GetAllTypeNamesAsync();
+            EventTypes = await EventTypeService.GetAllTypeNamesAsync();
         }
 
         protected async Task HandleValidSubmit()
         {
-            if (EditAccomodationViewModel.AccomodationId == Guid.Empty)
+            if (EditEventViewModel.EventId == Guid.Empty)
             {
-                var result = await CreateAccomodationAsync();
+                var result = await CreateEventAsync();
 
                 await ModalInstance.CloseAsync(ModalResult.Ok(result));
             }
             else
             {
-                await EditAccomodationAsync();
+                await EditEventAsync();
 
                 await ModalInstance.CloseAsync();
             }
         }
 
-        private async Task EditAccomodationAsync()
+        private async Task EditEventAsync()
         {
-            var response = await AccomodationDataService.UpdateAsync(EditAccomodationViewModel);
+            var response = await EventDataService.UpdateAsync(EditEventViewModel);
 
             HandleResponse(response);
         }
 
-        private async Task<Guid> CreateAccomodationAsync()
+        private async Task<Guid> CreateEventAsync()
         {
-            var response = await AccomodationDataService.CreateAsync(EditAccomodationViewModel);
+            var response = await EventDataService.CreateAsync(EditEventViewModel);
 
             HandleResponse(response);
 
@@ -87,7 +91,7 @@ namespace PlannR.App.Pages.Modals
         {
             if (response.Success)
             {
-                Message = "Accomodation added successfully!";
+                Message = "Event added successfully!";
 
                 Submitted = true;
             }
@@ -100,12 +104,12 @@ namespace PlannR.App.Pages.Modals
         }
         public async Task CreateTypeModal()
         {
-            var typeModal = Modal.Show<CreateAccomodationTypeModal>("");
+            var typeModal = Modal.Show<CreateEventTypeModal>("");
             var result = await typeModal.Result;
 
             if (result.Cancelled) return;
 
-            AccomodationTypes = await AccomodationTypeService.GetAllTypeNamesAsync();
+            EventTypes = await EventTypeService.GetAllTypeNamesAsync();
         }
         public async Task LocationModal()
         {
@@ -114,8 +118,8 @@ namespace PlannR.App.Pages.Modals
 
             if (result.Cancelled) return;
 
-            if (EditAccomodationViewModel.LocationId == null)
-                EditAccomodationViewModel.LocationId = (Guid)result.Data;
-        }            
+            if (EditEventViewModel.LocationId == null)
+                EditEventViewModel.LocationId = (Guid)result.Data;
+        }
     }
 }

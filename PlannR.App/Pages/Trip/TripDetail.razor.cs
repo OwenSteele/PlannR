@@ -2,11 +2,15 @@
 using Blazored.Modal.Services;
 using Microsoft.AspNetCore.Components;
 using PlannR.App.Infrastructure.Contracts;
+using PlannR.App.Infrastructure.Contracts.View;
 using PlannR.App.Infrastructure.ViewModels.Locations;
-using PlannR.App.Infrastructure.ViewModels.Nested;
 using PlannR.App.Infrastructure.ViewModels.Trips;
+using PlannR.App.Infrastructure.ViewModels.UI;
 using PlannR.App.Pages.Modals;
+using PlannR.ComponentLibrary.Map;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace PlannR.App.Pages.Trip
@@ -22,14 +26,32 @@ namespace PlannR.App.Pages.Trip
         [Inject]
         public ITripDataService TripDataService { get; set; }
         [Inject]
+        public ITripOrderingService TripOrderingService { get; set; }
+        [Inject]
         public NavigationManager NavigationManager { get; set; }
         public TripDetailViewModel Trip { get; set; }
+        public OrderTripPartNestedViewModel[] OrderedTripParts { get; set; }
 
+        public List<Marker> MapPoints { get; set; }
         protected async override Task OnInitializedAsync()
         {
-            Guid.TryParse(TripId, out _tripId);
+            if (Guid.TryParse(TripId, out _tripId))
+            {
+                Trip = await TripDataService.GetTripByIdAsync(_tripId);
 
-            Trip = await TripDataService.GetTripByIdAsync(_tripId);
+                OrderedTripParts = TripOrderingService.OrderTripParts(Trip);
+
+                MapPoints = new List<Marker> 
+                { 
+                    new Marker
+                    {
+                        Description = "Start of Trip",
+                        ShowPopup = false,
+                        Y = (Trip.StartLocation?.Latitude ?? 0),
+                        X = (Trip.StartLocation?.Longitude ?? 0)
+                    }
+                };
+            }
         }
         protected void NavigateToAccomodation(string uri)
         {
@@ -46,6 +68,10 @@ namespace PlannR.App.Pages.Trip
         protected void NavigateToRoutes(string uri)
         {
             NavigationManager.NavigateTo($"routes/{uri}");
+        }
+        protected void NavigateTo(string uri)
+        {
+            NavigationManager.NavigateTo($"{uri}");
         }
         private async Task ShowEditTripModal()
         {
@@ -67,12 +93,14 @@ namespace PlannR.App.Pages.Trip
 
             if (result.Cancelled)
                 Trip = await TripDataService.GetTripByIdAsync(_tripId);
+
+            StateHasChanged();
         }
         private async Task ShowEditLocationModal(bool IsStartLocation)
         {
             var model = IsStartLocation ? Trip.StartLocation : Trip.EndLocation;
 
-            if(model == null)
+            if (model == null)
             {
                 var modal = Modal.Show<CreateEditLocationModal>("New Location");
 
@@ -80,10 +108,8 @@ namespace PlannR.App.Pages.Trip
 
                 if (!result.Cancelled)
                 {
-                    var id = (Guid)result.Data;
-
                     Trip = await TripDataService.GetTripByIdAsync(_tripId);
-                }                
+                }
             }
             else
             {
@@ -108,6 +134,55 @@ namespace PlannR.App.Pages.Trip
                 if (!result.Cancelled)
                     Trip = await TripDataService.GetTripByIdAsync(_tripId);
             }
+            StateHasChanged();
+        }
+        private async Task CreateAccomodationModal()
+        {
+            var modal = Modal.Show<CreateAccomodationModal>("New Accomodation");
+
+            var result = await modal.Result;
+
+            if (!result.Cancelled)
+            {
+                Trip = await TripDataService.GetTripByIdAsync(_tripId);
+            }
+            StateHasChanged();
+        }
+        private async Task CreateTransportModal()
+        {
+            var modal = Modal.Show<CreateTransportModal>("New Transport");
+
+            var result = await modal.Result;
+
+            if (!result.Cancelled)
+            {
+                Trip = await TripDataService.GetTripByIdAsync(_tripId);
+            }
+            StateHasChanged();
+        }
+        private async Task CreateEventModal()
+        {
+            var modal = Modal.Show<CreateEventModal>("New Event");
+
+            var result = await modal.Result;
+
+            if (!result.Cancelled)
+            {
+                Trip = await TripDataService.GetTripByIdAsync(_tripId);
+            }
+            StateHasChanged();
+        }
+        private async Task CreateRouteModal()
+        {
+            var modal = Modal.Show<CreateRouteModal>("New Route");
+
+            var result = await modal.Result;
+
+            if (!result.Cancelled)
+            {
+                Trip = await TripDataService.GetTripByIdAsync(_tripId);
+            }
+            StateHasChanged();
         }
     }
 }

@@ -13,58 +13,145 @@
     margin: 0px auto;
 }
 
-.trip-info > div {
-    font-weight: bold;
-    width: auto;
-}
-.trip-info > div > div {
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid #000000;
-}
+    .trip-info > div {
+        font-weight: bold;
+        width: auto;
+    }
 
-.trip-info > div > div > div {
-    display: flex;
-    justify-content: space-between;
-    padding: 5px 0px;
-    flex-direction: column;
-}
+        .trip-info > div > div {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #000000;
+        }
+
+            .trip-info > div > div > div {
+                display: flex;
+                justify-content: space-around;
+                padding: 5px 0px;
+                flex-direction: row;
+            }
 
 .trip-section {
     display: flex;
     justify-content: space-between;
     padding: 5px 0px;
     flex-direction: row;
-    overflow:hidden;
-}
-.trip-section > div {
-    border: 2px solid black;
-    min-width: 22%;
-    border-radius: 5px;
-    margin: 10px;
+    overflow: hidden;
 }
 
-.val {
-    font-weight: 900;
+    .trip-section > div {
+        border: none;
+        min-width: 22%;
+        max-width: 24%;
+        border-radius: 5px;
+        margin: 10px;
+        padding: 5px;
+    }
+
+h3 {
+    font-weight: bolder;
+    margin: auto;
 }
-.heading {
-    border-bottom: 3px solid #00ff90;
-    margin: 15px auto;
+h2 {
+    font-weight: bolder;
+    margin: auto;
+}
+h4 {
+    font-weight: bolder;
+}
+
+    .trip-section > div > div {
+        margin: 15px auto;
+        width: 100%;
+        flex: auto;
+        flex-direction: row;
+        display: inline-flex;
+        justify-content: space-between;
+        vertical-align: central;
+    }
+
+    .trip-section .item-btn {
+        width: 100%;
+        overflow: inherit;
+        font-size: 12px;
+        background: rgba(255,255,255,.6);
+        transition: 0.5s;
+        margin: 5px 0px;
+        padding: 5px;
+        height: auto;
+    }
+
+.item-btn > div {
+    flex: auto;
+    flex-direction: row;
+    display: inline-flex;
+    justify-content: space-around;
+    vertical-align: central;
+    width: 100%;
+}
+.item-btn > p {
+    font-weight: bolder;
+    font-size: 14px;
+    margin: auto;
+}
+
+
+.trip-section .item-btn:hover {
+    width: 100%;
+    overflow: hidden;
+    font-size: 12px;
+    background-color: #ffffff;
+    color: #000000;
+    opacity: 1;
+    transition: 0.5s;
+}
+
+.trip-section > div > div > button {
+    background-color: #ffffff;
+    transition: 0.5s;
+}
+
+.trip-section > div > div > button:hover {
+    color: #000000;
+    background-color: transparent;
+    transition: 1s;
+}
+.empty-section {
+    font-weight: bolder;
+    font-size: 20px;
+    align-content: center;
     width: 100%;
     flex: auto;
     flex-direction: row;
     display: inline-flex;
     justify-content: space-between;
-    vertical-align: central;
+}
+.empty-section > div {
+    border-radius: 8px;
+    padding: 5px;
+    margin: auto;
+    background-color: #ffffff;
+    width: auto;
+}
+.heading {
+border-bottom: 3px solid #00ff90;
+margin: 15px auto;
+width: 100%;
+flex: auto;
+flex-direction: row;
+display: inline-flex;
+justify-content: space-between;
+vertical-align: central;
 }
 
 .heading h1 {
     font-weight: bolder;
     font-size: 60px;
 }
-    .heading div {
-        font-size: 24px;
-    }
+
+.heading div {
+    font-size: 24px;
+}
 
 button {
     height: min-content;
@@ -90,12 +177,140 @@ button:hover {
     color: #ffffff;
 }
 
+.accom {
+    background-color: #fea9a9;
+}
+
+.transport {
+    background-color: #fdffba;
+}
+
+.events {
+    background-color: #c1f3fd;
+}
+
+.routes {
+    background-color: #dffdc0;
+}
+
+.nights {
+    vertical-align: bottom;
+    font-size: 18px;
+}
+
+.map-parts > div {
+    width: 48%;
+    min-height: 700px;
+}
+.map-parts {
+    margin: 20px 0px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.ordered-parts {
+    margin: 20px 0px;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 10px;
+    flex-direction: column;
+    overflow-x: hidden;
+    max-height: 1000px;
+    overflow-y: auto;
+}
+
+.ordered-parts .part-btn:hover {
+    width: 100%;
+    overflow: hidden;
+    font-size: 12px;
+    background-color: #00ff90;
+    color: #000000;
+    transition: 0.3s;
+}
+
+.ordered-parts > div > div > button {
+    background-color: #ffffff;
+    transition: 0.5s;
+}
+
+    .ordered-parts > div > div > button:hover {
+        color: #000000;
+        background-color: transparent;
+        transition: 1s;
+    }
+
+
+.ordered-parts h4 {
+    font-weight: bolder;
+}
+
+.ordered-parts > div {
+    margin: 15px auto;
+    width: 100%;
+    flex: auto;
+    flex-direction: row;
+    display: inline-flex;
+    justify-content: space-between;
+    vertical-align: central;
+}
+
+.ordered-parts .part-btn {
+    width: 100%;
+    overflow: hidden;
+    font-size: 12px;
+    transition: 0.5s;
+    margin: 5px 0px;
+    padding: 5px;
+    height: auto;
+}
+
+.part-btn > div {
+    flex: auto;
+    flex-direction: row;
+    display: inline-flex;
+    justify-content: space-between;
+    vertical-align: central;
+    width: 100%;
+    padding: 5px 20px;
+}
+
+.part-btn > p {
+    font-weight: bolder;
+    font-size: 14px;
+    margin: auto;
+}
+
+.part-type {
+    padding:10px;
+    margin: 5px;
+    background-color: #ffffff;
+    font-weight: bolder;
+    border-radius: 5px;
+    font-size: 16px;
+}
+.part-info {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    overflow: hidden;
+}
+
+
 @media screen and (max-width: 500px) {
     .dates-locations > div {
         flex-direction: column;
     }
+
     .heading {
         flex-direction: column;
+    }
+
+    .trip-section{
+
+    }
+    .map-parts > div {
+        width: 96%;
     }
 }
 
@@ -103,4 +318,8 @@ button:hover {
     .trip-section {
         flex-direction: column;
     }
+    .trip-section > div {
+        min-width: 90%;
+    }
 }
+

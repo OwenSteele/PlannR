@@ -1,10 +1,10 @@
 ﻿@page "/trips/{tripId}"
 @attribute [Authorize]
 
-<div class="trip">
+<div class="trip limit-width">
     @if (Trip == null)
     {
-        <p>Getting trip info..</p>
+        <p>Searching for your adventure..</p>
     }
     else
     {
@@ -21,67 +21,193 @@
             <div>
                 <div class="one">
                     <div>
-                        <span>From:</span>
-                        <span class="val">@(Trip.StartLocation == null ? "No Location Set" : Trip.StartLocation.Name)</span>
-                    </div>
-                    <div>
-                        <button @onclick="(() => ShowEditLocationModal(true))">&#9998;</button>
+                        <div>Starting From:</div>
+                        <div class="val">@(Trip.StartLocation == null ? "No Location Set" : Trip.StartLocation.Name)</div>
                     </div>
                 </div>
                 <div class="two">
                     <div>
-                        <span>At:</span>
-                        <span class="val">@(Trip.StartLocation == null ? "No Location Set" : Trip.StartLocation.Name)</span>
-                    </div>
-                    <div>
-                            <button @onclick="(() => ShowEditLocationModal(false))">&#9998;</button>
+                        <div>Finishing At:</div>
+                        <div class="val">@(Trip.EndLocation == null ? "No Location Set" : Trip.EndLocation.Name)</div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <div class="map-parts">
+            <div>
+                <div>
+                    <h2>Schedule</h2>
+                </div>
+                <div class="ordered-parts">
+                    @if (!OrderedTripParts.Any())
+                    {
+                        <p>Sorting out your schedule..</p>
+                    }
+                    else
+                    {
+                        @foreach (var part in OrderedTripParts)
+                        {
+                            <button class="part-btn @part.CssClass" @onclick="(() => NavigateTo(part.Uri))">
+                                <div>
+                                    <h4>@part.Name</h4>
+                                    <p class="part-type">@part.Type</p>
+                                </div>
+                                <div class="part-info">
+                                    <h4>
+                                        <span>&#128197;</span>
+                                        <strong>@part.StartDateTime.ToShortDateString()</strong> to
+                                        <strong>@part.EndDateTime.ToShortDateString()</strong>
+                                    </h4>
+                                    <p>
+                                        @if (string.IsNullOrWhiteSpace(part.EndLocationName) && string.IsNullOrWhiteSpace(part.StartLocationName))
+                                        {
+                                            <span>&#128204; </span>
+                                            <strong>No Location</strong>
+                                        }
+                                        else if (string.IsNullOrWhiteSpace(part.EndLocationName) && !string.IsNullOrWhiteSpace(part.StartLocationName))
+                                        {
+                                            <span>&#128204; At:</span>
+                                            <strong>@part.StartLocationName</strong>
+                                        }
+                                        else
+                                        {
+                                            <span>&#128204; </span>
+                                            <strong>@part.StartLocationName</strong>
+                                            <span>
+                                                &#10140;
+                                            </span>
+                                            <strong>@part.EndLocationName</strong>
+                                        }
+                                    </p>
+                                </div>
+                            </button>
+                        }
+                    }
+                </div>
+            </div>
+            <div>
+                    <Map Zoom="1" Points="@MapPoints"></Map>
+            </div>
+        </div>
         <div class="trip-section">
             <div class="accom">
-                <h3>Accomodation</h3>
-                @foreach (var accom in Trip.Accomodations)
+                <div>
+                    <h3>Accomodation</h3>
+                    <button @onclick="CreateAccomodationModal">&#43;</button>
+                </div>
+                @if (Trip.Accomodations == null || !Trip.Accomodations.Any())
                 {
-                <button @onclick="(() => NavigateToAccomodation(accom.AccomodationId.ToString()))">
-                    <h4>@accom.Name</h4>
-                    <p><span>&#128197;</span> <strong>@accom.StartDateTime.ToShortDateString()</strong> to <strong>@accom.EndDateTime.ToShortDateString()</strong></p>
-                    <p><span>&#127769;</span> @accom.Nights</p>
-                </button>
+                    <div class="empty-section"><div>No Accomodation yet!</div></div>
+                }
+                else
+                {
+                    @foreach (var accom in Trip.Accomodations)
+                    {
+                        <button class="item-btn" @onclick="(() => NavigateToAccomodation(accom.AccomodationId.ToString()))">
+                            <div>
+                                <h4>@accom.Name</h4>
+                                <p class="nights"><span>&#127769;</span>@accom.Nights</p>
+                            </div>
+                            <p>
+                                <span>&#128197;</span>
+                                <strong>@accom.StartDateTime.ToShortDateString()</strong> to
+                                <strong>@accom.StartDateTime.AddDays(accom.Nights).ToShortDateString()</strong>
+                            </p>
+                        </button>
+                    }
                 }
             </div>
             <div class="transport">
-                <h3>Transport</h3>
-                @foreach (var transport in Trip.Transports)
+                <div>
+                    <h3>Transport</h3>
+                    <button @onclick="CreateTransportModal">&#43;</button>
+                </div>
+                @if (Trip.Transports == null || !Trip.Transports.Any())
                 {
-                    <button @onclick="(() => NavigateToAccomodation(transport.TransportId.ToString()))">
-                        <h4>@transport.Name</h4>
-                        <p><span>&#128197;</span> <strong>@transport.StartDateTime.ToShortDateString()</strong> to <strong>@transport.EndDateTime.ToShortDateString()</strong></p>
-                    </button>
+                    <div class="empty-section"><div>No Transport yet!</div></div>
+                }
+                else
+                {
+                    @foreach (var transport in Trip.Transports)
+                    {
+                        <button class="item-btn" @onclick="(() => NavigateToAccomodation(transport.TransportId.ToString()))">
+                            <div>
+                                <h4>@transport.Name</h4>
+                            </div>
+                            <p>
+                                <span>&#128197;</span>
+                                <strong>@transport.StartDateTime.ToShortDateString()</strong> to
+                                <strong>@transport.EndDateTime.ToShortDateString()</strong>
+                            </p>
+                            <p>
+                                @if (transport.StartLocation == null && transport.EndLocation == null)
+                                {
+                                    <span>&#9992;&#65039;</span>
+                                    <strong>No Locations Set</strong>
+                                }
+                                else if (transport.StartLocation != null)
+                                {
+                                    <span>&#9992;&#65039;</span>
+                                    <strong>@transport.StartLocation.Name</strong>
+                                }
+                                else if (transport.EndLocation != null)
+                                {
+                                    <span>&#9992;&#65039;</span>
+                                    <strong>@transport.EndLocation.Name</strong>
+                                }
+                                else
+                                {
+                                    <strong>@transport.StartLocation.Name</strong>
+                                    <span>&#9992;&#65039;</span>
+                                    <strong>@transport.EndLocation.Name</strong>
+                                }
+
+                            </p>
+                        </button>
+                    }
                 }
             </div>
             <div class="events">
-                <h3>Events</h3>
-                @foreach (var ev in Trip.Events)
+                <div>
+                    <h3>Events</h3>
+                    <button @onclick="CreateEventModal">&#43;</button>
+                </div>
+                @if (Trip.Events == null || !Trip.Events.Any())
                 {
-            <button @onclick="(() => NavigateToAccomodation(ev.EventId.ToString()))">
-                <h4>@ev.Name</h4>
-                <p><span>&#128197;</span> <strong>@ev.StartDateTime.ToShortDateString()</strong> to <strong>@ev.EndDateTime.ToShortDateString()</strong></p>
-                <p><span>&#127968;</span> Location: <strong>@ev.CompanyName</strong></p>
-            </button>
+                    <div class="empty-section"><div>No Events yet!</div></div>
+                }
+                else
+                {
+                    @foreach (var ev in Trip.Events)
+                    {
+                        <button class="item-btn" @onclick="(() => NavigateToAccomodation(ev.EventId.ToString()))">
+                            <h4>@ev.Name</h4>
+                            <p><span>&#128197;</span> <strong>@ev.StartDateTime.ToShortDateString()</strong> to <strong>@ev.EndDateTime.ToShortDateString()</strong></p>
+                            <p><span>&#127968;</span> Location: <strong>@ev.CompanyName</strong></p>
+                        </button>
+                    }
                 }
             </div>
             <div class="routes">
-                <h3>Routes</h3>
-                @foreach (var route in Trip.Routes)
+                <div>
+                    <h3>Routes</h3>
+                    <button @onclick="CreateRouteModal">&#43;</button>
+                </div>
+                @if (Trip.Routes == null || !Trip.Routes.Any())
                 {
-                    <button @onclick="(() => NavigateToAccomodation(route.RouteId.ToString()))">
-                        <h4>@route.Name</h4>
-                        <p><span>&#128197;</span> <strong>@route.StartDateTime.ToShortDateString()</strong> to <strong>@route.EndDateTime.ToShortDateString()</strong></p>
-                    </button>
+                    <div class="empty-section"><div>No Routes yet!</div></div>
                 }
-
+                else
+                {
+                    @foreach (var route in Trip.Routes)
+                    {
+                        <button class="item-btn" @onclick="(() => NavigateToAccomodation(route.RouteId.ToString()))">
+                            <h4>@route.Name</h4>
+                            <p><span>&#128197;</span> <strong>@route.StartDateTime.ToShortDateString()</strong> to <strong>@route.EndDateTime.ToShortDateString()</strong></p>
+                        </button>
+                    }
+                }
             </div>
         </div>
     }

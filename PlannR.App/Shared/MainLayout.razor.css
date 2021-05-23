@@ -64,8 +64,6 @@
         color: #00ff90;
     }
 
-
-/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-width: 500px) {
     .sidebar {
         width: 0%;
@@ -119,4 +117,28 @@
             border: none;
             color: #00ff90;
         }
+}
+
+@media screen and (min-width: 1600px) {
+
+    .sidebar-collapsed {
+        height: 100%;
+        width: 300px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: #111;
+        overflow-x: hidden;
+        transition: 0.2s;
+        display: block;
+    }
+
+    .togglebtn {
+        visibility:hidden;
+        display: none;
+    }
+
+    .main-focused {
+        margin-left: 300px;
+    }
 }

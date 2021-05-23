@@ -1,0 +1,27 @@
+﻿.points-section {
+    border: 3px solid #00ff90;
+    border-radius: 5px;
+    width: 100%;
+    padding: 10px;
+}
+
+.points-section button {
+    font-size: 12px;
+}
+.added-points {
+    margin: 5px;
+    padding: 5px;
+}
+
+ol {
+    
+}
+
+.added-points > li {
+    display: flex;
+    flex-direction: column;
+}
+
+    .added-points > button {
+        padding-left: 5px;
+    }

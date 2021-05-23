@@ -1,0 +1,37 @@
+<div class="modal-parent">
+    @if (!Submitted)
+    {
+    <EditForm Model="@TransportTypeOfNameViewModel"
+              OnValidSubmit="HandleValidSubmit" OnInvalidSubmit="HandleInvalidSubmit">
+        <DataAnnotationsValidator></DataAnnotationsValidator>
+        <span>@Message</span>
+        <div class="form-field">
+            <label for="Name">Name<span>*</span></label>
+            <InputText id="Name" @bind-Value="@TransportTypeOfNameViewModel.Name"
+                       placeholder="Train/Tandem/Helicopter"></InputText>
+            <ValidationMessage For="@(() => TransportTypeOfNameViewModel.Name)" />
+        </div>
+        <div class="form-field">
+            <label for="publicTransport">Public Transport</label>
+            <InputCheckbox id="publicTransport" @bind-Value="@TransportTypeOfNameViewModel.IsPublic" />
+            <ValidationMessage For="@(() => TransportTypeOfNameViewModel.IsPublic)" />
+        </div>
+        <div class="form-field">
+            <label for="HasFixedRoute">Is the route fixed?</label>
+            <InputCheckbox id="HasFixedRoute" @bind-Value="@TransportTypeOfNameViewModel.HasFixedRoute" />
+            <ValidationMessage For="@(() => TransportTypeOfNameViewModel.HasFixedRoute)" />
+        </div>
+
+        <div class="form-submit">
+            <button type="submit"><strong>&#128190;</strong></button>
+            <span>* required fields</span>
+        </div>
+    </EditForm>
+    }
+    else
+    {
+        <div class="submitted">
+            Your location <strong>@TransportTypeOfNameViewModel.Name</strong> has been created!
+        </div>
+    }
+</div>

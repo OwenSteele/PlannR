@@ -1,5 +1,5 @@
 ﻿.login {
-    margin: 30px auto;
+    margin: 30% auto;
     border: 1px solid black;
     border-radius: 3px;
     padding: 10px 20px;
@@ -58,6 +58,23 @@ span {
     }
 }
 @media screen and (max-width: 600px) {
+    .inputs {
+        flex-direction: column;
+    }
+}
+
+@media screen and (min-width: 1700px) {
+    .login {
+        margin: 20% auto;
+    }
+}
+@media screen and (min-width: 2000px) {
+    .login {
+        margin: 10% auto;
+    }
+}
+
+@media screen and (max-height: 500px) {
     .inputs {
         flex-direction: column;
     }

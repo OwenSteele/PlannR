@@ -1,0 +1,64 @@
+@using PlannR.App.Pages.Route
+
+@if (UserTrips == null)
+{
+    <p>Finding all the bits and bobs..</p>
+}
+else
+{
+    <div class="modal-parent">
+        @if (!Submitted)
+        {
+            <EditForm Model="@EditRouteViewModel"
+                      OnValidSubmit="HandleValidSubmit" OnInvalidSubmit="HandleInvalidSubmit">
+                <DataAnnotationsValidator></DataAnnotationsValidator>
+                <span>@Message</span>
+                <div class="form-field">
+                    <label for="RouteName">Name<span>*</span></label>
+                    <InputText id="RouteName" @bind-Value="@EditRouteViewModel.Name"
+                               placeholder="Route Name"></InputText>
+                    <ValidationMessage For="@(() => EditRouteViewModel.Name)" />
+                </div>
+
+                <div class="form-field">
+                    <label for="trip">Part of Trip<span>*</span></label>
+                    <InputSelect id="trip" @bind-Value="@EditRouteViewModel.TripId"
+                                 placeholder="Select a Trip">
+                        @foreach (var trip in UserTrips)
+                                {
+                            <option value="@trip.TripId">@trip.Name</option>
+                                }
+                    </InputSelect>
+                    <ValidationMessage For="@(() => EditRouteViewModel.TripId)" />
+                </div>
+                <div class="form-field">
+                    <label for="start">Start Date</label>
+                    <InputDate id="start" @bind-Value="@EditRouteViewModel.StartDateTime"></InputDate>
+                    <ValidationMessage For="@(() => EditRouteViewModel.StartDateTime)" />
+                </div>
+                <div class="form-field">
+                    <label for="end">Finish Date</label>
+                    <InputDate id="end" @bind-Value="@EditRouteViewModel.EndDateTime"></InputDate>
+                    <ValidationMessage For="@(() => EditRouteViewModel.EndDateTime)" />
+                </div>
+                <div class="form-field">
+                    <CascadingValue Value="RoutePoints">
+                        <EditRoutePointsModal>
+                        </EditRoutePointsModal>
+                    </CascadingValue>
+                </div>
+
+                <div class="form-submit">
+                    <button type="submit"><strong>&#128190;</strong></button>
+                    <span>* required fields</span>
+                </div>
+            </EditForm>
+        }
+        else
+        {
+            <div class="submitted">
+                Your Route <strong>@EditRouteViewModel.Name</strong> has been updated!
+            </div>
+        }
+    </div>
+}

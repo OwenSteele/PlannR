@@ -1,0 +1,36 @@
+<div class="points-section">
+    <label>Points</label>
+    @if (RoutePoints == null)
+    {
+        <p>Add a point!</p>
+    }
+    else
+    {
+        <ol class="added-points" type="1">
+            @foreach (var point in RoutePoints.OrderBy(x => x.StartDateTime))
+            {
+                <li>
+                    <div>@point.StartDateTime<span>&#128337;</span>@point.StartDateTime</div>
+                    <button type="button" @onclick="(() => RemoveRoutePoint(point))">&#10060;</button>
+                </li>
+            }
+        </ol>
+    }
+    <div>
+        <div>
+            <label for="start">Start Date/Time</label>
+            <input type="date" id="start" @bind-value="@CurrentPoint.StartDateTime" />
+            <label for="end">End Date/Time</label>
+            <input type="date" id="end" @bind-value="@CurrentPoint.EndDateTime" />
+            @if (CurrentPoint.LocationId == Guid.Empty)
+            {
+                <button type="button" @onclick="LocationModal"> Add Location</button>
+            }
+            else
+            {
+                <p>Location Set</p>
+            }
+        </div>
+        <button type="button" @onclick="AddRoutePoint"> Add Point</button>
+    </div>
+</div>

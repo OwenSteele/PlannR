@@ -6,15 +6,13 @@ using PlannR.App.Infrastructure.Services.Base;
 using PlannR.App.Infrastructure.ViewModels.Locations;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace PlannR.App.Pages.Modals
 {
     public partial class CreateEditLocationModal
     {
-        [CascadingParameter] 
+        [CascadingParameter]
         BlazoredModalInstance ModalInstance { get; set; }
         [CascadingParameter]
         public ModalParameters Parameters { get; set; }
@@ -27,13 +25,19 @@ namespace PlannR.App.Pages.Modals
 
         [Parameter]
         public EditLocationViewModel EditLocationViewModel { get; set; }
+        [Parameter]
+        public ICollection<LocationListViewModel> ExistingLocations { get; set; }
+        [Parameter]
+        public Guid ExistingLocationId { get; set; }
+        public bool UseExistingLocation { get; set; } = false;
         public bool Submitted { get; set; } = false;
 
         public string Message { get; set; }
 
-        protected override void OnInitialized()
+        protected async override Task OnInitializedAsync()
         {
             EditLocationViewModel = new EditLocationViewModel();
+            ExistingLocations = await LocationDataService.GetAllLocationsAsync();
         }
 
         protected async Task HandleValidSubmit()
@@ -49,7 +53,14 @@ namespace PlannR.App.Pages.Modals
                 await EditLocationAsync();
 
                 await ModalInstance.CloseAsync();
-            }  
+            }
+        }
+
+        protected async Task HandleExistingSubmit()
+        {
+            if (ExistingLocationId == Guid.Empty) return;
+
+            await ModalInstance.CloseAsync(ModalResult.Ok(ExistingLocationId));
         }
 
         private async Task EditLocationAsync()
@@ -65,7 +76,7 @@ namespace PlannR.App.Pages.Modals
 
             HandleResponse(response);
 
-            return response.Context;
+            return response.Data;
         }
 
         protected void HandleInvalidSubmit()
@@ -75,7 +86,7 @@ namespace PlannR.App.Pages.Modals
 
         private void HandleResponse(ApiResponse<Guid> response)
         {
-            if (response.Successful)
+            if (response.Success)
             {
                 Message = "Location added successfully!";
 

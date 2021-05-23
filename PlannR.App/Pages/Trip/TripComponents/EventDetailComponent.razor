@@ -1,0 +1,11 @@
+﻿@*<div class="events">
+    <h3>Events</h3>
+    @foreach (var ev in Trip.Events)
+    {
+        <button @onclick="(() => NavigateToAccomodation(ev.EventId.ToString()))">
+            <h4>@ev.Name</h4>
+            <p><span>&#128197;</span> <strong>@ev.StartDateTime.ToShortDateString()</strong> to <strong>@ev.EndDateTime.ToShortDateString()</strong></p>
+            <p><span>&#127968;</span> Location: <strong>@ev.CompanyName</strong></p>
+        </button>
+    }
+</div>*@

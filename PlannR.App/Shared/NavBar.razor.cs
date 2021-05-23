@@ -39,7 +39,7 @@ namespace PlannR.App.Shared
         {
             StateHasChanged();
             AuthenticationService.Logout();
-            NavigationManager.NavigateTo("/", true);
+            NavigationManager.NavigateTo("/");
         }
     }
 }

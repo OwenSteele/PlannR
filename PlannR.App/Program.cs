@@ -12,7 +12,9 @@ namespace PlannR.App
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<App>("#app");
 
-            builder.Services.AddClientInfrastructureServices();
+            builder.Services
+                .AddClientInfrastructureServices()
+                .AddClientAppServices();
 
             builder.Services.AddBlazoredModal();
 

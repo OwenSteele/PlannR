@@ -1,0 +1,10 @@
+﻿@*<div class="transport">
+    <h3>Transport</h3>
+    @foreach (var transport in Trip.Transports)
+    {
+        <button @onclick="(() => NavigateToAccomodation(transport.TransportId.ToString()))">
+            <h4>@transport.Name</h4>
+            <p><span>&#128197;</span> <strong>@transport.StartDateTime.ToShortDateString()</strong> to <strong>@transport.EndDateTime.ToShortDateString()</strong></p>
+        </button>
+    }
+</div>*@

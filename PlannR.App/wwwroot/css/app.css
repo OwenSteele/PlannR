@@ -60,9 +60,14 @@ button:focus {
         top: 0.5rem;
     }
 
+.limit-width{
+    max-width: 1500px;
+    margin: 5px auto;
+}
+
 .modal-parent {
     min-height: 100px;
-    min-width: 350px;
+    min-width: 450px;
 }
 
 .modal-parent input {
@@ -85,8 +90,24 @@ button:focus {
 
 .modal-parent button {
     border: none;
-    padding: 0px;
+    padding: 4px 8px;
     font-size: 30px;
     background-color: transparent;
     align-self: end;
+    border-radius: 5px;
+}
+
+.form-submit {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-field button {
+    padding: 0px;
+    font-size: 30px;
+    background-color: #00ff90;
+    align-self: end;
+}
+.form-field  {
+    margin: 5px;
 }

@@ -10,15 +10,16 @@
 
   <ItemGroup>
     <PackageReference Include="Blazored.Modal" Version="6.0.1" />
-    <PackageReference Include="LiveSharp" Version="2.0.13" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="5.0.5" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="5.0.5" PrivateAssets="all" />
     <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="6.0.0-preview.1.21103.6" />
+    <PackageReference Include="PlannR.ComponentLibrary" Version="1.0.0" />
     <PackageReference Include="System.Net.Http.Json" Version="5.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\PlannR.App.Infrastructure\PlannR.App.Infrastructure.csproj" />
+    <ProjectReference Include="..\PlannR.ComponentLibrary\PlannR.ComponentLibrary.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,0 +1,27 @@
+<div class="modal-parent">
+    @if (!Submitted)
+    {
+        <EditForm Model="@AccomodationTypeOfNameViewModel"
+                  OnValidSubmit="HandleValidSubmit" OnInvalidSubmit="HandleInvalidSubmit">
+            <DataAnnotationsValidator></DataAnnotationsValidator>
+            <span>@Message</span>
+            <div class="form-field">
+                <label for="Name">Name<span>*</span></label>
+                <InputText id="Name" @bind-Value="@AccomodationTypeOfNameViewModel.Name"
+                           placeholder="Camping/Friends' house/Hostel"></InputText>
+                <ValidationMessage For="@(() => AccomodationTypeOfNameViewModel.Name)" />
+            </div>
+
+            <div class="form-submit">
+                <button type="submit"><strong>&#128190;</strong></button>
+                <span>* required fields</span>
+            </div>
+        </EditForm>
+    }
+    else
+    {
+        <div class="submitted">
+            Your location <strong>@AccomodationTypeOfNameViewModel.Name</strong> has been created!
+        </div>
+    }
+</div>

@@ -3,15 +3,15 @@ using Blazored.Modal.Services;
 using Microsoft.AspNetCore.Components;
 using PlannR.App.Infrastructure.Contracts;
 using PlannR.App.Infrastructure.Services.Base;
-using PlannR.App.Infrastructure.ViewModels.Accomodation;
 using PlannR.App.Infrastructure.ViewModels.Nested;
+using PlannR.App.Infrastructure.ViewModels.Transport;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace PlannR.App.Pages.Modals
 {
-    public partial class CreateAccomodationModal
+    public partial class CreateTransportModal
     {
         [CascadingParameter]
         IModalService Modal { get; set; }
@@ -23,55 +23,56 @@ namespace PlannR.App.Pages.Modals
         [Inject]
         public ITripDataService TripDataService { get; set; }
         [Inject]
-        public IAccomodationDataService AccomodationDataService { get; set; }
+        public ITransportDataService TransportDataService { get; set; }
         [Inject]
-        public IAccomodationTypeDataService AccomodationTypeService { get; set; }
+        public ITransportTypeDataService TransportTypeService { get; set; }
 
         [Inject]
         public NavigationManager NavigationManager { get; set; }
 
-        public EditAccomodationViewModel EditAccomodationViewModel { get; set; }
+        public EditTransportViewModel EditTransportViewModel { get; set; }
         public ICollection<TripNestedViewModel> UserTrips { get; set; }
-        public ICollection<AccomodationTypeNestedViewModel> AccomodationTypes { get; set; }
+        public ICollection<TransportTypeNestedViewModel> TransportTypes { get; set; }
         public bool Submitted { get; set; } = false;
 
         public string Message { get; set; }
         protected async override Task OnInitializedAsync()
         {
-            EditAccomodationViewModel = new EditAccomodationViewModel
+            EditTransportViewModel = new EditTransportViewModel
             {
-                StartDateTime = DateTime.Today
+                StartDateTime = DateTime.Today,
+                EndDateTime = DateTime.Today
             };
             UserTrips = await TripDataService.GetTripNamesAsync();
-            AccomodationTypes = await AccomodationTypeService.GetAllTypeNamesAsync();
+            TransportTypes = await TransportTypeService.GetAllTypeNamesAsync();
         }
 
         protected async Task HandleValidSubmit()
         {
-            if (EditAccomodationViewModel.AccomodationId == Guid.Empty)
+            if (EditTransportViewModel.TransportId == Guid.Empty)
             {
-                var result = await CreateAccomodationAsync();
+                var result = await CreateTransportAsync();
 
                 await ModalInstance.CloseAsync(ModalResult.Ok(result));
             }
             else
             {
-                await EditAccomodationAsync();
+                await EditTransportAsync();
 
                 await ModalInstance.CloseAsync();
             }
         }
 
-        private async Task EditAccomodationAsync()
+        private async Task EditTransportAsync()
         {
-            var response = await AccomodationDataService.UpdateAsync(EditAccomodationViewModel);
+            var response = await TransportDataService.UpdateAsync(EditTransportViewModel);
 
             HandleResponse(response);
         }
 
-        private async Task<Guid> CreateAccomodationAsync()
+        private async Task<Guid> CreateTransportAsync()
         {
-            var response = await AccomodationDataService.CreateAsync(EditAccomodationViewModel);
+            var response = await TransportDataService.CreateAsync(EditTransportViewModel);
 
             HandleResponse(response);
 
@@ -87,7 +88,7 @@ namespace PlannR.App.Pages.Modals
         {
             if (response.Success)
             {
-                Message = "Accomodation added successfully!";
+                Message = "Transport added successfully!";
 
                 Submitted = true;
             }
@@ -100,22 +101,33 @@ namespace PlannR.App.Pages.Modals
         }
         public async Task CreateTypeModal()
         {
-            var typeModal = Modal.Show<CreateAccomodationTypeModal>("");
+            var typeModal = Modal.Show<CreateTransportTypeModal>("");
             var result = await typeModal.Result;
 
             if (result.Cancelled) return;
 
-            AccomodationTypes = await AccomodationTypeService.GetAllTypeNamesAsync();
+            TransportTypes = await TransportTypeService.GetAllTypeNamesAsync();
         }
-        public async Task LocationModal()
+
+        public async Task StartLocationModal()
         {
-            var locationModal = Modal.Show<CreateEditLocationModal>("Add Location");
+            var locationModal = Modal.Show<CreateEditLocationModal>();
             var result = await locationModal.Result;
 
             if (result.Cancelled) return;
 
-            if (EditAccomodationViewModel.LocationId == null)
-                EditAccomodationViewModel.LocationId = (Guid)result.Data;
-        }            
+            if (EditTransportViewModel.StartLocationId == null)
+                EditTransportViewModel.StartLocationId = (Guid)result.Data;
+        }
+        public async Task EndLocationModal()
+        {
+            var locationModal = Modal.Show<CreateEditLocationModal>();
+            var result = await locationModal.Result;
+
+            if (result.Cancelled) return;
+
+            if (EditTransportViewModel.EndLocationId == null)
+                EditTransportViewModel.EndLocationId = (Guid)result.Data;
+        }
     }
 }

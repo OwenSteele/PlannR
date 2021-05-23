@@ -1,0 +1,88 @@
+@if (UserTrips == null || EventTypes == null)
+{
+    <p>Finding all the bits and bobs..</p>
+}
+else
+{
+    <div class="modal-parent">
+        @if (!Submitted)
+        {
+        <EditForm Model="@EditEventViewModel"
+                  OnValidSubmit="HandleValidSubmit" OnInvalidSubmit="HandleInvalidSubmit">
+            <DataAnnotationsValidator></DataAnnotationsValidator>
+            <span>@Message</span>
+            <div class="form-field">
+                <label for="EventName">Name<span>*</span></label>
+                <InputText id="EventName" @bind-Value="@EditEventViewModel.Name"
+                           placeholder="Event Name"></InputText>
+                <ValidationMessage For="@(() => EditEventViewModel.Name)" />
+            </div>
+            <div class="form-field">
+                <label for="description">Description</label>
+                <InputText id="description" @bind-Value="@EditEventViewModel.Description"
+                           placeholder="About the Event"></InputText>
+                <ValidationMessage For="@(() => EditEventViewModel.Description)" />
+            </div>
+            <div class="form-field">
+                <label for="description">Company Name</label>
+                <InputText id="description" @bind-Value="@EditEventViewModel.CompanyName"
+                           placeholder="Sal's Pizza/Marksman Paintball"></InputText>
+                <ValidationMessage For="@(() => EditEventViewModel.CompanyName)" />
+            </div>
+
+            <div class="form-field">
+                <label for="trip">Part of Trip<span>*</span></label>
+                <InputSelect id="trip" @bind-Value="@EditEventViewModel.TripId"
+                             placeholder="Select a Trip">
+                    @foreach (var trip in UserTrips)
+                            {
+                        <option value="@trip.TripId">@trip.Name</option>
+                            }
+                </InputSelect>
+                <ValidationMessage For="@(() => EditEventViewModel.TripId)" />
+            </div>
+            <div class="form-field">
+                <label for="type">Type<span>*</span></label>
+                <button type="button" @onclick="CreateTypeModal">Add &#43;</button>
+                <InputSelect id="type" @bind-Value="@EditEventViewModel.EventTypeId"
+                             placeholder="Select accom type">
+                    @foreach (var aType in EventTypes)
+                            {
+                        <option value="@aType.EventTypeId">@aType.Name</option>
+                            }
+                </InputSelect>
+                <ValidationMessage For="@(() => EditEventViewModel.EventTypeId)" />
+            </div>
+            <div class="form-field">
+                <label for="start">Start Date</label>
+                <InputDate id="start" @bind-Value="@EditEventViewModel.StartDateTime"></InputDate>
+                <ValidationMessage For="@(() => EditEventViewModel.StartDateTime)" />
+            </div>
+            <div class="form-field">
+                <label for="end">Finish Date</label>
+                <InputDate id="end" @bind-Value="@EditEventViewModel.EndDateTime"></InputDate>
+                <ValidationMessage For="@(() => EditEventViewModel.EndDateTime)" />
+            </div>
+            <div class="form-field">
+                <label>Location</label>
+                @if (EditEventViewModel.LocationId != null)
+                {
+                    <span>Location Set</span>
+                }
+                <button type="button" @onclick="LocationModal"> Add &#128396;</button>
+            </div>
+
+            <div class="form-submit">
+                <button type="submit"><strong>&#128190;</strong></button>
+                <span>* required fields</span>
+            </div>
+        </EditForm>
+        }
+        else
+        {
+            <div class="submitted">
+                Your Event <strong>@EditEventViewModel.Name</strong> has been updated!
+            </div>
+        }
+    </div>
+}

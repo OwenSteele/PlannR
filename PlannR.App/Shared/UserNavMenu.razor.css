@@ -6,7 +6,7 @@
     transition: 0.5s;
     transition-delay: 0.5s;
     transition-duration: 0.5s;
-    text-align:center;    
+    text-align:right;    
 }
 
 span {
@@ -22,7 +22,7 @@ a:focus {
     color: #ffffff;
     padding: 10px 15px;
     font-size: 60px;
-    align-content: center;
+    align-content: end;
     font-weight: bolder;
 }
 
@@ -40,6 +40,10 @@ a:focus {
 .important-text {
     color: orange;
     font-weight: bold;
+}
+
+.active-link {
+    color: #00ff90;
 }
 
 @media (max-width: 500px) {

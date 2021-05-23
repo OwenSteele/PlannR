@@ -1,0 +1,91 @@
+@if (UserTrips == null || TransportTypes == null)
+{
+<p>Finding all the bits and bobs..</p>
+}
+else
+{
+    <div class="modal-parent">
+        @if (!Submitted)
+        {
+        <EditForm Model="@EditTransportViewModel"
+                  OnValidSubmit="HandleValidSubmit" OnInvalidSubmit="HandleInvalidSubmit">
+            <DataAnnotationsValidator></DataAnnotationsValidator>
+            <span>@Message</span>
+            <div class="form-field">
+                <label for="TransportName">Name<span>*</span></label>
+                <InputText id="TransportName" @bind-Value="@EditTransportViewModel.Name"
+                           placeholder="Transport Name"></InputText>
+                <ValidationMessage For="@(() => EditTransportViewModel.Name)" />
+            </div>
+            <div class="form-field">
+                <label for="description">Description</label>
+                <InputText id="description" @bind-Value="@EditTransportViewModel.Description"
+                           placeholder="About the Transport"></InputText>
+                <ValidationMessage For="@(() => EditTransportViewModel.Description)" />
+            </div>
+            <div class="form-field">
+                <label for="trip">Part of Trip<span>*</span></label>
+                <InputSelect id="trip" @bind-Value="@EditTransportViewModel.TripId"
+                             placeholder="Select a Trip">
+                    @foreach (var trip in UserTrips)
+                            {
+                        <option value="@trip.TripId">@trip.Name</option>
+                            }
+                </InputSelect>
+                <ValidationMessage For="@(() => EditTransportViewModel.TripId)" />
+            </div>
+            <div class="form-field">
+                <label for="type">Type<span>*</span></label>
+                <button type="button" @onclick="CreateTypeModal">Add &#43;</button>
+                <InputSelect id="type" @bind-Value="@EditTransportViewModel.TransportTypeId"
+                             placeholder="Select accom type">
+                    @foreach (var aType in TransportTypes)
+                            {
+                        <option value="@aType.TransportTypeId">@aType.Name</option>
+                            }
+                </InputSelect>
+                <ValidationMessage For="@(() => EditTransportViewModel.TransportTypeId)" />
+            </div>
+            <div class="form-field">
+                <label for="start">Starting Date</label>
+                <InputDate id="start" @bind-Value="@EditTransportViewModel.StartDateTime">
+                </InputDate>
+                <ValidationMessage For="@(() => EditTransportViewModel.StartDateTime)" />
+            </div>
+            <div class="form-field">
+                <label for="end">Ending Date</label>
+                <InputDate id="end" @bind-Value="@EditTransportViewModel.EndDateTime">
+                </InputDate>
+                <ValidationMessage For="@(() => EditTransportViewModel.EndDateTime)" />
+            </div>
+
+            <div class="form-field">
+                <label>Starting Location</label>
+                @if(EditTransportViewModel.StartLocationId != null)
+                {
+                <span>Location Set</span>
+                }
+            <button type="button" @onclick="StartLocationModal">Add &#128396;</button>
+            </div>
+            <div class="form-field">
+                <label>End Location</label>
+                @if(EditTransportViewModel.EndLocationId != null)
+                {
+                <span>Location Set</span>
+                }
+            <button type="button" @onclick="EndLocationModal">Add &#128396;</button>
+            </div>
+            <div class="form-submit">
+                <button type="submit"><strong>&#128190;</strong></button>
+                <span>* required fields</span>
+            </div>
+        </EditForm>
+        }
+        else
+        {
+            <div class="submitted">
+                Your Transport <strong>@EditTransportViewModel.Name</strong> has been updated!
+            </div>
+        }
+    </div>
+}

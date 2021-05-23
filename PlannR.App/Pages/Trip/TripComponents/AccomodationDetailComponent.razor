@@ -1,0 +1,13 @@
+﻿@*inject Base.BaseDetailComponent<AccomodationNestedViewModel>
+
+<div class="accom">
+    <h3>Accomodation</h3>
+    @foreach (var accom in Models)
+    {
+        <button @onclick="(() => NavigateToAccomodation(accom.AccomodationId.ToString()))">
+            <h4>@accom.Name</h4>
+            <p><span>&#128197;</span> <strong>@accom.StartDateTime.ToShortDateString()</strong> to <strong>@accom.EndDateTime.ToShortDateString()</strong></p>
+            <p><span>&#127769;</span> @accom.Nights</p>
+        </button>
+    }
+</div>*@

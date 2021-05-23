@@ -1,0 +1,10 @@
+﻿.points-section {
+    border: 3px solid #00ff90;
+    border-radius: 5px;
+    width: 100%;
+    padding: 10px;
+}
+
+    .points-section button {
+        font-size: 12px;
+    }

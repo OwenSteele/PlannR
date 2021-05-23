@@ -1,10 +1,10 @@
 ﻿@page "/trips"
 @attribute [Authorize]
 
-<div class="trips">
+<div class="trips limit-width">
     <div class="heading">
         <h1>Your Trips</h1>
-        <button @onclick="ShowCreateTripModal"><span>&#43;</span> New</button>
+        <button @onclick="ShowCreateTripModal"><span>New Trip &#43;</span></button>
     </div>
     @if (Trips == null)
     {

@@ -1,34 +1,55 @@
 <div class="modal-parent">
     @if (!Submitted)
     {
-        <EditForm Model="@EditTripViewModel"
-                  OnValidSubmit="HandleValidSubmit" OnInvalidSubmit="HandleInvalidSubmit">
-            <DataAnnotationsValidator></DataAnnotationsValidator>
-            <span>@Message</span>
-            <div class="form-field">
-                <label for="tripName">Name<span>*</span></label>
-                <InputText id="tripName" @bind-Value="@EditTripViewModel.Name"
-                           placeholder="My next adventure"></InputText>
-                <ValidationMessage For="@(() => EditTripViewModel.Name)" />
-            </div>
-            <div class="form-field">
-                <label for="tripName">Start Date<span>*</span></label>
-                <InputDate id="tripStartDate" @bind-Value="@EditTripViewModel.StartDateTime"
-                           placeholder="@DateTime.Now.ToShortTimeString()"></InputDate>
-                <ValidationMessage For="@(() => EditTripViewModel.StartDateTime)" />
-            </div>
-            <div class="form-field">
-                <label for="tripName">End Date<span>*</span></label>
-                <InputDate id="tripStartDate" @bind-Value="@EditTripViewModel.EndDateTime"
-                           placeholder="@DateTime.Now.ToShortTimeString()"></InputDate>
-                <ValidationMessage For="@(() => EditTripViewModel.EndDateTime)" />
-            </div>
-
-            <div class="form-submit">
-                <button type="submit"><strong>&#128190;</strong></button>
-                <span>* required fields</span>
-            </div>
-        </EditForm>
+    <EditForm Model="@EditTripViewModel"
+              OnValidSubmit="HandleValidSubmit" OnInvalidSubmit="HandleInvalidSubmit">
+        <DataAnnotationsValidator></DataAnnotationsValidator>
+        <span>@Message</span>
+        <div class="form-field">
+            <label for="tripName">Name<span>*</span></label>
+            <InputText id="tripName" @bind-Value="@EditTripViewModel.Name"
+                       placeholder="My next adventure"></InputText>
+            <ValidationMessage For="@(() => EditTripViewModel.Name)" />
+        </div>
+        <div class="form-field">
+            <label for="tripDescription">Description</label>
+            <InputText id="tripDescription" @bind-Value="@EditTripViewModel.Description"
+                       placeholder="In this trip I will..."></InputText>
+            <ValidationMessage For="@(() => EditTripViewModel.Description)" />
+        </div>
+        <div class="form-field">
+            <label for="tripStartDate">Start Date<span>*</span></label>
+            <InputDate id="tripStartDate" @bind-Value="@EditTripViewModel.StartDateTime"
+                       placeholder="@DateTime.Now.ToShortTimeString()"></InputDate>
+            <ValidationMessage For="@(() => EditTripViewModel.StartDateTime)" />
+        </div>
+        <div class="form-field">
+            <label for="tripEndDate">End Date<span>*</span></label>
+            <InputDate id="tripEndDate" @bind-Value="@EditTripViewModel.EndDateTime"
+                       placeholder="@DateTime.Now.ToShortTimeString()"></InputDate>
+            <ValidationMessage For="@(() => EditTripViewModel.EndDateTime)" />
+        </div>
+        <div class="form-field">
+            <label>Starting Location</label>
+            @if(EditTripViewModel.StartLocationId != null)
+            {
+            <span>Location Set</span>
+            }
+            <button type="button" @onclick="StartLocationModal">&#128396;</button>
+        </div>
+        <div class="form-field">
+            <label>End Location</label>
+            @if(EditTripViewModel.EndLocationId != null)
+            {
+            <span>Location Set</span>
+            }
+            <button type="button" @onclick="EndLocationModal">&#128396;</button>
+        </div>
+        <div class="form-submit">
+            <button type="submit"><strong>&#128190;</strong></button>
+            <span>* required fields</span>
+        </div>
+    </EditForm>
     }
     else
     {
