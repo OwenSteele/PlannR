@@ -14,19 +14,19 @@ namespace PlannR.Application.Features.Routes.Queries.GetRouteListByTripId
     {
         private readonly IMapper _mapper;
         private readonly IAuthorisationService<Route> _authorisationService;
-        private readonly IRouteRepository _accomodationRepository;
+        private readonly IRouteRepository _routeRepository;
 
         public GetRouteListByTripIdQueryHandler(IAuthorisationService<Route> authorisationService, IMapper mapper,
-            IRouteRepository accomodationRepository)
+            IRouteRepository routeRepository)
         {
             _mapper = mapper;
             _authorisationService = authorisationService;
-            _accomodationRepository = accomodationRepository;
+            _routeRepository = routeRepository;
         }
 
         public async Task<ICollection<RouteListByTripIdDataModel>> Handle(GetRouteListByTripIdQuery request, CancellationToken cancellationToken)
         {
-            var result = (await _accomodationRepository.GetAllRoutesOfTripById(request.TripId))
+            var result = (await _routeRepository.GetAllRoutesOfTripById(request.TripId))
                 .OrderBy(x => x.StartDateTime).ToList();
 
             var authorisedResult = _authorisationService.RemoveInAccessibleEntities(result);

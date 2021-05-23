@@ -14,19 +14,19 @@ namespace PlannR.Application.Features.Routes.Queries.GetRouteListOnDate
     {
         private readonly IMapper _mapper;
         private readonly IAuthorisationService<Route> _authorisationService;
-        private readonly IRouteRepository _accomodationRepository;
+        private readonly IRouteRepository _routeRepository;
 
         public GetRouteListOnDateQueryHandler(IAuthorisationService<Route> authorisationService, IMapper mapper,
-            IRouteRepository accomodationRepository)
+            IRouteRepository routeRepository)
         {
             _mapper = mapper;
             _authorisationService = authorisationService;
-            _accomodationRepository = accomodationRepository;
+            _routeRepository = routeRepository;
         }
 
         public async Task<ICollection<RouteListOnDateDataModel>> Handle(GetRouteListOnDateQuery request, CancellationToken cancellationToken)
         {
-            var result = (await _accomodationRepository.GetAllRoutesOnDate(request.Date))
+            var result = (await _routeRepository.GetAllRoutesOnDate(request.Date))
                 .Where(x => x.TripId == request.TripId)
                 .OrderBy(x => x.Name).ToList();
 

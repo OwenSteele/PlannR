@@ -2,7 +2,6 @@
 using MediatR;
 using PlannR.Application.Contracts.Persistence;
 using PlannR.Domain.Entities;
-using System;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -11,13 +10,13 @@ namespace PlannR.Application.Features.Routes.Commands.CreateRoute
     public class CreateRouteCommandHandler : IRequestHandler<CreateRouteCommand, CreateRouteCommandResponse>
     {
         private readonly IMapper _mapper;
-        private readonly IRouteRepository _accomodationRepository;
+        private readonly IRouteRepository _routeRepository;
 
 
-        public CreateRouteCommandHandler(IMapper mapper, IRouteRepository accomodationRepository)
+        public CreateRouteCommandHandler(IMapper mapper, IRouteRepository routeRepository)
         {
             _mapper = mapper;
-            _accomodationRepository = accomodationRepository;
+            _routeRepository = routeRepository;
         }
 
         public async Task<CreateRouteCommandResponse> Handle(CreateRouteCommand request, CancellationToken cancellationToken)
@@ -30,7 +29,7 @@ namespace PlannR.Application.Features.Routes.Commands.CreateRoute
 
             var entity = _mapper.Map<Route>(request);
 
-            entity = await _accomodationRepository.AddAsync(entity);
+            entity = await _routeRepository.AddAsync(entity);
 
             var response = new CreateRouteCommandResponse
             {

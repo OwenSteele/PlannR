@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PlannR.Application.Features.Trips.Queries.Dtos;
+using System;
 
 namespace PlannR.Application.Features.Trips.Queries.GetTripsDetail
 {
@@ -10,5 +11,6 @@ namespace PlannR.Application.Features.Trips.Queries.GetTripsDetail
         public string CompanyName { get; set; }
         public DateTime StartDateTime { get; set; }
         public DateTime EndDateTime { get; set; }
+        public LocationDto Location { get; set; }
     }
 }

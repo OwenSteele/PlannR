@@ -11,27 +11,27 @@ namespace PlannR.Application.Features.Routes.Commands.DeleteRoute
 {
     public class DeleteRouteCommandHandler : IRequestHandler<DeleteRouteCommand>
     {
-        private readonly IRouteRepository _accomodationRepository;
+        private readonly IRouteRepository _routeRepository;
         private readonly IMapper _mapper;
         private readonly IAuthorisationService<Route> _authorisationService;
 
-        public DeleteRouteCommandHandler(IAuthorisationService<Route> authorisationService, IMapper mapper, IRouteRepository accomodationRepository)
+        public DeleteRouteCommandHandler(IAuthorisationService<Route> authorisationService, IMapper mapper, IRouteRepository routeRepository)
         {
             _mapper = mapper;
             _authorisationService = authorisationService;
-            _accomodationRepository = accomodationRepository;
+            _routeRepository = routeRepository;
         }
 
         public async Task<Unit> Handle(DeleteRouteCommand request, CancellationToken cancellationToken)
         {
-            var result = await _accomodationRepository.GetByIdAsync(request.RouteId);
+            var result = await _routeRepository.GetByIdAsync(request.RouteId);
 
             if (result == null)
             {
                 throw new NotFoundException(nameof(Route), request.RouteId);
             }
 
-            await _accomodationRepository.DeleteAsync(result);
+            await _routeRepository.DeleteAsync(result);
 
             return Unit.Value;
         }

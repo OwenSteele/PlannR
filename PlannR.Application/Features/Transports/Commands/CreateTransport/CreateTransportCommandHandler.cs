@@ -2,7 +2,6 @@
 using MediatR;
 using PlannR.Application.Contracts.Persistence;
 using PlannR.Domain.Entities;
-using System;
 using System.Threading;
 using System.Threading.Tasks;
 

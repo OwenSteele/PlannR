@@ -1,9 +1,5 @@
 ﻿using PlannR.Application.Responses;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PlannR.Application.Features.Transports.Types.Commands.CreateTransportType
 {
@@ -13,6 +9,6 @@ namespace PlannR.Application.Features.Transports.Types.Commands.CreateTransportT
         {
 
         }
-        public Guid TransportTypeId { get; set; }        
+        public Guid TransportTypeId { get; set; }
     }
 }

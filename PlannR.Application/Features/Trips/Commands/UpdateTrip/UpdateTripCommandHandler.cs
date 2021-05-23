@@ -40,6 +40,8 @@ namespace PlannR.Application.Features.Trips.Commands.UpdateTrip
 
             _mapper.Map(request, result, typeof(UpdateTripCommand), typeof(Trip));
 
+
+
             await _tripRepository.UpdateAsync(result);
 
             return Unit.Value;

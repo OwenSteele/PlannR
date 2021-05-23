@@ -14,19 +14,19 @@ namespace PlannR.Application.Features.Routes.Queries.GetRoutesList
     {
         private readonly IMapper _mapper;
         private readonly IAuthorisationService<Route> _authorisationService;
-        private readonly IRouteRepository _accomodationRepository;
+        private readonly IRouteRepository _routeRepository;
 
         public GetRouteListQueryHandler(IAuthorisationService<Route> authorisationService, IMapper mapper,
-            IRouteRepository accomodationRepository)
+            IRouteRepository routeRepository)
         {
             _mapper = mapper;
             _authorisationService = authorisationService;
-            _accomodationRepository = accomodationRepository;
+            _routeRepository = routeRepository;
         }
 
         public async Task<ICollection<RouteListDataModel>> Handle(GetRouteListQuery request, CancellationToken cancellationToken)
         {
-            var result = (await _accomodationRepository.ListAllAsync()).OrderBy(x => x.StartDateTime).ToList();
+            var result = (await _routeRepository.ListAllAsync()).OrderBy(x => x.StartDateTime).ToList();
 
             var authorisedResult = _authorisationService.RemoveInAccessibleEntities(result);
 

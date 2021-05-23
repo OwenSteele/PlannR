@@ -13,6 +13,6 @@ namespace PlannR.Application.Features.Transports.Queries.GetTransportListByTripI
         public DateTime StartDateTime { get; set; }
         public DateTime EndDateTime { get; set; }
         public string Description { get; set; }
-        public Guid BookingId { get; set; }
+        public Guid? BookingId { get; set; }
     }
 }

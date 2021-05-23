@@ -11,21 +11,21 @@ namespace PlannR.Application.Features.Routes.Commands.UpdateRoute
 {
     public class UpdateRouteCommandHandler : IRequestHandler<UpdateRouteCommand>
     {
-        private readonly IRouteRepository _accomodationRepository;
+        private readonly IRouteRepository _routeRepository;
         private readonly IMapper _mapper;
         private readonly IAuthorisationService<Route> _authorisationService;
 
-        public UpdateRouteCommandHandler(IAuthorisationService<Route> authorisationService, IMapper mapper, IRouteRepository accomodationRepository)
+        public UpdateRouteCommandHandler(IAuthorisationService<Route> authorisationService, IMapper mapper, IRouteRepository routeRepository)
         {
             _mapper = mapper;
             _authorisationService = authorisationService;
-            _accomodationRepository = accomodationRepository;
+            _routeRepository = routeRepository;
         }
 
         public async Task<Unit> Handle(UpdateRouteCommand request, CancellationToken cancellationToken)
         {
 
-            var result = await _accomodationRepository.GetByIdAsync(request.RouteId);
+            var result = await _routeRepository.GetByIdAsync(request.RouteId);
 
             if (result == null)
             {
@@ -40,7 +40,7 @@ namespace PlannR.Application.Features.Routes.Commands.UpdateRoute
 
             _mapper.Map(request, result, typeof(UpdateRouteCommand), typeof(Route));
 
-            await _accomodationRepository.UpdateAsync(result);
+            await _routeRepository.UpdateAsync(result);
 
             return Unit.Value;
         }

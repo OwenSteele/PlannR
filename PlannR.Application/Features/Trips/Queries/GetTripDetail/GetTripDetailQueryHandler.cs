@@ -24,7 +24,7 @@ namespace PlannR.Application.Features.Trips.Queries.GetTripsDetail
 
         public async Task<TripDetailDataModel> Handle(GetTripDetailQuery request, CancellationToken cancellationToken)
         {
-            var result = (await _repository.GetByIdAsync(request.TripId));
+            var result = (await _repository.GetByIdWithChildrenAsync(request.TripId));
 
 
             if (!_authorisationService.CanAccessEntity(result)) throw new Exceptions.NotAuthorisedException();

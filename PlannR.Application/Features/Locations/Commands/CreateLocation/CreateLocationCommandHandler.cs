@@ -2,7 +2,6 @@
 using MediatR;
 using PlannR.Application.Contracts.Persistence;
 using PlannR.Domain.Shared;
-using System;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -37,7 +36,7 @@ namespace PlannR.Application.Features.Locations.Commands.CreateLocation
                 LocationId = entity.LocationId,
                 Success = true
             };
-            
+
             return response;
         }
     }

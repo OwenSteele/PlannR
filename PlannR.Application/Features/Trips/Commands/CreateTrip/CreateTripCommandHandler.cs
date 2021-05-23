@@ -2,7 +2,6 @@
 using MediatR;
 using PlannR.Application.Contracts.Persistence;
 using PlannR.Domain.Entities;
-using System;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -12,7 +11,6 @@ namespace PlannR.Application.Features.Trips.Commands.CreateTrip
     {
         private readonly IMapper _mapper;
         private readonly ITripRepository _tripRepository;
-
 
         public CreateTripCommandHandler(IMapper mapper, ITripRepository tripRepository)
         {

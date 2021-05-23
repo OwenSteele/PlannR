@@ -1,5 +1,4 @@
 ﻿using MediatR;
-using System;
 
 namespace PlannR.Application.Features.Accomodations.Types.Commands.CreateAccomodationType
 {

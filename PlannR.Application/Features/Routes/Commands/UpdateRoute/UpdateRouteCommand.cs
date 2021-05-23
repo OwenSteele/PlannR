@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using System;
+using System.Collections.Generic;
 
 namespace PlannR.Application.Features.Routes.Commands.UpdateRoute
 {
@@ -8,14 +9,8 @@ namespace PlannR.Application.Features.Routes.Commands.UpdateRoute
         public Guid RouteId { get; set; }
         public Guid TripId { get; set; }
         public string Name { get; set; }
-        public Guid RouteTypeId { get; set; }
-        public decimal? CostPerNight { get; set; }
-        public int Rooms { get; set; }
-        public int Nights { get; set; }
-        public Guid BookingId { get; set; }
-        public string Description { get; set; }
-        public Guid LocationId { get; set; }
         public DateTime StartDateTime { get; set; }
         public DateTime EndDateTime { get; set; }
+        public ICollection<Guid> Points { get; set; }
     }
 }

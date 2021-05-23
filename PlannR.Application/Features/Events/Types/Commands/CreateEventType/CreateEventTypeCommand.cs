@@ -1,5 +1,4 @@
 ﻿using MediatR;
-using System;
 
 namespace PlannR.Application.Features.Events.Types.Commands.CreateEventType
 {
