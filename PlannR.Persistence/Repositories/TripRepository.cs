@@ -34,5 +34,16 @@ namespace PlannR.Persistence.Repositories
                 .Include(x => x.Accomodations)
                 .ToArrayAsync();
         }
+
+        public async Task<Trip> GetByIdWithChildrenAsync(Guid tripId)
+        {
+            return await _dbContext.Trips
+                .Where(x => x.TripId == tripId)
+                .Include(x => x.Routes)
+                .Include(x => x.Transports)
+                .Include(x => x.Events)
+                .Include(x => x.Accomodations)
+                .FirstOrDefaultAsync();
+        }
     }
 }

@@ -63,6 +63,52 @@ namespace PlannR.Persistence
                 .HasColumnType<decimal>("decimal(18,2)");
             modelBuilder.Entity<Accomodation>().Property(x => x.CostPerNight)
                 .HasColumnType<decimal?>("decimal(18,2)");
+
+            modelBuilder.Entity<Trip>()
+                .HasOne(x => x.StartLocation).WithOne()
+                .HasForeignKey<Trip>(x => x.StartLocationId)
+                .IsRequired(false);
+            modelBuilder.Entity<Trip>()
+                .HasOne(x => x.EndLocation).WithOne()
+                .HasForeignKey<Trip>(x => x.EndLocationId)
+                .IsRequired(false);
+            modelBuilder.Entity<Transport>()
+                .HasOne(x => x.StartLocation).WithOne()
+                .HasForeignKey<Transport>(x => x.StartLocationId)
+                .IsRequired(false);
+            modelBuilder.Entity<Transport>()
+                .HasOne(x => x.EndLocation).WithOne()
+                .HasForeignKey<Transport>(x => x.EndLocationId)
+                .IsRequired(false);
+            modelBuilder.Entity<Accomodation>()
+                .HasOne(x => x.Location).WithOne()
+                .HasForeignKey<Accomodation>(x => x.LocationId)
+                .IsRequired(false);
+            modelBuilder.Entity<RoutePoint>()
+                .HasOne(x => x.Location).WithOne()
+                .HasForeignKey<RoutePoint>(x => x.LocationId)
+                .IsRequired(false);
+            modelBuilder.Entity<Event>()
+                .HasOne(x => x.Location).WithOne()
+                .HasForeignKey<Event>(x => x.LocationId)
+                .IsRequired(false);
+
+            modelBuilder.Entity<RoutePoint>()
+                .HasOne(x => x.AssociatedEvent).WithOne()
+                .HasForeignKey<RoutePoint>(x => x.EventId)
+                .IsRequired(false);
+
+            modelBuilder.Entity<Trip>().Navigation(x => x.StartLocation).AutoInclude();
+            modelBuilder.Entity<Trip>().Navigation(x => x.EndLocation).AutoInclude();
+            modelBuilder.Entity<Transport>().Navigation(x => x.StartLocation).AutoInclude();
+            modelBuilder.Entity<Transport>().Navigation(x => x.EndLocation).AutoInclude();
+            modelBuilder.Entity<Transport>().Navigation(x => x.TransportType).AutoInclude();
+            modelBuilder.Entity<RoutePoint>().Navigation(x => x.Location).AutoInclude();
+            modelBuilder.Entity<Accomodation>().Navigation(x => x.Location).AutoInclude();
+            modelBuilder.Entity<Accomodation>().Navigation(x => x.AccomodationType).AutoInclude();
+            modelBuilder.Entity<Event>().Navigation(x => x.Location).AutoInclude();
+            modelBuilder.Entity<Event>().Navigation(x => x.EventType).AutoInclude();
+            modelBuilder.Entity<Route>().Navigation(x => x.Points).AutoInclude();
         }
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())

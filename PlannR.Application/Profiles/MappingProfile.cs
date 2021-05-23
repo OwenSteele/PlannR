@@ -35,6 +35,7 @@ using PlannR.Application.Features.Locations.Commands.CreateLocation;
 using PlannR.Application.Features.Locations.Commands.UpdateLocation;
 using PlannR.Application.Features.Locations.Queries.GetLocationsDetail;
 using PlannR.Application.Features.Locations.Queries.GetLocationsList;
+using PlannR.Application.Features.RoutePoints.Commands.CreateRoutePointRange;
 using PlannR.Application.Features.Routes.Commands.CreateRoute;
 using PlannR.Application.Features.Routes.Commands.UpdateRoute;
 using PlannR.Application.Features.Routes.Queries.GetRouteDetail;
@@ -59,6 +60,7 @@ using PlannR.Application.Features.Transports.Types.Queries.GetTransportTypeByNam
 using PlannR.Application.Features.Transports.Types.Queries.GetTransportTypeList;
 using PlannR.Application.Features.Trips.Commands.CreateTrip;
 using PlannR.Application.Features.Trips.Commands.UpdateTrip;
+using PlannR.Application.Features.Trips.Queries.Dtos;
 using PlannR.Application.Features.Trips.Queries.GetTripListBetweenDates;
 using PlannR.Application.Features.Trips.Queries.GetTripListOnDate;
 using PlannR.Application.Features.Trips.Queries.GetTripNameList;
@@ -81,6 +83,7 @@ namespace PlannR.Application.Profiles
             CreateMap<Transport, TransportListByTripIdWithBookingsDataModel>().ReverseMap();
             CreateMap<Transport, TransportListByTripIdDataModel>().ReverseMap();
             CreateMap<Transport, TransportListOnDateDataModel>().ReverseMap();
+            CreateMap<Transport, TransportDto>().ReverseMap();
 
             CreateMap<Event, CreateEventCommand>().ReverseMap();
             CreateMap<Event, UpdateEventCommand>().ReverseMap();
@@ -89,6 +92,7 @@ namespace PlannR.Application.Profiles
             CreateMap<Event, EventListByTripIdWithBookingsDataModel>().ReverseMap();
             CreateMap<Event, EventListByTripIdDataModel>().ReverseMap();
             CreateMap<Event, EventListOnDateDataModel>().ReverseMap();
+            CreateMap<Event, EventDto>().ReverseMap();
 
             CreateMap<Accomodation, CreateAccomodationCommand>().ReverseMap();
             CreateMap<Accomodation, UpdateAccomodationCommand>().ReverseMap();
@@ -97,6 +101,7 @@ namespace PlannR.Application.Profiles
             CreateMap<Accomodation, AccomodationListByTripIdWithBookingsDataModel>().ReverseMap();
             CreateMap<Accomodation, AccomodationListByTripIdDataModel>().ReverseMap();
             CreateMap<Accomodation, AccomodationListOnDateDataModel>().ReverseMap();
+            CreateMap<Accomodation, AccomodationDto>().ReverseMap();
 
             CreateMap<Trip, CreateTripCommand>().ReverseMap();
             CreateMap<Trip, UpdateTripCommand>().ReverseMap();
@@ -110,6 +115,11 @@ namespace PlannR.Application.Profiles
             CreateMap<Location, UpdateLocationCommand>().ReverseMap();
             CreateMap<Location, LocationDetailDataModel>().ReverseMap();
             CreateMap<Location, LocationListDataModel>().ReverseMap();
+            CreateMap<Location, TransportLocationDto>().ReverseMap();
+            CreateMap<Location, AccomodationLocationDto>().ReverseMap();
+            CreateMap<Location, EventLocationDto>().ReverseMap();
+            CreateMap<Location, LocationDto>().ReverseMap();
+            CreateMap<Location, RouteLocationDto>().ReverseMap();
 
             CreateMap<Route, CreateRouteCommand>().ReverseMap();
             CreateMap<Route, UpdateRouteCommand>().ReverseMap();
@@ -117,6 +127,8 @@ namespace PlannR.Application.Profiles
             CreateMap<Route, RouteListDataModel>().ReverseMap();
             CreateMap<Route, RouteListByTripIdDataModel>().ReverseMap();
             CreateMap<Route, RouteListOnDateDataModel>().ReverseMap();
+            CreateMap<Route, RouteDto>().ReverseMap();
+            CreateMap<RoutePoint , CreateRoutePointCommand>().ReverseMap();
 
             CreateMap<TransportType, CreateTransportTypeCommand>().ReverseMap();
             CreateMap<TransportType, TransportTypeListDataModel>().ReverseMap();

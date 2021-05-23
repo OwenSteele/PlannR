@@ -2,7 +2,7 @@
 
 namespace PlannR.Persistence.Migrations
 {
-    public partial class identityUpdate : Migration
+    public partial class TripLocationIdNotRequired : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

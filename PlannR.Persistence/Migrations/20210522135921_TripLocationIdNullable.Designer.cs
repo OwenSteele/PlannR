@@ -10,8 +10,8 @@ using PlannR.Persistence;
 namespace PlannR.Persistence.Migrations
 {
     [DbContext(typeof(PlannrDbContext))]
-    [Migration("20210501165813_EntityTypeRelationshipFix2")]
-    partial class EntityTypeRelationshipFix2
+    [Migration("20210522135921_TripLocationIdNullable")]
+    partial class TripLocationIdNullable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -287,10 +287,13 @@ namespace PlannR.Persistence.Migrations
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("EndDateTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("EndLocationLocationId")
+                    b.Property<Guid?>("EndLocationId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("LastModifiedBy")
@@ -305,14 +308,18 @@ namespace PlannR.Persistence.Migrations
                     b.Property<DateTime>("StartDateTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("StartLocationLocationId")
+                    b.Property<Guid?>("StartLocationId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("TripId");
 
-                    b.HasIndex("EndLocationLocationId");
+                    b.HasIndex("EndLocationId")
+                        .IsUnique()
+                        .HasFilter("[EndLocationId] IS NOT NULL");
 
-                    b.HasIndex("StartLocationLocationId");
+                    b.HasIndex("StartLocationId")
+                        .IsUnique()
+                        .HasFilter("[StartLocationId] IS NOT NULL");
 
                     b.ToTable("Trips");
                 });
@@ -454,8 +461,20 @@ namespace PlannR.Persistence.Migrations
                     b.Property<Guid>("BookingId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<byte[]>("FileBytes")
                         .HasColumnType("varbinary(max)");
+
+                    b.Property<string>("LastModifiedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("LastModifiedDate")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("BookingFileId");
 
@@ -660,12 +679,12 @@ namespace PlannR.Persistence.Migrations
             modelBuilder.Entity("PlannR.Domain.Entities.Trip", b =>
                 {
                     b.HasOne("PlannR.Domain.Shared.Location", "EndLocation")
-                        .WithMany()
-                        .HasForeignKey("EndLocationLocationId");
+                        .WithOne()
+                        .HasForeignKey("PlannR.Domain.Entities.Trip", "EndLocationId");
 
                     b.HasOne("PlannR.Domain.Shared.Location", "StartLocation")
-                        .WithMany()
-                        .HasForeignKey("StartLocationLocationId");
+                        .WithOne()
+                        .HasForeignKey("PlannR.Domain.Entities.Trip", "StartLocationId");
 
                     b.Navigation("EndLocation");
 
