@@ -1,12 +1,12 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using PlannR.Application.Features.Trips.Queries.GetTripNameList;
 using PlannR.Application.Features.Trips.Commands.CreateTrip;
 using PlannR.Application.Features.Trips.Commands.DeleteTrip;
 using PlannR.Application.Features.Trips.Commands.UpdateTrip;
 using PlannR.Application.Features.Trips.Queries.GetTripListBetweenDates;
 using PlannR.Application.Features.Trips.Queries.GetTripListOnDate;
+using PlannR.Application.Features.Trips.Queries.GetTripNameList;
 using PlannR.Application.Features.Trips.Queries.GetTripsDetail;
 using PlannR.Application.Features.Trips.Queries.GetTripsList;
 using PlannR.Domain.Entities;

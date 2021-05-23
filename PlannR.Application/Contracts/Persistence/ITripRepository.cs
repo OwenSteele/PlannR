@@ -9,5 +9,6 @@ namespace PlannR.Application.Contracts.Persistence
     {
         public Task<ICollection<Trip>> GetTripsByName(string name);
         public Task<ICollection<Trip>> GetAllTripsOnTheseDateTimes(DateTime start, DateTime end);
+        Task<Trip> GetByIdWithChildrenAsync(Guid tripId);
     }
 }
