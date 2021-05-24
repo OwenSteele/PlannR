@@ -20,21 +20,23 @@
         <div hidden="hidden" @onload="CollapseNavMenu"></div>
     </NotAuthorized>
 </AuthorizeView>
-<div class="@ToggleNavMenuClass">
     <AuthorizeView>
         <Authorized>
-            <button class="togglebtn @ToggleNavMenuClass" @onclick="ToggleNavMenu">&#9776;</button>
-            <div class="content">
-                @Body
+            <div class="@ToggleNavMenuClass">
+                <button class="togglebtn @ToggleNavMenuClass" @onclick="ToggleNavMenu">&#9776;</button>
+                <div class="content">
+                    @Body
+                </div>
             </div>
         </Authorized>
         <NotAuthorized>
-            <div class="content-na">
-                @Body
+            <div class="main-na">
+                <div class="content-na">
+                    @Body
+                </div>
             </div>
         </NotAuthorized>
     </AuthorizeView>
-</div>
 
 <div class="footer">
     <Footer />

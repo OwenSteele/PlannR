@@ -33,6 +33,11 @@ namespace PlannR.App.Pages.Modals
         public EditTransportViewModel EditTransportViewModel { get; set; }
         public ICollection<TripNestedViewModel> UserTrips { get; set; }
         public ICollection<TransportTypeNestedViewModel> TransportTypes { get; set; }
+
+        [Parameter]
+        public DateTime StartTime { get; set; }
+        [Parameter]
+        public DateTime EndTime { get; set; }
         public bool Submitted { get; set; } = false;
 
         public string Message { get; set; }
@@ -49,6 +54,8 @@ namespace PlannR.App.Pages.Modals
 
         protected async Task HandleValidSubmit()
         {
+            AddTimesToDates();
+
             if (EditTransportViewModel.TransportId == Guid.Empty)
             {
                 var result = await CreateTransportAsync();
@@ -111,7 +118,14 @@ namespace PlannR.App.Pages.Modals
 
         public async Task StartLocationModal()
         {
-            var locationModal = Modal.Show<CreateEditLocationModal>();
+            var parameters = new ModalParameters();
+
+            if (EditTransportViewModel.StartLocationId.HasValue)
+            {
+                parameters.Add("EditLocationId", EditTransportViewModel.StartLocationId);
+            }
+
+            var locationModal = Modal.Show<CreateEditLocationModal>("Edit Start Location", parameters);
             var result = await locationModal.Result;
 
             if (result.Cancelled) return;
@@ -121,13 +135,24 @@ namespace PlannR.App.Pages.Modals
         }
         public async Task EndLocationModal()
         {
-            var locationModal = Modal.Show<CreateEditLocationModal>();
+            var parameters = new ModalParameters();
+
+            if (EditTransportViewModel.EndLocationId.HasValue)
+            {
+                parameters.Add("EditLocationId", EditTransportViewModel.EndLocationId);
+            }
+            var locationModal = Modal.Show<CreateEditLocationModal>("Edit End Location", parameters);
             var result = await locationModal.Result;
 
             if (result.Cancelled) return;
 
             if (EditTransportViewModel.EndLocationId == null)
                 EditTransportViewModel.EndLocationId = (Guid)result.Data;
+        }
+        private void AddTimesToDates()
+        {
+            EditTransportViewModel.StartDateTime = EditTransportViewModel.StartDateTime.Date + (StartTime.TimeOfDay - EditTransportViewModel.StartDateTime.TimeOfDay);
+            EditTransportViewModel.EndDateTime = EditTransportViewModel.EndDateTime.Date + (EndTime.TimeOfDay - EditTransportViewModel.EndDateTime.TimeOfDay);
         }
     }
 }

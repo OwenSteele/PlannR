@@ -59,9 +59,17 @@ else
                 <ValidationMessage For="@(() => EditEventViewModel.StartDateTime)" />
             </div>
             <div class="form-field">
+                <label for="tripStartDate">Start Time<span>*</span></label>
+                <input required type="time" id="tripStartTime" @bind-value="StartTime" />
+            </div>
+            <div class="form-field">
                 <label for="end">Finish Date</label>
                 <InputDate id="end" @bind-Value="@EditEventViewModel.EndDateTime"></InputDate>
                 <ValidationMessage For="@(() => EditEventViewModel.EndDateTime)" />
+            </div>
+            <div class="form-field">
+                <label for="tripEndDate">End Time<span>*</span></label>
+                <input required type="time" id="tripEndDate" @bind-value="EndTime" />
             </div>
             <div class="form-field">
                 <label>Location</label>

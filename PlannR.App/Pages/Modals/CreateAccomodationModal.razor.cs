@@ -33,6 +33,11 @@ namespace PlannR.App.Pages.Modals
         public EditAccomodationViewModel EditAccomodationViewModel { get; set; }
         public ICollection<TripNestedViewModel> UserTrips { get; set; }
         public ICollection<AccomodationTypeNestedViewModel> AccomodationTypes { get; set; }
+
+        [Parameter]
+        public DateTime StartTime { get; set; }
+        [Parameter]
+        public DateTime EndTime { get; set; }
         public bool Submitted { get; set; } = false;
 
         public string Message { get; set; }
@@ -48,6 +53,8 @@ namespace PlannR.App.Pages.Modals
 
         protected async Task HandleValidSubmit()
         {
+            AddTimesToDates();
+
             if (EditAccomodationViewModel.AccomodationId == Guid.Empty)
             {
                 var result = await CreateAccomodationAsync();
@@ -109,13 +116,26 @@ namespace PlannR.App.Pages.Modals
         }
         public async Task LocationModal()
         {
-            var locationModal = Modal.Show<CreateEditLocationModal>("Add Location");
+            var parameters = new ModalParameters();
+
+            if (EditAccomodationViewModel.LocationId.HasValue)
+            {
+                parameters.Add("EditLocationId", EditAccomodationViewModel.LocationId);
+            }
+
+            var locationModal = Modal.Show<CreateEditLocationModal>("Edit Location", parameters);
             var result = await locationModal.Result;
 
             if (result.Cancelled) return;
 
             if (EditAccomodationViewModel.LocationId == null)
                 EditAccomodationViewModel.LocationId = (Guid)result.Data;
-        }            
+        }
+        private void AddTimesToDates()
+        {
+            EditAccomodationViewModel.StartDateTime = EditAccomodationViewModel.StartDateTime.Date + (StartTime.TimeOfDay - EditAccomodationViewModel.StartDateTime.TimeOfDay);
+            EditAccomodationViewModel.EndDateTime = EditAccomodationViewModel.StartDateTime.AddDays(EditAccomodationViewModel.Nights);
+            EditAccomodationViewModel.EndDateTime = EditAccomodationViewModel.EndDateTime.Date + (EndTime.TimeOfDay - StartTime.TimeOfDay);
+        }
     }
 }

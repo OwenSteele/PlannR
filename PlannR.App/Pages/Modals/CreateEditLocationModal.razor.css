@@ -5,3 +5,18 @@
     padding: 4px;
     width: auto;
 }
+
+#map-wrapper {
+    z-index: 0;
+    height: 300px;
+    width: inherit;
+    overflow: hidden;
+}
+
+#location-btn {
+    background-color: #00ff90;
+    border-radius: 5px;
+    font-size:12px;
+    font-weight: bolder;
+    width: 100%;
+}

@@ -3,6 +3,7 @@ using Blazored.Modal.Services;
 using Microsoft.AspNetCore.Components;
 using PlannR.App.Infrastructure.Contracts;
 using PlannR.App.Infrastructure.Services.Base;
+using PlannR.App.Infrastructure.ViewModels.Locations;
 using PlannR.App.Infrastructure.ViewModels.Trips;
 using PlannR.App.Pages.Modals;
 using System;
@@ -14,8 +15,6 @@ namespace PlannR.App.Pages.Trip
     {
         [CascadingParameter]
         IModalService Modal { get; set; }
-        [CascadingParameter]
-        BlazoredModalInstance ModalInstance { get; set; }
 
         [CascadingParameter]
         public ModalParameters Parameters { get; set; }
@@ -28,9 +27,13 @@ namespace PlannR.App.Pages.Trip
 
         [Inject]
         public NavigationManager NavigationManager { get; set; }
-
         [Parameter]
         public EditTripViewModel EditTripViewModel { get; set; }
+
+        [Parameter]
+        public DateTime StartTime { get; set; }
+        [Parameter]
+        public DateTime EndTime { get; set; }
         public bool Submitted { get; set; } = false;
 
         public string Message { get; set; }
@@ -53,6 +56,8 @@ namespace PlannR.App.Pages.Trip
                 return;
             }
 
+            AddTimesToDates();
+
             if (EditTripViewModel.TripId == Guid.Empty)
             {
                 var response = await TripDataService.CreateAsync(EditTripViewModel);
@@ -66,6 +71,13 @@ namespace PlannR.App.Pages.Trip
 
             await OnComplete.InvokeAsync();
         }
+
+        private void AddTimesToDates()
+        {
+            EditTripViewModel.StartDateTime = EditTripViewModel.StartDateTime.Date + StartTime.TimeOfDay;
+            EditTripViewModel.EndDateTime = EditTripViewModel.EndDateTime.Date + EndTime.TimeOfDay;
+        }
+
         protected void HandleInvalidSubmit()
         {
             Message = "There are some validation errors. Please try again.";
@@ -89,7 +101,14 @@ namespace PlannR.App.Pages.Trip
 
         public async Task StartLocationModal()
         {
-            var locationModal = Modal.Show<CreateEditLocationModal>();
+            var parameters = new ModalParameters();
+
+            if(EditTripViewModel.StartLocationId.HasValue)
+            {
+                parameters.Add("EditLocationId", EditTripViewModel.StartLocationId);
+            }            
+
+            var locationModal = Modal.Show<CreateEditLocationModal>("Edit Start Location", parameters);
             var result = await locationModal.Result;
 
             if (result.Cancelled) return;
@@ -99,7 +118,13 @@ namespace PlannR.App.Pages.Trip
         }
         public async Task EndLocationModal()
         {
-            var locationModal = Modal.Show<CreateEditLocationModal>();
+            var parameters = new ModalParameters();
+
+            if (EditTripViewModel.EndLocationId.HasValue)
+            {
+                parameters.Add("EditLocationId", EditTripViewModel.EndLocationId);
+            }
+            var locationModal = Modal.Show<CreateEditLocationModal>("Edit End Location", parameters);
             var result = await locationModal.Result;
 
             if (result.Cancelled) return;

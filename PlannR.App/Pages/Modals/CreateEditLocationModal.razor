@@ -13,7 +13,7 @@
             }
             else
             {
-                <EditForm Model="@ExistingLocationId" OnValidSubmit="HandleExistingSubmit" >
+                <EditForm Model="@ExistingLocationId" OnValidSubmit="HandleExistingSubmit">
                     <div class="form-field">
                         <label for="type">Select a location</label>
                         <InputSelect id="type" @bind-Value="@ExistingLocationId"
@@ -33,6 +33,15 @@
         }
         else
         {
+            @if (StartingPoint != null)
+            {
+                <div id="map-wrapper">
+                    <Map Zoom="100" Points="@StartingPoint" UseSelector="@true"></Map>
+                </div>
+            }
+            <div>
+                <button id="location-btn" @onclick="SetMarker">Set as location</button>
+            </div>
             <EditForm Model="@EditLocationViewModel"
                       OnValidSubmit="HandleValidSubmit" OnInvalidSubmit="HandleInvalidSubmit">
                 <DataAnnotationsValidator></DataAnnotationsValidator>
@@ -45,14 +54,12 @@
                 </div>
                 <div class="form-field">
                     <label for="latitude">Latitude<span>*</span></label>
-                    <InputNumber id="latitude" @bind-Value="@EditLocationViewModel.Latitude"
-                                 placeholder="0.0000"></InputNumber>
+                    <InputNumber id="latitude" @bind-Value="@EditLocationViewModel.Latitude"></InputNumber>
                     <ValidationMessage For="@(() => EditLocationViewModel.Latitude)" />
                 </div>
                 <div class="form-field">
                     <label for="longitude">Longitude<span>*</span></label>
-                    <InputNumber id="longitude" @bind-Value="@EditLocationViewModel.Longitude"
-                                 placeholder="0.0000"></InputNumber>
+                    <InputNumber id="longitude" @bind-Value="@EditLocationViewModel.Longitude"></InputNumber>
                     <ValidationMessage For="@(() => EditLocationViewModel.Longitude)" />
                 </div>
                 <div class="form-field">

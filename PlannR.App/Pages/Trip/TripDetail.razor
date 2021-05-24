@@ -42,7 +42,8 @@
                 <div class="ordered-parts">
                     @if (!OrderedTripParts.Any())
                     {
-                        <p>Sorting out your schedule..</p>
+                        <p>Nothing to Schedule Yet..</p>
+                        <p>Add an accomodation, transport, event or route, to create your schedule</p>
                     }
                     else
                     {
@@ -56,8 +57,8 @@
                                 <div class="part-info">
                                     <h4>
                                         <span>&#128197;</span>
-                                        <strong>@part.StartDateTime.ToShortDateString()</strong> to
-                                        <strong>@part.EndDateTime.ToShortDateString()</strong>
+                                        <strong>@part.StartDateTime</strong> to
+                                        <strong>@part.EndDateTime</strong>
                                     </h4>
                                     <p>
                                         @if (string.IsNullOrWhiteSpace(part.EndLocationName) && string.IsNullOrWhiteSpace(part.StartLocationName))
@@ -86,10 +87,14 @@
                     }
                 </div>
             </div>
-            <div>
-                    <Map Zoom="1" Points="@MapPoints"></Map>
+            <div id="map-wrapper">
+                <div>
+                    <h2>Map</h2>
+                </div>
+                <Map Zoom="100" Points="@MapPoints"></Map>
             </div>
         </div>
+        <div class="divider"></div>
         <div class="trip-section">
             <div class="accom">
                 <div>

@@ -72,12 +72,20 @@ else
                 <ValidationMessage For="@(() => EditAccomodationViewModel.StartDateTime)" />
             </div>
             <div class="form-field">
+                <label for="tripStartDate">Arrival Time<span>*</span></label>
+                <input required type="time" id="tripStartTime" @bind-value="StartTime" />
+            </div>
+            <div class="form-field">
                 <label>Location</label>
-                @if(EditAccomodationViewModel.LocationId != null)
+                @if (EditAccomodationViewModel.LocationId != null)
                 {
-                <span>Location Set</span>
+                    <span>Location Set</span>
                 }
                 <button type="button" @onclick="LocationModal"> Add &#128396;</button>
+            </div>
+            <div class="form-field">
+                <label for="tripEndDate">Departure Time<span>*</span></label>
+                <input required type="time" id="tripEndDate" @bind-value="EndTime" />
             </div>
 
             <div class="form-submit">

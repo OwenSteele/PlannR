@@ -35,6 +35,14 @@
     transition: 0.2s
 }
 
+.main-na {
+    margin-left: 0px;
+}
+
+.top-nav {
+    z-index: 999;
+}
+
 
 .togglebtn {
     font-size: 20px;

@@ -1,6 +1,7 @@
 ﻿using Blazored.Modal;
 using Blazored.Modal.Services;
 using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
 using PlannR.App.Infrastructure.Contracts;
 using PlannR.App.Infrastructure.Contracts.View;
 using PlannR.App.Infrastructure.ViewModels.Locations;
@@ -41,16 +42,7 @@ namespace PlannR.App.Pages.Trip
 
                 OrderedTripParts = TripOrderingService.OrderTripParts(Trip);
 
-                MapPoints = new List<Marker> 
-                { 
-                    new Marker
-                    {
-                        Description = "Start of Trip",
-                        ShowPopup = false,
-                        Y = (Trip.StartLocation?.Latitude ?? 0),
-                        X = (Trip.StartLocation?.Longitude ?? 0)
-                    }
-                };
+                SetMapPoints();
             }
         }
         protected void NavigateToAccomodation(string uri)
@@ -80,61 +72,29 @@ namespace PlannR.App.Pages.Trip
                 TripId = Trip.TripId,
                 Name = Trip.Name,
                 StartDateTime = Trip.StartDateTime,
-                EndDateTime = Trip.EndDateTime
+                EndDateTime = Trip.EndDateTime,
+                StartLocationId = Trip.StartLocation?.LocationId,
+                EndLocationId = Trip.EndLocation?.LocationId
             };
 
             var parameters = new ModalParameters();
 
             parameters.Add("EditTripViewModel", editModel);
 
+            parameters.Add("StartTime", Trip.StartDateTime);
+            parameters.Add("EndTime", Trip.EndDateTime);
+
             var modal = Modal.Show<CreateEditTripModal>($"Edit: '{Trip.Name}'", parameters);
 
             var result = await modal.Result;
 
             if (result.Cancelled)
+            {
                 Trip = await TripDataService.GetTripByIdAsync(_tripId);
 
-            StateHasChanged();
-        }
-        private async Task ShowEditLocationModal(bool IsStartLocation)
-        {
-            var model = IsStartLocation ? Trip.StartLocation : Trip.EndLocation;
-
-            if (model == null)
-            {
-                var modal = Modal.Show<CreateEditLocationModal>("New Location");
-
-                var result = await modal.Result;
-
-                if (!result.Cancelled)
-                {
-                    Trip = await TripDataService.GetTripByIdAsync(_tripId);
-                }
+                SetMapPoints();
+                StateHasChanged();
             }
-            else
-            {
-                var editModel = new EditLocationViewModel
-                {
-                    Name = model.Name,
-                    Address = model.Address,
-                    AltitudeInMetres = model.AltitudeInMetres,
-                    Latitude = model.Latitude,
-                    LocationId = model.LocationId,
-                    Longitude = model.Longitude
-                };
-                var parameters = new ModalParameters();
-
-                parameters.Add("CreateEditLocationModal", editModel);
-
-                var modal = Modal.Show<CreateEditLocationModal>(
-                    $"Edit {Trip.StartLocation.Name}", parameters);
-
-                var result = await modal.Result;
-
-                if (!result.Cancelled)
-                    Trip = await TripDataService.GetTripByIdAsync(_tripId);
-            }
-            StateHasChanged();
         }
         private async Task CreateAccomodationModal()
         {
@@ -183,6 +143,31 @@ namespace PlannR.App.Pages.Trip
                 Trip = await TripDataService.GetTripByIdAsync(_tripId);
             }
             StateHasChanged();
+        }
+        private void SetMapPoints()
+        {
+            MapPoints = new List<Marker>();
+
+            if (Trip.StartLocation != null)
+            {
+                MapPoints.Add(new Marker
+                {
+                    Description = "Start of Trip",
+                    ShowPopup = true,
+                    Y = (Trip.StartLocation?.Latitude ?? 0),
+                    X = (Trip.StartLocation?.Longitude ?? 0)
+                });
+            }
+            if (Trip.EndLocation != null)
+            {
+                MapPoints.Add(new Marker
+                {
+                    Description = "End of Trip",
+                    ShowPopup = false,
+                    Y = (Trip.EndLocation?.Latitude ?? 0),
+                    X = (Trip.EndLocation?.Longitude ?? 0)
+                });
+            }
         }
     }
 }

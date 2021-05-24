@@ -36,6 +36,11 @@ namespace PlannR.App.Pages.Modals
         public EditEventViewModel EditEventViewModel { get; set; }
         public ICollection<TripNestedViewModel> UserTrips { get; set; }
         public ICollection<EventTypeNestedViewModel> EventTypes { get; set; }
+
+        [Parameter]
+        public DateTime StartTime { get; set; }
+        [Parameter]
+        public DateTime EndTime { get; set; }
         public bool Submitted { get; set; } = false;
 
         public string Message { get; set; }
@@ -52,6 +57,8 @@ namespace PlannR.App.Pages.Modals
 
         protected async Task HandleValidSubmit()
         {
+            AddTimesToDates();
+
             if (EditEventViewModel.EventId == Guid.Empty)
             {
                 var result = await CreateEventAsync();
@@ -113,13 +120,25 @@ namespace PlannR.App.Pages.Modals
         }
         public async Task LocationModal()
         {
-            var locationModal = Modal.Show<CreateEditLocationModal>("Add Location");
+            var parameters = new ModalParameters();
+
+            if (EditEventViewModel.LocationId.HasValue)
+            {
+                parameters.Add("EditLocationId", EditEventViewModel.LocationId);
+            }
+
+            var locationModal = Modal.Show<CreateEditLocationModal>("Edit Location", parameters);
             var result = await locationModal.Result;
 
             if (result.Cancelled) return;
 
             if (EditEventViewModel.LocationId == null)
                 EditEventViewModel.LocationId = (Guid)result.Data;
+        }
+        private void AddTimesToDates()
+        {
+            EditEventViewModel.StartDateTime = EditEventViewModel.StartDateTime.Date + (StartTime.TimeOfDay- EditEventViewModel.StartDateTime.TimeOfDay);
+            EditEventViewModel.EndDateTime = EditEventViewModel.EndDateTime.Date + (EndTime.TimeOfDay- EditEventViewModel.EndDateTime.TimeOfDay);
         }
     }
 }

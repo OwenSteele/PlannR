@@ -53,27 +53,35 @@ else
                 <ValidationMessage For="@(() => EditTransportViewModel.StartDateTime)" />
             </div>
             <div class="form-field">
+                <label for="tripStartDate">Start Time<span>*</span></label>
+                <input required type="time" id="tripStartTime" @bind-value="StartTime" />
+            </div>
+            <div class="form-field">
                 <label for="end">Ending Date</label>
                 <InputDate id="end" @bind-Value="@EditTransportViewModel.EndDateTime">
                 </InputDate>
                 <ValidationMessage For="@(() => EditTransportViewModel.EndDateTime)" />
             </div>
+            <div class="form-field">
+                <label for="tripStartDate">Start Time<span>*</span></label>
+                <input required type="time" id="tripStartTime" @bind-value="StartTime" />
+            </div>
 
             <div class="form-field">
                 <label>Starting Location</label>
-                @if(EditTransportViewModel.StartLocationId != null)
+                @if (EditTransportViewModel.StartLocationId != null)
                 {
-                <span>Location Set</span>
+                    <span>Location Set</span>
                 }
-            <button type="button" @onclick="StartLocationModal">Add &#128396;</button>
+                <button type="button" @onclick="StartLocationModal">Add &#128396;</button>
             </div>
             <div class="form-field">
                 <label>End Location</label>
-                @if(EditTransportViewModel.EndLocationId != null)
+                @if (EditTransportViewModel.EndLocationId != null)
                 {
-                <span>Location Set</span>
+                    <span>Location Set</span>
                 }
-            <button type="button" @onclick="EndLocationModal">Add &#128396;</button>
+                <button type="button" @onclick="EndLocationModal">Add &#128396;</button>
             </div>
             <div class="form-submit">
                 <button type="submit"><strong>&#128190;</strong></button>

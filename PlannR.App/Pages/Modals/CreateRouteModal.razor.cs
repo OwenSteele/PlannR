@@ -39,6 +39,11 @@ namespace PlannR.App.Pages.Modals
         [Parameter]
         public List<RoutePointNestedViewModel> RoutePoints { get; set; }
 
+        [Parameter]
+        public DateTime StartTime { get; set; }
+        [Parameter]
+        public DateTime EndTime { get; set; }
+
         public bool Submitted { get; set; } = false;
 
         [Parameter]
@@ -59,6 +64,8 @@ namespace PlannR.App.Pages.Modals
 
         protected async Task HandleValidSubmit()
         {
+            AddTimesToDates();
+
             if (EditRouteViewModel.RouteId == Guid.Empty)
             {
                 await UpdatePointsAsync();
@@ -109,13 +116,16 @@ namespace PlannR.App.Pages.Modals
 
         private async Task<Guid> CreateRouteAsync()
         {
-
-
             var response = await RouteDataService.CreateAsync(EditRouteViewModel);
 
             HandleResponse(response);
 
             return response.Data;
+        }
+        private void AddTimesToDates()
+        {
+            EditRouteViewModel.StartDateTime = EditRouteViewModel.StartDateTime.Date + (StartTime.TimeOfDay- EditRouteViewModel.StartDateTime.TimeOfDay);
+            EditRouteViewModel.EndDateTime = EditRouteViewModel.EndDateTime.Date + (EndTime.TimeOfDay- EditRouteViewModel.EndDateTime.TimeOfDay);
         }
     }
 }

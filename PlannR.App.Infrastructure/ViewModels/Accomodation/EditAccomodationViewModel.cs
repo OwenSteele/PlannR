@@ -21,6 +21,6 @@ namespace PlannR.App.Infrastructure.ViewModels.Accomodation
         public Guid? LocationId { get; set; }
         [Required]
         public DateTime StartDateTime { get; set; }
-        public DateTime EndDateTime { get => StartDateTime.AddDays(Rooms); }
+        public DateTime EndDateTime { get; set; }
     }
 }

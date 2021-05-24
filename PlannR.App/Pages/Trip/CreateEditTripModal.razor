@@ -24,24 +24,32 @@
             <ValidationMessage For="@(() => EditTripViewModel.StartDateTime)" />
         </div>
         <div class="form-field">
+            <label for="tripStartDate">Start Time<span>*</span></label>
+            <input required type="time" id="tripStartTime" @bind-value="StartTime" />
+        </div>
+        <div class="form-field">
             <label for="tripEndDate">End Date<span>*</span></label>
             <InputDate id="tripEndDate" @bind-Value="@EditTripViewModel.EndDateTime"
                        placeholder="@DateTime.Now.ToShortTimeString()"></InputDate>
             <ValidationMessage For="@(() => EditTripViewModel.EndDateTime)" />
         </div>
         <div class="form-field">
+            <label for="tripEndDate">End Time<span>*</span></label>
+            <input required type="time" id="tripEndDate" @bind-value="EndTime" />
+        </div>
+        <div class="form-field">
             <label>Starting Location</label>
-            @if(EditTripViewModel.StartLocationId != null)
+            @if (EditTripViewModel.StartLocationId != null)
             {
-            <span>Location Set</span>
+                <span>Location Set</span>
             }
             <button type="button" @onclick="StartLocationModal">&#128396;</button>
         </div>
         <div class="form-field">
             <label>End Location</label>
-            @if(EditTripViewModel.EndLocationId != null)
+            @if (EditTripViewModel.EndLocationId != null)
             {
-            <span>Location Set</span>
+                <span>Location Set</span>
             }
             <button type="button" @onclick="EndLocationModal">&#128396;</button>
         </div>
