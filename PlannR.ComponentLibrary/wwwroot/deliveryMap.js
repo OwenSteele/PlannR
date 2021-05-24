@@ -2,9 +2,12 @@
     var tileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
     var tileAttribution = 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>';
 
+    let currentLatitude;
+    let currentLongitude;
+
     // Global export
     window.deliveryMap = {
-        showOrUpdate: function (elementId, markers) {
+        showOrUpdate: function (elementId, markers, markerSelector) {
             var elem = document.getElementById(elementId);
             if (!elem) {
                 throw new Error('No element with ID ' + elementId);
@@ -44,7 +47,31 @@
                         4000);
                 });
             }
+            if (markerSelector === true) {
+                var theMarker = {};
+
+                map.on('click', function (e) {
+                    lat = e.latlng.lat;
+                    lon = e.latlng.lng;
+
+                    if (theMarker != undefined) {
+                        map.removeLayer(theMarker);
+                    };
+
+                    theMarker = L.marker([lat, lon]).addTo(map);
+
+                    currentLatitude = lat;
+                    currentLongitude = lon;
+                });
+
+            }
+
+        },
+
+        getCurrentMarkerLocation: function () {
+            return `${currentLatitude} ${currentLongitude}`;
         }
+
     };
 
     function animateMarkerMove(marker, coords, durationMs) {
