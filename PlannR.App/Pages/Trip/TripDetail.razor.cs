@@ -144,6 +144,50 @@ namespace PlannR.App.Pages.Trip
             }
             StateHasChanged();
         }
+        private async Task ShowFullMapModal()
+        {
+            var parameters = new ModalParameters();
+
+            var fullMapPoints = new List<Marker>();
+
+            var position = 1;
+
+            foreach(var part in OrderedTripParts)
+            {
+                if (!string.IsNullOrWhiteSpace(part.StartLocationName))
+                {
+                    fullMapPoints.Add(new Marker
+                    {
+                        Description = $"{position}. {part.Name} ({part.Type}",
+                        X = part.StartCoordinates.Item1.Value,
+                        Y = part.StartCoordinates.Item2.Value,
+                    });
+                    position++;
+                }
+                if (!string.IsNullOrWhiteSpace(part.EndLocationName))
+                {
+                    fullMapPoints.Add(new Marker
+                    {
+                        Description = $"{position}. {part.Name} ({part.Type}",
+                        X = part.EndCoordinates.Item1.Value,
+                        Y = part.EndCoordinates.Item2.Value,
+                    });
+                    position++;
+                }
+            }
+
+            parameters.Add("MapPoints", fullMapPoints);
+
+            var modal = Modal.Show<FullMapModal>($"Map of {Trip.Name}", parameters);
+
+            var result = await modal.Result;
+
+            if (!result.Cancelled)
+            {
+                Trip = await TripDataService.GetTripByIdAsync(_tripId);
+            }
+            StateHasChanged();
+        }
         private void SetMapPoints()
         {
             MapPoints = new List<Marker>();

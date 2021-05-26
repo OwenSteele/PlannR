@@ -14,7 +14,9 @@ namespace PlannR.App.Infrastructure.ViewModels.UI
         public DateTime StartDateTime { get; set; }
         public DateTime EndDateTime { get; set; }
         public string StartLocationName { get; set; }
+        public (double?,double?) StartCoordinates { get; set; }
         public string EndLocationName { get; set; }
+        public (double?, double?) EndCoordinates { get; set; }
         public string Uri { get; set; }
         public string CssClass { get; set; }
     }

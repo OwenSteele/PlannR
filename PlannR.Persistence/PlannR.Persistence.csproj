@@ -23,5 +23,9 @@
     <ProjectReference Include="..\PlannR.Domain\PlannR.Domain.csproj"></ProjectReference>
     <ProjectReference Include="..\PlannR.Application\PlannR.Application.csproj"></ProjectReference>
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
   
 </Project>

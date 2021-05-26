@@ -97,9 +97,6 @@
     overflow:hidden;
 }
 
-.divider {
-    border: 1px solid #000000;
-}
 
 .accom {
     background-color: #fea9a9;
@@ -221,10 +218,10 @@
     overflow: hidden;
 }
 
-.one {
-
+.map-header {
+    z-index: 998;
+    min-height: 55px;
 }
-
 
 @media screen and (max-width: 500px) {
     .dates-locations > div {

@@ -10,8 +10,9 @@
     {
         <div class="heading">
             <h1>@Accomodation.Name</h1>
-            <div><div>Part of Trip:</div>
-                <button class="trip-button" @onclick="NavigateToTrip">                    
+            <div>
+                <div>Part of:</div>
+                <button class="trip-button" @onclick="NavigateToTrip">
                     <div>@Accomodation.Trip.Name</div>
                 </button>
             </div>
@@ -35,8 +36,8 @@
                         </h4>
                         <div>
                             @Accomodation.StartDateTime.ToLongDateString()
+                            (@Accomodation.StartDateTime.ToShortTimeString())
                         </div>
-
                     </div>
                     <div>
                         <h4>
@@ -45,15 +46,29 @@
 
                         <div>
                             @Accomodation.EndDateTime.ToLongDateString()
+                            (@Accomodation.EndDateTime.ToShortTimeString())
                         </div>
                     </div>
                 </div>
                 <div class="accomodation-description">
-                    <h4>About</h4>
-                    <p>@Accomodation.Description</p>
+                    <div>
+                        <h4>Type</h4>
+                        <div>@Accomodation.AccomodationType.Name</div>
+                    </div>
+                    <div>
+                        <h4>About</h4>
+                        @if (string.IsNullOrWhiteSpace(Accomodation.Description))
+                        {
+                            <div>No Description yet!</div>
+                        }
+                        else
+                        {
+                            <div>@Accomodation.Description</div>
+                        }
+                    </div>
                 </div>
                 <div class="cost-nights">
-                    <div>
+                    <div class="minimal">
                         <h4>
                             Cost per night:
                         </h4>
@@ -61,7 +76,7 @@
                             £@Accomodation.CostPerNight
                         </div>
                     </div>
-                    <div>
+                    <div class="minimal">
                         <h4>
                             Number of nights:
                         </h4>
@@ -69,7 +84,7 @@
                             @Accomodation.Nights
                         </div>
                     </div>
-                    <div>
+                    <div class="minimal">
                         <h4>
                             Total Cost:
                         </h4>
@@ -87,8 +102,15 @@
             </div>
         </div>
         <div class="divider"></div>
-        <div class="Accomodation-section">
+        <div class="booking-section">
+            <div class="heading">
+                <h2>Reservations</h2>
+                <button @onclick="ShowEditAccomodationBookingModal">&#9998;</button>
+            </div>
+            @if(Accomodation.BookingId == null || Accomodation.BookingId == Guid.Empty)
+                {
+        <div class="no-booking">&#128681;  No Booking Added.</div>
+                }
         </div>
-            
     }
 </div>

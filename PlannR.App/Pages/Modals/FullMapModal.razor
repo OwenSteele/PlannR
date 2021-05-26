@@ -1,0 +1,11 @@
+﻿    @if (MapPoints == null || !MapPoints.Any())
+    {
+        <p>Loading map..</p>
+    }
+    else
+    {
+<div id="full-map-wrapper">
+    <Map Zoom="100" Points="@MapPoints"></Map>
+</div>
+<p></p>
+    }

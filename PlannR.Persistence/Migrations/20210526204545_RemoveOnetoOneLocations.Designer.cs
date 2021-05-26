@@ -10,8 +10,8 @@ using PlannR.Persistence;
 namespace PlannR.Persistence.Migrations
 {
     [DbContext(typeof(PlannrDbContext))]
-    [Migration("20210522135921_TripLocationIdNullable")]
-    partial class TripLocationIdNullable
+    [Migration("20210526204545_RemoveOnetoOneLocations")]
+    partial class RemoveOnetoOneLocations
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -73,7 +73,9 @@ namespace PlannR.Persistence.Migrations
 
                     b.HasIndex("AccomodationTypeId");
 
-                    b.HasIndex("LocationId");
+                    b.HasIndex("LocationId")
+                        .IsUnique()
+                        .HasFilter("[LocationId] IS NOT NULL");
 
                     b.HasIndex("TripId");
 
@@ -132,7 +134,9 @@ namespace PlannR.Persistence.Migrations
 
                     b.HasIndex("EventTypeId");
 
-                    b.HasIndex("LocationId");
+                    b.HasIndex("LocationId")
+                        .IsUnique()
+                        .HasFilter("[LocationId] IS NOT NULL");
 
                     b.HasIndex("TripId");
 
@@ -191,7 +195,7 @@ namespace PlannR.Persistence.Migrations
                     b.Property<DateTime>("EndDateTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("EventId")
+                    b.Property<Guid?>("EventId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("LastModifiedBy")
@@ -211,9 +215,13 @@ namespace PlannR.Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("EventId");
+                    b.HasIndex("EventId")
+                        .IsUnique()
+                        .HasFilter("[EventId] IS NOT NULL");
 
-                    b.HasIndex("LocationId");
+                    b.HasIndex("LocationId")
+                        .IsUnique()
+                        .HasFilter("[LocationId] IS NOT NULL");
 
                     b.HasIndex("RouteId");
 
@@ -238,7 +246,7 @@ namespace PlannR.Persistence.Migrations
                     b.Property<DateTime>("EndDateTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("EndLocationLocationId")
+                    b.Property<Guid?>("EndLocationId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("LastModifiedBy")
@@ -253,7 +261,7 @@ namespace PlannR.Persistence.Migrations
                     b.Property<DateTime>("StartDateTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("StartLocationLocationId")
+                    b.Property<Guid?>("StartLocationId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("TransportTypeId")
@@ -264,9 +272,13 @@ namespace PlannR.Persistence.Migrations
 
                     b.HasKey("TransportId");
 
-                    b.HasIndex("EndLocationLocationId");
+                    b.HasIndex("EndLocationId")
+                        .IsUnique()
+                        .HasFilter("[EndLocationId] IS NOT NULL");
 
-                    b.HasIndex("StartLocationLocationId");
+                    b.HasIndex("StartLocationId")
+                        .IsUnique()
+                        .HasFilter("[StartLocationId] IS NOT NULL");
 
                     b.HasIndex("TransportTypeId");
 
@@ -572,8 +584,8 @@ namespace PlannR.Persistence.Migrations
                         .IsRequired();
 
                     b.HasOne("PlannR.Domain.Shared.Location", "Location")
-                        .WithMany()
-                        .HasForeignKey("LocationId");
+                        .WithOne()
+                        .HasForeignKey("PlannR.Domain.Entities.Accomodation", "LocationId");
 
                     b.HasOne("PlannR.Domain.Entities.Trip", "Trip")
                         .WithMany("Accomodations")
@@ -597,8 +609,8 @@ namespace PlannR.Persistence.Migrations
                         .IsRequired();
 
                     b.HasOne("PlannR.Domain.Shared.Location", "Location")
-                        .WithMany()
-                        .HasForeignKey("LocationId");
+                        .WithOne()
+                        .HasForeignKey("PlannR.Domain.Entities.Event", "LocationId");
 
                     b.HasOne("PlannR.Domain.Entities.Trip", "Trip")
                         .WithMany("Events")
@@ -627,14 +639,12 @@ namespace PlannR.Persistence.Migrations
             modelBuilder.Entity("PlannR.Domain.Entities.RoutePoint", b =>
                 {
                     b.HasOne("PlannR.Domain.Entities.Event", "AssociatedEvent")
-                        .WithMany()
-                        .HasForeignKey("EventId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .WithOne()
+                        .HasForeignKey("PlannR.Domain.Entities.RoutePoint", "EventId");
 
                     b.HasOne("PlannR.Domain.Shared.Location", "Location")
-                        .WithMany()
-                        .HasForeignKey("LocationId");
+                        .WithOne()
+                        .HasForeignKey("PlannR.Domain.Entities.RoutePoint", "LocationId");
 
                     b.HasOne("PlannR.Domain.Entities.Route", null)
                         .WithMany("Points")
@@ -648,12 +658,12 @@ namespace PlannR.Persistence.Migrations
             modelBuilder.Entity("PlannR.Domain.Entities.Transport", b =>
                 {
                     b.HasOne("PlannR.Domain.Shared.Location", "EndLocation")
-                        .WithMany()
-                        .HasForeignKey("EndLocationLocationId");
+                        .WithOne()
+                        .HasForeignKey("PlannR.Domain.Entities.Transport", "EndLocationId");
 
                     b.HasOne("PlannR.Domain.Shared.Location", "StartLocation")
-                        .WithMany()
-                        .HasForeignKey("StartLocationLocationId");
+                        .WithOne()
+                        .HasForeignKey("PlannR.Domain.Entities.Transport", "StartLocationId");
 
                     b.HasOne("PlannR.Domain.EntityTypes.TransportType", "TransportType")
                         .WithMany("Transports")

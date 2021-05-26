@@ -86,10 +86,14 @@
                 </div>
             </div>
             <div id="map-wrapper">
-                <div>
+                <div class="map-header">
                     <h2>Map</h2>
+                    <div>
+                        <span>All locations: </span>
+                        <button @onclick="ShowFullMapModal">&#128269;</button>
+                    </div>
                 </div>
-                <Map Zoom="100" Points="@MapPoints"></Map>
+                    <Map Zoom="100" Points="@MapPoints"></Map>
             </div>
         </div>
         <div class="divider"></div>

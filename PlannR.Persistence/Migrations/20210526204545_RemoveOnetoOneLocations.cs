@@ -1,9 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
-using System;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace PlannR.Persistence.Migrations
 {
-    public partial class TripLocationId : Migration
+    public partial class RemoveOnetoOneLocations : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -86,8 +86,8 @@ namespace PlannR.Persistence.Migrations
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     StartDateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     EndDateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    StartLocationId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    EndLocationId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    StartLocationId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    EndLocationId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreationDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     LastModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -101,13 +101,13 @@ namespace PlannR.Persistence.Migrations
                         column: x => x.EndLocationId,
                         principalTable: "Locations",
                         principalColumn: "LocationId",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Trips_Locations_StartLocationId",
                         column: x => x.StartLocationId,
                         principalTable: "Locations",
                         principalColumn: "LocationId",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -138,7 +138,7 @@ namespace PlannR.Persistence.Migrations
                         column: x => x.AccomodationTypeId,
                         principalTable: "AccomodationTypes",
                         principalColumn: "AccomodationTypeId",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Accomodations_Locations_LocationId",
                         column: x => x.LocationId,
@@ -150,7 +150,7 @@ namespace PlannR.Persistence.Migrations
                         column: x => x.TripId,
                         principalTable: "Trips",
                         principalColumn: "TripId",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -181,7 +181,7 @@ namespace PlannR.Persistence.Migrations
                         column: x => x.EventTypeId,
                         principalTable: "EventTypes",
                         principalColumn: "EventTypeId",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Events_Locations_LocationId",
                         column: x => x.LocationId,
@@ -193,7 +193,7 @@ namespace PlannR.Persistence.Migrations
                         column: x => x.TripId,
                         principalTable: "Trips",
                         principalColumn: "TripId",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -218,7 +218,7 @@ namespace PlannR.Persistence.Migrations
                         column: x => x.TripId,
                         principalTable: "Trips",
                         principalColumn: "TripId",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -229,8 +229,8 @@ namespace PlannR.Persistence.Migrations
                     TripId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     TransportTypeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    StartLocationLocationId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    EndLocationLocationId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    StartLocationId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    EndLocationId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     StartDateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     EndDateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -243,14 +243,14 @@ namespace PlannR.Persistence.Migrations
                 {
                     table.PrimaryKey("PK_Transports", x => x.TransportId);
                     table.ForeignKey(
-                        name: "FK_Transports_Locations_EndLocationLocationId",
-                        column: x => x.EndLocationLocationId,
+                        name: "FK_Transports_Locations_EndLocationId",
+                        column: x => x.EndLocationId,
                         principalTable: "Locations",
                         principalColumn: "LocationId",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Transports_Locations_StartLocationLocationId",
-                        column: x => x.StartLocationLocationId,
+                        name: "FK_Transports_Locations_StartLocationId",
+                        column: x => x.StartLocationId,
                         principalTable: "Locations",
                         principalColumn: "LocationId",
                         onDelete: ReferentialAction.Restrict);
@@ -259,13 +259,13 @@ namespace PlannR.Persistence.Migrations
                         column: x => x.TransportTypeId,
                         principalTable: "TransportTypes",
                         principalColumn: "TransportTypeId",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Transports_Trips_TripId",
                         column: x => x.TripId,
                         principalTable: "Trips",
                         principalColumn: "TripId",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -274,7 +274,7 @@ namespace PlannR.Persistence.Migrations
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     LocationId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    EventId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    EventId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     StartDateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     EndDateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     RouteId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
@@ -291,7 +291,7 @@ namespace PlannR.Persistence.Migrations
                         column: x => x.EventId,
                         principalTable: "Events",
                         principalColumn: "EventId",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_RoutePoints_Locations_LocationId",
                         column: x => x.LocationId,
@@ -333,19 +333,19 @@ namespace PlannR.Persistence.Migrations
                         column: x => x.AccomodationId,
                         principalTable: "Accomodations",
                         principalColumn: "AccomodationId",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Bookings_Events_EventId",
                         column: x => x.EventId,
                         principalTable: "Events",
                         principalColumn: "EventId",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Bookings_Transports_TransportId",
                         column: x => x.TransportId,
                         principalTable: "Transports",
                         principalColumn: "TransportId",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -379,7 +379,9 @@ namespace PlannR.Persistence.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Accomodations_LocationId",
                 table: "Accomodations",
-                column: "LocationId");
+                column: "LocationId",
+                unique: false,
+                filter: "[LocationId] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Accomodations_TripId",
@@ -420,7 +422,9 @@ namespace PlannR.Persistence.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Events_LocationId",
                 table: "Events",
-                column: "LocationId");
+                column: "LocationId",
+                unique: false,
+                filter: "[LocationId] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Events_TripId",
@@ -430,12 +434,16 @@ namespace PlannR.Persistence.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_RoutePoints_EventId",
                 table: "RoutePoints",
-                column: "EventId");
+                column: "EventId",
+                unique: true,
+                filter: "[EventId] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
                 name: "IX_RoutePoints_LocationId",
                 table: "RoutePoints",
-                column: "LocationId");
+                column: "LocationId",
+                unique: false,
+                filter: "[LocationId] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
                 name: "IX_RoutePoints_RouteId",
@@ -448,14 +456,18 @@ namespace PlannR.Persistence.Migrations
                 column: "TripId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Transports_EndLocationLocationId",
+                name: "IX_Transports_EndLocationId",
                 table: "Transports",
-                column: "EndLocationLocationId");
+                column: "EndLocationId",
+                unique: false,
+                filter: "[EndLocationId] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Transports_StartLocationLocationId",
+                name: "IX_Transports_StartLocationId",
                 table: "Transports",
-                column: "StartLocationLocationId");
+                column: "StartLocationId",
+                unique: false,
+                filter: "[StartLocationId] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Transports_TransportTypeId",
@@ -471,13 +483,15 @@ namespace PlannR.Persistence.Migrations
                 name: "IX_Trips_EndLocationId",
                 table: "Trips",
                 column: "EndLocationId",
-                unique: true);
+                unique: false,
+                filter: "[EndLocationId] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Trips_StartLocationId",
                 table: "Trips",
                 column: "StartLocationId",
-                unique: true);
+                unique: false,
+                filter: "[StartLocationId] IS NOT NULL");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

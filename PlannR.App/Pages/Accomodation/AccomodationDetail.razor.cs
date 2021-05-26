@@ -88,5 +88,9 @@ namespace PlannR.App.Pages.Accomodation
                 });
             }
         }
+        private void ShowEditAccomodationBookingModal()
+        {
+
+        }
     }
 }
