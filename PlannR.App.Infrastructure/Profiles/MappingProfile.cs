@@ -45,18 +45,21 @@ namespace PlannR.App.Infrastructure.Profiles
             CreateMap<AccomodationTypeListViewModel, AccomodationTypeNestedViewModel>().ReverseMap();
             CreateMap<AccomodationTypeByNameDataModel, AccomodationTypeOfNameViewModel>().ReverseMap();
             CreateMap<AccomodationTypeListDataModel, AccomodationTypeNestedViewModel>().ReverseMap();
+            CreateMap<AccomodationTypeDto, AccomodationTypeNestedViewModel>().ReverseMap();
 
             CreateMap<EventTypeOfNameViewModel, CreateEventTypeCommand>().ReverseMap();
             CreateMap<EventTypeListDataModel, EventTypeListViewModel>().ReverseMap();
             CreateMap<EventTypeByNameDataModel, EventTypeOfNameViewModel>().ReverseMap();
             CreateMap<EventTypeListViewModel, EventTypeNestedViewModel>().ReverseMap();
             CreateMap<EventTypeListDataModel, EventTypeNestedViewModel>().ReverseMap();
+            CreateMap<EventTypeDto, AccomodationTypeNestedViewModel>().ReverseMap();
 
             CreateMap<TransportTypeOfNameViewModel, CreateTransportTypeCommand>().ReverseMap();
             CreateMap<TransportTypeListDataModel, TransportTypeListViewModel>().ReverseMap();
             CreateMap<TransportTypeByNameDataModel, TransportTypeOfNameViewModel>().ReverseMap();
             CreateMap<TransportTypeListViewModel, TransportTypeNestedViewModel>().ReverseMap();
             CreateMap<TransportTypeListDataModel, TransportTypeNestedViewModel>().ReverseMap();
+            CreateMap<TransportTypeDto, AccomodationTypeNestedViewModel>().ReverseMap();
 
             CreateMap<EditAccomodationViewModel, CreateAccomodationCommand>().ReverseMap();
             CreateMap<EditAccomodationViewModel, UpdateAccomodationCommand>().ReverseMap();
@@ -65,6 +68,7 @@ namespace PlannR.App.Infrastructure.Profiles
             CreateMap<AccomodationListDataModel, AccomodationListViewModel>().ReverseMap();
             CreateMap<AccomodationListByTripIdWithBookingsDataModel, AccomodationListWithBookingsViewModel>().ReverseMap();
             CreateMap<AccomodationListOnDateDataModel, AccomodationListOnDateViewModel>().ReverseMap();
+            CreateMap<AccomodationTripDto, TripNestedViewModel>().ReverseMap();
 
             CreateMap<EditEventViewModel, CreateEventCommand>().ReverseMap();
             CreateMap<EditEventViewModel, UpdateEventCommand>().ReverseMap();
@@ -73,6 +77,7 @@ namespace PlannR.App.Infrastructure.Profiles
             CreateMap<EventListDataModel, EventListViewModel>().ReverseMap();
             CreateMap<EventListByTripIdWithBookingsDataModel, EventListWithBookingsViewModel>().ReverseMap();
             CreateMap<EventListOnDateDataModel, EventListOnDateViewModel>().ReverseMap();
+            CreateMap<EventTripDto, TripNestedViewModel>().ReverseMap();
 
             CreateMap<EditTransportViewModel, CreateTransportCommand>().ReverseMap();
             CreateMap<EditTransportViewModel, UpdateTransportCommand>().ReverseMap();
@@ -81,6 +86,7 @@ namespace PlannR.App.Infrastructure.Profiles
             CreateMap<TransportListDataModel, TransportListViewModel>().ReverseMap();
             CreateMap<TransportListByTripIdWithBookingsDataModel, TransportListWithBookingsViewModel>().ReverseMap();
             CreateMap<TransportListOnDateDataModel, TransportListOnDateViewModel>().ReverseMap();
+            CreateMap<TransportTripDto, TripNestedViewModel>().ReverseMap();
 
             CreateMap<EditRouteViewModel, CreateRouteCommand>().ReverseMap();
             CreateMap<EditRouteViewModel, UpdateRouteCommand>().ReverseMap();
@@ -89,6 +95,7 @@ namespace PlannR.App.Infrastructure.Profiles
             CreateMap<RouteListByTripIdDataModel, RouteListOfTripViewModel>().ReverseMap();
             CreateMap<RouteListDataModel, RouteListViewModel>().ReverseMap();
             CreateMap<RouteListOnDateDataModel, RouteListOnDateViewModel>().ReverseMap();
+            CreateMap<RouteTripDto, TripNestedViewModel>().ReverseMap();
 
             CreateMap<RoutePointNestedViewModel, CreateRoutePointCommand>().ReverseMap();
             CreateMap<RoutePointNestedViewModel, RoutePointNestedViewModel>().ReverseMap();

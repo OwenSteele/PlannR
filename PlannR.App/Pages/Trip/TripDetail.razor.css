@@ -1,36 +1,4 @@
-﻿.trip {
-    margin-top: 30px;
-    padding-right: 10px;
-}
-
-.heading {
-    border-bottom: 3px solid #00ff90;
-    margin: 15px auto;
-}
-
-.trip-info {
-    max-width: 600px;
-    margin: 0px auto;
-}
-
-    .trip-info > div {
-        font-weight: bold;
-        width: auto;
-    }
-
-        .trip-info > div > div {
-            display: flex;
-            justify-content: space-between;
-            border-bottom: 1px solid #000000;
-        }
-
-            .trip-info > div > div > div {
-                display: flex;
-                justify-content: space-around;
-                padding: 5px 0px;
-                flex-direction: row;
-            }
-
+﻿
 .trip-section {
     display: flex;
     justify-content: space-between;
@@ -47,18 +15,6 @@
         margin: 10px;
         padding: 5px;
     }
-
-h3 {
-    font-weight: bolder;
-    margin: auto;
-}
-h2 {
-    font-weight: bolder;
-    margin: auto;
-}
-h4 {
-    font-weight: bolder;
-}
 
     .trip-section > div > div {
         margin: 15px auto;
@@ -133,45 +89,7 @@ h4 {
     background-color: #ffffff;
     width: auto;
 }
-.heading {
-border-bottom: 3px solid #00ff90;
-margin: 15px auto;
-width: 100%;
-flex: auto;
-flex-direction: row;
-display: inline-flex;
-justify-content: space-between;
-vertical-align: central;
-}
 
-.heading h1 {
-    font-weight: bolder;
-    font-size: 60px;
-}
-
-.heading div {
-    font-size: 24px;
-}
-
-button {
-    height: min-content;
-    vertical-align: middle;
-    font-weight: bolder;
-    border-radius: 4px;
-    background-color: #00ff90;
-    border: none;
-    color: #000000;
-    font-size: 40px;
-    width: 55px;
-    height: 55px;
-}
-
-.trip-info button {
-    font-size: 30px;
-    display: inline-flex;
-    width: 43px;
-    height: 43px;
-}
 
 #map-wrapper {
     z-index: 0;
@@ -179,12 +97,8 @@ button {
     overflow:hidden;
 }
 
-button:hover {
-    color: #ffffff;
-}
-
 .divider {
-    border: 2px solid #000000;
+    border: 1px solid #000000;
 }
 
 .accom {
@@ -307,13 +221,13 @@ button:hover {
     overflow: hidden;
 }
 
+.one {
+
+}
+
 
 @media screen and (max-width: 500px) {
     .dates-locations > div {
-        flex-direction: column;
-    }
-
-    .heading {
         flex-direction: column;
     }
 

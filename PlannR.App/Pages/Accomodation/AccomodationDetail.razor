@@ -1,1 +1,94 @@
-﻿
+﻿@page "/accomodations/{accomodationId}"
+@attribute [Authorize]
+
+<div class="detail limit-width">
+    @if (Accomodation == null)
+    {
+        <p>Searching for your adventure..</p>
+    }
+    else
+    {
+        <div class="heading">
+            <h1>@Accomodation.Name</h1>
+            <div><div>Part of Trip:</div>
+                <button class="trip-button" @onclick="NavigateToTrip">                    
+                    <div>@Accomodation.Trip.Name</div>
+                </button>
+            </div>
+            <button @onclick="ShowEditAccomodationModal">&#9998;</button>
+        </div>
+        <div class="detail-info">
+            <div class="one">
+                <div>
+                    <div>Location:</div>
+                    <div class="val">@(Accomodation.Location == null ? "No Location Set" : Accomodation.Location.Name)</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="map-parts">
+            <div class="accomodation-info">
+                <div class="dates-times">
+                    <div>
+                        <h4>
+                            Booked From:
+                        </h4>
+                        <div>
+                            @Accomodation.StartDateTime.ToLongDateString()
+                        </div>
+
+                    </div>
+                    <div>
+                        <h4>
+                            Leaving on:
+                        </h4>
+
+                        <div>
+                            @Accomodation.EndDateTime.ToLongDateString()
+                        </div>
+                    </div>
+                </div>
+                <div class="accomodation-description">
+                    <h4>About</h4>
+                    <p>@Accomodation.Description</p>
+                </div>
+                <div class="cost-nights">
+                    <div>
+                        <h4>
+                            Cost per night:
+                        </h4>
+                        <div>
+                            £@Accomodation.CostPerNight
+                        </div>
+                    </div>
+                    <div>
+                        <h4>
+                            Number of nights:
+                        </h4>
+                        <div>
+                            @Accomodation.Nights
+                        </div>
+                    </div>
+                    <div>
+                        <h4>
+                            Total Cost:
+                        </h4>
+                        <div>
+                            £@(Accomodation.CostPerNight * Accomodation.Nights)
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="map-wrapper">
+                <div>
+                    <h2>Map</h2>
+                </div>
+                <Map Zoom="100" Points="@MapPoints"></Map>
+            </div>
+        </div>
+        <div class="divider"></div>
+        <div class="Accomodation-section">
+        </div>
+            
+    }
+</div>

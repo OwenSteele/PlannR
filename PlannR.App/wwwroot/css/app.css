@@ -67,6 +67,8 @@ button:focus {
     margin: 5px auto;
 }
 
+/*MODALS*/
+
 .modal-parent {
     min-height: 100px;
     min-width: 450px;
@@ -112,4 +114,182 @@ button:focus {
 }
 .form-field  {
     margin: 5px;
+}
+
+/*OVERVIEW PAGES*/
+
+.overview-wrapper {
+    padding: 20px 10px;
+}
+
+.overview-wrapper .heading {
+    width: 100%;
+    flex: auto;
+    flex-direction: row;
+    display: inline-flex;
+    justify-content: space-between;
+    vertical-align: central;
+}
+
+
+.overview-wrapper .heading h1 {
+    font-weight: bolder;
+    font-size: 60px;
+}
+
+.overview-wrapper .heading button {
+    height: min-content;
+    vertical-align: middle;
+    font-weight: bolder;
+    border-radius: 4px;
+    background-color: #00ff90;
+    border: none;
+    color: #000000;
+}
+
+.overview-wrapper .heading button span {
+    font-size: 28px;
+}
+
+.overview-wrapper .heading button:hover {
+    color: #ffffff;
+}
+
+.overview-list {
+    margin-top: 20px;
+    scroll-behavior: smooth;
+    max-height: 500px;
+    animation: 1s ease-out 0s 1 slideInFromTop;
+}
+
+.overview-list ul {
+    padding: 10px 0px;
+    list-style: none;
+}
+
+.overview-list li {
+    border-top: 1px solid #000000;
+    padding: 10px 0px;
+}
+
+.overview-list a {
+    color: #000000;
+}
+
+.overview-list a:hover {
+    color: #00ff90;
+    transition: 1s;
+}
+
+.overview-name h3 {
+    font-weight: bolder;
+}
+
+.overview-name {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.overview-info {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+/*DETAIL PAGES*/
+
+.detail {
+    margin-top: 30px;
+    padding-right: 10px;
+}
+
+.detail .heading {
+    border-bottom: 3px solid #00ff90;
+    margin: 15px auto;
+}
+
+.detail-info {
+    max-width: 600px;
+    margin: 0px auto;
+}
+
+.detail-info > div {
+    font-weight: bold;
+    width: auto;
+}
+
+.detail-info > div > div {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #000000;
+}
+
+.detail-info > div > div > div {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0px;
+    flex-direction: row;
+}
+
+.detail h3 {
+    font-weight: bolder;
+    margin: auto;
+}
+
+.detail h2 {
+    font-weight: bolder;
+    margin: auto;
+}
+
+.detail h4 {
+    font-weight: bolder;
+}
+
+.detail button:hover {
+    color: #ffffff;
+}
+
+.detail .heading {
+    border-bottom: 3px solid #00ff90;
+    margin: 15px auto;
+    width: 100%;
+    flex: auto;
+    flex-direction: row;
+    display: inline-flex;
+    justify-content: space-between;
+    vertical-align: central;
+}
+
+    .detail .heading h1 {
+        font-weight: bolder;
+        font-size: 60px;
+    }
+
+    .detail .heading div {
+        font-size: 24px;
+    }
+
+.detail button {
+    height: min-content;
+    vertical-align: middle;
+    font-weight: bolder;
+    border-radius: 4px;
+    background-color: #00ff90;
+    border: none;
+    color: #000000;
+    font-size: 40px;
+    width: 55px;
+    height: 55px;
+}
+
+.detail-info button {
+    font-size: 30px;
+    display: inline-flex;
+    width: 43px;
+    height: 43px;
+}
+
+@media screen and (max-width: 500px) {
+    .detail .heading {
+        flex-direction: column;
+    }
 }

@@ -1,0 +1,78 @@
+﻿.accomodation-info {
+
+}
+
+.heading .trip-button {
+    width: auto;
+    height: auto;
+    transition: 0.5s
+}
+.heading .trip-button:hover {
+    transition: 0.5s
+}
+
+.accomodation-info {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0px;
+    flex-direction: row;
+    overflow: hidden;
+}
+
+    .accomodation-info > div {
+        border: none;
+        min-width: 30%;
+        max-width: 32%;
+        border-radius: 5px;
+        margin: 10px;
+        padding: 5px;
+    }
+
+        .accomodation-info > div > div {
+            margin: 15px auto;
+            width: 100%;
+            flex: auto;
+            flex-direction: row;
+            display: inline-flex;
+            justify-content: space-between;
+            vertical-align: central;
+        }
+
+    .accomodation-info .item-btn {
+        width: 100%;
+        overflow: inherit;
+        font-size: 12px;
+        background: rgba(255,255,255,.6);
+        transition: 0.5s;
+        margin: 5px 0px;
+        padding: 5px;
+        height: auto;
+    }
+
+.dates-times {
+    background-color: #fea9a9;
+}
+
+.accomodation-description {
+    background-color: #fdffba;
+}
+.accomodation-description > p {
+    background-color: #ffffff;
+    margin: 10px;
+    padding: 10px;
+
+}
+
+.cost-nights {
+    background-color: #c1f3fd;
+}
+
+@media screen and (max-width: 1000px) {
+    .accomodation-info {
+        flex-direction: column;
+    }
+
+        .accomodation-info > div {
+            min-width: 90%;
+        }
+}

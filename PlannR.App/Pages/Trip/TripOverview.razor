@@ -1,7 +1,7 @@
 ﻿@page "/trips"
 @attribute [Authorize]
 
-<div class="trips limit-width">
+<div class="overview-wrapper limit-width">
     <div class="heading">
         <h1>Your Trips</h1>
         <button @onclick="ShowCreateTripModal"><span>New Trip &#43;</span></button>
@@ -16,17 +16,17 @@
             }
     else
     {
-        <div class="trip-list">
+        <div class="overview-list">
             <ul>
                 @foreach (var trip in Trips)
                 {
                     <li>
                         <a href="@($"/trips/{trip.TripId}")">
-                            <div class="trip-name">
+                            <div class="overview-name">
                                 <h3>@trip.Name</h3>
                                 <span><strong>@trip.StartDateTime.ToShortDateString()</strong> - <strong>@trip.EndDateTime.ToShortDateString()</strong></span>
                             </div>
-                            <div class="trip-info">
+                            <div class="overview-info">
                                 @if (trip.StartLocation == null && trip.EndLocation == null)
                                 {
                                     <strong>You haven't added where you're starting or ending up!</strong>

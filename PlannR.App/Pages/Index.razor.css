@@ -36,6 +36,7 @@ img {
     height: auto;
     max-height:500px;
     background-position: center;
+    background-size: contain;
 }
 
 button {

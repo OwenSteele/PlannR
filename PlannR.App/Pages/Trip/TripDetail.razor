@@ -1,7 +1,7 @@
 ﻿@page "/trips/{tripId}"
 @attribute [Authorize]
 
-<div class="trip limit-width">
+<div class="detail limit-width">
     @if (Trip == null)
     {
         <p>Searching for your adventure..</p>
@@ -17,8 +17,7 @@
             </div>
             <button @onclick="ShowEditTripModal">&#9998;</button>
         </div>
-        <div class="trip-info">
-            <div>
+        <div class="detail-info">
                 <div class="one">
                     <div>
                         <div>Starting From:</div>
@@ -31,7 +30,6 @@
                         <div class="val">@(Trip.EndLocation == null ? "No Location Set" : Trip.EndLocation.Name)</div>
                     </div>
                 </div>
-            </div>
         </div>
 
         <div class="map-parts">

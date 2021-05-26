@@ -1,1 +1,42 @@
-﻿
+﻿@page "/accomodations"
+@attribute [Authorize]
+
+<div class="overview-wrapper limit-width">
+    <div class="heading">
+        <h1>Your Accomodation</h1>
+        <button @onclick="ShowCreateAccomodationModal"><span>New &#43;</span></button>
+    </div>
+    @if (Accomodations == null)
+    {
+        <p>Finding your accomdations..</p>
+    }
+    else if (Accomodations.Count == 0)
+    {
+        <strong>You don't have accomdations yet, starting planning one now!</strong>
+    }
+    else
+    {
+        <div class="overview-list">
+            <ul>
+                @foreach (var accom in Accomodations)
+                {
+                    <li>
+                        <a href="@($"/accomodations/{accom.AccomodationId}")">
+                            <div class="overview-name">
+                                <h3>@accom.Name</h3>
+                                <span><strong>@accom.StartDateTime.ToShortDateString()</strong> - <strong>@accom.EndDateTime.ToShortDateString()</strong></span>
+                            </div>
+                            <div class="overview-info">
+                                <div>
+                                    <div>
+                                        &#128712; @accom.Description
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                }
+            </ul>
+        </div>
+    }
+</div>

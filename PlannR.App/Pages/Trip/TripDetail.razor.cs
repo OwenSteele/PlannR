@@ -47,11 +47,11 @@ namespace PlannR.App.Pages.Trip
         }
         protected void NavigateToAccomodation(string uri)
         {
-            NavigationManager.NavigateTo($"accomodation/{uri}");
+            NavigationManager.NavigateTo($"accomodations/{uri}");
         }
         protected void NavigateToTransport(string uri)
         {
-            NavigationManager.NavigateTo($"transport/{uri}");
+            NavigationManager.NavigateTo($"transports/{uri}");
         }
         protected void NavigateToEvents(string uri)
         {

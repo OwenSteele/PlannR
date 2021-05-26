@@ -28,7 +28,10 @@ namespace PlannR.App.Pages.Trip
             var result = await modal.Result;
 
             if (result.Cancelled)
+            {
                 Trips = await TripDataService.GetAllTripsAsync();
+                StateHasChanged();
+            }
         }
     }
 }

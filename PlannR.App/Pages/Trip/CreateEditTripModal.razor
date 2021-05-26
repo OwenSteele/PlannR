@@ -24,7 +24,7 @@
             <ValidationMessage For="@(() => EditTripViewModel.StartDateTime)" />
         </div>
         <div class="form-field">
-            <label for="tripStartDate">Start Time<span>*</span></label>
+            <label for="tripStartTime">Start Time<span>*</span></label>
             <input required type="time" id="tripStartTime" @bind-value="StartTime" />
         </div>
         <div class="form-field">
@@ -34,8 +34,8 @@
             <ValidationMessage For="@(() => EditTripViewModel.EndDateTime)" />
         </div>
         <div class="form-field">
-            <label for="tripEndDate">End Time<span>*</span></label>
-            <input required type="time" id="tripEndDate" @bind-value="EndTime" />
+            <label for="tripEndTime">End Time<span>*</span></label>
+            <input required type="time" id="tripEndTime" @bind-value="EndTime" />
         </div>
         <div class="form-field">
             <label>Starting Location</label>
