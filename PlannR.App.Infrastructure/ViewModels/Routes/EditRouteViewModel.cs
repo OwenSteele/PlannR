@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PlannR.App.Infrastructure.Validation;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace PlannR.App.Infrastructure.ViewModels.Routes
     {
         public Guid RouteId { get; set; }
         [Required]
+        [NotEmpty]
         public Guid TripId { get; set; }
         public string Name { get; set; }
         [Required]

@@ -114,6 +114,8 @@ namespace PlannR.App.Pages.Modals
             if (result.Cancelled) return;
 
             TransportTypes = await TransportTypeService.GetAllTypeNamesAsync();
+
+            EditTransportViewModel.TransportTypeId = (Guid)result.Data;
         }
 
         public async Task StartLocationModal()

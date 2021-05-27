@@ -50,9 +50,14 @@ namespace PlannR.App.Pages.Accomodation
             {
                 AccomodationId = Accomodation.AccomodationId,
                 Name = Accomodation.Name,
+                TripId = Accomodation.Trip.TripId,
+                AccomodationTypeId = Accomodation.AccomodationType.AccomodationTypeId,
                 StartDateTime = Accomodation.StartDateTime,
                 EndDateTime = Accomodation.EndDateTime,
                 LocationId = Accomodation.Location?.LocationId,
+                CostPerNight = Accomodation.CostPerNight,
+                Nights = Accomodation.Nights,
+                Description = Accomodation.Description
             };
 
             var parameters = new ModalParameters();

@@ -176,6 +176,26 @@ namespace PlannR.App.Pages.Trip
                 }
             }
 
+            if (!fullMapPoints.Any()) 
+            {
+                if (Trip.StartLocation == null || Trip.EndLocation == null) return;
+
+                fullMapPoints.Add(new Marker
+                {
+                    Description = $"{position}. {Trip.StartLocation.Name} (start of trip)",
+                    X = Trip.StartLocation.Longitude,
+                    Y = Trip.StartLocation.Latitude,
+                });
+                position++;
+                fullMapPoints.Add(new Marker
+                {
+                    Description = $"{position}. {Trip.EndLocation.Name} (end of trip)",
+                    X = Trip.EndLocation.Longitude,
+                    Y = Trip.EndLocation.Latitude,
+                });
+                position++;
+            };
+
             parameters.Add("MapPoints", fullMapPoints);
 
             var modal = Modal.Show<FullMapModal>($"Map of {Trip.Name}", parameters);

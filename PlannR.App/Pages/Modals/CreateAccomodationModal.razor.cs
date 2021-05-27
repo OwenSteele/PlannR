@@ -30,6 +30,7 @@ namespace PlannR.App.Pages.Modals
         [Inject]
         public NavigationManager NavigationManager { get; set; }
 
+        [Parameter]
         public EditAccomodationViewModel EditAccomodationViewModel { get; set; }
         public ICollection<TripNestedViewModel> UserTrips { get; set; }
         public ICollection<AccomodationTypeNestedViewModel> AccomodationTypes { get; set; }
@@ -45,7 +46,7 @@ namespace PlannR.App.Pages.Modals
         {
             EditAccomodationViewModel = new EditAccomodationViewModel
             {
-                StartDateTime = DateTime.Today
+                StartDateTime = DateTime.Today.AddDays(1)
             };
             UserTrips = await TripDataService.GetTripNamesAsync();
             AccomodationTypes = await AccomodationTypeService.GetAllTypeNamesAsync();
@@ -113,6 +114,8 @@ namespace PlannR.App.Pages.Modals
             if (result.Cancelled) return;
 
             AccomodationTypes = await AccomodationTypeService.GetAllTypeNamesAsync();
+
+            EditAccomodationViewModel.AccomodationTypeId = (Guid)result.Data;
         }
         public async Task LocationModal()
         {
@@ -133,9 +136,9 @@ namespace PlannR.App.Pages.Modals
         }
         private void AddTimesToDates()
         {
-            EditAccomodationViewModel.StartDateTime = EditAccomodationViewModel.StartDateTime.Date + (StartTime.TimeOfDay - EditAccomodationViewModel.StartDateTime.TimeOfDay);
             EditAccomodationViewModel.EndDateTime = EditAccomodationViewModel.StartDateTime.AddDays(EditAccomodationViewModel.Nights);
-            EditAccomodationViewModel.EndDateTime = EditAccomodationViewModel.EndDateTime.Date + (EndTime.TimeOfDay - StartTime.TimeOfDay);
+            EditAccomodationViewModel.StartDateTime = EditAccomodationViewModel.StartDateTime.Date + (StartTime.TimeOfDay - EditAccomodationViewModel.StartDateTime.TimeOfDay);
+            EditAccomodationViewModel.EndDateTime = EditAccomodationViewModel.EndDateTime.Date + (EndTime.TimeOfDay - EndTime.TimeOfDay);
         }
     }
 }

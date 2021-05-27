@@ -66,7 +66,7 @@ else
                 <ValidationMessage For="@(() => EditAccomodationViewModel.Nights)" />
             </div>
             <div class="form-field">
-                <label for="start">Starting Date</label>
+                <label for="start">Starting Date<span>*</span></label>
                 <InputDate id="start" @bind-Value="@EditAccomodationViewModel.StartDateTime"
                            placeholder="1"></InputDate>
                 <ValidationMessage For="@(() => EditAccomodationViewModel.StartDateTime)" />
@@ -85,6 +85,7 @@ else
             </div>
             <div class="form-field">
                 <label for="tripEndDate">Departure Time<span>*</span></label>
+                <label for="tripEndDate">date: <strong>@EditAccomodationViewModel.StartDateTime.AddDays(EditAccomodationViewModel.Nights).ToShortDateString()</strong></label>
                 <input required type="time" id="tripEndDate" @bind-value="EndTime" />
             </div>
 

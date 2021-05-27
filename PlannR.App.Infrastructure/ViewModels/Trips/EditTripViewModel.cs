@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PlannR.App.Infrastructure.Validation;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace PlannR.App.Infrastructure.ViewModels.Trips
@@ -13,8 +14,10 @@ namespace PlannR.App.Infrastructure.ViewModels.Trips
         [StringLength(100, ErrorMessage = "Trip description can't be too long! 100 characters max.")]
         public string Description { get; set; }
         [Required]
+        [NotEmpty]
         public DateTime StartDateTime { get; set; }
         [Required]
+        [NotEmpty]
         public DateTime EndDateTime { get; set; }
         public Guid? StartLocationId { get; set; }
         public Guid? EndLocationId { get; set; }

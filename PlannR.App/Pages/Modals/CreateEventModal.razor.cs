@@ -117,6 +117,8 @@ namespace PlannR.App.Pages.Modals
             if (result.Cancelled) return;
 
             EventTypes = await EventTypeService.GetAllTypeNamesAsync();
+
+            EditEventViewModel.EventTypeId = (Guid)result.Data;
         }
         public async Task LocationModal()
         {
