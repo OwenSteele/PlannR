@@ -18,9 +18,5 @@ namespace PlannR.App.Pages.Modals
         public ModalParameters Parameters { get; set; }
         [Parameter]
         public List<Marker> MapPoints { get; set; }
-
-        protected async override Task OnInitializedAsync()
-        {
-        }
     }
 }

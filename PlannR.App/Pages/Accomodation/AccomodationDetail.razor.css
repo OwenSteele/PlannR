@@ -17,6 +17,7 @@
     padding: 5px 0px;
     flex-direction: row;
     overflow: hidden;
+    margin: 40px 0px;
 }
 
 .accomodation-info > div {
@@ -105,6 +106,7 @@
         flex-direction: column;
         width: 30%;
         max-height: 700px;
+        margin: 40px 0px;
     }
     .accomodation-info > div {
         min-width: 100%;

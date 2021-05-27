@@ -20,6 +20,8 @@
 
     [Parameter]
     public bool UseSelector { get; set; } = false;
+    [Parameter]
+    public bool PlotRoute { get; set; } = false;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
@@ -27,6 +29,7 @@
             "deliveryMap.showOrUpdate",
             elementId,
             Points,
-            UseSelector);
+            UseSelector,
+            PlotRoute);
     }
 }

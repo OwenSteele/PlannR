@@ -71,7 +71,7 @@ namespace PlannR.App.Pages.Accomodation
 
             var result = await modal.Result;
 
-            if (result.Cancelled)
+            if (result.Data != null)
             {
                 Accomodation = await AccomodationDataService.GetAccomodationByIdAsync(_AccomodationId);
 
@@ -93,9 +93,33 @@ namespace PlannR.App.Pages.Accomodation
                 });
             }
         }
-        private void ShowEditAccomodationBookingModal()
+        private async Task ShowEditAccomodationBookingModal()
         {
+            var title = string.Empty;
 
+            var parameters = new ModalParameters();
+            parameters.Add("OwnerId", Accomodation.AccomodationId);
+
+            if (Accomodation.BookingId.HasValue)
+            {
+                parameters.Add("BookingId", Accomodation.BookingId);
+                title = "Edit";
+            }
+            else
+            {
+                title = "Create";
+            }
+
+            var modal = Modal.Show<CreateAccomodationBookingModal>($"{title}: '{Accomodation.Name}' booking", parameters);
+
+            var result = await modal.Result;
+
+            if (result.Data != null)
+            {
+                Accomodation = await AccomodationDataService.GetAccomodationByIdAsync(_AccomodationId);
+
+                StateHasChanged();
+            }
         }
     }
 }

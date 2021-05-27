@@ -150,42 +150,44 @@ namespace PlannR.App.Pages.Trip
 
             var fullMapPoints = new List<Marker>();
 
-            var position = 1;
+            var position = 0;
+
+            if (Trip.StartLocation != null)
+            {
+                position++;
+                fullMapPoints.Add(new Marker
+                {
+                    Description = $"{position}. {Trip.StartLocation.Name} (start of trip)",
+                    ShowPopup = true,
+                    X = Trip.StartLocation.Longitude,
+                    Y = Trip.StartLocation.Latitude,
+                }) ;
+            }
 
             foreach(var part in OrderedTripParts)
             {
                 if (!string.IsNullOrWhiteSpace(part.StartLocationName))
                 {
+                    position++;
                     fullMapPoints.Add(new Marker
                     {
-                        Description = $"{position}. {part.Name} ({part.Type}",
+                        Description = $"{position}. {part.Name} ({part.Type})",
                         X = part.StartCoordinates.Item1.Value,
                         Y = part.StartCoordinates.Item2.Value,
                     });
-                    position++;
                 }
                 if (!string.IsNullOrWhiteSpace(part.EndLocationName))
                 {
                     fullMapPoints.Add(new Marker
                     {
-                        Description = $"{position}. {part.Name} ({part.Type}",
+                        Description = $"{position}. end of: {part.Name} ({part.Type})",
                         X = part.EndCoordinates.Item1.Value,
                         Y = part.EndCoordinates.Item2.Value,
                     });
-                    position++;
                 }
             }
-
-            if (!fullMapPoints.Any()) 
+            if (Trip.EndLocation != null)
             {
-                if (Trip.StartLocation == null || Trip.EndLocation == null) return;
-
-                fullMapPoints.Add(new Marker
-                {
-                    Description = $"{position}. {Trip.StartLocation.Name} (start of trip)",
-                    X = Trip.StartLocation.Longitude,
-                    Y = Trip.StartLocation.Latitude,
-                });
                 position++;
                 fullMapPoints.Add(new Marker
                 {
@@ -193,8 +195,9 @@ namespace PlannR.App.Pages.Trip
                     X = Trip.EndLocation.Longitude,
                     Y = Trip.EndLocation.Latitude,
                 });
-                position++;
-            };
+            }
+
+            if (!fullMapPoints.Any()) return;
 
             parameters.Add("MapPoints", fullMapPoints);
 

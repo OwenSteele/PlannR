@@ -17,7 +17,7 @@ namespace PlannR.App.Infrastructure.Services
             _mapper = mapper;
         }
 
-        public async Task<ApiResponse<Guid>> CreateAsync(AccomodationBookingDetailViewModel viewModel)
+        public async Task<ApiResponse<Guid>> CreateAsync(EditAccomodationBookingViewModel viewModel)
         {
             await AddBearerToken();
 
@@ -74,15 +74,15 @@ namespace PlannR.App.Infrastructure.Services
             return _mapper.Map<ICollection<AccomodationBookingOfTripListViewModel>>(result);
         }
 
-        public async Task<AccomodationBookingDetailViewModel> GetBookingByIdAsync(Guid id)
+        public async Task<EditAccomodationBookingViewModel> GetBookingByIdAsync(Guid id)
         {
             await AddBearerToken();
 
             var result = await _client.GetAccomodationBookingByIdAsync(id);
-            return _mapper.Map<AccomodationBookingDetailViewModel>(result);
+            return _mapper.Map<EditAccomodationBookingViewModel>(result);
         }
 
-        public async Task<ApiResponse<Guid>> UpdateAsync(AccomodationBookingDetailViewModel viewModel)
+        public async Task<ApiResponse<Guid>> UpdateAsync(EditAccomodationBookingViewModel viewModel)
         {
             await AddBearerToken();
 

@@ -22,14 +22,15 @@ namespace PlannR.App.Infrastructure.Profiles
     {
         public MappingProfile()
         {
-            CreateMap<EditAccomodationViewModel, UpdateAccomodationBookingCommand>().ReverseMap();
-            CreateMap<EditAccomodationViewModel, CreateAccomodationBookingCommand>().ReverseMap();
+            CreateMap<EditAccomodationBookingViewModel, UpdateAccomodationBookingCommand>().ReverseMap();
+            CreateMap<EditAccomodationBookingViewModel, CreateAccomodationBookingCommand>().ReverseMap();
             CreateMap<AccomodationBookingDetailDataModel, AccomodationBookingDetailViewModel>().ReverseMap();
             CreateMap<AccomodationBookingListByTripIdDataModel, AccomodationBookingOfTripListViewModel>().ReverseMap();
             CreateMap<AccomodationBookingListDataModel, AccomodationBookingListViewModel>().ReverseMap();
+            CreateMap<AccomodationBookingDetailDataModel, EditAccomodationBookingViewModel>().ReverseMap();            
 
-            CreateMap<EventBookingDetailViewModel, UpdateEventBookingCommand>().ReverseMap();
-            CreateMap<EventBookingDetailViewModel, CreateEventBookingCommand>().ReverseMap();
+            //CreateMap<EditEventBookingViewModel, UpdateEventBookingCommand>().ReverseMap();
+            //CreateMap<EditEventBookingViewModel, CreateEventBookingCommand>().ReverseMap();
             CreateMap<EventBookingDetailDataModel, EventBookingDetailViewModel>().ReverseMap();
             CreateMap<EventBookingListByTripIdDataModel, EventBookingOfTripListViewModel>().ReverseMap();
             CreateMap<EventBookingListDataModel, EventBookingListViewModel>().ReverseMap();

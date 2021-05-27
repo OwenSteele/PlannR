@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace PlannR.App.Infrastructure.Contracts
 {
-    public interface IAccomodationBookingDataService : IBaseDataService<AccomodationBookingDetailViewModel, Guid>
+    public interface IAccomodationBookingDataService : IBaseDataService<EditAccomodationBookingViewModel, Guid>
     {
         Task<ICollection<AccomodationBookingListViewModel>> GetAllBookingsAsync();
-        Task<AccomodationBookingDetailViewModel> GetBookingByIdAsync(Guid id);
+        Task<EditAccomodationBookingViewModel> GetBookingByIdAsync(Guid id);
         Task<ICollection<AccomodationBookingOfTripListViewModel>> GetAllBookingsOfTripIdAsync(Guid tripId);
     }
 }

@@ -7,7 +7,7 @@
 
     // Global export
     window.deliveryMap = {
-        showOrUpdate: function (elementId, markers, markerSelector) {
+        showOrUpdate: function (elementId, markers, markerSelector, plotRoute) {
             var elem = document.getElementById(elementId);
             if (!elem) {
                 throw new Error('No element with ID ' + elementId);
@@ -47,6 +47,8 @@
                         4000);
                 });
             }
+
+            // selecting point on map
             if (markerSelector === true) {
                 var theMarker = {};
 
@@ -66,8 +68,42 @@
 
             }
 
+            // join up the markers
+            if (plotRoute === true) {
+
+                function onEachDot(feature, layer) {
+                    layer.bindPopup('<table style="width:180px"><tbody><tr><td><div><b>name:</b></div></td><td><div>'
+                        + feature.properties.popup +
+                        '</div></td></tr><tr class><td><div><b>time:</b></div></td><td><div>'
+                        + feature.properties.time +
+                        '</div></td></tr></tbody></table>');
+
+                    spiralLayer = L.geoJson(markers, {
+                        onEachFeature: onEachDot
+                    });
+
+                    spiralBounds = spiralLayer.getBounds();
+                    map.fitBounds(spiralBounds);
+                    spiralLayer.addTo(map);
+
+                    function connectTheDots(data) {
+                        var c = [];
+                        for (i in data._layers) {
+                            var x = data._layers[i]._latlng.lat;
+                            var y = data._layers[i]._latlng.lng;
+                            c.push([x, y]);
+                        }
+                        return c;
+                    }
+
+                    spiralCoords = connectTheDots(spiralLayer);
+                    var spiralLine = L.polyline(spiralCoords).addTo(map)
+                }
+            }
+
         },
 
+        // selecting point on map
         getCurrentMarkerLocation: function () {
             return `${currentLatitude} ${currentLongitude}`;
         }

@@ -72,27 +72,39 @@
                         <h4>
                             Cost per night:
                         </h4>
-                        <div>
-                            £@Accomodation.CostPerNight
-                        </div>
+                        @if (Accomodation.CostPerNight.HasValue)
+                        {
+                            <div>
+                                £@Accomodation.CostPerNight
+                            </div>
+                        }
+                        else
+                        {
+                            <div>
+                                Free!
+                            </div>
+                        }
                     </div>
-                    <div class="minimal">
-                        <h4>
-                            Number of nights:
-                        </h4>
-                        <div>
-                            @Accomodation.Nights
+                        <div class="minimal">
+                            <h4>
+                                Number of nights:
+                            </h4>
+                            <div>
+                                @Accomodation.Nights
+                            </div>
                         </div>
+                        @if (Accomodation.CostPerNight.HasValue)
+                        {
+                            <div class="minimal">
+                                <h4>
+                                    Total Cost:
+                                </h4>
+                                <div>
+                                    £@(Accomodation.CostPerNight * Accomodation.Nights)
+                                </div>
+                            </div>
+                        }
                     </div>
-                    <div class="minimal">
-                        <h4>
-                            Total Cost:
-                        </h4>
-                        <div>
-                            £@(Accomodation.CostPerNight * Accomodation.Nights)
-                        </div>
-                    </div>
-                </div>
             </div>
             <div id="map-wrapper">
                 <div>
@@ -107,10 +119,14 @@
                 <h2>Reservations</h2>
                 <button @onclick="ShowEditAccomodationBookingModal">&#9998;</button>
             </div>
-            @if(Accomodation.BookingId == null || Accomodation.BookingId == Guid.Empty)
-                {
-        <div class="no-booking">&#128681; No Booking Added.</div>
-                }
+            @if (Accomodation.BookingId == null || Accomodation.BookingId == Guid.Empty)
+            {
+                <div class="no-booking">&#128681; No Booking Added.</div>
+            }
+            else
+            {
+                <div class="booking">&#128681; See booking</div>
+            }
         </div>
     }
 </div>
