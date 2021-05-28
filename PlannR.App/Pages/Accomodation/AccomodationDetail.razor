@@ -119,13 +119,13 @@
                 <h2>Reservations</h2>
                 <button @onclick="ShowEditAccomodationBookingModal">&#9998;</button>
             </div>
-            @if (Accomodation.BookingId == null || Accomodation.BookingId == Guid.Empty)
+            @if (Accomodation.Booking == null)
             {
                 <div class="no-booking">&#128681; No Booking Added.</div>
             }
             else
             {
-                <div class="booking">&#128681; See booking</div>
+                <div class="booking">&#128681; @Accomodation.Booking.Name</div>
             }
         </div>
     }

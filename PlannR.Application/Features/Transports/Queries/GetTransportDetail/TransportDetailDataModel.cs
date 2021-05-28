@@ -1,4 +1,5 @@
 ﻿using PlannR.Application.Features.Transports.Dtos.GetTransportsList;
+using PlannR.Application.Features.Transports.Queries.GetTransportListByTripIdWithBookings;
 using System;
 
 namespace PlannR.Application.Features.Transports.Queries.GetTransportsDetail
@@ -14,6 +15,6 @@ namespace PlannR.Application.Features.Transports.Queries.GetTransportsDetail
         public DateTime StartDateTime { get; set; }
         public DateTime EndDateTime { get; set; }
         public string Description { get; set; }
-        public Guid? BookingId { get; set; }
+        public TransportBookingDto Booking { get; set; }
     }
 }

@@ -27,19 +27,22 @@ namespace PlannR.App.Infrastructure.Profiles
             CreateMap<AccomodationBookingDetailDataModel, AccomodationBookingDetailViewModel>().ReverseMap();
             CreateMap<AccomodationBookingListByTripIdDataModel, AccomodationBookingOfTripListViewModel>().ReverseMap();
             CreateMap<AccomodationBookingListDataModel, AccomodationBookingListViewModel>().ReverseMap();
-            CreateMap<AccomodationBookingDetailDataModel, EditAccomodationBookingViewModel>().ReverseMap();            
+            CreateMap<AccomodationBookingDetailDataModel, EditAccomodationBookingViewModel>().ReverseMap();
+            CreateMap<AccomodationBookingDto, AccomodationBookingNestedViewModel>().ReverseMap();
 
             //CreateMap<EditEventBookingViewModel, UpdateEventBookingCommand>().ReverseMap();
             //CreateMap<EditEventBookingViewModel, CreateEventBookingCommand>().ReverseMap();
             CreateMap<EventBookingDetailDataModel, EventBookingDetailViewModel>().ReverseMap();
             CreateMap<EventBookingListByTripIdDataModel, EventBookingOfTripListViewModel>().ReverseMap();
             CreateMap<EventBookingListDataModel, EventBookingListViewModel>().ReverseMap();
+            CreateMap<EventBookingDto, EventBookingNestedViewModel>().ReverseMap();
 
             CreateMap<TransportBookingDetailViewModel, UpdateTransportBookingCommand>().ReverseMap();
             CreateMap<TransportBookingDetailViewModel, CreateTransportBookingCommand>().ReverseMap();
             CreateMap<TransportBookingDetailDataModel, TransportBookingDetailViewModel>().ReverseMap();
             CreateMap<TransportBookingListByTripIdDataModel, TransportBookingOfTripListViewModel>().ReverseMap();
             CreateMap<TransportBookingListDataModel, TransportBookingListViewModel>().ReverseMap();
+            CreateMap<TransportBookingDto, TransportBookingNestedViewModel>().ReverseMap();
 
             CreateMap<AccomodationTypeOfNameViewModel, CreateAccomodationTypeCommand>().ReverseMap();
             CreateMap<AccomodationTypeListDataModel, AccomodationTypeListViewModel>().ReverseMap();

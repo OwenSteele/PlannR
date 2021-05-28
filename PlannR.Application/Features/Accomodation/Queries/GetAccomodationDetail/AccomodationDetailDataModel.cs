@@ -1,4 +1,5 @@
 ﻿using PlannR.Application.Features.Accomodations.Dtos.GetAccomodationsList;
+using PlannR.Application.Features.Accomodations.Queries.GetAccomodationListByTripIdWithBookings;
 using System;
 
 namespace PlannR.Application.Features.Accomodations.Queries.GetAccomodationsDetail
@@ -12,7 +13,7 @@ namespace PlannR.Application.Features.Accomodations.Queries.GetAccomodationsDeta
         public decimal? CostPerNight { get; set; }
         public int Rooms { get; set; }
         public int Nights { get; set; }
-        public Guid? BookingId { get; set; }
+        public AccomodationBookingDto Booking { get; set; }
         public string Description { get; set; }
         public AccomodationLocationDto Location { get; set; }
         public DateTime StartDateTime { get; set; }

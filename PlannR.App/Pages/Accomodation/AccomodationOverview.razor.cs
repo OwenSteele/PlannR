@@ -29,7 +29,7 @@ namespace PlannR.App.Pages.Accomodation
 
         var result = await modal.Result;
 
-        if (result.Cancelled)
+        if (!result.Cancelled)
             {
             Accomodations = await AccomodationDataService.GetAllAccomodationAsync();
                 StateHasChanged();

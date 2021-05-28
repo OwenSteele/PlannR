@@ -103,11 +103,14 @@ namespace PlannR.Persistence
             modelBuilder.Entity<Transport>().Navigation(x => x.StartLocation).AutoInclude();
             modelBuilder.Entity<Transport>().Navigation(x => x.EndLocation).AutoInclude();
             modelBuilder.Entity<Transport>().Navigation(x => x.TransportType).AutoInclude();
+            modelBuilder.Entity<Transport>().Navigation(x => x.Booking).AutoInclude();
             modelBuilder.Entity<RoutePoint>().Navigation(x => x.Location).AutoInclude();
             modelBuilder.Entity<Accomodation>().Navigation(x => x.Location).AutoInclude();
             modelBuilder.Entity<Accomodation>().Navigation(x => x.AccomodationType).AutoInclude();
+            modelBuilder.Entity<Accomodation>().Navigation(x => x.Booking).AutoInclude();
             modelBuilder.Entity<Event>().Navigation(x => x.Location).AutoInclude();
             modelBuilder.Entity<Event>().Navigation(x => x.EventType).AutoInclude();
+            modelBuilder.Entity<Event>().Navigation(x => x.Booking).AutoInclude();
             modelBuilder.Entity<Route>().Navigation(x => x.Points).AutoInclude();
         }
 

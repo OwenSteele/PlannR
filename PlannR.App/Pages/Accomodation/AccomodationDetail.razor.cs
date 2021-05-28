@@ -100,9 +100,9 @@ namespace PlannR.App.Pages.Accomodation
             var parameters = new ModalParameters();
             parameters.Add("OwnerId", Accomodation.AccomodationId);
 
-            if (Accomodation.BookingId.HasValue)
+            if (Accomodation.Booking != null)
             {
-                parameters.Add("BookingId", Accomodation.BookingId);
+                parameters.Add("BookingId", Accomodation.Booking.BookingId);
                 title = "Edit";
             }
             else

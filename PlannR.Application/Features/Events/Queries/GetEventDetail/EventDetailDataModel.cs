@@ -1,4 +1,5 @@
 ﻿using PlannR.Application.Features.Events.Dtos.GetEventsList;
+using PlannR.Application.Features.Events.Queries.GetEventListByTripIdWithBookings;
 using System;
 
 namespace PlannR.Application.Features.Events.Queries.GetEventsDetail
@@ -16,6 +17,6 @@ namespace PlannR.Application.Features.Events.Queries.GetEventsDetail
         public DateTime StartDateTime { get; set; }
         public DateTime EndDateTime { get; set; }
         public string Description { get; set; }
-        public Guid? BookingId { get; set; }
+        public EventBookingDto Booking { get; set; }
     }
 }

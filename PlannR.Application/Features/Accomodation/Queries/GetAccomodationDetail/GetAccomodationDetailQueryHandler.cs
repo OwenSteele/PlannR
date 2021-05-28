@@ -26,7 +26,6 @@ namespace PlannR.Application.Features.Accomodations.Queries.GetAccomodationsDeta
         {
             var result = (await _repository.GetWithRelated(request.Id));
 
-
             if (!_authorisationService.CanAccessEntity(result)) throw new Exceptions.NotAuthorisedException();
 
             return _mapper.Map<AccomodationDetailDataModel>(result);

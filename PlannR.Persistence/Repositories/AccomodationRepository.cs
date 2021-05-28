@@ -19,6 +19,7 @@ namespace PlannR.Persistence.Repositories
                 .Include(x => x.Trip)
                 .Include(x => x.AccomodationType)
                 .Include(x => x.Location)
+                .Include(x=> x.Booking)
                 .FirstOrDefaultAsync();
         }
 
