@@ -14,15 +14,17 @@ namespace PlannR.Application.Tests.BaseTrip.Queries
         [Fact]
         public async Task WHEN_repository_is_queried_with_tripId_THEN_matching_entity_is_returned()
         {
+            var guid = Guid.Parse("098952e3-7cb8-4cdb-9f54-e129cab91909");
+
             var handler = new GetTripDetailQueryHandler(_mockAuthorisationService.Object, _mapper, _mockRepository.Object);
 
-            var existing = (await _mockRepository.Object.ListAllAsync()).FirstOrDefault();
+            var existing = (await _mockRepository.Object.GetByIdWithChildrenAsync(guid));
             var query = new GetTripDetailQuery() { TripId = existing.TripId };
 
             var result = await handler.Handle(query, CancellationToken.None);
 
             result.ShouldBeOfType<TripDetailDataModel>();
-            result.TripId.ShouldBeEquivalentTo(existing.TripId);
+            result.TripId.ShouldBeEquivalentTo(guid);
         }
 
         [Fact]
