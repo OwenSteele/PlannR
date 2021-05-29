@@ -273,7 +273,10 @@ button:focus {
     }
 
     .detail .heading div {
-        font-size: 24px;
+        font-size: 24px;        
+    }
+    .detail .heading div {
+        font-size: 24px;        
     }
 
 .detail button {
@@ -304,7 +307,73 @@ button:focus {
     font-size: 32px;
 }
 
+.ate .heading .trip-button {
+    width: auto;
+    height: auto;
+    transition: 0.5s
+}
 
+.ate .heading .trip-button:hover {
+    transition: 0.5s
+}
+
+.ate-info {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0px;
+    flex-direction: row;
+    overflow: hidden;
+    margin: 40px 0px;
+}
+
+    .ate-info > div {
+        border: none;
+        min-width: 30%;
+        max-width: 32%;
+        border-radius: 5px;
+        margin: 10px;
+        padding: 20px;
+    }
+
+        .ate-info > div > div {
+            margin: 10px auto;
+            width: 100%;
+            flex: auto;
+            flex-direction: row;
+            display: inline-flex;
+            justify-content: space-between;
+            vertical-align: central;
+        }
+
+            .ate-info > div > div > div {
+                background-color: #ffffff;
+                margin: 10px;
+                padding: 10px;
+                border-radius: 5px;
+                font-weight: bolder;
+                font-size: 20px;
+                text-align: right;
+            }
+
+    .ate-info .item-btn {
+        width: 100%;
+        overflow: inherit;
+        font-size: 12px;
+        background: rgba(255,255,255,.6);
+        transition: 0.5s;
+        margin: 5px 0px;
+        padding: 5px;
+        height: auto;
+    }
+.ate .minimal {
+    margin: 5px 0px;
+}
+
+.ate .map-parts {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
 .booking-section {
     margin-top: 10px;
     max-width: 1300px; 
@@ -318,7 +387,7 @@ button:focus {
     width: 100%;
     text-align: center;
     font-size: 20px;
-    margin: 15px;
+    margin: 0px;
     background-color: #efed8e;
     border-radius: 5px;
     border: none;
@@ -334,8 +403,94 @@ button:focus {
     height: 43px;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
     .detail .heading {
         flex-direction: column;
+    }
+    .detail {
+        margin-top: 0px;
+    }
+
+    /* ATE details*/
+
+
+    .ate button {
+        width: 100%;
+        margin: 5px 0px;
+    }
+
+    .ate .detail .heading > div {
+        flex-direction: row;
+    }
+
+        .ate .detail .heading > div > div {
+            max-width: 75%;
+        }
+
+    .ate .ate-info {
+        margin: 0px;
+    }
+
+        .ate .ate-info > div {
+            margin: 5px;
+            padding: 5px;
+        }
+
+            .ate .ate-info > div > div {
+                margin: 2px;
+            }
+}
+
+@media screen and (max-width: 1000px) {
+    .ate .ate-info {
+        flex-direction: column;
+    }
+
+        .ate .ate-info > div {
+            min-width: 100%;
+        }
+
+    .ate .minimal {
+        margin: 3px;
+    }
+}
+
+@media screen and (min-width: 1600px) {
+    .ate .map-parts {
+        flex-direction: row;
+        min-height: 700px;
+    }
+
+    .ate .ate-info {
+        flex-direction: column;
+        width: 30%;
+        max-height: 700px;
+        margin: 40px 0px;
+    }
+
+        .ate .ate-info > div {
+            min-width: 100%;
+            margin: 5px;
+            padding: 5px;
+            font-size-adjust: 0.8;
+        }
+
+            .ate .ate-info > div > div > div {
+                background-color: #ffffff;
+                margin: 5px;
+                padding: 5px;
+                border-radius: 5px;
+                font-weight: bolder;
+                font-size: 18px;
+                text-align: right;
+            }
+
+    .ate #map-wrapper {
+        width: 65%;
+        max-height: 650px;
+    }
+
+    .ate .limit-width {
+        max-width: 1750px;
     }
 }

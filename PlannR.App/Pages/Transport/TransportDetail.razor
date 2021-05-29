@@ -1,1 +1,100 @@
-﻿
+﻿@page "/Transports/{TransportId}"
+@attribute [Authorize]
+
+<div class="detail limit-width ate">
+    @if (Transport == null)
+    {
+        <p>Searching for your transport..</p>
+    }
+    else
+    {
+        <div class="heading">
+            <h1>@Transport.Name</h1>
+            <div>
+                <div>Part of:</div>
+                <button class="trip-button" @onclick="NavigateToTrip">
+                    <div>@Transport.Trip.Name</div>
+                </button>
+            </div>
+            <button @onclick="ShowEditTransportModal">&#9998;</button>
+        </div>
+        <div class="detail-info">
+            <div class="one">
+                <div>
+                    <div>Location:</div>
+                    <div class="val">@(Transport.StartLocation == null ? "No Location Set" : Transport.StartLocation.Name)</div>
+                </div>
+            </div>
+            <div class="two">
+                <div>
+                    <div>Location:</div>
+                    <div class="val">@(Transport.EndLocation == null ? "No Location Set" : Transport.EndLocation.Name)</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="map-parts">
+            <div class="ate-info">
+                <div class="dates-times">
+                    <div>
+                        <h4>
+                            Booked From:
+                        </h4>
+                        <div>
+                            @Transport.StartDateTime.ToLongDateString()
+                            (@Transport.StartDateTime.ToShortTimeString())
+                        </div>
+                    </div>
+                    <div>
+                        <h4>
+                            Leaving on:
+                        </h4>
+
+                        <div>
+                            @Transport.EndDateTime.ToLongDateString()
+                            (@Transport.EndDateTime.ToShortTimeString())
+                        </div>
+                    </div>
+                </div>
+                <div class="info-description">
+                    <div>
+                        <h4>Type</h4>
+                        <div>@Transport.TransportType.Name</div>
+                    </div>
+                    <div>
+                        <h4>About</h4>
+                        @if (string.IsNullOrWhiteSpace(Transport.Description))
+                        {
+                            <div>No Description yet!</div>
+                        }
+                        else
+                        {
+                            <div>@Transport.Description</div>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div id="map-wrapper">
+                <div>
+                    <h2>Map</h2>
+                </div>
+                <Map Zoom="100" Points="@MapPoints"></Map>
+            </div>
+        </div>
+        <div class="divider"></div>
+        <div class="booking-section">
+            <div class="heading">
+                <h2>Reservations</h2>
+                <button @onclick="ShowEditTransportBookingModal">&#9998;</button>
+            </div>
+            @if (Transport.Booking == null)
+            {
+                <div class="no-booking">&#128681; No Booking Added.</div>
+            }
+            else
+            {
+                <BookingInfo Booking="Transport.Booking" />
+            }
+        </div>
+    }
+</div>

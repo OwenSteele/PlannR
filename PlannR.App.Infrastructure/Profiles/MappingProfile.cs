@@ -56,14 +56,14 @@ namespace PlannR.App.Infrastructure.Profiles
             CreateMap<EventTypeByNameDataModel, EventTypeOfNameViewModel>().ReverseMap();
             CreateMap<EventTypeListViewModel, EventTypeNestedViewModel>().ReverseMap();
             CreateMap<EventTypeListDataModel, EventTypeNestedViewModel>().ReverseMap();
-            CreateMap<EventTypeDto, AccomodationTypeNestedViewModel>().ReverseMap();
+            CreateMap<EventTypeDto, EventTypeNestedViewModel>().ReverseMap();
 
             CreateMap<TransportTypeOfNameViewModel, CreateTransportTypeCommand>().ReverseMap();
             CreateMap<TransportTypeListDataModel, TransportTypeListViewModel>().ReverseMap();
             CreateMap<TransportTypeByNameDataModel, TransportTypeOfNameViewModel>().ReverseMap();
             CreateMap<TransportTypeListViewModel, TransportTypeNestedViewModel>().ReverseMap();
             CreateMap<TransportTypeListDataModel, TransportTypeNestedViewModel>().ReverseMap();
-            CreateMap<TransportTypeDto, AccomodationTypeNestedViewModel>().ReverseMap();
+            CreateMap<TransportTypeDto, TransportTypeNestedViewModel>().ReverseMap();
 
             CreateMap<EditAccomodationViewModel, CreateAccomodationCommand>().ReverseMap();
             CreateMap<EditAccomodationViewModel, UpdateAccomodationCommand>().ReverseMap();

@@ -18,6 +18,7 @@ namespace PlannR.App.Infrastructure.ViewModels.Accomodation.Bookings
         [Required]
         [NotEmpty]
         public string Name { get; set; }
+        [Url]
         public string Link { get; set; }
         [EmailAddress]
         public string Email { get; set; }

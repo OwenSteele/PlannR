@@ -1,1 +1,42 @@
-﻿
+﻿@page "/transports"
+@attribute [Authorize]
+
+<div class="overview-wrapper limit-width">
+    <div class="heading">
+        <h1>Your Transport</h1>
+        <button @onclick="ShowCreateTransportModal"><span>New &#43;</span></button>
+    </div>
+    @if (Transports == null)
+    {
+        <p>Finding your transports..</p>
+    }
+    else if (Transports.Count == 0)
+    {
+        <strong>You don't have transports yet, starting planning one now!</strong>
+    }
+    else
+    {
+        <div class="overview-list">
+            <ul>
+                @foreach (var transport in Transports)
+                {
+                    <li>
+                        <a href="@($"/transports/{transport.TransportId}")">
+                            <div class="overview-name">
+                                <h3>@transport.Name</h3>
+                                <span><strong>@transport.StartDateTime.ToShortDateString()</strong> - <strong>@transport.EndDateTime.ToShortDateString()</strong></span>
+                            </div>
+                            <div class="overview-info">
+                                <div>
+                                    <div>
+                                        &#128712; @transport.Description
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                }
+            </ul>
+        </div>
+    }
+</div>

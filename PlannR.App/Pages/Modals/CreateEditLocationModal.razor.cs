@@ -8,6 +8,7 @@ using PlannR.App.Infrastructure.ViewModels.Locations;
 using PlannR.ComponentLibrary.Map;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Threading.Tasks;
 
 namespace PlannR.App.Pages.Modals
@@ -153,13 +154,13 @@ namespace PlannR.App.Pages.Modals
             var result = await JSRuntime.InvokeAsync<string>("deliveryMap.getCurrentMarkerLocation");
             var coords = result.Split(' ');
 
-            if (!double.TryParse(coords[0], out latValue))
+            if (!double.TryParse(coords[0], NumberStyles.Any & (~NumberStyles.AllowCurrencySymbol),CultureInfo.CurrentCulture, out latValue))
             {
                 latValue = 0;
             }
             EditLocationViewModel.Latitude = latValue;
 
-            if (!double.TryParse(coords[1], out longValue))
+            if (!double.TryParse(coords[1], NumberStyles.Any & (~NumberStyles.AllowCurrencySymbol), CultureInfo.CurrentCulture, out longValue))
             {
                 longValue = 0;
             }

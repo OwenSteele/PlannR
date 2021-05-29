@@ -11,7 +11,7 @@ namespace PlannR.App.Infrastructure.ViewModels.Event
         public string CompanyName { get; set; }
         public EventTypeNestedViewModel EventType { get; set; }
         public LocationNestedViewModel Location { get; set; }
-        public Guid? BookingId { get; set; }
+        public EventBookingNestedViewModel Booking { get; set; }
         public DateTime StartDateTime { get; set; }
         public DateTime EndDateTime { get; set; }
         public string Description { get; set; }

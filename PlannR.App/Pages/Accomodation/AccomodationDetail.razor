@@ -1,7 +1,7 @@
 ﻿@page "/accomodations/{accomodationId}"
 @attribute [Authorize]
 
-<div class="detail limit-width">
+<div class="detail limit-width ate">
     @if (Accomodation == null)
     {
         <p>Searching for your adventure..</p>
@@ -28,7 +28,7 @@
         </div>
 
         <div class="map-parts">
-            <div class="accomodation-info">
+            <div class="ate-info">
                 <div class="dates-times">
                     <div>
                         <h4>
@@ -50,7 +50,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="accomodation-description">
+                <div class="info-description">
                     <div>
                         <h4>Type</h4>
                         <div>@Accomodation.AccomodationType.Name</div>
@@ -125,7 +125,7 @@
             }
             else
             {
-                <div class="booking">&#128681; @Accomodation.Booking.Name</div>
+                <BookingInfo Booking="Accomodation.Booking"/>
             }
         </div>
     }

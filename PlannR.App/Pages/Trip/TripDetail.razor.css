@@ -217,7 +217,7 @@
     min-height: 55px;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
     .dates-locations > div {
         flex-direction: column;
     }
@@ -233,15 +233,20 @@
 @media screen and (max-width: 1300px) {
     .map-parts {
         flex-direction: column;
+        justify-content:normal;
     }
         .map-parts > div {
             width: 96%;
-            min-height: 700px;
+            min-height: 100px;
         }
     #map-wrapper {
         z-index: 998;
         max-height: 700px;
         display: block;
+    }
+    .ordered-parts {
+        min-height: 100px;
+        height: auto;
     }
 }
 

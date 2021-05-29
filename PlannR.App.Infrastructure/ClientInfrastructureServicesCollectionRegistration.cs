@@ -3,9 +3,10 @@ using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.Extensions.DependencyInjection;
 using PlannR.App.Infrastructure.Authentication;
 using PlannR.App.Infrastructure.Contracts;
-using PlannR.App.Infrastructure.Contracts.View;
+using PlannR.App.Infrastructure.Contracts.Security;
 using PlannR.App.Infrastructure.Services;
 using PlannR.App.Infrastructure.Services.Base;
+using PlannR.App.Infrastructure.Services.Security;
 using System;
 using System.Net.Http;
 using System.Reflection;
@@ -30,6 +31,8 @@ namespace PlannR.App.Infrastructure
             });
 
             services.AddHttpClient<IClient, Client>(client => client.BaseAddress = new Uri("https://localhost:44363"));
+
+            services.AddScoped<IClientInputService, ClientInputService>();
 
             services.AddScoped<IAuthenticationDataService, AuthenticationDataService>();
 
