@@ -85,7 +85,7 @@
                     }
                 </div>
             </div>
-            <div id="map-wrapper">
+            <div class="map-container">
                 <div class="map-header">
                     <h2>Map</h2>
                     <div>
@@ -93,9 +93,12 @@
                         <button @onclick="ShowFullMapModal">&#128269;</button>
                     </div>
                 </div>
+
+                <div id="map-wrapper">
                     <Map Zoom="100" Points="@MapPoints"></Map>
+                </div>
+                </div>
             </div>
-        </div>
         <div class="divider"></div>
         <div class="trip-section">
             <div class="accom">

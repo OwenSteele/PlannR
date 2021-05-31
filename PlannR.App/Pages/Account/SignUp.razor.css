@@ -1,5 +1,5 @@
 ﻿.signup {
-    margin: 30px auto;
+    margin: 60px auto;
     border: 1px solid black;
     border-radius: 3px;
     padding: 10px 20px;
@@ -80,7 +80,7 @@
 
 @media screen and (max-width: 500px) {
     .signup {
-        margin: 10px;
+        margin: 60px 2px;
         border: 1px solid black;
         border-radius: 3px;
         padding: 10px 20px;

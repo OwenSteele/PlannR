@@ -239,7 +239,7 @@
             min-height: 100px;
         }
     #map-wrapper {
-        z-index: 998;
+        z-index: 996;
         max-height: 700px;
         display: block;
     }

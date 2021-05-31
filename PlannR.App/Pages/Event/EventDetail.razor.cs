@@ -121,5 +121,24 @@ namespace PlannR.App.Pages.Event
                 StateHasChanged();
             }
         }
+        private async Task ShowFullMapModal()
+        {
+            if (Event.Location == null) return;
+
+            var parameters = new ModalParameters();
+
+            var markers = new List<Marker> { new Marker {
+                Description = $"{Event.Name} - ({Event.EventType.Name})",
+                X = Event.Location.Longitude,
+                Y = Event.Location.Latitude,
+                ShowPopup = true
+            }};
+
+            parameters.Add("MapPoints", markers);
+
+            var modal = Modal.Show<FullMapModal>($"Location of {Event.Name}", parameters);
+
+            await modal.Result;
+        }
     }
 }

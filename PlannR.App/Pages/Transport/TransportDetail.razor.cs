@@ -129,5 +129,40 @@ namespace PlannR.App.Pages.Transport
                 StateHasChanged();
             }
         }
+        private async Task ShowFullMapModal()
+        {
+            if (Transport.StartLocation == null && Transport.EndLocation == null) return;
+
+            var parameters = new ModalParameters();
+
+            var markers = new List<Marker>();
+
+            if (Transport.StartLocation != null)
+            {
+                markers.Add(new Marker
+                {
+                    Description = $"{Transport.Name} - ({Transport.TransportType.Name})",
+                    X = Transport.StartLocation.Longitude,
+                    Y = Transport.StartLocation.Latitude,
+                    ShowPopup = true
+                });
+            }
+            if (Transport.EndLocation != null)
+            {
+                markers.Add(new Marker
+                {
+                    Description = $"{Transport.Name} - ({Transport.TransportType.Name})",
+                    X = Transport.EndLocation.Longitude,
+                    Y = Transport.EndLocation.Latitude,
+                    ShowPopup = (Transport.StartLocation == null)
+                });
+            }
+
+            parameters.Add("MapPoints", markers);
+
+            var modal = Modal.Show<FullMapModal>($"Location of {Transport.Name}", parameters);
+
+            await modal.Result;
+        }
     }
 }

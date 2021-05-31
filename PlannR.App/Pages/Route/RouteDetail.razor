@@ -1,1 +1,68 @@
-﻿
+﻿@page "/Routes/{RouteId}"
+@attribute [Authorize]
+
+<div class="detail limit-width ate">
+    @if (Route == null)
+    {
+        <p>Searching for your route..</p>
+    }
+    else
+    {
+        <div class="heading">
+            <h1>@Route.Name</h1>
+            <div>
+                <div>Part of:</div>
+                <button class="trip-button" @onclick="NavigateToTrip">
+                    <div>@Route.Trip.Name</div>
+                </button>
+            </div>
+            <button @onclick="ShowEditRouteModal">&#9998;</button>
+        </div>
+        <div class="detail-info">
+            @*<div class="one">
+                <div>
+                    <div>Location:</div>
+                    <div class="val">@(Route.StartLocation == null ? "No Location Set" : Route.StartLocation.Name)</div>
+                </div>
+            </div>
+            <div class="two">
+                <div>
+                    <div>Location:</div>
+                    <div class="val">@(Route.EndLocation == null ? "No Location Set" : Route.EndLocation.Name)</div>
+                </div>
+            </div>*@
+        </div>
+
+        <div class="map-parts">
+            <div class="ate-info">
+                <div class="dates-times">
+                    <div>
+                        <h4>
+                            Booked From:
+                        </h4>
+                        <div>
+                            @Route.StartDateTime.ToLongDateString()
+                            (@Route.StartDateTime.ToShortTimeString())
+                        </div>
+                    </div>
+                    <div>
+                        <h4>
+                            Leaving on:
+                        </h4>
+
+                        <div>
+                            @Route.EndDateTime.ToLongDateString()
+                            (@Route.EndDateTime.ToShortTimeString())
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="map-wrapper">
+                <div>
+                    <h2>Map</h2>
+                </div>
+                <Map Zoom="100" Points="@MapPoints"></Map>
+            </div>
+        </div>
+    }
+</div>

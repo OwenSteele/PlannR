@@ -1,10 +1,8 @@
 ﻿using Blazored.Modal;
 using Blazored.Modal.Services;
 using Microsoft.AspNetCore.Components;
-using Microsoft.JSInterop;
 using PlannR.App.Infrastructure.Contracts;
 using PlannR.App.Infrastructure.Contracts.View;
-using PlannR.App.Infrastructure.ViewModels.Locations;
 using PlannR.App.Infrastructure.ViewModels.Trips;
 using PlannR.App.Infrastructure.ViewModels.UI;
 using PlannR.App.Pages.Modals;
@@ -148,54 +146,7 @@ namespace PlannR.App.Pages.Trip
         {
             var parameters = new ModalParameters();
 
-            var fullMapPoints = new List<Marker>();
-
-            var position = 0;
-
-            if (Trip.StartLocation != null)
-            {
-                position++;
-                fullMapPoints.Add(new Marker
-                {
-                    Description = $"{position}. {Trip.StartLocation.Name} (start of trip)",
-                    ShowPopup = true,
-                    X = Trip.StartLocation.Longitude,
-                    Y = Trip.StartLocation.Latitude,
-                }) ;
-            }
-
-            foreach(var part in OrderedTripParts)
-            {
-                if (!string.IsNullOrWhiteSpace(part.StartLocationName))
-                {
-                    position++;
-                    fullMapPoints.Add(new Marker
-                    {
-                        Description = $"{position}. {part.Name} ({part.Type})",
-                        X = part.StartCoordinates.Item1.Value,
-                        Y = part.StartCoordinates.Item2.Value,
-                    });
-                }
-                if (!string.IsNullOrWhiteSpace(part.EndLocationName))
-                {
-                    fullMapPoints.Add(new Marker
-                    {
-                        Description = $"{position}. end of: {part.Name} ({part.Type})",
-                        X = part.EndCoordinates.Item1.Value,
-                        Y = part.EndCoordinates.Item2.Value,
-                    });
-                }
-            }
-            if (Trip.EndLocation != null)
-            {
-                position++;
-                fullMapPoints.Add(new Marker
-                {
-                    Description = $"{position}. {Trip.EndLocation.Name} (end of trip)",
-                    X = Trip.EndLocation.Longitude,
-                    Y = Trip.EndLocation.Latitude,
-                });
-            }
+            var fullMapPoints = TripOrderingService.GetMarkerList(OrderedTripParts, Trip.StartLocation, Trip.EndLocation);
 
             if (!fullMapPoints.Any()) return;
 
@@ -203,13 +154,7 @@ namespace PlannR.App.Pages.Trip
 
             var modal = Modal.Show<FullMapModal>($"Map of {Trip.Name}", parameters);
 
-            var result = await modal.Result;
-
-            if (!result.Cancelled)
-            {
-                Trip = await TripDataService.GetTripByIdAsync(_tripId);
-            }
-            StateHasChanged();
+            await modal.Result;
         }
         private void SetMapPoints()
         {

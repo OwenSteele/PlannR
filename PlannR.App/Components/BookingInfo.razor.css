@@ -21,6 +21,7 @@
     opacity: 1;
     transition: transform .5s ease-in;
     background-color: #ffffff;
+    overflow-wrap:break-word;
     padding: 3px;
     transform: scaleY(1);
 }
@@ -37,3 +38,15 @@
         background-color: #ffffff;
         padding: 3px;
     }
+
+@media (any-hover: none) {
+    .hover-hide {
+        height: auto;
+        opacity: 1;
+        transition: transform .5s ease-in;
+        background-color: #ffffff;
+        overflow-wrap: break-word;
+        padding: 3px;
+        transform: scaleY(1);
+    }
+}

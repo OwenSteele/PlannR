@@ -1,1 +1,35 @@
-﻿
+﻿@page "/routes"
+@attribute [Authorize]
+
+<div class="overview-wrapper limit-width">
+    <div class="heading">
+        <h1>Your Route</h1>
+        <button @onclick="ShowCreateRouteModal"><span>New &#43;</span></button>
+    </div>
+    @if (Routes == null)
+    {
+        <p>Finding your routes..</p>
+    }
+    else if (Routes.Count == 0)
+    {
+        <strong>You don't have routes yet, starting planning one now!</strong>
+    }
+    else
+    {
+        <div class="overview-list">
+            <ul>
+                @foreach (var route in Routes)
+                {
+                    <li>
+                        <a href="@($"/routes/{route.RouteId}")">
+                            <div class="overview-name">
+                                <h3>@route.Name</h3>
+                                <span><strong>@route.StartDateTime.ToShortDateString()</strong> - <strong>@route.EndDateTime.ToShortDateString()</strong></span>
+                            </div>
+                        </a>
+                    </li>
+                }
+            </ul>
+        </div>
+    }
+</div>

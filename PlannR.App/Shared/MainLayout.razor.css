@@ -8,6 +8,11 @@
     overflow-x: hidden;
     transition: 0.2s;
     display: block;
+    z-index: 996;
+}
+#layout {
+    margin: 0;
+    min-height: calc(100vh - 210px);
 }
 
 .sidebar-collapsed {
@@ -28,11 +33,13 @@
 .content {
     margin-left: 60px;
     margin-top: 30px;
-    transition: 0.2s
+    transition: 0.2s ;
+    height: 100%;
 }
 .content-na {
-    margin-top: 20px;
-    transition: 0.2s
+    margin-top: 39px;
+    transition: 0.2s;
+    height: 100%;
 }
 
 .main-na {
@@ -41,6 +48,15 @@
 
 .top-nav {
     z-index: 999;
+}
+#footer-wrapper {
+    position: relative;
+    height: 160px;
+    bottom: 0;
+    margin-bottom: -160px;
+    background-color: #000000;
+    width: 100%;
+    z-index: 997;
 }
 
 
@@ -127,6 +143,17 @@
         }
 }
 
+@media screen and (max-width: 400px) {
+    .content {
+        margin-left: 10px;
+        margin-top: 60px;
+    }
+    .togglebtn {
+        top: 45px;
+        opacity: .6;
+    }
+}
+
 @media screen and (min-width: 1600px) {
 
     .sidebar-collapsed {
@@ -142,13 +169,14 @@
     }
 
     .togglebtn {
-        visibility:hidden;
+        visibility: hidden;
         display: none;
     }
 
     .main-focused {
         margin-left: 300px;
     }
+
     .content {
         margin-left: 20px;
         margin-right: 20px;

@@ -9,7 +9,7 @@ namespace PlannR.App.Infrastructure.Contracts
     public interface IEventBookingDataService : IBaseDataService<EditEventBookingViewModel, Guid>
     {
         Task<ICollection<EventBookingListViewModel>> GetAllBookingsAsync();
-        Task<EventBookingDetailViewModel> GetBookingByIdAsync(Guid id);
+        Task<EditEventBookingViewModel> GetBookingByIdAsync(Guid id);
         Task<ICollection<EventBookingOfTripListViewModel>> GetAllBookingsOfTripIdAsync(Guid tripId);
     }
 }

@@ -1,25 +1,26 @@
 ﻿@inherits LayoutComponentBase
-<div>
+<div id="layout">
     <div>
-        <div class="topnav">
-            <NavBar />
-        </div>
-    </div>
-</div>
-<AuthorizeView>
-    <Authorized>
         <div>
-            <div>
-                <div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
-                    <UserNavMenu />
-                </div>
+            <div class="topnav">
+                <NavBar />
             </div>
         </div>
-    </Authorized>
-    <NotAuthorized>
-        <div hidden="hidden" @onload="CollapseNavMenu"></div>
-    </NotAuthorized>
-</AuthorizeView>
+    </div>
+    <AuthorizeView>
+        <Authorized>
+            <div>
+                <div>
+                    <div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
+                        <UserNavMenu />
+                    </div>
+                </div>
+            </div>
+        </Authorized>
+        <NotAuthorized>
+            <div hidden="hidden" @onload="CollapseNavMenu"></div>
+        </NotAuthorized>
+    </AuthorizeView>
     <AuthorizeView>
         <Authorized>
             <div class="@ToggleNavMenuClass">
@@ -37,7 +38,7 @@
             </div>
         </NotAuthorized>
     </AuthorizeView>
-
-<div class="footer">
+</div>
+<div class="footer-wrapper">
     <Footer />
 </div>

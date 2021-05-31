@@ -31,16 +31,16 @@
             <div class="ate-info">
                 @if (!string.IsNullOrWhiteSpace(Event.CompanyName))
                 {
-                <div class="company">
-                    <div>
-                        <h4>
-                            Held at:
-                        </h4>
+                    <div class="company">
                         <div>
-                            @Event.CompanyName
+                            <h4>
+                                Held at:
+                            </h4>
+                            <div>
+                                @Event.CompanyName
+                            </div>
                         </div>
                     </div>
-                </div>
                 }
                 <div class="dates-times">
                     <div>
@@ -81,11 +81,18 @@
                     </div>
                 </div>
             </div>
-            <div id="map-wrapper">
-                <div>
+            <div class="map-container">
+                <div class="map-header">
                     <h2>Map</h2>
+                    <div>
+                        <span>All locations: </span>
+                        <button @onclick="ShowFullMapModal">&#128269;</button>
+                    </div>
                 </div>
-                <Map Zoom="100" Points="@MapPoints"></Map>
+
+                <div id="map-wrapper">
+                    <Map Zoom="100" Points="@MapPoints"></Map>
+                </div>
             </div>
         </div>
         <div class="divider"></div>

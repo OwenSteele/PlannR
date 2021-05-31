@@ -121,5 +121,24 @@ namespace PlannR.App.Pages.Accomodation
                 StateHasChanged();
             }
         }
+        private async Task ShowFullMapModal()
+        {
+            if (Accomodation.Location == null) return;
+
+            var parameters = new ModalParameters();
+
+            var markers = new List<Marker> { new Marker {
+                Description = $"{Accomodation.Name} - ({Accomodation.AccomodationType.Name})",
+                X = Accomodation.Location.Longitude,
+                Y = Accomodation.Location.Latitude,
+                ShowPopup = true
+            }};
+
+            parameters.Add("MapPoints", markers);
+
+            var modal = Modal.Show<FullMapModal>($"Location of {Accomodation.Name}", parameters); 
+
+            await modal.Result;
+        }
     }
 }

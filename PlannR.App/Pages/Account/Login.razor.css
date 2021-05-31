@@ -1,14 +1,14 @@
 ﻿.login {
-    margin: 30% auto;
+    margin: 80px auto;
     border: 1px solid black;
     border-radius: 3px;
     padding: 10px 20px;
     max-width: 500px;
 }
-.login h1 {
-    font-weight: bolder;
-    font-size: 40px;
-}
+    .login h1 {
+        font-weight: bolder;
+        font-size: 40px;
+    }
 
     .login a {
         font-weight: bold;
@@ -50,7 +50,7 @@ span {
 
 @media screen and (max-width: 500px) {
     .login {
-        margin: 10px;
+        margin: 60px 15px;
         border: 1px solid black;
         border-radius: 3px;
         padding: 10px 20px;

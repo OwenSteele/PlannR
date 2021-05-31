@@ -2,15 +2,16 @@
 
 html, body {
     font-family: 'Courier New', monospace;
+    height: 100%;
 }
 
 a, .btn-link {
 }
 
-a {
+#app {
+    min-height: 100%;
+    padding-bottom: 0px;
 }
-
-
 
 a:hover {
     text-decoration: none;
@@ -25,6 +26,7 @@ a:hover {
 
 .content {
     padding-top: 1.1rem;
+    height: calc(100%-190px);
 }
 
 .valid.modified:not([type=checkbox]) {
@@ -117,9 +119,6 @@ button:focus {
 }
 
 
-#map-wrapper {
-    z-index: 0;
-}
     /*OVERVIEW PAGES*/
 
     .overview-wrapper {
@@ -294,17 +293,20 @@ button:focus {
 
 /*ATE DETAILS*/
 
-#map-wrapper {
+.map-container {
     z-index: 0;
 }
-#map-wrapper > .map-header {
+.map-container > .map-header {
     width: auto;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
-#map-wrapper button {
-    font-size: 32px;
+    .map-container button {
+        font-size: 32px;
+    }
+#map-wrapper {
+    height: 600px;
 }
 
 .ate .heading .trip-button {
@@ -323,7 +325,7 @@ button:focus {
     padding: 5px 0px;
     flex-direction: row;
     overflow: hidden;
-    margin: 40px 0px;
+    margin: auto 0px;
 }
 
     .ate-info > div {
@@ -373,6 +375,11 @@ button:focus {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+    width: 96%
+}
+.ate .map-parts >div {
+    width: 96%;
+    margin: 0px 10px;
 }
 .booking-section {
     margin-top: 10px;
@@ -428,7 +435,7 @@ button:focus {
         }
 
     .ate .ate-info {
-        margin: 0px;
+        margin: auto 0px;
     }
 
         .ate .ate-info > div {
@@ -454,18 +461,37 @@ button:focus {
         margin: 3px;
     }
 }
+@media screen and (max-width: 1300px) {
+    .map-parts {
+        flex-direction: column;
+        justify-content: normal;
+    }
 
-@media screen and (min-width: 1600px) {
+        .map-parts > div {
+            width: 96%;
+            min-height: 100px;
+        }
+
+    #map-wrapper {
+        z-index: 996;
+        max-height: 700px;
+        display: block;
+        padding: 0px 60px;
+    }
+}
+
+@media screen and (min-width: 1300px) {
     .ate .map-parts {
         flex-direction: row;
         min-height: 700px;
+        width: 96%;
     }
 
     .ate .ate-info {
         flex-direction: column;
         width: 30%;
         max-height: 700px;
-        margin: 40px 0px;
+        margin: auto 0px;
     }
 
         .ate .ate-info > div {
@@ -486,8 +512,7 @@ button:focus {
             }
 
     .ate #map-wrapper {
-        width: 65%;
-        max-height: 650px;
+        max-height: 600px;
     }
 
     .ate .limit-width {

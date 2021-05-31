@@ -74,12 +74,12 @@ namespace PlannR.App.Infrastructure.Services
             return _mapper.Map<ICollection<TransportBookingOfTripListViewModel>>(result);
         }
 
-        public async Task<TransportBookingDetailViewModel> GetBookingByIdAsync(Guid id)
+        public async Task<EditTransportBookingViewModel> GetBookingByIdAsync(Guid id)
         {
             await AddBearerToken();
 
             var result = await _client.GetTransportBookingByIdAsync(id);
-            return _mapper.Map<TransportBookingDetailViewModel>(result);
+            return _mapper.Map<EditTransportBookingViewModel>(result);
         }
 
         public async Task<ApiResponse<Guid>> UpdateAsync(EditTransportBookingViewModel viewModel)

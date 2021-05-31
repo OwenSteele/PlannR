@@ -1,9 +1,10 @@
 ﻿using PlannR.App.Infrastructure.Contracts.View;
+using PlannR.App.Infrastructure.ViewModels.Nested;
 using PlannR.App.Infrastructure.ViewModels.Trips;
 using PlannR.App.Infrastructure.ViewModels.UI;
+using PlannR.ComponentLibrary.Map;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace PlannR.App.Services
 {
@@ -13,15 +14,16 @@ namespace PlannR.App.Services
         {
             var orderedParts = new List<OrderTripPartNestedViewModel>();
 
-            foreach(var accom in tripModel.Accomodations)
+            foreach (var accom in tripModel.Accomodations)
             {
-                orderedParts.Add(new OrderTripPartNestedViewModel {
+                orderedParts.Add(new OrderTripPartNestedViewModel
+                {
                     Name = accom.Name,
                     Type = "Accomodation",
                     StartDateTime = accom.StartDateTime,
                     EndDateTime = accom.EndDateTime,
                     StartLocationName = accom.Location?.Name,
-                    StartCoordinates = (accom.Location?.Longitude,accom.Location?.Latitude),
+                    StartCoordinates = (accom.Location?.Longitude, accom.Location?.Latitude),
                     Uri = $"/accomodations/{accom.AccomodationId}",
                     CssClass = "accom"
                 });
@@ -70,6 +72,62 @@ namespace PlannR.App.Services
             }
 
             return orderedParts.OrderBy(x => x.StartDateTime).ToArray();
+        }
+
+        public List<Marker> GetMarkerList(OrderTripPartNestedViewModel[] orderedTripParts,
+            LocationNestedViewModel startLocation = null,
+            LocationNestedViewModel endLocation = null)
+        {
+            var fullMapPoints = new List<Marker>();
+
+            var position = 0;
+
+            if (startLocation != null)
+            {
+                position++;
+                fullMapPoints.Add(new Marker
+                {
+                    Description = $"{position}. {startLocation.Name} (start of trip)",
+                    ShowPopup = true,
+                    X = startLocation.Longitude,
+                    Y = startLocation.Latitude,
+                });
+            }
+
+            foreach (var part in orderedTripParts)
+            {
+                if (!string.IsNullOrWhiteSpace(part.StartLocationName))
+                {
+                    position++;
+                    fullMapPoints.Add(new Marker
+                    {
+                        Description = $"{position}. {part.Name} ({part.Type})",
+                        X = part.StartCoordinates.Item1.Value,
+                        Y = part.StartCoordinates.Item2.Value,
+                    });
+                }
+                if (!string.IsNullOrWhiteSpace(part.EndLocationName))
+                {
+                    fullMapPoints.Add(new Marker
+                    {
+                        Description = $"{position}. end of: {part.Name} ({part.Type})",
+                        X = part.EndCoordinates.Item1.Value,
+                        Y = part.EndCoordinates.Item2.Value,
+                    });
+                }
+            }
+            if (endLocation != null)
+            {
+                position++;
+                fullMapPoints.Add(new Marker
+                {
+                    Description = $"{position}. {endLocation.Name} (end of trip)",
+                    X = endLocation.Longitude,
+                    Y = endLocation.Latitude,
+                });
+            }
+
+            return fullMapPoints;
         }
     }
 }
