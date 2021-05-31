@@ -202,7 +202,7 @@ button:focus {
 /*DETAIL PAGES*/
 
 .divider {
-    border: 1px solid #000000;
+    border-bottom: 2px solid #000000;
 }
 
 .detail {

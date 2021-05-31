@@ -7,26 +7,45 @@
 </AuthorizeView>
 
 <div class="header">
-    <img src="/favicon.ico" alt="PlannR Logo" />
-    <h1>PLannR</h1>
+    <div class="header-container">
+        <div class="logo">
+            <img src="/favicon.ico" alt="PlannR Logo" />
+        </div>
+        <div class="title">
+            <h1>PLannR</h1>
+        </div>
+        <button class="register" @onclick="NavigateToRegister">Sign up to start creating trips</button>
+    </div>
+</div>
+<div class="subtitle">
+    <h3>Plan and store your trips. All in one place.</h3>
 </div>
 
 <div class="info">
-    <div class="main-text">
-        <h3>Plan and store your trips. All in one place.</h3>
+    <div class="image index-left">
+        <img src="/images/index-map.jpg" alt="PlannR Info" />
+    </div>
+    <div class="main-text shift index-right">
         <p>
             With PlannR you can organise and find every part of every trip and adventure.
-            From your bus journey and tickets, reservations at your hotels and hostels, to planning a big night outs and sharing routes with everyone
-            - All Stored in one place, simpler planning, quicker to find.
         </p>
-        <button @onclick="NavigateToRegister">Sign up to start creating trips</button>
+        <p>
+            From your bus journey and tickets, reservations at your hotels and hostels, to planning a big night outs and sharing routes with everyone
+        </p>
+        <p>
+            All Stored in one place, simpler planning, quicker to find.
+        </p>
     </div>
-    <img src="/images/index-map.jpg" alt="PlannR Info" />
 </div>
 
-<div class="features">
-    <div class="main-text">
-        <h3>Store every part of every adventure. </h3>
+<div class="divider"></div>
+
+<div class="subtitle">
+    <h3>Store every part of every adventure. </h3>
+</div>
+
+<div class="info">
+    <div class="main-text index-left">
         <p>Accomodation, Events, Transport, Routes, Locations and Bookings</p>
         <ul>
             <li>
@@ -37,9 +56,12 @@
             </li>
             <li>
                 Any bookings, reservation, vouchers or tickets you need to want to use on your trip can be attached, making finding them when the flight or birthday dinner comes super easy!
-            </li>  
+            </li>
         </ul>
-        <button >Take a look at a sample trip</button>
+
+        <button>Take a look at a sample trip</button>
     </div>
-    <img src="/images/index-route.jpg" alt="PlannR Info" />
+    <div class="image shift-behind index-right">
+        <img src="/images/index-route.jpg" alt="PlannR Info" />
+    </div>
 </div>

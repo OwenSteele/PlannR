@@ -17,7 +17,7 @@ namespace PlannR.App.Infrastructure.Services
             _mapper = mapper;
         }
 
-        public async Task<ApiResponse<Guid>> CreateAsync(TransportBookingDetailViewModel viewModel)
+        public async Task<ApiResponse<Guid>> CreateAsync(EditTransportBookingViewModel viewModel)
         {
             await AddBearerToken();
 
@@ -82,7 +82,7 @@ namespace PlannR.App.Infrastructure.Services
             return _mapper.Map<TransportBookingDetailViewModel>(result);
         }
 
-        public async Task<ApiResponse<Guid>> UpdateAsync(TransportBookingDetailViewModel viewModel)
+        public async Task<ApiResponse<Guid>> UpdateAsync(EditTransportBookingViewModel viewModel)
         {
             await AddBearerToken();
 

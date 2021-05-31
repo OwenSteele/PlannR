@@ -1,46 +1,41 @@
 ﻿#full-map-wrapper {
-    width: 1500px;
-    height: 850px;
+    width: 250px;
+    height: 150px;
+    z-index: 999;
 }
 
-@media screen and (max-width: 300px) and (max-height: 300px) {
-    #full-map-wrapper {
-        width: 250px;
-        height: 150px;
-    }
-}
-@media screen and (max-width: 500px) and (max-height: 500px) {
+@media screen and (min-width: 500px) and (min-height: 500px) {
     #full-map-wrapper {
         width: 420px;
         height: 350px;
     }
 }
-@media screen and (max-width: 800px) and (max-height: 800px) {
+@media screen and (min-width: 800px) and (min-height: 800px) {
     #full-map-wrapper {
         width: 700px;
         height: 600px;
     }
 }
-@media screen and (max-width: 1000px) and (max-height: 1000px) {
+@media screen and (min-width: 1000px) and (min-height: 1000px) {
     #full-map-wrapper {
         width: 800px;
         height: 600px;
     }
 }
-@media screen and (max-width: 1500px) and (max-height: 1000px) {
+@media screen and (min-width: 1500px) and (min-height: 1000px) {
     #full-map-wrapper {
         width: 1200px;
         height: 600px;
     }
 }
-@media screen and (max-width: 2000px) and (max-height: 1200px) {
+@media screen and (min-width: 2000px) and (min-height: 1200px) {
     #full-map-wrapper {
         width: 1500px;
         height: 850px;
     }
 }
 
-@media screen and (min-width: 3500px) and (max-height: 1600px) {
+@media screen and (min-width: 3500px) and (min-height: 1600px) {
     #full-map-wrapper {
         width: 3000px;
         height: 1750px;

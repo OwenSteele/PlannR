@@ -18,6 +18,7 @@ namespace PlannR.App
         public static IServiceCollection AddClientAppServices(this IServiceCollection services)
         {
             services.AddScoped<ITripOrderingService, TripOrderingService>();
+            services.AddScoped<IMapService, MapService>();
 
             return services;
         }

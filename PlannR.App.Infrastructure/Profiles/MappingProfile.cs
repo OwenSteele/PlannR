@@ -8,6 +8,7 @@ using PlannR.App.Infrastructure.ViewModels.Event;
 using PlannR.App.Infrastructure.ViewModels.Event.Bookings;
 using PlannR.App.Infrastructure.ViewModels.Event.Types;
 using PlannR.App.Infrastructure.ViewModels.Events;
+using PlannR.App.Infrastructure.ViewModels.Events.Bookings;
 using PlannR.App.Infrastructure.ViewModels.Locations;
 using PlannR.App.Infrastructure.ViewModels.Nested;
 using PlannR.App.Infrastructure.ViewModels.Routes;
@@ -30,15 +31,15 @@ namespace PlannR.App.Infrastructure.Profiles
             CreateMap<AccomodationBookingDetailDataModel, EditAccomodationBookingViewModel>().ReverseMap();
             CreateMap<AccomodationBookingDto, AccomodationBookingNestedViewModel>().ReverseMap();
 
-            //CreateMap<EditEventBookingViewModel, UpdateEventBookingCommand>().ReverseMap();
-            //CreateMap<EditEventBookingViewModel, CreateEventBookingCommand>().ReverseMap();
+            CreateMap<EditEventBookingViewModel, UpdateEventBookingCommand>().ReverseMap();
+            CreateMap<EditEventBookingViewModel, CreateEventBookingCommand>().ReverseMap();
             CreateMap<EventBookingDetailDataModel, EventBookingDetailViewModel>().ReverseMap();
             CreateMap<EventBookingListByTripIdDataModel, EventBookingOfTripListViewModel>().ReverseMap();
             CreateMap<EventBookingListDataModel, EventBookingListViewModel>().ReverseMap();
             CreateMap<EventBookingDto, EventBookingNestedViewModel>().ReverseMap();
 
-            CreateMap<TransportBookingDetailViewModel, UpdateTransportBookingCommand>().ReverseMap();
-            CreateMap<TransportBookingDetailViewModel, CreateTransportBookingCommand>().ReverseMap();
+            CreateMap<EditTransportBookingViewModel, UpdateTransportBookingCommand>().ReverseMap();
+            CreateMap<EditTransportBookingViewModel, CreateTransportBookingCommand>().ReverseMap();
             CreateMap<TransportBookingDetailDataModel, TransportBookingDetailViewModel>().ReverseMap();
             CreateMap<TransportBookingListByTripIdDataModel, TransportBookingOfTripListViewModel>().ReverseMap();
             CreateMap<TransportBookingListDataModel, TransportBookingListViewModel>().ReverseMap();
