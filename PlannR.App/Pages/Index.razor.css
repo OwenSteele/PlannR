@@ -81,6 +81,7 @@ h1 {
     opacity: 1;
     width: 350px;
     margin: 0 auto;
+    text-align: justify;
 }
 
 .subtitle {

@@ -18,6 +18,7 @@ namespace PlannR.Persistence.Repositories
             return await _dbContext.Routes.Where(x => x.RouteId == id)
                 .Include(x => x.Trip)
                 .Include(x => x.Points)
+                .ThenInclude(x => x.Location)
                 .FirstOrDefaultAsync();
         }
         public async Task<bool> IsRouteReservedOnTheseDateTimes(DateTime start, DateTime end)

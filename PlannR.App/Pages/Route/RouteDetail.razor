@@ -20,17 +20,17 @@
         </div>
         <div class="detail-info">
             @*<div class="one">
-                <div>
-                    <div>Location:</div>
-                    <div class="val">@(Route.StartLocation == null ? "No Location Set" : Route.StartLocation.Name)</div>
+                    <div>
+                        <div>Location:</div>
+                        <div class="val">@(Route.StartLocation == null ? "No Location Set" : Route.StartLocation.Name)</div>
+                    </div>
                 </div>
-            </div>
-            <div class="two">
-                <div>
-                    <div>Location:</div>
-                    <div class="val">@(Route.EndLocation == null ? "No Location Set" : Route.EndLocation.Name)</div>
-                </div>
-            </div>*@
+                <div class="two">
+                    <div>
+                        <div>Location:</div>
+                        <div class="val">@(Route.EndLocation == null ? "No Location Set" : Route.EndLocation.Name)</div>
+                    </div>
+                </div>*@
         </div>
 
         <div class="map-parts">
@@ -57,12 +57,30 @@
                     </div>
                 </div>
             </div>
-            <div id="map-wrapper">
-                <div>
+            <div class="map-container">
+                <div class="map-header">
                     <h2>Map</h2>
-                </div>
-                <Map Zoom="100" Points="@MapPoints"></Map>
+                    @if (MapPoints != null && MapPoints.Any())
+                    {
+                        <div>
+                            <span>All locations: </span>
+                            <button @onclick="ShowFullMapModal">&#128269;</button>
+                        </div>
+                    }
+                    </div>
+                @if (MapPoints != null && !MapPoints.Any())
+                {
+            <div class="no-points-wrapper">
+                <div class="no-points">No Points added to map yet!</div>
             </div>
-        </div>
+                        }
+                        else
+                        {
+                        <div id="map-wrapper">
+                            <Map Zoom="100" Points="@MapPoints"></Map>
+                        </div>
+                        }
+                    </div>
+                </div>
     }
 </div>

@@ -17,20 +17,20 @@ namespace PlannR.App.Pages.Route
         [CascadingParameter]
         IModalService Modal { get; set; }
         [CascadingParameter]
-        public List<RoutePointNestedViewModel> RoutePoints { get; set; }
+        public List<EditRoutePointViewModel> RoutePoints { get; set; }
         [CascadingParameter]
         public string Message { get; set; }
 
         [Parameter]
-        public RoutePointNestedViewModel CurrentPoint { get; set; }
+        public EditRoutePointViewModel CurrentPoint { get; set; }
+        public DateTime StartTime { get; set; }
+        public DateTime EndTime { get; set; }
 
         protected override void OnInitialized()
         {
-            CurrentPoint = new RoutePointNestedViewModel
-            {
-                StartDateTime = DateTime.Today,
-                EndDateTime = DateTime.Today
-            };
+            if (RoutePoints == null) RoutePoints = new();
+
+            SetCurrentPoint();
         }
         public async Task LocationModal()
         {
@@ -52,17 +52,28 @@ namespace PlannR.App.Pages.Route
                 return;
             }
 
+            CurrentPoint.StartDateTime += StartTime.TimeOfDay;
+            CurrentPoint.EndDateTime += EndTime.TimeOfDay;
+
             RoutePoints.Add(CurrentPoint);
 
-            CurrentPoint = new RoutePointNestedViewModel
+            SetCurrentPoint();
+        }
+        public void RemoveRoutePoint(EditRoutePointViewModel point)
+        {
+            RoutePoints.Remove(point);
+        }
+
+        private void SetCurrentPoint()
+        {
+            CurrentPoint = new EditRoutePointViewModel
             {
                 StartDateTime = DateTime.Today,
                 EndDateTime = DateTime.Today
             };
-        }
-        public void RemoveRoutePoint(RoutePointNestedViewModel point)
-        {
-            RoutePoints.Remove(point);
+
+            StartTime = DateTime.Now;
+            EndTime = DateTime.Now;
         }
     }
 }

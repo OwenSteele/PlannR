@@ -38,6 +38,8 @@ namespace PlannR.App.Pages.Modals
         public ICollection<TripNestedViewModel> UserTrips { get; set; }
         [Parameter]
         public List<RoutePointNestedViewModel> RoutePoints { get; set; }
+        [Parameter]
+        public List<EditRoutePointViewModel> EditableRoutePoints { get; set; }
 
         [Parameter]
         public DateTime StartTime { get; set; }
@@ -57,7 +59,17 @@ namespace PlannR.App.Pages.Modals
                 Points = new List<Guid>()
             };
 
-            RoutePoints = new();
+            EditableRoutePoints = new();
+            foreach(var point in RoutePoints) 
+            {
+                EditableRoutePoints.Add(new EditRoutePointViewModel
+                {
+                    Id = point.Id,
+                    LocationId = point.Location.LocationId,
+                    StartDateTime = point.StartDateTime,
+                    EndDateTime = point.EndDateTime
+                });
+            }
 
             UserTrips = await TripDataService.GetTripNamesAsync();
         }
@@ -84,7 +96,7 @@ namespace PlannR.App.Pages.Modals
 
         private async Task UpdatePointsAsync()
         {
-            await RoutePointDataService.AddPointRangeAsync(RoutePoints);
+            await RoutePointDataService.AddPointRangeAsync(EditableRoutePoints);
         }
 
         protected void HandleInvalidSubmit()

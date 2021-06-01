@@ -18,10 +18,16 @@
     }
     <div>
         <div>
-            <label for="start">Start Date/Time</label>
-            <input type="date" id="start" @bind-value="@CurrentPoint.StartDateTime" />
-            <label for="end">End Date/Time</label>
-            <input type="date" id="end" @bind-value="@CurrentPoint.EndDateTime" />
+            <div>
+                <label for="start">Start Date/Time</label>
+                <input type="date" id="start" @bind-value="@CurrentPoint.StartDateTime" />
+                <input required type="time" id="tripStartTime" @bind-value="StartTime" />
+            </div>
+            <div>
+                <label for="end">End Date/Time</label>
+                <input type="date" id="end" @bind-value="@CurrentPoint.EndDateTime" />
+                <input required type="time" id="tripStartTime" @bind-value="EndTime" />
+            </div>
             @if (CurrentPoint.LocationId == Guid.Empty)
             {
                 <button type="button" @onclick="LocationModal"> Add Location</button>
@@ -31,6 +37,6 @@
                 <p>Location Set</p>
             }
         </div>
-        <button type="button" @onclick="AddRoutePoint"> Add Point</button>
-    </div>
+            <button type="button" @onclick="AddRoutePoint"> Add Point</button>
+        </div>
 </div>

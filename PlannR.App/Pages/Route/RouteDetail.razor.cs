@@ -8,6 +8,7 @@ using PlannR.ComponentLibrary.Map;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace PlannR.App.Pages.Route
 {
@@ -54,13 +55,13 @@ namespace PlannR.App.Pages.Route
                 TripId = Route.Trip.TripId,
                 StartDateTime = Route.StartDateTime,
                 EndDateTime = Route.EndDateTime,
-                Points = points,
-
+                Points = points
             };
 
             var parameters = new ModalParameters();
 
             parameters.Add("EditRouteViewModel", editModel);
+            parameters.Add("RoutePoints", Route.Points);
 
             parameters.Add("StartTime", Route.StartDateTime);
             parameters.Add("EndTime", Route.EndDateTime);
@@ -75,84 +76,34 @@ namespace PlannR.App.Pages.Route
 
                 StateHasChanged();
             }
+            SetMapPoints();
         }
         private void SetMapPoints()
         {
             MapPoints = new List<Marker>();
 
-            //foreach (var point in Route.Points)
-            //{
-            //    MapPoints.Add(new Marker
-            //    {
-            //        Description = $"{Route.Name} (start of trip)",
-            //        ShowPopup = true,
-            //        Y = (point.?.Latitude ?? 0),
-            //        X = (Route.StartLocation?.Longitude ?? 0)
-            //    });
-            //}
+            var pos = 1;
+            foreach (var point in Route.Points)
+            {
+                MapPoints.Add(new Marker
+                {
+                    Description = $"{pos}. {point.Location.Name}",
+                    ShowPopup = (pos==1),
+                    Y = (point.Location?.Latitude ?? 0),
+                    X = (point.Location?.Longitude ?? 0)
+                }); ;
+                pos++;
+            }
         }
-        //private async Task ShowEditRouteBookingModal()
-        //{
-        //    var title = string.Empty;
+        private async Task ShowFullMapModal()
+        {
+            var parameters = new ModalParameters();
 
-        //    var parameters = new ModalParameters();
-        //    parameters.Add("OwnerId", Route.RouteId);
+            parameters.Add("MapPoints", MapPoints);
 
-        //    if (Route.Booking != null)
-        //    {
-        //        parameters.Add("BookingId", Route.Booking.BookingId);
-        //        title = "Edit";
-        //    }
-        //    else
-        //    {
-        //        title = "Create";
-        //    }
+            var modal = Modal.Show<FullMapModal>($"Map of route: '{Route.Name}", parameters);
 
-        //    var modal = Modal.Show<CreateRouteBookingModal>($"{title}: '{Route.Name}' booking", parameters);
-
-        //    var result = await modal.Result;
-
-        //    if (result.Data != null)
-        //    {
-        //        Route = await RouteDataService.GetRouteByIdAsync(_RouteId);
-
-        //        StateHasChanged();
-        //    }
-        //}
-        //private async Task ShowFullMapModal()
-        //{
-        //    if (Route.StartLocation == null && Route.EndLocation == null) return;
-
-        //    var parameters = new ModalParameters();
-
-        //    var markers = new List<Marker>();
-
-        //    if (Route.StartLocation != null)
-        //    {
-        //        markers.Add(new Marker
-        //        {
-        //            Description = $"{Route.Name} - ({Route.RouteType.Name})",
-        //            X = Route.StartLocation.Longitude,
-        //            Y = Route.StartLocation.Latitude,
-        //            ShowPopup = true
-        //        });
-        //    }
-        //    if (Route.EndLocation != null)
-        //    {
-        //        markers.Add(new Marker
-        //        {
-        //            Description = $"{Route.Name} - ({Route.RouteType.Name})",
-        //            X = Route.EndLocation.Longitude,
-        //            Y = Route.EndLocation.Latitude,
-        //            ShowPopup = (Route.StartLocation == null)
-        //        });
-        //    }
-
-        //    parameters.Add("MapPoints", markers);
-
-        //    var modal = Modal.Show<FullMapModal>($"Location of {Route.Name}", parameters);
-
-        //    await modal.Result;
-        //}
+            await modal.Result;
+        }
     }
 }

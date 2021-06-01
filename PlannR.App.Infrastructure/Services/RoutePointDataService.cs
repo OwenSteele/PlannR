@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Blazored.LocalStorage;
+using Microsoft.AspNetCore.Components.Authorization;
 using PlannR.App.Infrastructure.Contracts;
 using PlannR.App.Infrastructure.Services.Base;
 using PlannR.App.Infrastructure.ViewModels.Routes;
@@ -14,11 +14,11 @@ namespace PlannR.App.Infrastructure.Services
     public class RoutePointDataService : BaseDataService, IRoutePointDataService
     {
         private readonly IMapper _mapper;
-        public RoutePointDataService(IMapper mapper, IClient client, ILocalStorageService localStorage) : base(client, localStorage)
+        public RoutePointDataService(IMapper mapper, IClient client, AuthenticationStateProvider authenticationStateProvider) : base(client, authenticationStateProvider)
         {
             _mapper = mapper;
         }
-        public async Task<ApiResponse<ICollection<Guid>>> AddPointRangeAsync(ICollection<RoutePointNestedViewModel> viewModel)
+        public async Task<ApiResponse<ICollection<Guid>>> AddPointRangeAsync(ICollection<EditRoutePointViewModel> viewModel)
         {
             await AddBearerToken();
 
@@ -58,12 +58,12 @@ namespace PlannR.App.Infrastructure.Services
             }
         }
 
-        public Task<ApiResponse<Guid>> UpdateAsync(RoutePointNestedViewModel viewModel)
+        public Task<ApiResponse<Guid>> UpdateAsync(EditRoutePointViewModel viewModel)
         {
             throw new NotImplementedException();
         }
 
-        public Task<ApiResponse<ICollection<Guid>>> CreateAsync(RoutePointNestedViewModel viewModel)
+        public Task<ApiResponse<ICollection<Guid>>> CreateAsync(EditRoutePointViewModel viewModel)
         {
             throw new NotImplementedException();
         }

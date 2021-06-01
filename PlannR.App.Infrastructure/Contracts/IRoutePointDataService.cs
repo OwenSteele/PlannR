@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace PlannR.App.Infrastructure.Contracts
 {
-    public interface IRoutePointDataService : IBaseDataService<RoutePointNestedViewModel, ICollection<Guid>>
+    public interface IRoutePointDataService : IBaseDataService<EditRoutePointViewModel, ICollection<Guid>>
     {
-        Task<ApiResponse<ICollection<Guid>>> AddPointRangeAsync(ICollection<RoutePointNestedViewModel> points);
+        Task<ApiResponse<ICollection<Guid>>> AddPointRangeAsync(ICollection<EditRoutePointViewModel> points);
         Task<ApiResponse<ICollection<Guid>>> DeletePointRangeAsync(ICollection<Guid> pointIds);
     }
 }

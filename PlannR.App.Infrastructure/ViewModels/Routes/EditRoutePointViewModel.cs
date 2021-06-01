@@ -5,12 +5,12 @@ using System.ComponentModel.DataAnnotations;
 
 namespace PlannR.App.Infrastructure.ViewModels.Routes
 {
-    public class RoutePointNestedViewModel
+    public class EditRoutePointViewModel
     {
         public Guid Id { get; set; }
         [Required]
         [NotEmpty]
-        public LocationNestedViewModel Location { get; set; }
+        public Guid LocationId { get; set; }
         public Guid? AssociatedEventId { get; set; }
         [Required]
         [NotEmpty]
