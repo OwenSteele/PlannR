@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using Blazored.LocalStorage;
+using Microsoft.AspNetCore.Components.Authorization;
 using Moq;
+using PlannR.App.Infrastructure.Authentication;
 using PlannR.App.Infrastructure.Profiles;
 using PlannR.App.Infrastructure.Services;
 using PlannR.App.Infrastructure.Services.Base;
@@ -64,7 +66,9 @@ namespace PLannR.App.Infrastructure.Tests.IntegrationTests.Services
                     return false;
                 });
 
-            var tripDataService = new TripDataService(_mapper, mockClient.Object, mockLocalStorage.Object);
+            AuthenticationStateProvider stateProvider = new PlannrAuthenticationStateProvider(mockLocalStorage.Object);
+
+            var tripDataService = new TripDataService(_mapper, mockClient.Object, stateProvider);
 
             var result = await tripDataService.GetAllTripsAsync();
         }

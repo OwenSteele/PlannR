@@ -65,18 +65,21 @@ namespace PlannR.Identity.Services
 
             if (!result.Succeeded) throw new Exception($"Invalid details for '{request.Email}");
 
-            var token = await GenerateJwtTokenAsync(existing);
+            var expiry = DateTime.Now.AddMinutes(_jwtOptions.DurationInMinutes);
+
+            var token = await GenerateJwtTokenAsync(existing, expiry);
 
             return new AuthenticationResponse
             {
                 UserName = existing.UserName,
                 UserId = existing.Id,
                 Email = existing.Email,
-                Token = token
+                Token = token,
+                TokenExpiry = expiry
             };
         }
 
-        private async Task<string> GenerateJwtTokenAsync(PlannrUser user)
+        private async Task<string> GenerateJwtTokenAsync(PlannrUser user, DateTime expiry)
         {
             var userClaims = await _userManager.GetClaimsAsync(user);
             var userRoles = await _userManager.GetRolesAsync(user);
@@ -96,35 +99,10 @@ namespace PlannR.Identity.Services
                 _jwtOptions.Issuer,
                 _jwtOptions.Audience,
                 tokenClaims,
-                expires: DateTime.Now.AddMinutes(_jwtOptions.DurationInMinutes),
+                expires: expiry,
                 signingCredentials: creds);
 
             return new JwtSecurityTokenHandler().WriteToken(token);
-
-
-            //var claims = new[]
-            //{
-            //    new Claim(JwtRegisteredClaimNames.Sub , user.Email),
-            //    new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-            //    new Claim(JwtRegisteredClaimNames.UniqueName, user.Userame)
-            //};
-
-            //var key = new SymmetricSecurityKey(
-            //    Encoding.UTF8.GetBytes(_configuration["Tokens:Key"]));
-
-            //var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-
-            //var tokenLifetime = 60;
-
-            //var token = new JwtSecurityToken(
-            //    _configuration["Tokens:Issuer"],
-            //    _configuration["Tokens:Audience"],
-            //    claims,
-            //    expires: DateTime.UtcNow.AddMinutes(tokenLifetime),
-            //    signingCredentials: credentials
-            //    );
-
-            //return new JwtSecurityTokenHandler().WriteToken(token);
         }
     }
 }

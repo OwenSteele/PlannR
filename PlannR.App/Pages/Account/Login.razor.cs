@@ -11,11 +11,15 @@ namespace PlannR.App.Pages.Account
         public IAuthenticationDataService AuthenticationDataService { get; set; }
         [Inject]
         public NavigationManager NavigationManager { get; set; }
+        [Parameter]
+        public string Redirected { get; set; } = null;
         public AuthenticateViewModel LoginViewModel { get; set; }
 
         public string Message { get; set; }
         protected override void OnInitialized()
         {
+            if (!string.IsNullOrWhiteSpace(Redirected)) Message = Redirected;
+
             LoginViewModel = new();
         }
 

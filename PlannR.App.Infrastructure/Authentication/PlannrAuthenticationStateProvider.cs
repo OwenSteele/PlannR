@@ -43,6 +43,34 @@ namespace PlannR.App.Infrastructure.Authentication
             var authState = Task.FromResult(new AuthenticationState(anonUser));
             NotifyAuthenticationStateChanged(authState);
         }
+        public async Task SetTokenAsync(string token, string username = null, DateTime expiry = default)
+        {
+            if (token == null)
+            {
+                await _localStorage.RemoveItemAsync("token");
+                await _localStorage.RemoveItemAsync("tokenExpiry");
+                await _localStorage.RemoveItemAsync("username");
+            }
+            else
+            {
+                await _localStorage.SetItemAsync("token", token);
+                await _localStorage.SetItemAsync("tokenExpiry", expiry);
+                await _localStorage.SetItemAsync("username", username);
+            }
+            SetUserLoggedOut();
+        }
+
+        public async Task<string> GetTokenAsync()
+        {
+            var expiry = await _localStorage.GetItemAsync<DateTime>("tokenExpiry");
+
+            if (expiry.ToUniversalTime() > DateTime.UtcNow) 
+                return await _localStorage.GetItemAsync<string>("token");
+            else 
+                await SetTokenAsync(null);
+
+            return null;
+        }
 
         private static IEnumerable<Claim> ParseTokenClaims(string jwt)
         {

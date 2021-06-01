@@ -1,4 +1,6 @@
-﻿namespace PlannR.Application.Models.Authentication
+﻿using System;
+
+namespace PlannR.Application.Models.Authentication
 {
     public class AuthenticationResponse
     {
@@ -6,5 +8,6 @@
         public string UserName { get; set; }
         public string Email { get; set; }
         public string Token { get; set; }
+        public DateTime TokenExpiry { get; set; }
     }
 }
