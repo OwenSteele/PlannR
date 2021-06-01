@@ -7700,6 +7700,9 @@ namespace PlannR.App.Infrastructure.Services.Base
         [Newtonsoft.Json.JsonProperty("token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Token { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("tokenExpiry", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.DateTime TokenExpiry { get; set; }
+    
     
     }
     

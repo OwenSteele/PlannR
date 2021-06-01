@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Blazored.LocalStorage;
+using Microsoft.AspNetCore.Components.Authorization;
 using PlannR.App.Infrastructure.Contracts;
 using PlannR.App.Infrastructure.Services.Base;
 using PlannR.App.Infrastructure.ViewModels.Nested;
@@ -13,7 +13,7 @@ namespace PlannR.App.Infrastructure.Services
     public class TripDataService : BaseDataService, ITripDataService
     {
         private readonly IMapper _mapper;
-        public TripDataService(IMapper mapper, IClient client, ILocalStorageService localStorage) : base(client, localStorage)
+        public TripDataService(IMapper mapper, IClient client, AuthenticationStateProvider authenticationStateProvider) : base(client, authenticationStateProvider)
         {
             _mapper = mapper;
         }

@@ -12,13 +12,13 @@ namespace PlannR.App.Infrastructure.Services
 {
     public class AuthenticationDataService : BaseDataService, IAuthenticationDataService
     {
-        private readonly AuthenticationStateProvider _authenticationStateProvider;
         private readonly IMapper _mapper;
+        private readonly ILocalStorageService _localStorage;
 
         public AuthenticationDataService(IClient client, ILocalStorageService localStorage,
-            AuthenticationStateProvider authenticationStateProvider, IMapper mapper) : base(client, localStorage)
+            AuthenticationStateProvider authenticationStateProvider, IMapper mapper) : base(client, authenticationStateProvider)
         {
-            _authenticationStateProvider = authenticationStateProvider;
+            _localStorage = localStorage;
             _mapper = mapper;
         }
 
@@ -35,11 +35,11 @@ namespace PlannR.App.Infrastructure.Services
                 var response = await _client.AuthenticateAsync(request);
 
                 if (response.Token == string.Empty) return false;
-
-                await _localStorage.SetItemAsync("token", response.Token);
-                await _localStorage.SetItemAsync("username", response.UserName);
-
+                                
                 var plannrAuthenticationStateProvider = (PlannrAuthenticationStateProvider)_authenticationStateProvider;
+
+                await plannrAuthenticationStateProvider.SetTokenAsync(response.Token, response.UserName, response.TokenExpiry);
+
                 plannrAuthenticationStateProvider.SetUserAuthenticated(viewModel.Email);
 
                 _client.HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", response.Token);
@@ -54,10 +54,9 @@ namespace PlannR.App.Infrastructure.Services
 
         public async Task Logout()
         {
-            await _localStorage.RemoveItemAsync("token");
-            await _localStorage.RemoveItemAsync("username");
-
             var plannrAuthenticationStateProvider = (PlannrAuthenticationStateProvider)_authenticationStateProvider;
+
+            await plannrAuthenticationStateProvider.SetTokenAsync(null);
 
             plannrAuthenticationStateProvider.SetUserLoggedOut();
 

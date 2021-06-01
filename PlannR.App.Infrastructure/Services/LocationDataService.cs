@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Blazored.LocalStorage;
+using Microsoft.AspNetCore.Components.Authorization;
 using PlannR.App.Infrastructure.Contracts;
 using PlannR.App.Infrastructure.Services.Base;
 using PlannR.App.Infrastructure.ViewModels.Locations;
@@ -12,7 +12,7 @@ namespace PlannR.App.Infrastructure.Services
     public class LocationDataService : BaseDataService, ILocationDataService
     {
         private readonly IMapper _mapper;
-        public LocationDataService(IMapper mapper, IClient client, ILocalStorageService localStorage) : base(client, localStorage)
+        public LocationDataService(IMapper mapper, IClient client, AuthenticationStateProvider authenticationStateProvider) : base(client, authenticationStateProvider)
         {
             _mapper = mapper;
         }

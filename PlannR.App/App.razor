@@ -1,20 +1,22 @@
-<CascadingBlazoredModal>
-    <Router AppAssembly="@typeof(Program).Assembly" PreferExactMatches="@true">
-        <Found Context="routeData">
-            <CascadingAuthenticationState>
-                <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)">
-                    <NotAuthorized>
-                        <RedirectTo Page="login" />
-                    </NotAuthorized>
-                </AuthorizeRouteView>
-            </CascadingAuthenticationState>
-        </Found>
-        <NotFound>
-            <CascadingAuthenticationState>
-                <LayoutView Layout="@typeof(MainLayout)">
-                    <p>Sorry, there's nothing at this address.</p>
-                </LayoutView>
-            </CascadingAuthenticationState>
-        </NotFound>
-    </Router>
-</CascadingBlazoredModal>
+<Error>
+    <CascadingBlazoredModal>
+        <Router AppAssembly="@typeof(Program).Assembly" PreferExactMatches="@true">
+            <Found Context="routeData">
+                <CascadingAuthenticationState>
+                    <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)">
+                        <NotAuthorized>
+                            <RedirectTo Page="login"/>
+                        </NotAuthorized>
+                    </AuthorizeRouteView>
+                </CascadingAuthenticationState>
+            </Found>
+            <NotFound>
+                <CascadingAuthenticationState>
+                    <LayoutView Layout="@typeof(MainLayout)">
+                        <p>Sorry, there's nothing at this address.</p>
+                    </LayoutView>
+                </CascadingAuthenticationState>
+            </NotFound>
+        </Router>
+    </CascadingBlazoredModal>
+</Error>

@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Blazored.LocalStorage;
+using Microsoft.AspNetCore.Components.Authorization;
 using PlannR.App.Infrastructure.Contracts;
 using PlannR.App.Infrastructure.Services.Base;
 using PlannR.App.Infrastructure.ViewModels.Transport;
@@ -12,7 +12,7 @@ namespace PlannR.App.Infrastructure.Services
     public class TransportDataService : BaseDataService, ITransportDataService
     {
         private readonly IMapper _mapper;
-        public TransportDataService(IMapper mapper, IClient client, ILocalStorageService localStorage) : base(client, localStorage)
+        public TransportDataService(IMapper mapper, IClient client, AuthenticationStateProvider authenticationStateProvider) : base(client, authenticationStateProvider)
         {
             _mapper = mapper;
         }

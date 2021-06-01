@@ -1,4 +1,6 @@
 ﻿using Blazored.LocalStorage;
+using Microsoft.AspNetCore.Components.Authorization;
+using PlannR.App.Infrastructure.Authentication;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
@@ -6,14 +8,13 @@ namespace PlannR.App.Infrastructure.Services.Base
 {
     public class BaseDataService
     {
-
         protected IClient _client;
-        protected readonly ILocalStorageService _localStorage;
+        protected readonly AuthenticationStateProvider _authenticationStateProvider;
 
-        public BaseDataService(IClient client, ILocalStorageService localStorage)
+        public BaseDataService(IClient client, AuthenticationStateProvider authenticationStateProvider)
         {
             _client = client;
-            _localStorage = localStorage;
+            _authenticationStateProvider = authenticationStateProvider;
         }
 
         protected static ApiResponse<Guid> ConvertApiErrors<Guid>(ApiException ex)
@@ -29,10 +30,13 @@ namespace PlannR.App.Infrastructure.Services.Base
 
         protected async Task AddBearerToken()
         {
-            if (await _localStorage.ContainKeyAsync("token"))
+            var plannrAuthenticationStateProvider = (PlannrAuthenticationStateProvider)_authenticationStateProvider;
+            var token = await plannrAuthenticationStateProvider.GetTokenAsync();
+
+            if (!string.IsNullOrWhiteSpace(token))
             {
                 _client.HttpClient.DefaultRequestHeaders.Authorization = new
-                    AuthenticationHeaderValue("Bearer", await _localStorage.GetItemAsync<string>("token"));
+                        AuthenticationHeaderValue("Bearer", token);
             }
         }
     }
