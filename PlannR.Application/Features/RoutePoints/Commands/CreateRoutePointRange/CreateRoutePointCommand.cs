@@ -8,6 +8,7 @@ namespace PlannR.Application.Features.RoutePoints.Commands.CreateRoutePointRange
 {
     public class CreateRoutePointCommand
     {
+        public Guid RouteId { get; set; }
         public Guid? LocationId { get; set; }
         public Guid? EventId { get; set; }
         public DateTime StartDateTime { get; set; }

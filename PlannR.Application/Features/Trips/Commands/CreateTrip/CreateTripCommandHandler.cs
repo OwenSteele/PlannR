@@ -11,11 +11,11 @@ namespace PlannR.Application.Features.Trips.Commands.CreateTrip
 {
     public class CreateTripCommandHandler : IRequestHandler<CreateTripCommand, CreateTripCommandResponse>
     {
-        private readonly IAuthorisationService<AccomodationBooking> _authorisationService;
+        private readonly IAuthorisationService<Trip> _authorisationService;
         private readonly IMapper _mapper;
         private readonly ITripRepository _tripRepository;
 
-        public CreateTripCommandHandler(IAuthorisationService<AccomodationBooking> authorisationService, IMapper mapper,ITripRepository tripRepository)
+        public CreateTripCommandHandler(IAuthorisationService<Trip> authorisationService, IMapper mapper,ITripRepository tripRepository)
         {
             _authorisationService = authorisationService;
             _mapper = mapper;

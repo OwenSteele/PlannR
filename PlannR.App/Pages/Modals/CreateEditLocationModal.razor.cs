@@ -75,8 +75,10 @@ namespace PlannR.App.Pages.Modals
 
             ExistingLocations = await LocationDataService.GetAllLocationsAsync();
 
-            StartingPoint = new List<Marker>();
-            StartingPoint.Add(marker);
+            StartingPoint = new List<Marker>
+            {
+                marker
+            };
         }
 
         protected async Task HandleValidSubmit()
@@ -142,22 +144,18 @@ namespace PlannR.App.Pages.Modals
         [JSInvokable]
         public async Task SetMarker()
         {
-            double latValue;
-            double longValue;
             var result = await JSRuntime.InvokeAsync<string>("deliveryMap.getCurrentMarkerLocation");
             var coords = result.Split(' ');
 
-            if (!double.TryParse(coords[0], NumberStyles.Any & (~NumberStyles.AllowCurrencySymbol),CultureInfo.CurrentCulture, out latValue))
+            if (!double.TryParse(coords[0], NumberStyles.Any & (~NumberStyles.AllowCurrencySymbol),CultureInfo.CurrentCulture, out double latValue))
             {
-                latValue = 0;
+                EditLocationViewModel.Latitude = latValue;
             }
-            EditLocationViewModel.Latitude = latValue;
 
-            if (!double.TryParse(coords[1], NumberStyles.Any & (~NumberStyles.AllowCurrencySymbol), CultureInfo.CurrentCulture, out longValue))
+            if (!double.TryParse(coords[1], NumberStyles.Any & (~NumberStyles.AllowCurrencySymbol), CultureInfo.CurrentCulture, out double longValue))
             {
-                longValue = 0;
+                EditLocationViewModel.Longitude = longValue;
             }
-            EditLocationViewModel.Longitude = longValue;
         }
         private async Task DeleteItem(Guid? otherLocationId = null)
         {

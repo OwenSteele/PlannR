@@ -33,6 +33,10 @@ namespace PlannR.App.Pages.Modals
         public List<RoutePointNestedViewModel> RoutePoints { get; set; }
         [Parameter]
         public List<EditRoutePointViewModel> EditableRoutePoints { get; set; }
+        [Parameter]
+        public List<Guid> PointsToDelete { get; set; } = new();
+        [Parameter]
+        public List<EditRoutePointViewModel> PointsToAdd { get; set; } = new();
 
         [Parameter]
         public DateTime StartTime { get; set; }
@@ -48,7 +52,9 @@ namespace PlannR.App.Pages.Modals
             };
 
             EditableRoutePoints = new();
-            foreach(var point in RoutePoints) 
+            if(RoutePoints == null) RoutePoints = new();
+
+            foreach (var point in RoutePoints) 
             {
                 EditableRoutePoints.Add(new EditRoutePointViewModel
                 {
@@ -68,9 +74,11 @@ namespace PlannR.App.Pages.Modals
 
             if (EditRouteViewModel.RouteId == Guid.Empty)
             {
-                await UpdatePointsAsync();
-
                 var result = await CreateRouteAsync();
+
+                EditRouteViewModel.RouteId = result;
+
+                await UpdatePointsAsync();
 
                 await ModalInstance.CloseAsync(ModalResult.Ok(result));
             }
@@ -78,13 +86,23 @@ namespace PlannR.App.Pages.Modals
             {
                 await EditRouteAsync();
 
+                await UpdatePointsAsync();
+
                 await ModalInstance.CloseAsync();
             }
         }
 
         private async Task UpdatePointsAsync()
         {
-            await RoutePointDataService.AddPointRangeAsync(EditableRoutePoints);
+            if(PointsToDelete.Any()) await RoutePointDataService.DeletePointRangeAsync(PointsToDelete);
+
+            if (PointsToAdd.Any())
+            {
+                foreach(var point in PointsToAdd)
+                    point.RouteId = EditRouteViewModel.RouteId;
+
+                await RoutePointDataService.AddPointRangeAsync(PointsToAdd);
+            }
         }
 
         protected void HandleInvalidSubmit()

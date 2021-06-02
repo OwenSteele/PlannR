@@ -8424,6 +8424,9 @@ namespace PlannR.App.Infrastructure.Services.Base
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.4.3.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class CreateRoutePointCommand 
     {
+        [Newtonsoft.Json.JsonProperty("routeId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Guid RouteId { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("locationId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Guid? LocationId { get; set; }
     

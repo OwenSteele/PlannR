@@ -13,19 +13,14 @@ namespace PlannR.App.Infrastructure.Validation
         {
             if (value is null) return true;
 
-            switch (value)
+            return value switch
             {
-                case Guid guid:
-                    return guid != Guid.Empty;
-                case DateTime date:
-                    return date != DateTime.MinValue;
-                case int i:
-                    return i != 0;
-                case string str:
-                    return !string.IsNullOrWhiteSpace(str);   
-                default:
-                    return true;
-            }
+                Guid guid => guid != Guid.Empty,
+                DateTime date => date != DateTime.MinValue,
+                int i => i != 0,
+                string str => !string.IsNullOrWhiteSpace(str),
+                _ => true,
+            };
         }
     }
 }

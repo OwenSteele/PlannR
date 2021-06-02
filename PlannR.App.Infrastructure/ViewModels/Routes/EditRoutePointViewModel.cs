@@ -7,6 +7,7 @@ namespace PlannR.App.Infrastructure.ViewModels.Routes
 {
     public class EditRoutePointViewModel
     {
+        public Guid RouteId { get; set; }
         public Guid Id { get; set; }
         [Required]
         [NotEmpty]

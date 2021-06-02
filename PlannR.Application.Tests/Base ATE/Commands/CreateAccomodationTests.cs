@@ -17,7 +17,7 @@ namespace PlannR.Application.Tests.BaseATE.Commands
         [Fact]
         public async Task WHEN_acommodation_is_added_with_handler_THEN_new_acommodation_is_in_repository()
         {
-            var handler = new CreateAccomodationCommandHandler(_mapper, _mockRepository.Object);
+            var handler = new CreateAccomodationCommandHandler(_mockAuthorisationService.Object, _mapper, _mockRepository.Object);
 
             var command = new CreateAccomodationCommand()
             {
@@ -36,7 +36,7 @@ namespace PlannR.Application.Tests.BaseATE.Commands
         [Fact]
         public async Task WHEN_acommodation_is_added_without_TripId_THEN_validationException_is_thrown()
         {
-            var handler = new CreateAccomodationCommandHandler(_mapper, _mockRepository.Object);
+            var handler = new CreateAccomodationCommandHandler(_mockAuthorisationService.Object, _mapper, _mockRepository.Object);
 
             var command = new CreateAccomodationCommand()
             {

@@ -6,6 +6,7 @@ namespace PlannR.Domain.Entities
 {
     public class RoutePoint : AuditableEntity
     {
+        public Guid RouteId { get; set; }
         public Guid Id { get; set; }
         public Guid? LocationId { get; set; }
         public Location Location { get; set; }

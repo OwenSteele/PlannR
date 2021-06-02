@@ -57,9 +57,13 @@ else
                 <input required type="time" id="tripEndDate" @bind-value="EndTime" />
             </div>
             <div class="form-field">
-                <CascadingValue Value="RoutePoints">
-                    <EditRoutePointsModal>
-                    </EditRoutePointsModal>
+                <CascadingValue Value="EditableRoutePoints" Name="EditParam">
+                    <CascadingValue Value="PointsToAdd" Name="AddParam">
+                        <CascadingValue Value="PointsToDelete" Name="DeleteParam">
+                            <EditRoutePointsModal>
+                            </EditRoutePointsModal>
+                        </CascadingValue>
+                    </CascadingValue>
                 </CascadingValue>
             </div>
 

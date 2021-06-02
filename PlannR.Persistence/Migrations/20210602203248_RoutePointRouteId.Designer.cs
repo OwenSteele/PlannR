@@ -10,8 +10,8 @@ using PlannR.Persistence;
 namespace PlannR.Persistence.Migrations
 {
     [DbContext(typeof(PlannrDbContext))]
-    [Migration("20210526204545_RemoveOnetoOneLocations")]
-    partial class RemoveOnetoOneLocations
+    [Migration("20210602203248_RoutePointRouteId")]
+    partial class RoutePointRouteId
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -207,7 +207,7 @@ namespace PlannR.Persistence.Migrations
                     b.Property<Guid?>("LocationId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("RouteId")
+                    b.Property<Guid>("RouteId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("StartDateTime")
@@ -648,7 +648,9 @@ namespace PlannR.Persistence.Migrations
 
                     b.HasOne("PlannR.Domain.Entities.Route", null)
                         .WithMany("Points")
-                        .HasForeignKey("RouteId");
+                        .HasForeignKey("RouteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("AssociatedEvent");
 

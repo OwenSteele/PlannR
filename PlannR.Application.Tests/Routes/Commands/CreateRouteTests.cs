@@ -16,7 +16,7 @@ namespace PlannR.Application.Tests.BaseRoute.Commands
         [Fact]
         public async Task WHEN_acommodation_is_added_with_handler_THEN_new_acommodation_is_in_repository()
         {
-            var handler = new CreateRouteCommandHandler(_mapper, _mockRepository.Object);
+            var handler = new CreateRouteCommandHandler(_mockAuthorisationService.Object, _mapper, _mockRepository.Object);
 
             var command = new CreateRouteCommand()
             {
@@ -35,7 +35,7 @@ namespace PlannR.Application.Tests.BaseRoute.Commands
         [Fact]
         public async Task WHEN_acommodation_is_added_without_TripId_THEN_validationException_is_thrown()
         {
-            var handler = new CreateRouteCommandHandler(_mapper, _mockRepository.Object);
+            var handler = new CreateRouteCommandHandler(_mockAuthorisationService.Object, _mapper, _mockRepository.Object);
 
             var command = new CreateRouteCommand()
             {

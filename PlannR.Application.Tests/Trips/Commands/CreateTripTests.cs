@@ -14,7 +14,7 @@ namespace PlannR.Application.Tests.BaseTrip.Commands
         [Fact]
         public async Task WHEN_acommodation_is_added_with_handler_THEN_new_acommodation_is_in_repository()
         {
-            var handler = new CreateTripCommandHandler(_mapper, _mockRepository.Object);
+            var handler = new CreateTripCommandHandler(_mockAuthorisationService.Object, _mapper, _mockRepository.Object);
 
             var command = new CreateTripCommand()
             {

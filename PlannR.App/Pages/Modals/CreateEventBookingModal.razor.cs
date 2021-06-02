@@ -16,7 +16,7 @@ namespace PlannR.App.Pages.Modals
         BlazoredModalInstance ModalInstance { get; set; }
         [Inject]
         public IEventBookingDataService EventBookingDataService { get; set; }
-
+        [Parameter]
         public EditEventBookingViewModel EditEventBookingViewModel { get; set; }
         protected async override Task OnInitializedAsync()
         {

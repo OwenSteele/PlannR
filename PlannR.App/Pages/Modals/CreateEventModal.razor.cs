@@ -26,7 +26,7 @@ namespace PlannR.App.Pages.Modals
         public IEventDataService EventDataService { get; set; }
         [Inject]
         public IEventTypeDataService EventTypeService { get; set; }
-
+        [Parameter]
         public EditEventViewModel EditEventViewModel { get; set; }
         public ICollection<TripNestedViewModel> UserTrips { get; set; }
         public ICollection<EventTypeNestedViewModel> EventTypes { get; set; }

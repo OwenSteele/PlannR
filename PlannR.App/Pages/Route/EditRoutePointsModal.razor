@@ -1,13 +1,13 @@
 <div class="points-section">
     <label>Points</label>
-    @if (RoutePoints == null)
+    @if (EditableRoutePoints == null)
     {
         <p>Add a point!</p>
     }
     else
     {
         <ol class="added-points" type="1">
-            @foreach (var point in RoutePoints.OrderBy(x => x.StartDateTime))
+            @foreach (var point in EditableRoutePoints.OrderBy(x => x.StartDateTime))
             {
                 <li>
                     <div>@point.StartDateTime<span>&#128337;</span>@point.StartDateTime</div>

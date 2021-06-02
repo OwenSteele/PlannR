@@ -15,7 +15,7 @@ namespace PlannR.Application.Tests.ATETypes.Commands
         [Fact]
         public async Task WHEN_acommodation_is_added_with_handler_THEN_new_acommodation_is_in_repository()
         {
-            var handler = new CreateAccomodationTypeCommandHandler(_mapper, _mockRepository.Object);
+            var handler = new CreateAccomodationTypeCommandHandler(_mockAuthorisationService.Object, _mapper, _mockRepository.Object);
 
             var command = new CreateAccomodationTypeCommand()
             {

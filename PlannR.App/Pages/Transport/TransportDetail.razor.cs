@@ -103,11 +103,10 @@ namespace PlannR.App.Pages.Transport
         }
         private async Task ShowEditTransportBookingModal()
         {
-            var title = string.Empty;
-
             var parameters = new ModalParameters();
             parameters.Add("OwnerId", Transport.TransportId);
 
+            string title;
             if (Transport.Booking != null)
             {
                 parameters.Add("BookingId", Transport.Booking.BookingId);
@@ -141,7 +140,7 @@ namespace PlannR.App.Pages.Transport
             {
                 markers.Add(new Marker
                 {
-                    Description = $"{Transport.Name} - ({Transport.TransportType.Name})",
+                    Description = $"Start: {Transport.Name} - ({Transport.TransportType.Name})",
                     X = Transport.StartLocation.Longitude,
                     Y = Transport.StartLocation.Latitude,
                     ShowPopup = true
@@ -151,7 +150,7 @@ namespace PlannR.App.Pages.Transport
             {
                 markers.Add(new Marker
                 {
-                    Description = $"{Transport.Name} - ({Transport.TransportType.Name})",
+                    Description = $"End: {Transport.Name} - ({Transport.TransportType.Name})",
                     X = Transport.EndLocation.Longitude,
                     Y = Transport.EndLocation.Latitude,
                     ShowPopup = (Transport.StartLocation == null)

@@ -18,27 +18,31 @@
             </div>
             <button @onclick="ShowEditRouteModal">&#9998;</button>
         </div>
-        <div class="detail-info">
-            @*<div class="one">
-                    <div>
-                        <div>Location:</div>
-                        <div class="val">@(Route.StartLocation == null ? "No Location Set" : Route.StartLocation.Name)</div>
+
+        @if (Route.Points != null && Route.Points.Count >= 2)
+        {
+            <div class="detail-info">
+                <div class="one">
+                        <div>
+                            <div>Location:</div>
+                            <div class="val">@(Route.Points?.FirstOrDefault()?.Location?.Name ?? "No Location Set")</div>
+                        </div>
                     </div>
-                </div>
-                <div class="two">
-                    <div>
-                        <div>Location:</div>
-                        <div class="val">@(Route.EndLocation == null ? "No Location Set" : Route.EndLocation.Name)</div>
+                    <div class="two">
+                        <div>
+                            <div>Location:</div>
+                            <div class="val">@(Route.Points?.LastOrDefault()?.Location?.Name ?? "No Location Set")</div>
+                        </div>
                     </div>
-                </div>*@
-        </div>
+            </div>
+        }
 
         <div class="map-parts">
             <div class="ate-info">
                 <div class="dates-times">
                     <div>
                         <h4>
-                            Booked From:
+                            Starting Time:
                         </h4>
                         <div>
                             @Route.StartDateTime.ToLongDateString()
@@ -47,7 +51,7 @@
                     </div>
                     <div>
                         <h4>
-                            Leaving on:
+                            Finishing Time:
                         </h4>
 
                         <div>
@@ -67,20 +71,23 @@
                             <button @onclick="ShowFullMapModal">&#128269;</button>
                         </div>
                     }
-                    </div>
+                </div>
                 @if (MapPoints != null && !MapPoints.Any())
                 {
-            <div class="no-points-wrapper">
-                <div class="no-points">No Points added to map yet!</div>
-            </div>
-                        }
-                        else
-                        {
-                        <div id="map-wrapper">
-                            <Map Zoom="100" Points="@MapPoints"></Map>
-                        </div>
-                        }
+                    <div class="no-points-wrapper">
+                        <div class="no-points">No Points added to map yet!</div>
                     </div>
-                </div>
+                }
+                else
+                {
+                    <div id="map-wrapper">
+                        <Map Zoom="100" Points="@MapPoints"></Map>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="route-plan">
+
+        </div>
     }
 </div>

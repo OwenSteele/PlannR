@@ -87,7 +87,7 @@ namespace PlannR.App.Pages.Route
             {
                 MapPoints.Add(new Marker
                 {
-                    Description = $"{pos}. {point.Location.Name}",
+                    Description = $"{pos}. {point.Location.Name} ({point.StartDateTime.ToString("dd MMMMM HH:mm")})",
                     ShowPopup = (pos==1),
                     Y = (point.Location?.Latitude ?? 0),
                     X = (point.Location?.Longitude ?? 0)

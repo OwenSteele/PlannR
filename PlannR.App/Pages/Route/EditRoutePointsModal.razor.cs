@@ -16,8 +16,12 @@ namespace PlannR.App.Pages.Route
     {
         [CascadingParameter]
         IModalService Modal { get; set; }
-        [CascadingParameter]
-        public List<EditRoutePointViewModel> RoutePoints { get; set; }
+        [CascadingParameter(Name = "EditParam")]
+        public List<EditRoutePointViewModel> EditableRoutePoints { get; set; }
+        [CascadingParameter(Name = "DeleteParam")]
+        public List<Guid> PointsToDelete { get; set; }
+        [CascadingParameter(Name ="AddParam")]
+        public List<EditRoutePointViewModel> PointsToAdd { get; set; }
         [CascadingParameter]
         public string Message { get; set; }
 
@@ -28,7 +32,7 @@ namespace PlannR.App.Pages.Route
 
         protected override void OnInitialized()
         {
-            if (RoutePoints == null) RoutePoints = new();
+            if (EditableRoutePoints == null) EditableRoutePoints = new();
 
             SetCurrentPoint();
         }
@@ -55,13 +59,17 @@ namespace PlannR.App.Pages.Route
             CurrentPoint.StartDateTime += StartTime.TimeOfDay;
             CurrentPoint.EndDateTime += EndTime.TimeOfDay;
 
-            RoutePoints.Add(CurrentPoint);
+            PointsToAdd.Add(CurrentPoint);
+            EditableRoutePoints.Add(CurrentPoint);
 
             SetCurrentPoint();
         }
         public void RemoveRoutePoint(EditRoutePointViewModel point)
         {
-            RoutePoints.Remove(point);
+            EditableRoutePoints.Remove(point);
+            if (PointsToAdd.Contains(point)) PointsToAdd.Remove(point);
+
+            else if (point.Id != Guid.Empty) PointsToDelete.Add(point.Id);
         }
 
         private void SetCurrentPoint()

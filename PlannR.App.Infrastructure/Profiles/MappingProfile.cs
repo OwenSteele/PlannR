@@ -102,8 +102,9 @@ namespace PlannR.App.Infrastructure.Profiles
             CreateMap<RouteListOnDateDataModel, RouteListOnDateViewModel>().ReverseMap();
             CreateMap<RouteTripDto, TripNestedViewModel>().ReverseMap();
 
-            CreateMap<RoutePointNestedViewModel, CreateRoutePointCommand>().ReverseMap();
-            CreateMap<RoutePointNestedViewModel, RoutePointNestedViewModel>().ReverseMap();
+            CreateMap<EditRoutePointViewModel, CreateRoutePointCommand>().ReverseMap();
+            CreateMap<EditRoutePointViewModel, RoutePointNestedViewModel>().ReverseMap();
+            CreateMap<RoutePointDto, RoutePointNestedViewModel>().ReverseMap();
 
             CreateMap<EditTripViewModel, CreateTripCommand>().ReverseMap();
             CreateMap<EditTripViewModel, UpdateTripCommand>().ReverseMap();

@@ -36,6 +36,9 @@
     margin: auto;
 }
 
+.t-wrap {
+    overflow: hidden;
+}
 
 .info {
     position: relative;
@@ -44,7 +47,6 @@
     justify-content: center;
     display: flex;
     margin-bottom: 50px;
-    overflow-x: hidden;
 }
 
 .main-text {

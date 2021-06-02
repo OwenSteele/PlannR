@@ -12,8 +12,8 @@ namespace PlannR.App.Infrastructure.ViewModels.UI
     {
         [Required]
         public string RequiredName { get; set; }
-        [Required]
-        [MustMatch("RequiredName")]
+        [Required(ErrorMessage = "Cannot be empty")]
+        [MustMatch("RequiredName",ErrorMessage = "Must match exactly")]
         public string Input { get; set; }
     }
 }

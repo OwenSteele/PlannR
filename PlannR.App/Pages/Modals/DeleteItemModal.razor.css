@@ -33,8 +33,7 @@ h1 {
 }
 
 .example > div {
-    background-color: #808080;
-    color: #00ff90;
+    color: #ff0000;
     padding: 5px;
     font-weight: bolder;
 }

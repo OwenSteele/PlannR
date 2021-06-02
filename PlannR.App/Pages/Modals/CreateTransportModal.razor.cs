@@ -23,7 +23,7 @@ namespace PlannR.App.Pages.Modals
         public ITransportDataService TransportDataService { get; set; }
         [Inject]
         public ITransportTypeDataService TransportTypeService { get; set; }
-
+        [Parameter]
         public EditTransportViewModel EditTransportViewModel { get; set; }
         public ICollection<TripNestedViewModel> UserTrips { get; set; }
         public ICollection<TransportTypeNestedViewModel> TransportTypes { get; set; }

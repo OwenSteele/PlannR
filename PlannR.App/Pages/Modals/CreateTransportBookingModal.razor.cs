@@ -18,7 +18,7 @@ namespace PlannR.App.Pages.Modals
         BlazoredModalInstance ModalInstance { get; set; }
         [Inject]
         public ITransportBookingDataService TransportBookingDataService { get; set; }
-
+        [Parameter]
         public EditTransportBookingViewModel EditTransportBookingViewModel { get; set; }
         protected async override Task OnInitializedAsync()
         {
