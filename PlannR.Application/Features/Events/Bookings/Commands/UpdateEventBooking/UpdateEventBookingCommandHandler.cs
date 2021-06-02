@@ -32,6 +32,8 @@ namespace PlannR.Application.Features.Events.Bookings.Commands.UpdateEventBookin
                 throw new NotFoundException(nameof(Event), request.BookingId);
             }
 
+            if (!_authorisationService.CanAccessEntity(result)) throw new NotAuthorisedException();
+
             var validator = new UpdateEventBookingCommandValidator();
             var validationResult = await validator.ValidateAsync(request);
 

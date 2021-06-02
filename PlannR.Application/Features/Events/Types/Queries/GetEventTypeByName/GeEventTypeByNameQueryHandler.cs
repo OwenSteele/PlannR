@@ -29,7 +29,7 @@ namespace PlannR.Application.Features.Events.Types.Queries.GetEventTypeByName
             var result = (await _eventTypeRepository.ListAllAsync())
                 .Where(x => x.Name == request.Name).ToList();
 
-            var authorisedResult = _authorisationService.RemoveInAccessibleEntities(result);
+            var authorisedResult = _authorisationService.RemoveInAccessibleEntities(result,true);
 
             return _mapper.Map<ICollection<EventTypeByNameDataModel>>(authorisedResult);
         }

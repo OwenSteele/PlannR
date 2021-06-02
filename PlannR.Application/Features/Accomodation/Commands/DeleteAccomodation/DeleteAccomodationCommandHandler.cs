@@ -31,6 +31,8 @@ namespace PlannR.Application.Features.Accomodations.Commands.DeleteAccomodation
                 throw new NotFoundException(nameof(Accomodation), request.AccomodationId);
             }
 
+            if (!_authorisationService.CanAccessEntity(result)) throw new NotAuthorisedException();
+
             await _accomodationRepository.DeleteAsync(result);
 
             return Unit.Value;

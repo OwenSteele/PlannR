@@ -1,3 +1,4 @@
+@inherits EditBaseModal
 @using PlannR.App.Pages.Route
 
 @if (UserTrips == null)
@@ -6,9 +7,15 @@
 }
 else
 {
-    <div class="modal-parent">
-        @if (!Submitted)
+<div class="modal-parent">
+    @if (!Submitted)
+    {
+        @if (EditRouteViewModel.RouteId != Guid.Empty)
         {
+            <div>
+                <button type="button" id="delete-btn" @onclick="(() => DeleteItem())">Delete</button>
+            </div>
+        }
         <EditForm Model="@EditRouteViewModel"
                   OnValidSubmit="HandleValidSubmit" OnInvalidSubmit="HandleInvalidSubmit">
             <DataAnnotationsValidator></DataAnnotationsValidator>
@@ -61,12 +68,12 @@ else
                 <span>* required fields</span>
             </div>
         </EditForm>
-        }
-        else
-        {
-            <div class="submitted">
-                Your Route <strong>@EditRouteViewModel.Name</strong> has been updated!
-            </div>
-        }
-    </div>
+    }
+    else
+    {
+        <div class="submitted">
+            Your Route <strong>@EditRouteViewModel.Name</strong> has been updated!
+        </div>
+    }
+</div>
 }

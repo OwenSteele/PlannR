@@ -32,6 +32,8 @@ namespace PlannR.Application.Features.Accomodations.Commands.UpdateAccomodation
                 throw new NotFoundException(nameof(Accomodation), request.AccomodationId);
             }
 
+            if (!_authorisationService.CanAccessEntity(result)) throw new NotAuthorisedException();
+
             var validator = new UpdateAccomodationCommandValidator();
             var validationResult = await validator.ValidateAsync(request);
 

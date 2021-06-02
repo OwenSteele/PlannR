@@ -10,55 +10,61 @@ else if (EditTransportBookingViewModel == null)
 }
 else
 {
-    <div class="modal-parent">
-        @if (!Submitted)
+<div class="modal-parent">
+    @if (!Submitted)
+    {
+        @if (EditTransportBookingViewModel.BookingId != Guid.Empty)
         {
-            <EditForm Model="@EditTransportBookingViewModel"
-                      OnValidSubmit="HandleValidSubmit" OnInvalidSubmit="HandleInvalidSubmit">
-                <DataAnnotationsValidator></DataAnnotationsValidator>
-                <span>@Message</span>
-                <div class="form-field">
-                    <label for="TransportName">Name<span>*</span></label>
-                    <InputText id="TransportName" @bind-Value="@EditTransportBookingViewModel.Name"
-                               placeholder="Transport Name"></InputText>
-                    <ValidationMessage For="@(() => EditTransportBookingViewModel.Name)" />
-                </div>
-                <div class="form-field">
-                    <label for="link">Link</label>
-                    <InputText id="link" @bind-Value="@EditTransportBookingViewModel.Link"
-                               placeholder="website link"></InputText>
-                    <ValidationMessage For="@(() => EditTransportBookingViewModel.Link)" />
-                </div>
-                <div class="form-field">
-                    <label for="email">Email</label>
-                    <InputText id="email" @bind-Value="@EditTransportBookingViewModel.Email"
-                               placeholder="contact email"></InputText>
-                    <ValidationMessage For="@(() => EditTransportBookingViewModel.Email)" />
-                </div>
-                <div class="form-field">
-                    <label for="comments">Notes</label>
-                    <InputText id="comments" @bind-Value="@EditTransportBookingViewModel.Comments"
-                               placeholder="Information about the booking"></InputText>
-                    <ValidationMessage For="@(() => EditTransportBookingViewModel.Comments)" />
-                </div>
-                <div class="form-field">
-                    <label for="costPerNight">Cost</label>
-                    <InputNumber id="cost" @bind-Value="@EditTransportBookingViewModel.Cost"
-                                 placeholder="0"></InputNumber>
-                    <ValidationMessage For="@(() => EditTransportBookingViewModel.Cost)" />
-                </div>
-
-                <div class="form-submit">
-                    <button type="submit"><strong>&#128190;</strong></button>
-                    <span>* required fields</span>
-                </div>
-            </EditForm>
-        }
-        else
-        {
-            <div class="submitted">
-                Your Transport <strong>@EditTransportBookingViewModel.Name</strong> has been updated!
+            <div>
+                <button type="button" id="delete-btn" @onclick="(() => DeleteItem())">Delete</button>
             </div>
         }
-    </div>
+        <EditForm Model="@EditTransportBookingViewModel"
+                  OnValidSubmit="HandleValidSubmit" OnInvalidSubmit="HandleInvalidSubmit">
+            <DataAnnotationsValidator></DataAnnotationsValidator>
+            <span>@Message</span>
+            <div class="form-field">
+                <label for="TransportName">Name<span>*</span></label>
+                <InputText id="TransportName" @bind-Value="@EditTransportBookingViewModel.Name"
+                           placeholder="Transport Name"></InputText>
+                <ValidationMessage For="@(() => EditTransportBookingViewModel.Name)" />
+            </div>
+            <div class="form-field">
+                <label for="link">Link</label>
+                <InputText id="link" @bind-Value="@EditTransportBookingViewModel.Link"
+                           placeholder="website link"></InputText>
+                <ValidationMessage For="@(() => EditTransportBookingViewModel.Link)" />
+            </div>
+            <div class="form-field">
+                <label for="email">Email</label>
+                <InputText id="email" @bind-Value="@EditTransportBookingViewModel.Email"
+                           placeholder="contact email"></InputText>
+                <ValidationMessage For="@(() => EditTransportBookingViewModel.Email)" />
+            </div>
+            <div class="form-field">
+                <label for="comments">Notes</label>
+                <InputText id="comments" @bind-Value="@EditTransportBookingViewModel.Comments"
+                           placeholder="Information about the booking"></InputText>
+                <ValidationMessage For="@(() => EditTransportBookingViewModel.Comments)" />
+            </div>
+            <div class="form-field">
+                <label for="costPerNight">Cost</label>
+                <InputNumber id="cost" @bind-Value="@EditTransportBookingViewModel.Cost"
+                             placeholder="0"></InputNumber>
+                <ValidationMessage For="@(() => EditTransportBookingViewModel.Cost)" />
+            </div>
+
+            <div class="form-submit">
+                <button type="submit"><strong>&#128190;</strong></button>
+                <span>* required fields</span>
+            </div>
+        </EditForm>
+    }
+    else
+    {
+        <div class="submitted">
+            Your Transport <strong>@EditTransportBookingViewModel.Name</strong> has been updated!
+        </div>
+    }
+</div>
 }

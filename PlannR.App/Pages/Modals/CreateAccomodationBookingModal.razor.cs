@@ -3,7 +3,6 @@ using Blazored.Modal.Services;
 using Microsoft.AspNetCore.Components;
 using PlannR.App.Components;
 using PlannR.App.Infrastructure.Contracts;
-using PlannR.App.Infrastructure.Services.Base;
 using PlannR.App.Infrastructure.ViewModels.Accomodation.Bookings;
 using System;
 using System.Threading.Tasks;
@@ -63,6 +62,19 @@ namespace PlannR.App.Pages.Modals
             HandleResponse(response);
 
             return response.Data;
+        }
+        private async Task DeleteItem()
+        {
+            var result = await ShowDeleteModal($"Booking for {EditAccomodationBookingViewModel.Name}",
+                EditAccomodationBookingViewModel.Name,
+                EditAccomodationBookingViewModel.BookingId);
+
+            if (result.HasValue)
+            {
+                await AccomodationBookingDataService.DeleteAsync(result.Value);
+
+                await ModalInstance.CloseAsync();
+            }
         }
     }
 }

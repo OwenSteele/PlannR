@@ -32,6 +32,8 @@ namespace PlannR.Application.Features.Accomodations.Bookings.Commands.UpdateAcco
                 throw new NotFoundException(nameof(Accomodation), request.BookingId);
             }
 
+            if (!_authorisationService.CanAccessEntity(result)) throw new NotAuthorisedException();
+
             var validator = new UpdateAccomodationBookingCommandValidator();
             var validationResult = await validator.ValidateAsync(request);
 

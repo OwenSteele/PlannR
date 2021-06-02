@@ -32,6 +32,8 @@ namespace PlannR.Application.Features.Transports.Bookings.Commands.UpdateTranspo
                 throw new NotFoundException(nameof(Event), request.BookingId);
             }
 
+            if (!_authorisationService.CanAccessEntity(result)) throw new NotAuthorisedException();
+
             var validator = new UpdateTransportBookingCommandValidator();
             var validationResult = await validator.ValidateAsync(request);
 

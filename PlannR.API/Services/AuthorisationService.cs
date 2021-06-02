@@ -13,25 +13,27 @@ namespace PlannR.API.Services
         public AuthorisationService(
             IHttpContextAccessor accessor)
         {
-            // Identity is but name is null with correct claims
             _userId = accessor.HttpContext?.User?.Identity?.Name;
 
         }
 
-        public bool CanAccessEntity(T entity)
+        public bool CanAccessEntity(T entity, bool includeAnonymous = false)
         {
-            if (string.IsNullOrWhiteSpace(entity?.CreatedBy) && string.IsNullOrWhiteSpace(_userId)) return true;
+            if (string.IsNullOrWhiteSpace(entity?.CreatedBy) && 
+                (string.IsNullOrWhiteSpace(_userId) || includeAnonymous)) return true;
 
             return _userId == entity?.CreatedBy;
         }
 
-        public ICollection<T> RemoveInAccessibleEntities(ICollection<T> entities)
+        public bool CanCreateEntity() => !string.IsNullOrWhiteSpace(_userId);
+
+        public ICollection<T> RemoveInAccessibleEntities(ICollection<T> entities, bool includeAnonymous = false)
         {
             var toRemove = new List<T>();
 
             foreach (var entity in entities)
             {
-                if (!CanAccessEntity(entity)) toRemove.Add(entity);
+                if (!CanAccessEntity(entity, includeAnonymous)) toRemove.Add(entity);
             }
 
             foreach (var r in toRemove)

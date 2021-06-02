@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using MediatR;
+using PlannR.Application.Contracts.Identity;
+using PlannR.Application.Exceptions;
 using PlannR.Application.Contracts.Persistence;
 using PlannR.Domain.Entities;
 using System.Threading;
@@ -9,17 +11,21 @@ namespace PlannR.Application.Features.Trips.Commands.CreateTrip
 {
     public class CreateTripCommandHandler : IRequestHandler<CreateTripCommand, CreateTripCommandResponse>
     {
+        private readonly IAuthorisationService<AccomodationBooking> _authorisationService;
         private readonly IMapper _mapper;
         private readonly ITripRepository _tripRepository;
 
-        public CreateTripCommandHandler(IMapper mapper, ITripRepository tripRepository)
+        public CreateTripCommandHandler(IAuthorisationService<AccomodationBooking> authorisationService, IMapper mapper,ITripRepository tripRepository)
         {
+            _authorisationService = authorisationService;
             _mapper = mapper;
             _tripRepository = tripRepository;
         }
 
         public async Task<CreateTripCommandResponse> Handle(CreateTripCommand request, CancellationToken cancellationToken)
         {
+            if (!_authorisationService.CanCreateEntity()) throw new NotAuthorisedException();
+
             var validator = new CreateTripCommandValidator();
             var validationResult = await validator.ValidateAsync(request);
 

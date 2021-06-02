@@ -10,55 +10,61 @@ else if (EditEventBookingViewModel == null)
 }
 else
 {
-    <div class="modal-parent">
-        @if (!Submitted)
+<div class="modal-parent">
+    @if (!Submitted)
+    {
+        @if (EditEventBookingViewModel.BookingId != Guid.Empty)
         {
-            <EditForm Model="@EditEventBookingViewModel"
-                      OnValidSubmit="HandleValidSubmit" OnInvalidSubmit="HandleInvalidSubmit">
-                <DataAnnotationsValidator></DataAnnotationsValidator>
-                <span>@Message</span>
-                <div class="form-field">
-                    <label for="EventName">Name<span>*</span></label>
-                    <InputText id="EventName" @bind-Value="@EditEventBookingViewModel.Name"
-                               placeholder="Event Name"></InputText>
-                    <ValidationMessage For="@(() => EditEventBookingViewModel.Name)" />
-                </div>
-                <div class="form-field">
-                    <label for="link">Link</label>
-                    <InputText id="link" @bind-Value="@EditEventBookingViewModel.Link"
-                               placeholder="website link"></InputText>
-                    <ValidationMessage For="@(() => EditEventBookingViewModel.Link)" />
-                </div>
-                <div class="form-field">
-                    <label for="email">Email</label>
-                    <InputText id="email" @bind-Value="@EditEventBookingViewModel.Email"
-                               placeholder="contact email"></InputText>
-                    <ValidationMessage For="@(() => EditEventBookingViewModel.Email)" />
-                </div>
-                <div class="form-field">
-                    <label for="comments">Notes</label>
-                    <InputText id="comments" @bind-Value="@EditEventBookingViewModel.Comments"
-                               placeholder="Information about the booking"></InputText>
-                    <ValidationMessage For="@(() => EditEventBookingViewModel.Comments)" />
-                </div>
-                <div class="form-field">
-                    <label for="costPerNight">Cost</label>
-                    <InputNumber id="cost" @bind-Value="@EditEventBookingViewModel.Cost"
-                                 placeholder="0"></InputNumber>
-                    <ValidationMessage For="@(() => EditEventBookingViewModel.Cost)" />
-                </div>
-
-                <div class="form-submit">
-                    <button type="submit"><strong>&#128190;</strong></button>
-                    <span>* required fields</span>
-                </div>
-            </EditForm>
-        }
-        else
-        {
-            <div class="submitted">
-                Your Event <strong>@EditEventBookingViewModel.Name</strong> has been updated!
+            <div>
+                <button type="button" id="delete-btn" @onclick="(() => DeleteItem())">Delete</button>
             </div>
         }
-    </div>
+        <EditForm Model="@EditEventBookingViewModel"
+                  OnValidSubmit="HandleValidSubmit" OnInvalidSubmit="HandleInvalidSubmit">
+            <DataAnnotationsValidator></DataAnnotationsValidator>
+            <span>@Message</span>
+            <div class="form-field">
+                <label for="EventName">Name<span>*</span></label>
+                <InputText id="EventName" @bind-Value="@EditEventBookingViewModel.Name"
+                           placeholder="Event Name"></InputText>
+                <ValidationMessage For="@(() => EditEventBookingViewModel.Name)" />
+            </div>
+            <div class="form-field">
+                <label for="link">Link</label>
+                <InputText id="link" @bind-Value="@EditEventBookingViewModel.Link"
+                           placeholder="website link"></InputText>
+                <ValidationMessage For="@(() => EditEventBookingViewModel.Link)" />
+            </div>
+            <div class="form-field">
+                <label for="email">Email</label>
+                <InputText id="email" @bind-Value="@EditEventBookingViewModel.Email"
+                           placeholder="contact email"></InputText>
+                <ValidationMessage For="@(() => EditEventBookingViewModel.Email)" />
+            </div>
+            <div class="form-field">
+                <label for="comments">Notes</label>
+                <InputText id="comments" @bind-Value="@EditEventBookingViewModel.Comments"
+                           placeholder="Information about the booking"></InputText>
+                <ValidationMessage For="@(() => EditEventBookingViewModel.Comments)" />
+            </div>
+            <div class="form-field">
+                <label for="costPerNight">Cost</label>
+                <InputNumber id="cost" @bind-Value="@EditEventBookingViewModel.Cost"
+                             placeholder="0"></InputNumber>
+                <ValidationMessage For="@(() => EditEventBookingViewModel.Cost)" />
+            </div>
+
+            <div class="form-submit">
+                <button type="submit"><strong>&#128190;</strong></button>
+                <span>* required fields</span>
+            </div>
+        </EditForm>
+    }
+    else
+    {
+        <div class="submitted">
+            Your Event <strong>@EditEventBookingViewModel.Name</strong> has been updated!
+        </div>
+    }
+</div>
 }

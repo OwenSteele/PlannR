@@ -28,7 +28,7 @@ namespace PlannR.Application.Features.Events.Types.Queries.GetEventTypeList
         {
             var result = (await _eventTypeRepository.ListAllAsync()).OrderBy(x => x.Name).ToList();
 
-            var authorisedResult = _authorisationService.RemoveInAccessibleEntities(result);
+            var authorisedResult = _authorisationService.RemoveInAccessibleEntities(result,true);
 
             return _mapper.Map<ICollection<EventTypeListDataModel>>(authorisedResult);
         }

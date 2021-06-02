@@ -1,12 +1,19 @@
+@inherits EditBaseModal
 @if (UserTrips == null || TransportTypes == null)
 {
-<p>Finding all the bits and bobs..</p>
+    <p>Finding all the bits and bobs..</p>
 }
 else
 {
-    <div class="modal-parent">
-        @if (!Submitted)
+<div class="modal-parent">
+    @if (!Submitted)
+    {
+        @if (EditTransportViewModel.TransportId != Guid.Empty)
         {
+            <div>
+                <button type="button" id="delete-btn" @onclick="(() => DeleteItem())">Delete</button>
+            </div>
+        }
         <EditForm Model="@EditTransportViewModel"
                   OnValidSubmit="HandleValidSubmit" OnInvalidSubmit="HandleInvalidSubmit">
             <DataAnnotationsValidator></DataAnnotationsValidator>
@@ -88,12 +95,12 @@ else
                 <span>* required fields</span>
             </div>
         </EditForm>
-        }
-        else
-        {
-            <div class="submitted">
-                Your Transport <strong>@EditTransportViewModel.Name</strong> has been updated!
-            </div>
-        }
-    </div>
+    }
+    else
+    {
+        <div class="submitted">
+            Your Transport <strong>@EditTransportViewModel.Name</strong> has been updated!
+        </div>
+    }
+</div>
 }

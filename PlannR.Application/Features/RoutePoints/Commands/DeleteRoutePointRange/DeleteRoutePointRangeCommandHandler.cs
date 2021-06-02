@@ -14,9 +14,9 @@ namespace PlannR.Application.Features.RoutePoints.Commands.DeleteRoutePointRange
     {
         private readonly IRoutePointRepository _routePointRepository;
         private readonly IMapper _mapper;
-        private readonly IAuthorisationService<Route> _authorisationService;
+        private readonly IAuthorisationService<RoutePoint> _authorisationService;
 
-        public DeleteRouteCommandHandler(IAuthorisationService<Route> authorisationService, IMapper mapper, IRoutePointRepository routePointRepository)
+        public DeleteRouteCommandHandler(IAuthorisationService<RoutePoint> authorisationService, IMapper mapper, IRoutePointRepository routePointRepository)
         {
             _mapper = mapper;
             _authorisationService = authorisationService;
@@ -32,6 +32,8 @@ namespace PlannR.Application.Features.RoutePoints.Commands.DeleteRoutePointRange
                 var result = await _routePointRepository.GetByIdAsync(id);
 
                 if (result == null)throw new NotFoundException(nameof(Route), id);
+
+                if (!_authorisationService.CanAccessEntity(result)) throw new NotAuthorisedException();
 
                 routePoints.Add(result);
             }

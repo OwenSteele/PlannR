@@ -1,6 +1,7 @@
 ﻿using Blazored.Modal;
 using Blazored.Modal.Services;
 using Microsoft.AspNetCore.Components;
+using PlannR.App.Components;
 using PlannR.App.Infrastructure.Contracts;
 using PlannR.App.Infrastructure.Services.Base;
 using PlannR.App.Infrastructure.ViewModels.Nested;
@@ -11,14 +12,10 @@ using System.Threading.Tasks;
 
 namespace PlannR.App.Pages.Modals
 {
-    public partial class CreateTransportModal
+    public partial class CreateTransportModal: EditBaseModal
     {
         [CascadingParameter]
-        IModalService Modal { get; set; }
-        [CascadingParameter]
         BlazoredModalInstance ModalInstance { get; set; }
-        [CascadingParameter]
-        public ModalParameters Parameters { get; set; }
 
         [Inject]
         public ITripDataService TripDataService { get; set; }
@@ -26,9 +23,6 @@ namespace PlannR.App.Pages.Modals
         public ITransportDataService TransportDataService { get; set; }
         [Inject]
         public ITransportTypeDataService TransportTypeService { get; set; }
-
-        [Inject]
-        public NavigationManager NavigationManager { get; set; }
 
         public EditTransportViewModel EditTransportViewModel { get; set; }
         public ICollection<TripNestedViewModel> UserTrips { get; set; }
@@ -38,9 +32,6 @@ namespace PlannR.App.Pages.Modals
         public DateTime StartTime { get; set; }
         [Parameter]
         public DateTime EndTime { get; set; }
-        public bool Submitted { get; set; } = false;
-
-        public string Message { get; set; }
         protected async override Task OnInitializedAsync()
         {
             EditTransportViewModel = new EditTransportViewModel
@@ -150,6 +141,21 @@ namespace PlannR.App.Pages.Modals
 
             if (EditTransportViewModel.EndLocationId == null)
                 EditTransportViewModel.EndLocationId = (Guid)result.Data;
+        }
+        private async Task DeleteItem()
+        {
+            var result = await ShowDeleteModal($"{EditTransportViewModel.Name} Transport",
+                EditTransportViewModel.Name,
+                EditTransportViewModel.TransportId);
+
+            if (result.HasValue)
+            {
+                await TransportDataService.DeleteAsync(result.Value);
+
+                await ModalInstance.CloseAsync();
+
+                NavigationManager.NavigateTo("transports");
+            }
         }
         private void AddTimesToDates()
         {

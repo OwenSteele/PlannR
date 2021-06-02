@@ -1,6 +1,7 @@
 ﻿using Blazored.Modal;
 using Blazored.Modal.Services;
 using Microsoft.AspNetCore.Components;
+using PlannR.App.Components;
 using PlannR.App.Infrastructure.Contracts;
 using PlannR.App.Infrastructure.Services.Base;
 using PlannR.App.Infrastructure.ViewModels.Locations;
@@ -11,22 +12,14 @@ using System.Threading.Tasks;
 
 namespace PlannR.App.Pages.Trip
 {
-    public partial class CreateEditTripModal
+    public partial class CreateEditTripModal: EditBaseModal
     {
-        [CascadingParameter]
-        IModalService Modal { get; set; }
-
-        [CascadingParameter]
-        public ModalParameters Parameters { get; set; }
 
         [Parameter]
         public EventCallback OnComplete { get; set; }
 
         [Inject]
         public ITripDataService TripDataService { get; set; }
-
-        [Inject]
-        public NavigationManager NavigationManager { get; set; }
         [Parameter]
         public EditTripViewModel EditTripViewModel { get; set; }
 
@@ -34,9 +27,6 @@ namespace PlannR.App.Pages.Trip
         public DateTime StartTime { get; set; }
         [Parameter]
         public DateTime EndTime { get; set; }
-        public bool Submitted { get; set; } = false;
-
-        public string Message { get; set; }
 
         protected override void OnInitialized()
         {
@@ -115,6 +105,19 @@ namespace PlannR.App.Pages.Trip
 
             if (EditTripViewModel.StartLocationId == null)
                 EditTripViewModel.StartLocationId = (Guid)result.Data;
+        }
+        private async Task DeleteItem()
+        {
+            var result = await ShowDeleteModal($"{EditTripViewModel.Name} Trip",
+                EditTripViewModel.Name,
+                EditTripViewModel.TripId);
+
+            if (result.HasValue)
+            {
+                await TripDataService.DeleteAsync(result.Value);
+
+                NavigationManager.NavigateTo("transports");
+            }
         }
         public async Task EndLocationModal()
         {

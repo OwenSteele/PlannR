@@ -28,7 +28,7 @@ namespace PlannR.Application.Features.Transports.Types.Queries.GetTransportTypeL
         {
             var result = (await _transportTypeRepository.ListAllAsync()).OrderBy(x => x.Name).ToList();
 
-            var authorisedResult = _authorisationService.RemoveInAccessibleEntities(result);
+            var authorisedResult = _authorisationService.RemoveInAccessibleEntities(result, true);
 
             return _mapper.Map<ICollection<TransportTypeListDataModel>>(authorisedResult);
         }

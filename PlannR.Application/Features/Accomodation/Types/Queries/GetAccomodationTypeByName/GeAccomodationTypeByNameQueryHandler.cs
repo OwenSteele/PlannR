@@ -28,8 +28,7 @@ namespace PlannR.Application.Features.Accomodations.Types.Queries.GetAccomodatio
             var result = (await _accomodationTypeRepository.ListAllAsync())
                 .Where(x => x.Name == request.Name).FirstOrDefault();
 
-
-            if (!_authorisationService.CanAccessEntity(result)) throw new Exceptions.NotAuthorisedException();
+            if (!_authorisationService.CanAccessEntity(result, true)) throw new Exceptions.NotAuthorisedException();
 
             return _mapper.Map<AccomodationTypeByNameDataModel>(result);
         }

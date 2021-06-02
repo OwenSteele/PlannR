@@ -1,6 +1,7 @@
 ﻿using Blazored.Modal;
 using Blazored.Modal.Services;
 using Microsoft.AspNetCore.Components;
+using PlannR.App.Components;
 using PlannR.App.Infrastructure.Contracts;
 using PlannR.App.Infrastructure.Services.Base;
 using PlannR.App.Infrastructure.ViewModels.Accomodation;
@@ -11,14 +12,10 @@ using System.Threading.Tasks;
 
 namespace PlannR.App.Pages.Modals
 {
-    public partial class CreateAccomodationModal
+    public partial class CreateAccomodationModal : EditBaseModal
     {
         [CascadingParameter]
-        IModalService Modal { get; set; }
-        [CascadingParameter]
         BlazoredModalInstance ModalInstance { get; set; }
-        [CascadingParameter]
-        public ModalParameters Parameters { get; set; }
 
         [Inject]
         public ITripDataService TripDataService { get; set; }
@@ -26,9 +23,6 @@ namespace PlannR.App.Pages.Modals
         public IAccomodationDataService AccomodationDataService { get; set; }
         [Inject]
         public IAccomodationTypeDataService AccomodationTypeService { get; set; }
-
-        [Inject]
-        public NavigationManager NavigationManager { get; set; }
 
         [Parameter]
         public EditAccomodationViewModel EditAccomodationViewModel { get; set; }
@@ -39,9 +33,6 @@ namespace PlannR.App.Pages.Modals
         public DateTime StartTime { get; set; }
         [Parameter]
         public DateTime EndTime { get; set; }
-        public bool Submitted { get; set; } = false;
-
-        public string Message { get; set; }
         protected async override Task OnInitializedAsync()
         {
             EditAccomodationViewModel = new EditAccomodationViewModel
@@ -133,6 +124,21 @@ namespace PlannR.App.Pages.Modals
 
             if (EditAccomodationViewModel.LocationId == null)
                 EditAccomodationViewModel.LocationId = (Guid)result.Data;
+        }
+        private async Task DeleteItem()
+        {
+            var result = await ShowDeleteModal($"{EditAccomodationViewModel.Name} Accomodation",
+                EditAccomodationViewModel.Name,
+                EditAccomodationViewModel.AccomodationId);
+
+            if (result.HasValue)
+            {
+                await AccomodationDataService.DeleteAsync(result.Value);
+
+                await ModalInstance.CloseAsync();
+
+                NavigationManager.NavigateTo("accomodations");
+            }
         }
         private void AddTimesToDates()
         {

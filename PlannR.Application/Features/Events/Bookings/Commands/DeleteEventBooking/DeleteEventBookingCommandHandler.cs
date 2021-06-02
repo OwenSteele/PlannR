@@ -31,6 +31,8 @@ namespace PlannR.Application.Features.Events.Bookings.Commands.DeleteEventBookin
                 throw new NotFoundException(nameof(Event), request.BookingId);
             }
 
+            if (!_authorisationService.CanAccessEntity(result)) throw new NotAuthorisedException();
+
             await _eventBookingRepository.DeleteAsync(result);
 
             return Unit.Value;

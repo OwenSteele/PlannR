@@ -28,7 +28,7 @@ namespace PlannR.Application.Features.Accomodations.Types.Queries.GetAccomodatio
         {
             var result = (await _accomodationTypeRepository.ListAllAsync()).OrderBy(x => x.Name).ToList();
 
-            var authorisedResult = _authorisationService.RemoveInAccessibleEntities(result);
+            var authorisedResult = _authorisationService.RemoveInAccessibleEntities(result, true);
 
             return _mapper.Map<ICollection<AccomodationTypeListDataModel>>(authorisedResult);
         }

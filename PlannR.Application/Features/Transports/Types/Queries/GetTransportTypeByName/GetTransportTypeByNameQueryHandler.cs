@@ -29,7 +29,7 @@ namespace PlannR.Application.Features.Transports.Types.Queries.GetTransportTypeB
             var result = (await _transportTypeRepository.ListAllAsync())
                 .Where(x => x.Name == request.Name).ToList();
 
-            var authorisedResult = _authorisationService.RemoveInAccessibleEntities(result);
+            var authorisedResult = _authorisationService.RemoveInAccessibleEntities(result, true);
 
             return _mapper.Map<ICollection<TransportTypeByNameDataModel>>(authorisedResult);
         }

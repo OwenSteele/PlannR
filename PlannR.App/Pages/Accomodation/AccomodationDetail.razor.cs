@@ -75,8 +75,8 @@ namespace PlannR.App.Pages.Accomodation
             {
                 Accomodation = await AccomodationDataService.GetAccomodationByIdAsync(_AccomodationId);
 
-                StateHasChanged();
             }
+            StateHasChanged();
         }
         private void SetMapPoints()
         {
@@ -117,6 +117,8 @@ namespace PlannR.App.Pages.Accomodation
             if (result.Data != null)
             {
                 Accomodation = await AccomodationDataService.GetAccomodationByIdAsync(_AccomodationId);
+
+                if (Accomodation == null)
 
                 StateHasChanged();
             }

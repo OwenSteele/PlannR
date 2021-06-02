@@ -1,0 +1,40 @@
+﻿<div class="modal-parent">
+    <div class="warning-wrapper">
+        <h1>Are you sure?</h1>
+        <p>
+        Deleting <strong>@ItemName</strong> is permanent and cannot be undone.
+        </p>
+        <p>
+        <strong>Any and all child items</strong> of @ItemName will also be deleted.
+        </p>
+        <div class="example">
+            <p>Deleting an item will delete anything to the right of it below:</p>
+            <div>Trip &#8680; Accomodation/Events/Routes/Transport &#8680; Bookings</div>
+        </div>
+        <div class="instructions">
+        To delete this item, enter <span>'@DeleteItemViewModel.RequiredName'</span> in the field below.</div>
+    </div>
+        <EditForm Model="@DeleteItemViewModel"
+                  OnValidSubmit="HandleValidSubmit" OnInvalidSubmit="HandleInvalidSubmit">
+            <DataAnnotationsValidator></DataAnnotationsValidator>
+            <span>@Message</span>
+            <div class="form-field">
+                <label for="Name">Enter value:<span>*</span></label>
+                <InputText id="Name" @bind-Value="@DeleteItemViewModel.Input"
+                           placeholder="value in bold above"></InputText>
+                <ValidationMessage For="@(() => DeleteItemViewModel.Input)" />
+            </div>
+
+            <div class="form-submit">
+                <button class="delete-button" type="submit"><strong>
+    &#10060; Delete
+</strong></button>
+                <button class="cancel-button" type="button" @onclick="Cancel">
+    <strong>
+        Cancel
+    </strong>
+</button>
+                <span>* required fields</span>
+            </div>
+        </EditForm>
+</div>

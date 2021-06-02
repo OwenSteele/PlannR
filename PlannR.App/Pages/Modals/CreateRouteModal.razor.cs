@@ -1,6 +1,7 @@
 ﻿using Blazored.Modal;
 using Blazored.Modal.Services;
 using Microsoft.AspNetCore.Components;
+using PlannR.App.Components;
 using PlannR.App.Infrastructure.Contracts;
 using PlannR.App.Infrastructure.Services.Base;
 using PlannR.App.Infrastructure.ViewModels.Nested;
@@ -14,14 +15,10 @@ using System.Threading.Tasks;
 
 namespace PlannR.App.Pages.Modals
 {
-    public partial class CreateRouteModal
+    public partial class CreateRouteModal: EditBaseModal
     {
         [CascadingParameter]
-        IModalService Modal { get; set; }
-        [CascadingParameter]
         BlazoredModalInstance ModalInstance { get; set; }
-        [CascadingParameter]
-        public ModalParameters Parameters { get; set; }
 
         [Inject]
         public ITripDataService TripDataService { get; set; }
@@ -29,10 +26,6 @@ namespace PlannR.App.Pages.Modals
         public IRouteDataService RouteDataService { get; set; }
         [Inject]
         public IRoutePointDataService RoutePointDataService { get; set; }
-
-        [Inject]
-        public NavigationManager NavigationManager { get; set; }
-
         [Parameter]
         public EditRouteViewModel EditRouteViewModel { get; set; }
         public ICollection<TripNestedViewModel> UserTrips { get; set; }
@@ -45,11 +38,6 @@ namespace PlannR.App.Pages.Modals
         public DateTime StartTime { get; set; }
         [Parameter]
         public DateTime EndTime { get; set; }
-
-        public bool Submitted { get; set; } = false;
-
-        [Parameter]
-        public string Message { get; set; }
         protected async override Task OnInitializedAsync()
         {
             EditRouteViewModel = new EditRouteViewModel
@@ -133,6 +121,21 @@ namespace PlannR.App.Pages.Modals
             HandleResponse(response);
 
             return response.Data;
+        }
+        private async Task DeleteItem()
+        {
+            var result = await ShowDeleteModal($"{EditRouteViewModel.Name} Route",
+                EditRouteViewModel.Name,
+                EditRouteViewModel.RouteId);
+
+            if (result.HasValue)
+            {
+                await RouteDataService.DeleteAsync(result.Value);
+
+                await ModalInstance.CloseAsync();
+
+                NavigationManager.NavigateTo("routes");
+            }
         }
         private void AddTimesToDates()
         {

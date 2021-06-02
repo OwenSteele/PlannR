@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using MediatR;
+using PlannR.Application.Contracts.Identity;
 using PlannR.Application.Contracts.Persistence;
+using PlannR.Application.Exceptions;
 using PlannR.Domain.Entities;
 using System.Threading;
 using System.Threading.Tasks;
@@ -11,16 +13,21 @@ namespace PlannR.Application.Features.Events.Commands.CreateEvent
     {
         private readonly IMapper _mapper;
         private readonly IEventRepository _eventRepository;
+        private readonly IAuthorisationService<Event> _authorisationService;
 
 
-        public CreateEventCommandHandler(IMapper mapper, IEventRepository eventRepository)
+        public CreateEventCommandHandler(IAuthorisationService<Event> authorisationService, IMapper mapper, IEventRepository eventRepository)
         {
             _mapper = mapper;
             _eventRepository = eventRepository;
+
+            _authorisationService = authorisationService;
         }
 
         public async Task<CreateEventCommandResponse> Handle(CreateEventCommand request, CancellationToken cancellationToken)
         {
+            if (!_authorisationService.CanCreateEntity()) throw new NotAuthorisedException();
+
             var validator = new CreateEventCommandValidator();
             var validationResult = await validator.ValidateAsync(request);
 

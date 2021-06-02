@@ -32,6 +32,8 @@ namespace PlannR.Application.Features.Locations.Commands.UpdateLocation
                 throw new NotFoundException(nameof(Location), request.LocationId);
             }
 
+            if (!_authorisationService.CanAccessEntity(result)) throw new NotAuthorisedException();
+
             var validator = new UpdateLocationCommandValidator();
             var validationResult = await validator.ValidateAsync(request);
 

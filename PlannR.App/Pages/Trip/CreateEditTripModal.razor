@@ -1,6 +1,13 @@
+@inherits EditBaseModal
 <div class="modal-parent">
     @if (!Submitted)
     {
+        @if (EditTripViewModel.TripId != Guid.Empty)
+        {
+            <div>
+                <button type="button" id="delete-btn" @onclick="DeleteItem">Delete</button>
+            </div>
+        }
     <EditForm Model="@EditTripViewModel"
               OnValidSubmit="HandleValidSubmit" OnInvalidSubmit="HandleInvalidSubmit">
         <DataAnnotationsValidator></DataAnnotationsValidator>
@@ -58,11 +65,11 @@
             <span>* required fields</span>
         </div>
     </EditForm>
-    }
-    else
-    {
-<div class="submitted">
-    Your trip <strong>@EditTripViewModel.Name</strong> has been updated!
-</div>
-    }
+}
+else
+{
+    <div class="submitted">
+        Your trip <strong>@EditTripViewModel.Name</strong> has been updated!
+    </div>
+}
 </div>

@@ -64,5 +64,18 @@ namespace PlannR.App.Pages.Modals
 
             return response.Data;
         }
+        private async Task DeleteItem()
+        {
+            var result = await ShowDeleteModal($"Booking for {EditEventBookingViewModel.Name}",
+                EditEventBookingViewModel.Name,
+                EditEventBookingViewModel.BookingId);
+
+            if (result.HasValue)
+            {
+                await EventBookingDataService.DeleteAsync(result.Value);
+
+                await ModalInstance.CloseAsync();
+            }
+        }
     }
 }

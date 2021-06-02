@@ -31,6 +31,8 @@ namespace PlannR.Application.Features.Transports.Bookings.Commands.DeleteTranspo
                 throw new NotFoundException(nameof(Transport), request.BookingId);
             }
 
+            if (!_authorisationService.CanAccessEntity(result)) throw new NotAuthorisedException();
+
             await _transportBookingRepository.DeleteAsync(result);
 
             return Unit.Value;

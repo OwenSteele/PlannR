@@ -1,12 +1,19 @@
+@inherits EditBaseModal
 @if (UserTrips == null || EventTypes == null)
 {
     <p>Finding all the bits and bobs..</p>
 }
 else
 {
-    <div class="modal-parent">
-        @if (!Submitted)
+<div class="modal-parent">
+    @if (!Submitted)
+    {
+        @if (EditEventViewModel.EventId != Guid.Empty)
         {
+            <div>
+                <button type="button" id="delete-btn" @onclick="(() => DeleteItem())">Delete</button>
+            </div>
+        }
         <EditForm Model="@EditEventViewModel"
                   OnValidSubmit="HandleValidSubmit" OnInvalidSubmit="HandleInvalidSubmit">
             <DataAnnotationsValidator></DataAnnotationsValidator>
@@ -85,12 +92,12 @@ else
                 <span>* required fields</span>
             </div>
         </EditForm>
-        }
-        else
-        {
-            <div class="submitted">
-                Your Event <strong>@EditEventViewModel.Name</strong> has been updated!
-            </div>
-        }
-    </div>
+    }
+    else
+    {
+        <div class="submitted">
+            Your Event <strong>@EditEventViewModel.Name</strong> has been updated!
+        </div>
+    }
+</div>
 }

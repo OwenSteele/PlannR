@@ -32,6 +32,8 @@ namespace PlannR.Application.Features.Transports.Commands.UpdateTransport
                 throw new NotFoundException(nameof(Event), request.TransportId);
             }
 
+            if (!_authorisationService.CanAccessEntity(result)) throw new NotAuthorisedException();
+
             var validator = new UpdateTransportCommandValidator();
             var validationResult = await validator.ValidateAsync(request);
 

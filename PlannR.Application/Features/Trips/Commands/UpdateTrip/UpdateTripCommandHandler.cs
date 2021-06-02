@@ -32,6 +32,8 @@ namespace PlannR.Application.Features.Trips.Commands.UpdateTrip
                 throw new NotFoundException(nameof(Trip), request.TripId);
             }
 
+            if (!_authorisationService.CanAccessEntity(result)) throw new NotAuthorisedException();
+
             var validator = new UpdateTripCommandValidator();
             var validationResult = await validator.ValidateAsync(request);
 

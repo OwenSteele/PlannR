@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using MediatR;
+using PlannR.Application.Contracts.Identity;
 using PlannR.Application.Contracts.Persistence;
+using PlannR.Application.Exceptions;
 using PlannR.Domain.Entities;
 using System.Threading;
 using System.Threading.Tasks;
@@ -11,16 +13,20 @@ namespace PlannR.Application.Features.Accomodations.Commands.CreateAccomodation
     {
         private readonly IMapper _mapper;
         private readonly IAccomodationRepository _accomodationRepository;
+        private readonly IAuthorisationService<Accomodation> _authorisationService;
 
 
-        public CreateAccomodationCommandHandler(IMapper mapper, IAccomodationRepository accomodationRepository)
+        public CreateAccomodationCommandHandler(IAuthorisationService<Accomodation> authorisationService, IMapper mapper, IAccomodationRepository accomodationRepository)
         {
             _mapper = mapper;
             _accomodationRepository = accomodationRepository;
+            _authorisationService = authorisationService;
         }
 
         public async Task<CreateAccomodationCommandResponse> Handle(CreateAccomodationCommand request, CancellationToken cancellationToken)
         {
+            if (!_authorisationService.CanCreateEntity()) throw new NotAuthorisedException();
+
             var validator = new CreateAccomodationCommandValidator();
             var validationResult = await validator.ValidateAsync(request);
 

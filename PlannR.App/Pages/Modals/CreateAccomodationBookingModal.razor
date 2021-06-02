@@ -13,46 +13,52 @@ else
 <div class="modal-parent">
     @if (!Submitted)
     {
-    <EditForm Model="@EditAccomodationBookingViewModel"
-              OnValidSubmit="HandleValidSubmit" OnInvalidSubmit="HandleInvalidSubmit">
-        <DataAnnotationsValidator></DataAnnotationsValidator>
-        <span>@Message</span>
-        <div class="form-field">
-            <label for="AccomodationName">Name<span>*</span></label>
-            <InputText id="AccomodationName" @bind-Value="@EditAccomodationBookingViewModel.Name"
-                       placeholder="Accomodation Name"></InputText>
-            <ValidationMessage For="@(() => EditAccomodationBookingViewModel.Name)" />
-        </div>
-        <div class="form-field">
-            <label for="link">Link</label>
-            <InputText id="link" @bind-Value="@EditAccomodationBookingViewModel.Link"
-                       placeholder="website link"></InputText>
-            <ValidationMessage For="@(() => EditAccomodationBookingViewModel.Link)" />
-        </div>
-        <div class="form-field">
-            <label for="email">Email</label>
-            <InputText id="email" @bind-Value="@EditAccomodationBookingViewModel.Email"
-                       placeholder="contact email"></InputText>
-            <ValidationMessage For="@(() => EditAccomodationBookingViewModel.Email)" />
-        </div>
-        <div class="form-field">
-            <label for="comments">Notes</label>
-            <InputText id="comments" @bind-Value="@EditAccomodationBookingViewModel.Comments"
-                       placeholder="Information about the booking"></InputText>
-            <ValidationMessage For="@(() => EditAccomodationBookingViewModel.Comments)" />
-        </div>
-        <div class="form-field">
-            <label for="costPerNight">Cost</label>
-            <InputNumber id="cost" @bind-Value="@EditAccomodationBookingViewModel.Cost"
-                         placeholder="0"></InputNumber>
-            <ValidationMessage For="@(() => EditAccomodationBookingViewModel.Cost)" />
-        </div>
+        @if (EditAccomodationBookingViewModel.BookingId != Guid.Empty)
+        {
+            <div>
+                <button type="button" id="delete-btn" @onclick="DeleteItem">Delete</button>
+            </div>
+        }
+        <EditForm Model="@EditAccomodationBookingViewModel"
+                  OnValidSubmit="HandleValidSubmit" OnInvalidSubmit="HandleInvalidSubmit">
+            <DataAnnotationsValidator></DataAnnotationsValidator>
+            <span>@Message</span>
+            <div class="form-field">
+                <label for="AccomodationName">Name<span>*</span></label>
+                <InputText id="AccomodationName" @bind-Value="@EditAccomodationBookingViewModel.Name"
+                           placeholder="Accomodation Name"></InputText>
+                <ValidationMessage For="@(() => EditAccomodationBookingViewModel.Name)" />
+            </div>
+            <div class="form-field">
+                <label for="link">Link</label>
+                <InputText id="link" @bind-Value="@EditAccomodationBookingViewModel.Link"
+                           placeholder="website link"></InputText>
+                <ValidationMessage For="@(() => EditAccomodationBookingViewModel.Link)" />
+            </div>
+            <div class="form-field">
+                <label for="email">Email</label>
+                <InputText id="email" @bind-Value="@EditAccomodationBookingViewModel.Email"
+                           placeholder="contact email"></InputText>
+                <ValidationMessage For="@(() => EditAccomodationBookingViewModel.Email)" />
+            </div>
+            <div class="form-field">
+                <label for="comments">Notes</label>
+                <InputText id="comments" @bind-Value="@EditAccomodationBookingViewModel.Comments"
+                           placeholder="Information about the booking"></InputText>
+                <ValidationMessage For="@(() => EditAccomodationBookingViewModel.Comments)" />
+            </div>
+            <div class="form-field">
+                <label for="costPerNight">Cost</label>
+                <InputNumber id="cost" @bind-Value="@EditAccomodationBookingViewModel.Cost"
+                             placeholder="0"></InputNumber>
+                <ValidationMessage For="@(() => EditAccomodationBookingViewModel.Cost)" />
+            </div>
 
-        <div class="form-submit">
-            <button type="submit"><strong>&#128190;</strong></button>
-            <span>* required fields</span>
-        </div>
-    </EditForm>
+            <div class="form-submit">
+                <button type="submit"><strong>&#128190;</strong></button>
+                <span>* required fields</span>
+            </div>
+        </EditForm>
     }
     else
     {

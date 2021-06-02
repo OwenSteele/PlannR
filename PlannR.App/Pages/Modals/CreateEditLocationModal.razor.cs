@@ -2,6 +2,7 @@
 using Blazored.Modal.Services;
 using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
+using PlannR.App.Components;
 using PlannR.App.Infrastructure.Contracts;
 using PlannR.App.Infrastructure.Services.Base;
 using PlannR.App.Infrastructure.ViewModels.Locations;
@@ -13,18 +14,13 @@ using System.Threading.Tasks;
 
 namespace PlannR.App.Pages.Modals
 {
-    public partial class CreateEditLocationModal
+    public partial class CreateEditLocationModal: EditBaseModal
     {
         [CascadingParameter]
         BlazoredModalInstance ModalInstance { get; set; }
-        [CascadingParameter]
-        public ModalParameters Parameters { get; set; }
 
         [Inject]
         public ILocationDataService LocationDataService { get; set; }
-
-        [Inject]
-        public NavigationManager NavigationManager { get; set; }
         [Inject]
         IJSRuntime JSRuntime { get; set; }
 
@@ -38,9 +34,6 @@ namespace PlannR.App.Pages.Modals
         public Guid? EditLocationId { get; set; }
         public List<Marker> StartingPoint { get; set; }
         public bool UseExistingLocation { get; set; } = false;
-        public bool Submitted { get; set; } = false;
-
-        public string Message { get; set; }
 
         private LocationDetailViewModel existingLocationModel;
 
@@ -165,6 +158,19 @@ namespace PlannR.App.Pages.Modals
                 longValue = 0;
             }
             EditLocationViewModel.Longitude = longValue;
+        }
+        private async Task DeleteItem(Guid? otherLocationId = null)
+        {
+            var result = await ShowDeleteModal($"{EditLocationViewModel.Name} Location",
+                EditLocationViewModel.Name,
+                otherLocationId ?? EditLocationViewModel.LocationId);
+            
+            if (result.HasValue)
+            {
+                await LocationDataService.DeleteAsync(result.Value);
+
+                await ModalInstance.CloseAsync();
+            }
         }
     }
 }

@@ -2,14 +2,10 @@
 using Microsoft.AspNetCore.Components;
 using PlannR.App.Infrastructure.Services.Base;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PlannR.App.Components
 {
-    public partial class EditBookingBaseModal : ComponentBase
+    public partial class EditBookingBaseModal : EditBaseModal
     {
         [CascadingParameter]
         public ModalParameters Parameters { get; set; }
@@ -25,7 +21,7 @@ namespace PlannR.App.Components
 
         public string Message { get; set; }
 
-            protected void HandleInvalidSubmit()
+        protected void HandleInvalidSubmit()
         {
             Message = "There are some validation errors. Please try again.";
         }

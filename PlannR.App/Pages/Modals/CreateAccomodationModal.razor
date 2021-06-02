@@ -1,99 +1,107 @@
+@inherits EditBaseModal
+
 @if (UserTrips == null || AccomodationTypes == null)
 {
-<p>Finding all the bits and bobs..</p>
+    <p>Finding all the bits and bobs..</p>
 }
 else
 {
     <div class="modal-parent">
         @if (!Submitted)
         {
-        <EditForm Model="@EditAccomodationViewModel"
-                  OnValidSubmit="HandleValidSubmit" OnInvalidSubmit="HandleInvalidSubmit">
-            <DataAnnotationsValidator></DataAnnotationsValidator>
-            <span>@Message</span>
-            <div class="form-field">
-                <label for="AccomodationName">Name<span>*</span></label>
-                <InputText id="AccomodationName" @bind-Value="@EditAccomodationViewModel.Name"
-                           placeholder="Accomodation Name"></InputText>
-                <ValidationMessage For="@(() => EditAccomodationViewModel.Name)" />
-            </div>
-            <div class="form-field">
-                <label for="description">Description</label>
-                <InputText id="description" @bind-Value="@EditAccomodationViewModel.Description"
-                           placeholder="About the accomodation"></InputText>
-                <ValidationMessage For="@(() => EditAccomodationViewModel.Description)" />
-            </div>
+            @if (EditAccomodationViewModel.AccomodationId != Guid.Empty)
+            {
+                <div>
+                    <button type="button" id="delete-btn" @onclick="DeleteItem">Delete</button>
+                </div>
+            }
+            <EditForm Model="@EditAccomodationViewModel"
+                      OnValidSubmit="HandleValidSubmit" OnInvalidSubmit="HandleInvalidSubmit">
+                <DataAnnotationsValidator></DataAnnotationsValidator>
+                <span>@Message</span>
+                <div class="form-field">
+                    <label for="AccomodationName">Name<span>*</span></label>
+                    <InputText id="AccomodationName" @bind-Value="@EditAccomodationViewModel.Name"
+                               placeholder="Accomodation Name"></InputText>
+                    <ValidationMessage For="@(() => EditAccomodationViewModel.Name)" />
+                </div>
+                <div class="form-field">
+                    <label for="description">Description</label>
+                    <InputText id="description" @bind-Value="@EditAccomodationViewModel.Description"
+                               placeholder="About the accomodation"></InputText>
+                    <ValidationMessage For="@(() => EditAccomodationViewModel.Description)" />
+                </div>
 
-            <div class="form-field">
-                <label for="trip">Part of Trip<span>*</span></label>
-                <InputSelect id="trip" @bind-Value="@EditAccomodationViewModel.TripId"
-                             placeholder="Select a Trip">
-                    @foreach (var trip in UserTrips)
-                            {
-                        <option value="@trip.TripId">@trip.Name</option>
-                            }
-                </InputSelect>
-                <ValidationMessage For="@(() => EditAccomodationViewModel.TripId)" />
-            </div>
-            <div class="form-field">
-                <label for="type">Type<span>*</span></label>
-                <button type="button" @onclick="CreateTypeModal">Add &#43;</button>
-                <InputSelect id="type" @bind-Value="@EditAccomodationViewModel.AccomodationTypeId"
-                             placeholder="Select accom type">
-                    @foreach (var aType in AccomodationTypes)
-                            {
-                        <option value="@aType.AccomodationTypeId">@aType.Name</option>
-                            }
-                </InputSelect>
-                <ValidationMessage For="@(() => EditAccomodationViewModel.AccomodationTypeId)" />
-            </div>
-            <div class="form-field">
-                <label for="costPerNight">Cost Per Night</label>
-                <InputNumber id="costPerNight" @bind-Value="@EditAccomodationViewModel.CostPerNight"
-                             placeholder="0"></InputNumber>
-                <ValidationMessage For="@(() => EditAccomodationViewModel.CostPerNight)" />
-            </div>
-            <div class="form-field">
-                <label for="rooms">Rooms</label>
-                <InputNumber id="rooms" @bind-Value="@EditAccomodationViewModel.Rooms"
-                             placeholder="1"></InputNumber>
-                <ValidationMessage For="@(() => EditAccomodationViewModel.Rooms)" />
-            </div>
-            <div class="form-field">
-                <label for="nights">Nights</label>
-                <InputNumber id="nights" @bind-Value="@EditAccomodationViewModel.Nights"
-                             placeholder="1"></InputNumber>
-                <ValidationMessage For="@(() => EditAccomodationViewModel.Nights)" />
-            </div>
-            <div class="form-field">
-                <label for="start">Starting Date<span>*</span></label>
-                <InputDate id="start" @bind-Value="@EditAccomodationViewModel.StartDateTime"
-                           placeholder="1"></InputDate>
-                <ValidationMessage For="@(() => EditAccomodationViewModel.StartDateTime)" />
-            </div>
-            <div class="form-field">
-                <label for="tripStartDate">Arrival Time<span>*</span></label>
-                <input required type="time" id="tripStartTime" @bind-value="StartTime" />
-            </div>
-            <div class="form-field">
-                <label>Location</label>
-                @if (EditAccomodationViewModel.LocationId != null)
-                {
-                    <span>Location Set</span>
-                }
-                <button type="button" @onclick="LocationModal"> Add &#128396;</button>
-            </div>
-            <div class="form-field">
-                <label for="tripEndDate">Departure Time<span>*</span></label>
-                <label for="tripEndDate">date: <strong>@EditAccomodationViewModel.StartDateTime.AddDays(EditAccomodationViewModel.Nights).ToShortDateString()</strong></label>
-                <input required type="time" id="tripEndDate" @bind-value="EndTime" />
-            </div>
+                <div class="form-field">
+                    <label for="trip">Part of Trip<span>*</span></label>
+                    <InputSelect id="trip" @bind-Value="@EditAccomodationViewModel.TripId"
+                                 placeholder="Select a Trip">
+                        @foreach (var trip in UserTrips)
+                                {
+                            <option value="@trip.TripId">@trip.Name</option>
+                                }
+                    </InputSelect>
+                    <ValidationMessage For="@(() => EditAccomodationViewModel.TripId)" />
+                </div>
+                <div class="form-field">
+                    <label for="type">Type<span>*</span></label>
+                    <button type="button" @onclick="CreateTypeModal">Add &#43;</button>
+                    <InputSelect id="type" @bind-Value="@EditAccomodationViewModel.AccomodationTypeId"
+                                 placeholder="Select accom type">
+                        @foreach (var aType in AccomodationTypes)
+                                {
+                            <option value="@aType.AccomodationTypeId">@aType.Name</option>
+                                }
+                    </InputSelect>
+                    <ValidationMessage For="@(() => EditAccomodationViewModel.AccomodationTypeId)" />
+                </div>
+                <div class="form-field">
+                    <label for="costPerNight">Cost Per Night</label>
+                    <InputNumber id="costPerNight" @bind-Value="@EditAccomodationViewModel.CostPerNight"
+                                 placeholder="0"></InputNumber>
+                    <ValidationMessage For="@(() => EditAccomodationViewModel.CostPerNight)" />
+                </div>
+                <div class="form-field">
+                    <label for="rooms">Rooms</label>
+                    <InputNumber id="rooms" @bind-Value="@EditAccomodationViewModel.Rooms"
+                                 placeholder="1"></InputNumber>
+                    <ValidationMessage For="@(() => EditAccomodationViewModel.Rooms)" />
+                </div>
+                <div class="form-field">
+                    <label for="nights">Nights</label>
+                    <InputNumber id="nights" @bind-Value="@EditAccomodationViewModel.Nights"
+                                 placeholder="1"></InputNumber>
+                    <ValidationMessage For="@(() => EditAccomodationViewModel.Nights)" />
+                </div>
+                <div class="form-field">
+                    <label for="start">Starting Date<span>*</span></label>
+                    <InputDate id="start" @bind-Value="@EditAccomodationViewModel.StartDateTime"
+                               placeholder="1"></InputDate>
+                    <ValidationMessage For="@(() => EditAccomodationViewModel.StartDateTime)" />
+                </div>
+                <div class="form-field">
+                    <label for="tripStartDate">Arrival Time<span>*</span></label>
+                    <input required type="time" id="tripStartTime" @bind-value="StartTime" />
+                </div>
+                <div class="form-field">
+                    <label>Location</label>
+                    @if (EditAccomodationViewModel.LocationId != null)
+                    {
+                        <span>Location Set</span>
+                    }
+                    <button type="button" @onclick="LocationModal"> Add &#128396;</button>
+                </div>
+                <div class="form-field">
+                    <label for="tripEndDate">Departure Time<span>*</span></label>
+                    <label for="tripEndDate">date: <strong>@EditAccomodationViewModel.StartDateTime.AddDays(EditAccomodationViewModel.Nights).ToShortDateString()</strong></label>
+                    <input required type="time" id="tripEndDate" @bind-value="EndTime" />
+                </div>
 
-            <div class="form-submit">
-                <button type="submit"><strong>&#128190;</strong></button>
-                <span>* required fields</span>
-            </div>
-        </EditForm>
+                <div class="form-submit">
+                    <button type="submit"><strong>&#128190;</strong></button>
+                    <span>* required fields</span>
+                </div>
+            </EditForm>
         }
         else
         {
