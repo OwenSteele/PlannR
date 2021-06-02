@@ -8,11 +8,15 @@
     overflow-x: hidden;
     transition: 0.2s;
     display: block;
-    z-index: 996;
+    z-index: 910;
 }
 #layout {
-    margin: 0;
-    min-height: calc(100vh - 210px);
+    /*margin: 0;*/
+    /*min-height: calc(100vh - 210px);*/
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -160px;
 }
 
 .sidebar-collapsed {
@@ -49,11 +53,11 @@
 .top-nav {
     z-index: 999;
 }
-#footer-wrapper {
-    position: relative;
-    height: 160px;
+#footer-wrapper {/*
+    position: relative;*/
+    height: 160px;/*
     bottom: 0;
-    margin-bottom: -160px;
+    margin-bottom: -160px;*/
     background-color: #000000;
     width: 100%;
     z-index: 997;

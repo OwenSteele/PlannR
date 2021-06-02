@@ -7,6 +7,10 @@
     transition-delay: 0.5s;
     transition-duration: 0.5s;
     text-align:right;    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
 }
 
 span {

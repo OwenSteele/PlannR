@@ -1,34 +1,39 @@
 ﻿@attribute [Authorize]
 
 <div class="sidebar container">
-    <div class="nav-link">
-        <NavLink href="trips" ActiveClass="active-link">
-            <span>My Trips</span>
-        </NavLink>
+    <div>
+        <div class="nav-link">
+            <NavLink href="trips" ActiveClass="active-link">
+                <span>My Trips</span>
+            </NavLink>
+        </div>
+        <div class="nav-link">
+            <NavLink href="bookings" ActiveClass="active-link">
+                <span>Bookings</span>
+            </NavLink>
+        </div>
+        <div class="nav-link">
+            <NavLink href="accomodations" ActiveClass="active-link">
+                <span>Accomodation</span>
+            </NavLink>
+        </div>
+        <div class="nav-link">
+            <NavLink href="events" ActiveClass="active-link">
+                <span>Events</span>
+            </NavLink>
+        </div>
+        <div class="nav-link" ActiveClass="active-link">
+            <NavLink href="routes">
+                <span>Routes</span>
+            </NavLink>
+        </div>
+        <div class="nav-link" ActiveClass="active-link">
+            <NavLink href="transports">
+                <span>Transport</span>
+            </NavLink>
+        </div>
     </div>
-    <div class="nav-link">
-        <NavLink href="bookings" ActiveClass="active-link">
-            <span>Bookings</span>
-        </NavLink>
-    </div>
-    <div class="nav-link">
-        <NavLink href="accomodations" ActiveClass="active-link">
-            <span>Accomodation</span>
-        </NavLink>
-    </div>
-    <div class="nav-link">
-        <NavLink href="events" ActiveClass="active-link">
-            <span>Events</span>
-        </NavLink>
-    </div>
-    <div class="nav-link" ActiveClass="active-link">
-        <NavLink href="routes">
-            <span>Routes</span>
-        </NavLink>
-    </div>
-    <div class="nav-link" ActiveClass="active-link">
-        <NavLink href="transports">
-            <span>Transport</span>
-        </NavLink>
+    <div>
+        <Footer FooterClass="footer-sidebar"/>
     </div>
 </div>
