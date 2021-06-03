@@ -1,0 +1,34 @@
+name: Deploy PlannR App
+
+on:
+  push:
+    branches: [ master ]
+jobs:
+  deploy-to-github-pages:
+  
+    runs-on: ubuntu-latest
+    steps:
+    
+    - uses: actions/checkout@v2
+    
+    - name: Setup .NET Core SDK
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+        
+    - name: Publish .NET Core Project
+      run: dotnet publish PlannR.App/PlannR.App.csproj -c Release -o release
+      
+    - name: Change base-tag in index.html from / to PlannR.App
+      run: sed -i 's/<base href="\/" \/>/<base href="\/PlannR.App\/" \/>/g' release/wwwroot/index.html
+    
+    # copy index.html to 404.html to serve the same file when a file is not found
+    - name: copy index.html to 404.html
+      run: cp release/wwwroot/index.html release/wwwroot/404.html
+      
+    - name: Commit wwwroot to GitHub Pages
+      uses: JamesIves/github-pages-deploy-action@3.7.1
+      with:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        BRANCH: gh-pages
+        FOLDER: release/wwwroot
