@@ -15,6 +15,7 @@ namespace PlannR.Persistence
             services.AddDbContext<PlannrDbContext>(options =>
             {
                 options.UseSqlServer(configuration.GetConnectionString("Plannr"));
+                options.EnableSensitiveDataLogging();
             });
 
             services.AddScoped(typeof(IAsyncRepository<>), typeof(BaseRepository<>));

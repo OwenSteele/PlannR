@@ -30,5 +30,77 @@
     "altitudeInMetres": 0.0,
     "name": "Nice Cote d'Azur Airport",
     "address": "Rue Costes et Bellonte, 06206 Nice, France"
+  },
+  {
+    "locationId": "98e11885-fb8e-41f9-958b-ea5f4dea54d5",
+    "latitude": 43.66884420834225,
+    "longitude": 7.2111980132427815,
+    "altitudeInMetres": 0.0,
+    "name": "Grand Arenas Train Station",
+    "address": "06200 Nice, France"
+  },
+  {
+    "locationId": "836776dd-b072-47f0-ab41-db806be82eb4",
+    "latitude": 43.70485735250352,
+    "longitude": 7.261523779397241,
+    "altitudeInMetres": 0.0,
+    "name": "Nice-Ville",
+    "address": "Avenue Thiers, 06008 Nice, France"
+  },
+  {
+    "locationId": "5a3613aa-3a39-44fd-9294-8f59f23b87be",
+    "latitude": 43.694572199588656,
+    "longitude": 7.257797980937178,
+    "altitudeInMetres": 0.0,
+    "name": "La Rotonde Nice",
+    "address": "37 Prom. des Anglais, 06000 Nice, France"
+  },
+  {
+    "locationId": "831dae8e-9866-482b-8f93-08e5066fd992",
+    "latitude": 43.70368654121249,
+    "longitude": 7.253439866968375,
+    "altitudeInMetres": 0.0,
+    "name": "St Nicholas Russian Orthodox Cathedral",
+    "address": "Avenue Nicolas II, 06000 Nice, France"
+  },
+  {
+    "locationId": "4dd719de-44e2-4a5b-95f7-87129f30f399",
+    "latitude": 43.695606899282765,
+    "longitude": 7.259020591500792,
+    "altitudeInMetres": 0.0,
+    "name": "Villa Masséna Musée",
+    "address": "65 Rue de France, 06000 Nice, France"
+  },
+  {
+    "locationId": "4a3385bf-537b-44ea-be30-9f626aa5a63d",
+    "latitude": 43.69569772283055,
+    "longitude": 7.267946476104736,
+    "altitudeInMetres": 0.0,
+    "name": "Jardin Albert 1er",
+    "address": "2-16 Avenue de Verdun, 06000 Nice, France"
+  },
+  {
+    "locationId": "d4ea4e13-d37c-4f93-81ad-899fc0b75409",
+    "latitude": 43.697103296196026,
+    "longitude": 7.2759387247896905,
+    "altitudeInMetres": 0.0,
+    "name": "Cathédrale Sainte-Réparate de Nice",
+    "address": "3 Pl. Rossetti, 06300 Nice, France"
+  },
+  {
+    "locationId": "57f62afa-0861-4070-8f11-d9e1a0f2a994",
+    "latitude": 43.70136148624197,
+    "longitude": 7.300013837156156,
+    "altitudeInMetres": 0.0,
+    "name": "Fort du Mont Alban",
+    "address": "Chemin du Fort du Mont Alban, 06000 Nice, France"
+  },
+  {
+    "locationId": "3cb658dd-8d38-46ed-b998-88a49324b309",
+    "latitude": 43.70257943947716,
+    "longitude": 7.312015564666297,
+    "altitudeInMetres": 0.0,
+    "name": "Mayssa Beach Restaurant",
+    "address": "Place Wilson, 06230 Villefranche-sur-Mer, France"
   }
 ]

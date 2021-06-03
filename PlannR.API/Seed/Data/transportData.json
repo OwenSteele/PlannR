@@ -1,3 +1,35 @@
 [
-
+  {
+    "transportId": "5417554a-8220-450e-b357-52456334f1fc",
+    "tripId": "eb5c9c56-56ef-4b59-9a5f-34b3fd25240d",
+    "name": "Taxi to the airport",
+    "transportTypeId": "7e2d7cde-75a8-4c15-ac90-2c8bc113cad2",
+    "startLocationId": "0934b953-fb1f-42b9-81ae-62a614ee1826",
+    "endLocationId": "429d2829-eeb9-4803-aa8b-475811284232",
+    "startDateTime": "2022-06-10T17:15:00",
+    "endDateTime": "2022-06-10T18:00:00",
+    "description": "Taxi with a black cab to Heathrow"
+  },
+  {
+    "transportId": "8273da23-c6d6-411a-9a2a-79c48ba32b51",
+    "tripId": "eb5c9c56-56ef-4b59-9a5f-34b3fd25240d",
+    "name": "Flight Heathrow to Nice",
+    "transportTypeId": "b0ce54b5-e4fb-4870-9343-4346da5be65d",
+    "startLocationId": "429d2829-eeb9-4803-aa8b-475811284232",
+    "endLocationId": "ec2d23b5-ce63-49de-8d0d-2f50dbdf63db",
+    "startDateTime": "2022-06-10T20:00:00",
+    "endDateTime": "2022-06-10T22:00:00",
+    "description": "Flight BA 354 LHR - NCE"
+  },
+  {
+    "transportId": "aa7a8f38-a9fa-4d86-a762-39e724ee4a83",
+    "tripId": "eb5c9c56-56ef-4b59-9a5f-34b3fd25240d",
+    "name": "Train from the airport to the hotel",
+    "transportTypeId": "a7538091-e359-497b-a780-9e1352ad515b",
+    "startLocationId": "98e11885-fb8e-41f9-958b-ea5f4dea54d5",
+    "endLocationId": "836776dd-b072-47f0-ab41-db806be82eb4",
+    "startDateTime": "2022-06-10T23:00:00",
+    "endDateTime": "2022-06-10T23:30:00",
+    "description": "Local train from Nice airport thats runs into nice town centre."
+  }
 ]

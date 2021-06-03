@@ -114,7 +114,19 @@ namespace PlannR.Persistence
             modelBuilder.Entity<Event>().Navigation(x => x.Booking).AutoInclude();
             modelBuilder.Entity<Route>().Navigation(x => x.Points).AutoInclude();
 
-            modelBuilder.Entity<AccomodationType>().HasData(DataSeeder.SeedAccomodationTypes());
+            //modelBuilder.Entity<Location>().HasData(DataSeeder.SeedLocations());
+            //modelBuilder.Entity<AccomodationType>().HasData(DataSeeder.SeedAccomodationTypes());
+            //modelBuilder.Entity<TransportType>().HasData(DataSeeder.SeedTransportTypes());
+            //modelBuilder.Entity<EventType>().HasData(DataSeeder.SeedEventTypes());
+            //modelBuilder.Entity<Trip>().HasData(DataSeeder.SeedTrips());
+            //modelBuilder.Entity<Accomodation>().HasData(DataSeeder.SeedAccomodations());
+            //modelBuilder.Entity<Transport>().HasData(DataSeeder.SeedTransports());
+            //modelBuilder.Entity<Event>().HasData(DataSeeder.SeedEvents());
+            //modelBuilder.Entity<Route>().HasData(DataSeeder.SeedRoutes());
+            //modelBuilder.Entity<RoutePoint>().HasData(DataSeeder.SeedRoutePoints());
+            //modelBuilder.Entity<AccomodationBooking>().HasData(DataSeeder.SeedAccomodationBookings());
+            //modelBuilder.Entity<TransportBooking>().HasData(DataSeeder.SeedTransportBookings());
+            //modelBuilder.Entity<EventBooking>().HasData(DataSeeder.SeedEventBookings());
         }
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())

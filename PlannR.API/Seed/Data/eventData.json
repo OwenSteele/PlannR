@@ -1,3 +1,41 @@
 [
-
+  {
+    "eventId": "578adb0d-7183-4e65-8ed7-f69230fef64e",
+    "tripId": "eb5c9c56-56ef-4b59-9a5f-34b3fd25240d",
+    "name": "Dinner at La Rotonde",
+    "companyName": "La Rotonde",
+    "eventTypeId": "c08e6a5a-51fe-47b8-9c3f-80b0e9125aa1",
+    "emailReminderEnabled": false,
+    "emailReminderTimer": null,
+    "startDateTime": "2022-06-11T19:00:00",
+    "endDateTime": "2022-06-11T22:00:00",
+    "description": "Birthday dinner!",
+    "locationId": "5a3613aa-3a39-44fd-9294-8f59f23b87be"
+  },
+  {
+    "eventId": "fabb3e78-7161-483b-93cc-7dd34516136d",
+    "tripId": "eb5c9c56-56ef-4b59-9a5f-34b3fd25240d",
+    "name": "Visit Cathédrale Saint-Nicolas de Nice",
+    "companyName": null,
+    "eventTypeId": "48b9dfb5-af95-48ff-956d-8306c8e06361",
+    "emailReminderEnabled": false,
+    "emailReminderTimer": null,
+    "startDateTime": "2022-06-17T10:00:00",
+    "endDateTime": "2022-06-17T13:00:00",
+    "description": "Visit to an amazing cathedral in east Nice",
+    "locationId": "831dae8e-9866-482b-8f93-08e5066fd992"
+  },
+  {
+    "eventId": "a3dc5619-ace9-4609-8684-679d929e0621",
+    "tripId": "eb5c9c56-56ef-4b59-9a5f-34b3fd25240d",
+    "name": "Lunch at Mayssa Beach",
+    "companyName": "Mayssa Beach",
+    "eventTypeId": "973e695f-1457-451e-91e9-cc1ae304c6f2",
+    "emailReminderEnabled": false,
+    "emailReminderTimer": null,
+    "startDateTime": "2022-06-14T15:00:00",
+    "endDateTime": "2022-06-14T16:00:00",
+    "description": "Late lunch on the shoreline, during our explore",
+    "locationId": "3cb658dd-8d38-46ed-b998-88a49324b309"
+  }
 ]

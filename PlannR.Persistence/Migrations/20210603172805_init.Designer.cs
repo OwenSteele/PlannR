@@ -10,8 +10,8 @@ using PlannR.Persistence;
 namespace PlannR.Persistence.Migrations
 {
     [DbContext(typeof(PlannrDbContext))]
-    [Migration("20210602203248_RoutePointRouteId")]
-    partial class RoutePointRouteId
+    [Migration("20210603172805_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

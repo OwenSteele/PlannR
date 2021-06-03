@@ -1,3 +1,58 @@
 [
-
+  {
+    "routeId": "5c71abe1-23bf-492b-bba9-3b60c50c1576",
+    "id": "a8188dd6-33b2-4f07-96e2-1178ba21503d",
+    "locationId": "3a7412f5-1c27-4993-98e2-f36de88871c5",
+    "eventId": null,
+    "startDateTime": "2022-06-14T10:00:00",
+    "endDateTime": "2022-06-14T10:00:00"
+  },
+  {
+    "routeId": "5c71abe1-23bf-492b-bba9-3b60c50c1576",
+    "id": "92187c3d-db6b-44f7-8ab4-294ec4766916",
+    "locationId": "4dd719de-44e2-4a5b-95f7-87129f30f399",
+    "eventId": null,
+    "startDateTime": "2022-06-14T10:30:00",
+    "endDateTime": "2022-06-14T11:00:00"
+  },
+  {
+    "routeId": "5c71abe1-23bf-492b-bba9-3b60c50c1576",
+    "id": "db097829-352b-4146-a80f-e31b019f2513",
+    "locationId": "4a3385bf-537b-44ea-be30-9f626aa5a63d",
+    "eventId": null,
+    "startDateTime": "2022-06-14T11:15:00",
+    "endDateTime": "2022-06-14T11:30:00"
+  },
+  {
+    "routeId": "5c71abe1-23bf-492b-bba9-3b60c50c1576",
+    "id": "d721c9af-c204-44c6-8edf-0b75d24715ed",
+    "locationId": "d4ea4e13-d37c-4f93-81ad-899fc0b75409",
+    "eventId": null,
+    "startDateTime": "2022-06-14T12:00:00",
+    "endDateTime": "2022-06-14T12:30:00"
+  },
+  {
+    "routeId": "5c71abe1-23bf-492b-bba9-3b60c50c1576",
+    "id": "77066f35-f487-43e6-bd0d-ab4df183afd3",
+    "locationId": "57f62afa-0861-4070-8f11-d9e1a0f2a994",
+    "eventId": null,
+    "startDateTime": "2022-06-14T13:30:00",
+    "endDateTime": "2022-06-14T14:30:00"
+  },
+  {
+    "routeId": "5c71abe1-23bf-492b-bba9-3b60c50c1576",
+    "id": "d0bb95d0-b208-456a-826f-84da54601d0a",
+    "locationId": "3cb658dd-8d38-46ed-b998-88a49324b309",
+    "eventId": "a3dc5619-ace9-4609-8684-679d929e0621",
+    "startDateTime": "2022-06-14T15:00:00",
+    "endDateTime": "2022-06-14T16:00:00"
+  },
+  {
+    "routeId": "5c71abe1-23bf-492b-bba9-3b60c50c1576",
+    "id": "13c427f4-abcf-48ac-a3da-c8f0ff5f4439",
+    "locationId": "3a7412f5-1c27-4993-98e2-f36de88871c5",
+    "eventId": null,
+    "startDateTime": "2022-06-14T18:00:00",
+    "endDateTime": "2022-06-14T18:00:00"
+  }
 ]

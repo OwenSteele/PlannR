@@ -1,3 +1,11 @@
 [
-
+  {
+    "eventId": "578adb0d-7183-4e65-8ed7-f69230fef64e",
+    "bookingId": "71177157-3a7c-4b6b-a428-02de1f1a92e3",
+    "name": "La Rotonde Reservation",
+    "link": "https://www.hotel-negresco-nice.com/sites/default/files/2021-05/MENU-Rotonde-20052021.pdf",
+    "email": "la-rotonde-brasserie@hotel-negresco-nice.com",
+    "comments": "Deposit for my birthday dinner",
+    "cost": 10
+  }
 ]

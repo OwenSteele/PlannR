@@ -1,30 +1,34 @@
 [
 	{
-		"accomodationTypeId": "c08e6a5a-51fe-47b8-9c3f-80b0e9125aa1",
+		"eventTypeId": "c08e6a5a-51fe-47b8-9c3f-80b0e9125aa1",
 		"name": "Dinner"
 	},
 	{
-		"accomodationTypeId": "8aad00ac-386e-4bac-80a3-8e6060925699",
+		"eventTypeId": "8aad00ac-386e-4bac-80a3-8e6060925699",
 		"name": "Birthday"
 	},
 	{
-		"accomodationTypeId": "67e04e6a-9255-4ab7-97f1-329b8691eca9",
+		"eventTypeId": "67e04e6a-9255-4ab7-97f1-329b8691eca9",
 		"name": "Party"
 	},
 	{
-		"accomodationTypeId": "973e695f-1457-451e-91e9-cc1ae304c6f2",
+		"eventTypeId": "973e695f-1457-451e-91e9-cc1ae304c6f2",
 		"name": "Lunch"
 	},
 	{
-		"accomodationTypeId": "c680cdc8-a192-443a-955b-9c9b8b7eea1a",
+		"eventTypeId": "c680cdc8-a192-443a-955b-9c9b8b7eea1a",
 		"name": "Meeting"
 	},
 	{
-		"accomodationTypeId": "6d9bdd96-3983-46f8-8605-deb42b781e7a",
+		"eventTypeId": "6d9bdd96-3983-46f8-8605-deb42b781e7a",
 		"name": "Concert"
 	},
 	{
-		"accomodationTypeId": "40ba7966-82ba-49b9-a7a7-c2d6d48e8c6c",
+		"eventTypeId": "40ba7966-82ba-49b9-a7a7-c2d6d48e8c6c",
 		"name": "Sporting event"
+	},
+	{
+		"eventTypeId": "48b9dfb5-af95-48ff-956d-8306c8e06361",
+		"name": "Sightseeing"
 	}
 ]
