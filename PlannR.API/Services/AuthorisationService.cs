@@ -17,7 +17,7 @@ namespace PlannR.API.Services
 
         }
 
-        public bool CanAccessEntity(T entity, bool includeAnonymous = false)
+        public bool CanAccessEntity(T entity, bool includeAnonymous)
         {
             if (string.IsNullOrWhiteSpace(entity?.CreatedBy) && 
                 (string.IsNullOrWhiteSpace(_userId) || includeAnonymous)) return true;
@@ -25,15 +25,36 @@ namespace PlannR.API.Services
             return _userId == entity?.CreatedBy;
         }
 
+        public bool CanAccessEntity(T entity)
+        {
+            return _userId == entity?.CreatedBy;
+        }
+
         public bool CanCreateEntity() => !string.IsNullOrWhiteSpace(_userId);
 
-        public ICollection<T> RemoveInAccessibleEntities(ICollection<T> entities, bool includeAnonymous = false)
+        public ICollection<T> RemoveInAccessibleEntities(ICollection<T> entities, bool includeAnonymous)
         {
             var toRemove = new List<T>();
 
             foreach (var entity in entities)
             {
                 if (!CanAccessEntity(entity, includeAnonymous)) toRemove.Add(entity);
+            }
+
+            foreach (var r in toRemove)
+            {
+                entities.Remove(r);
+            }
+            return entities;
+        }
+
+        public ICollection<T> RemoveInAccessibleEntities(ICollection<T> entities)
+        {
+            var toRemove = new List<T>();
+
+            foreach (var entity in entities)
+            {
+                if (!CanAccessEntity(entity)) toRemove.Add(entity);
             }
 
             foreach (var r in toRemove)

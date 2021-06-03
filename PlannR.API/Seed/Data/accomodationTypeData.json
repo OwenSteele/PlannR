@@ -1,0 +1,18 @@
+[
+	{
+		"accomodationTypeId": "bce06176-aa58-427c-8335-c9941b92a3ac",
+		"name": "Hotel"
+	},
+	{
+		"accomodationTypeId": "999e4496-0cba-4142-bed4-bad5fe73c54c",
+		"name": "Hostel"
+	},
+	{
+		"accomodationTypeId": "e36e5075-8593-4090-b636-03d0266a5dbf",
+		"name": "Camping"
+	},
+	{
+		"accomodationTypeId": "5148e821-5744-4e2c-ba3e-6717fd76272a",
+		"name": "AirBnB"
+	}
+]

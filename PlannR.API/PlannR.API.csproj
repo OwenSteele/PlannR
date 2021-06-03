@@ -5,6 +5,32 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Seed\Data\accomodationBookingData.json" />
+    <Content Remove="Seed\Data\accomodationData.json" />
+    <Content Remove="Seed\Data\eventBookingData.json" />
+    <Content Remove="Seed\Data\eventData.json" />
+    <Content Remove="Seed\Data\locationData.json" />
+    <Content Remove="Seed\Data\routeData.json" />
+    <Content Remove="Seed\Data\routePointData.json" />
+    <Content Remove="Seed\Data\transportBookingData.json" />
+    <Content Remove="Seed\Data\transportData.json" />
+    <Content Remove="Seed\Data\tripData.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Seed\Data\transportBookingData.json" />
+    <None Include="Seed\Data\eventBookingData.json" />
+    <None Include="Seed\Data\accomodationBookingData.json" />
+    <None Include="Seed\Data\routePointData.json" />
+    <None Include="Seed\Data\routeData.json" />
+    <None Include="Seed\Data\transportData.json" />
+    <None Include="Seed\Data\eventData.json" />
+    <None Include="Seed\Data\tripData.json" />
+    <None Include="Seed\Data\locationData.json" />
+    <None Include="Seed\Data\accomodationData.json" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.0-preview.3.21201.2">
       <PrivateAssets>all</PrivateAssets>

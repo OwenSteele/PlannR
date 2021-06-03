@@ -21,6 +21,8 @@ namespace PlannR.Persistence
 
             services.AddScoped<IFileReaderService, FileReaderService>();
 
+            services.AddScoped<IFileReaderService, FileReaderService>();
+
             services.AddScoped<ITripRepository, TripRepository>();
             services.AddScoped<IEventRepository, EventRepository>();
             services.AddScoped<IAccomodationRepository, AccomodationRepository>();

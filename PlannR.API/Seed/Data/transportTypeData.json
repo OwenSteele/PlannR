@@ -1,0 +1,30 @@
+[
+	{
+		"transportTypeId": "0516b31f-3bdc-4d1d-b8d0-f562bb63bb81",
+		"name": "Bus"
+	},
+	{
+		"transportTypeId": "a7538091-e359-497b-a780-9e1352ad515b",
+		"name": "Train"
+	},
+	{
+		"transportTypeId": "c5f6bfcf-fe9f-43f4-9096-11f3579d4d9a",
+		"name": "Walking"
+	},
+	{
+		"transportTypeId": "77e7da2d-d1d1-4c3b-ab8f-97496873fe38",
+		"name": "Car"
+	},
+	{
+		"transportTypeId": "7e2d7cde-75a8-4c15-ac90-2c8bc113cad2",
+		"name": "Taxi"
+	},
+	{
+		"transportTypeId": "e23eb33a-a49e-4050-a4f2-0d693b7db5c4",
+		"name": "Bicycle"
+	},
+	{
+		"transportTypeId": "b0ce54b5-e4fb-4870-9343-4346da5be65d",
+		"name": "Plane"
+	}
+]

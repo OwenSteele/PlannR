@@ -1,0 +1,34 @@
+[
+  {
+    "locationId": "0934b953-fb1f-42b9-81ae-62a614ee1826",
+    "latitude": 51.505581,
+    "longitude": -0.187664,
+    "altitudeInMetres": 0.0,
+    "name": "Home - Kensington",
+    "address": "London W8 4PY"
+  },
+  {
+    "locationId": "3a7412f5-1c27-4993-98e2-f36de88871c5",
+    "latitude": 43.6954511917773,
+    "longitude": 7.265805593662451,
+    "altitudeInMetres": 0.0,
+    "name": "Le Meridien Nice",
+    "address": "1 Prom. des Anglais, 06046 Nice, France"
+  },
+  {
+    "locationId": "429d2829-eeb9-4803-aa8b-475811284232",
+    "latitude": 51.47172252094142,
+    "longitude": -0.4876130252065667,
+    "altitudeInMetres": 0.0,
+    "name": "Heathrow Airport",
+    "address": "Heathrow Airport Terminal 5, Longford TW6 2GW"
+  },
+  {
+    "locationId": "ec2d23b5-ce63-49de-8d0d-2f50dbdf63db",
+    "latitude": 43.66067578760972,
+    "longitude": 7.214523950861517,
+    "altitudeInMetres": 0.0,
+    "name": "Nice Cote d'Azur Airport",
+    "address": "Rue Costes et Bellonte, 06206 Nice, France"
+  }
+]

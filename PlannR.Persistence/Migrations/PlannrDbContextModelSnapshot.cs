@@ -358,6 +358,14 @@ namespace PlannR.Persistence.Migrations
                     b.HasKey("AccomodationTypeId");
 
                     b.ToTable("AccomodationTypes");
+
+                    b.HasData(
+                        new
+                        {
+                            AccomodationTypeId = new Guid("bce06176-aa58-427c-8335-c9941b92a3ac"),
+                            CreationDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Hotel"
+                        });
                 });
 
             modelBuilder.Entity("PlannR.Domain.EntityTypes.EventType", b =>

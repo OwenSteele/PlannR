@@ -1,0 +1,13 @@
+{
+	"accomodationId": "f20529ca-7888-4967-84d0-044b1dfaf984",
+	"tripId": "52d9c680-4f54-4cd5-b344-a4b8889366e5",
+	"name": "Le Meridien Hotel",
+	"accomodationTypeId": "bce06176-aa58-427c-8335-c9941b92a3ac",
+	"costPerNight": "192",
+	"rooms": 2,
+	"nights": 8,
+	"startDateTime": "2022-06-10T22:00:00",
+	"endDateTime": "2022-06-19T10:00:00",
+	"description": "Hotel for the trip, in Nice on the beach",
+	"locationId": "3a7412f5-1c27-4993-98e2-f36de88871c5"
+}

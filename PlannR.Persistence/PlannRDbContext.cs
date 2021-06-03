@@ -4,6 +4,7 @@ using PlannR.Domain.Common;
 using PlannR.Domain.Entities;
 using PlannR.Domain.EntityTypes;
 using PlannR.Domain.Shared;
+using PlannR.Persistence.Seed;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
@@ -112,6 +113,8 @@ namespace PlannR.Persistence
             modelBuilder.Entity<Event>().Navigation(x => x.EventType).AutoInclude();
             modelBuilder.Entity<Event>().Navigation(x => x.Booking).AutoInclude();
             modelBuilder.Entity<Route>().Navigation(x => x.Points).AutoInclude();
+
+            modelBuilder.Entity<AccomodationType>().HasData(DataSeeder.SeedAccomodationTypes());
         }
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())

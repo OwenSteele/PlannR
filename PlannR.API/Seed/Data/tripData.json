@@ -1,0 +1,11 @@
+[
+  {
+    "tripId": "52d9c680-4f54-4cd5-b344-a4b8889366e5",
+    "name": "Birthday trip to Nice!",
+    "description": "(Sample Trip) A trip to Nice for my birthday, with Emma and Brandon",
+    "startDateTime": "2022-06-10T17:00:00",
+    "endDateTime": "2022-06-19T21:30:00",
+    "startLocationId": "0934b953-fb1f-42b9-81ae-62a614ee1826",
+    "endLocationId": "3a7412f5-1c27-4993-98e2-f36de88871c5"
+  }
+]
