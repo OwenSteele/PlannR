@@ -2,6 +2,8 @@
 
 [![PlannR-CI](https://github.com/OwenSteele/PlannR/actions/workflows/dotnet.yml/badge.svg)](https://github.com/OwenSteele/PlannR/actions/workflows/dotnet.yml)
 
+[![gh-pages](https://github.com/OwenSteele/PlannR/actions/workflows/publish.yml/badge.svg)](https://owensteele.github.io/PlannR/)
+
 Plan and save all parts of your trips in one place. Blazor ASP.NET Core with Clean Architecture and CQRS linked to EF Core
 
 ## Written and Designed by Owen Steele
