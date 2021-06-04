@@ -31,7 +31,7 @@ namespace PlannR.Application.Features.Transports.Commands.DeleteTransport
                 throw new NotFoundException(nameof(Transport), request.TransportId);
             }
 
-            if (!_authorisationService.CanAccessEntity(result)) throw new NotAuthorisedException();
+            if (!_authorisationService.CanAlterEntity(result)) throw new NotAuthorisedException();
 
             await _transportRepository.DeleteAsync(result);
 

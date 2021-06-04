@@ -10,5 +10,6 @@ namespace PlannR.Application.Contracts.Identity
         ICollection<T> RemoveInAccessibleEntities(ICollection<T> entities);
         ICollection<T> RemoveInAccessibleEntities(ICollection<T> entities, bool includeAnonymous);
         bool CanCreateEntity();
+        bool CanAlterEntity(T entity);
     }
 }

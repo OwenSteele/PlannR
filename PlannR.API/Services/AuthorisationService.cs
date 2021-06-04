@@ -29,6 +29,12 @@ namespace PlannR.API.Services
         {
             return _userId == entity?.CreatedBy;
         }
+        public bool CanAlterEntity(T entity)
+        {
+            if (entity?.CreatedBy == null || _userId == null) return false;
+
+            else return _userId == entity?.CreatedBy;
+        }
 
         public bool CanCreateEntity() => !string.IsNullOrWhiteSpace(_userId);
 

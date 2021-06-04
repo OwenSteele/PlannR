@@ -32,7 +32,7 @@ namespace PlannR.Application.Features.Routes.Commands.UpdateRoute
                 throw new NotFoundException(nameof(Route), request.RouteId);
             }
 
-            if (!_authorisationService.CanAccessEntity(result)) throw new NotAuthorisedException();
+            if (!_authorisationService.CanAlterEntity(result)) throw new NotAuthorisedException();
 
             var validator = new UpdateRouteCommandValidator();
             var validationResult = await validator.ValidateAsync(request);

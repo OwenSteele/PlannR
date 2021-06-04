@@ -31,7 +31,7 @@ namespace PlannR.Application.Features.Trips.Commands.DeleteTrip
                 throw new NotFoundException(nameof(Trip), request.TripId);
             }
 
-            if (!_authorisationService.CanAccessEntity(result)) throw new NotAuthorisedException();
+            if (!_authorisationService.CanAlterEntity(result)) throw new NotAuthorisedException();
 
             await _tripRepository.DeleteAsync(result);
 

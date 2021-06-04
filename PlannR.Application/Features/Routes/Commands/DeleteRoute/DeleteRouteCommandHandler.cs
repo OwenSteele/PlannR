@@ -31,7 +31,7 @@ namespace PlannR.Application.Features.Routes.Commands.DeleteRoute
                 throw new NotFoundException(nameof(Route), request.RouteId);
             }
 
-            if (!_authorisationService.CanAccessEntity(result)) throw new NotAuthorisedException();
+            if (!_authorisationService.CanAlterEntity(result)) throw new NotAuthorisedException();
 
             await _routeRepository.DeleteAsync(result);
 

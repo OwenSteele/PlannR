@@ -33,7 +33,7 @@ namespace PlannR.Application.Features.RoutePoints.Commands.DeleteRoutePointRange
 
                 if (result == null)throw new NotFoundException(nameof(Route), id);
 
-                if (!_authorisationService.CanAccessEntity(result)) throw new NotAuthorisedException();
+                if (!_authorisationService.CanAlterEntity(result)) throw new NotAuthorisedException();
 
                 routePoints.Add(result);
             }

@@ -31,7 +31,7 @@ namespace PlannR.Application.Features.Events.Commands.DeleteEvent
                 throw new NotFoundException(nameof(Event), request.EventId);
             }
 
-            if (!_authorisationService.CanAccessEntity(result)) throw new NotAuthorisedException();
+            if (!_authorisationService.CanAlterEntity(result)) throw new NotAuthorisedException();
 
             await _eventRepository.DeleteAsync(result);
 

@@ -31,7 +31,7 @@ namespace PlannR.Application.Features.Locations.Commands.DeleteLocation
                 throw new NotFoundException(nameof(Location), request.LocationId);
             }
 
-            if (!_authorisationService.CanAccessEntity(result)) throw new NotAuthorisedException();
+            if (!_authorisationService.CanAlterEntity(result)) throw new NotAuthorisedException();
 
             await _LocationRepository.DeleteAsync(result);
 

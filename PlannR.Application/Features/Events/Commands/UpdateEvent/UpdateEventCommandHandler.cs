@@ -32,7 +32,7 @@ namespace PlannR.Application.Features.Events.Commands.UpdateEvent
                 throw new NotFoundException(nameof(Event), request.EventId);
             }
 
-            if (!_authorisationService.CanAccessEntity(result)) throw new NotAuthorisedException();
+            if (!_authorisationService.CanAlterEntity(result)) throw new NotAuthorisedException();
 
             var validator = new UpdateEventCommandValidator();
             var validationResult = await validator.ValidateAsync(request);
