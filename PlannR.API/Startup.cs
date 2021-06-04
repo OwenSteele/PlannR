@@ -39,10 +39,16 @@ namespace PlannR.API
 
             services.AddControllers();
 
+            
+
             services.AddCors(options =>
             {
-                options.AddPolicy("Open", builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
-                // change to restricted
+                options.AddPolicy("Production", builder => builder
+                .WithOrigins("https://plannr.azurewebsites.net", 
+                "https://plannr-api.azurewebsites.net"));
+
+                options.AddPolicy("Development", builder => builder
+                .AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             });
 
             services.AddSwaggerGen(c =>
@@ -102,10 +108,14 @@ namespace PlannR.API
 
             app.UseRouting();
 
-            app.UseCors(x => x
-            .AllowAnyOrigin()
-            .AllowAnyMethod()
-            .AllowAnyHeader());
+            if (env.IsDevelopment())
+            {
+                app.UseCors("Development");
+            }
+            else
+            {
+                app.UseCors("Production");
+            }
 
             app.UseAuthentication();
             app.UseAuthorization();

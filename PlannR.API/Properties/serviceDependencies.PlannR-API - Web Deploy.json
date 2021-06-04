@@ -1,3 +1,16 @@
 {
-  "dependencies": {}
+  "dependencies": {
+    "mssql1": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/plannrdb/databases/PLannrDbIdentity",
+      "type": "mssql.azure",
+      "connectionId": "PlannrIdentity",
+      "secretStore": "AzureAppSettings"
+    },
+    "mssql2": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/plannrdb/databases/PlannrDb",
+      "type": "mssql.azure",
+      "connectionId": "Plannr",
+      "secretStore": "AzureAppSettings"
+    }
+  }
 }

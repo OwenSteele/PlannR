@@ -13,7 +13,7 @@ namespace PlannR.App
             builder.RootComponents.Add<App>("#app");
 
             builder.Services
-                .AddClientInfrastructureServices()
+                .AddClientInfrastructureServices(builder.HostEnvironment.IsDevelopment())
                 .AddClientAppServices();
 
             builder.Services.AddBlazoredModal();

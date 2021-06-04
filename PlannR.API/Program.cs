@@ -15,18 +15,18 @@ namespace PlannR.API
         {
             var host = CreateHostBuilder(args).Build();
 
-            using (var scope = host.Services.CreateScope())
-            {
-                try
-                {
-                    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<PlannrUser>>();
-                    await CreatedSeededUsers.SeedAsync(userManager);
-                }
-                catch (Exception ex)
-                {
-                    throw new ApplicationException(ex.Message);
-                }
-            }
+            //using (var scope = host.Services.CreateScope())
+            //{
+            //    try
+            //    {
+            //        var userManager = scope.ServiceProvider.GetRequiredService<UserManager<PlannrUser>>();
+            //        await CreatedSeededUsers.SeedAsync(userManager);
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        throw new ApplicationException(ex.Message);
+            //    }
+            //}
 
             host.Run();
         }

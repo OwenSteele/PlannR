@@ -7,19 +7,10 @@ namespace PlannR.App.Components
 {
     public partial class EditBookingBaseModal : EditBaseModal
     {
-        [CascadingParameter]
-        public ModalParameters Parameters { get; set; }
-
-        [Inject]
-        public NavigationManager NavigationManager { get; set; }
-
         [Parameter]
         public Guid? BookingId { get; set; }
         [Parameter]
         public Guid OwnerId { get; set; }
-        public bool Submitted { get; set; } = false;
-
-        public string Message { get; set; }
 
         protected void HandleInvalidSubmit()
         {

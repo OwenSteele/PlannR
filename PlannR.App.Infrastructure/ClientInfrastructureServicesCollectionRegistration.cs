@@ -15,7 +15,8 @@ namespace PlannR.App.Infrastructure
 {
     public static class ClientInfrastructureServicesCollectionRegistration
     {
-        public static IServiceCollection AddClientInfrastructureServices(this IServiceCollection services)
+        public static IServiceCollection AddClientInfrastructureServices(this IServiceCollection services,
+            bool isDevelopment)
         {
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
@@ -25,12 +26,16 @@ namespace PlannR.App.Infrastructure
 
             services.AddScoped<AuthenticationStateProvider, PlannrAuthenticationStateProvider>();
 
+            var apiEndpoint = "https://plannr-api.azurewebsites.net/";
+
+            if (isDevelopment) apiEndpoint = "https://localhost:44363";
+
             services.AddSingleton(new HttpClient
             {
-                BaseAddress = new Uri("https://localhost:44363")
+                BaseAddress = new Uri(apiEndpoint)
             });
 
-            services.AddHttpClient<IClient, Client>(client => client.BaseAddress = new Uri("https://localhost:44363"));
+            services.AddHttpClient<IClient, Client>(client => client.BaseAddress = new Uri(apiEndpoint));
 
             services.AddScoped<IClientInputService, ClientInputService>();
 
