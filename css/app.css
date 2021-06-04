@@ -1,0 +1,559 @@
+﻿@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
+
+* {
+    margin: 0;
+}
+
+html, body {
+    font-family: 'Courier New', monospace;
+}
+
+a, .btn-link {
+}
+
+#app {
+    min-height: 100%;
+    padding: 0px;
+    margin: 0px;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #00ff90;
+}
+
+.btn-primary {
+    color: #ffffff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.content {
+    padding-top: 1.1rem;
+    height: calc(100%);
+}
+
+.valid.modified:not([type=checkbox]) {
+    outline: 1px solid #26b050;
+}
+
+.invalid {
+    outline: 1px solid red;
+}
+
+.validation-message {
+    color: red;
+}
+
+button:focus {
+    outline: none;
+}
+
+#blazor-error-ui {
+    background: lightyellow;
+    bottom: 0;
+    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
+    display: none;
+    left: 0;
+    padding: 0.6rem 1.25rem 0.7rem 1.25rem;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+    #blazor-error-ui .dismiss {
+        cursor: pointer;
+        position: absolute;
+        right: 0.75rem;
+        top: 0.5rem;
+    }
+
+.limit-width{
+    max-width: 1500px;
+    margin: 5px auto;
+}
+
+/*MODALS*/
+
+.modal-parent {
+    min-height: 100px;
+    min-width: 250px;
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.modal-parent input {
+    max-width: 80%;
+}
+
+.modal-parent label {
+    font-weight: bolder;
+}
+
+.modal-parent span {
+    font-weight: bolder;
+    color: #ff0000;
+}
+
+.modal-parent .form-field {
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal-parent button {
+    border: none;
+    padding: 4px 8px;
+    font-size: 30px;
+    background-color: transparent;
+    align-self: end;
+    border-radius: 5px;
+}
+
+.form-submit {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-field button {
+    padding: 0px;
+    font-size: 30px;
+    background-color: #00ff90;
+    align-self: end;
+}
+.form-field  {
+    margin: 5px;
+}
+
+
+    /*OVERVIEW PAGES*/
+
+    .overview-wrapper {
+    padding: 20px 10px;
+}
+
+.overview-wrapper .heading {
+    width: 100%;
+    flex: auto;
+    flex-direction: row;
+    display: inline-flex;
+    justify-content: space-between;
+    vertical-align: central;
+}
+
+
+.overview-wrapper .heading h1 {
+    font-weight: bolder;
+    font-size: 60px;
+}
+
+.overview-wrapper .heading button {
+    height: min-content;
+    vertical-align: middle;
+    font-weight: bolder;
+    border-radius: 4px;
+    background-color: #00ff90;
+    border: none;
+    color: #000000;
+}
+
+.overview-wrapper .heading button span {
+    font-size: 28px;
+}
+
+.overview-wrapper .heading button:hover {
+    color: #ffffff;
+}
+
+.overview-list {
+    margin-top: 20px;
+    scroll-behavior: smooth;
+    max-height: 500px;
+    animation: 1s ease-out 0s 1 slideInFromTop;
+}
+
+.overview-list ul {
+    padding: 10px 0px;
+    list-style: none;
+}
+
+.overview-list li {
+    border-top: 1px solid #000000;
+    padding: 10px 0px;
+}
+
+.overview-list a {
+    color: #000000;
+}
+
+.overview-list a:hover {
+    color: #00ff90;
+    transition: 1s;
+}
+
+.overview-name h3 {
+    font-weight: bolder;
+}
+
+.overview-name {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.overview-info {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+/*DETAIL PAGES*/
+
+.divider {
+    border-bottom: 2px solid #000000;
+}
+
+.detail {
+    margin-top: 30px;
+    padding-right: 10px;
+}
+
+.detail .heading {
+    border-bottom: 3px solid #00ff90;
+    margin: 15px auto;
+}
+
+.detail-info {
+    max-width: 600px;
+    margin: 0px auto;
+}
+
+.detail-info > div {
+    font-weight: bold;
+    width: auto;
+}
+
+.detail-info > div > div {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #000000;
+}
+
+.detail-info > div > div > div {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0px;
+    flex-direction: row;
+}
+
+.detail h3 {
+    font-weight: bolder;
+    margin: auto;
+}
+
+.detail h2 {
+    font-weight: bolder;
+    margin: auto;
+}
+
+.detail h4 {
+    font-weight: bolder;
+}
+
+.detail button:hover {
+    color: #ffffff;
+}
+
+.detail .heading {
+    border-bottom: 3px solid #00ff90;
+    margin: 15px auto;
+    width: 100%;
+    flex: auto;
+    flex-direction: row;
+    display: inline-flex;
+    justify-content: space-between;
+    vertical-align: central;
+}
+
+    .detail .heading h1 {
+        font-weight: bolder;
+        font-size: 60px;
+    }
+
+    .detail .heading div {
+        font-size: 24px;        
+    }
+    .detail .heading div {
+        font-size: 24px;        
+    }
+
+.detail button {
+    height: min-content;
+    vertical-align: middle;
+    font-weight: bolder;
+    border-radius: 4px;
+    background-color: #00ff90;
+    border: none;
+    color: #000000;
+    font-size: 40px;
+    width: 55px;
+    height: 55px;
+}
+
+#delete-btn {
+    padding: 5px;
+    background-color: red;
+    color: #ffffff;
+    border: none;
+    padding: 5px;
+    margin: 0px 0px 5px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bolder;
+    align-self: end;
+}
+
+/*ATE DETAILS*/
+
+.map-container {
+    z-index: 0;
+}
+.map-container > .map-header {
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+    .map-container button {
+        font-size: 32px;
+    }
+#map-wrapper {
+    height: 600px;
+}
+
+.ate .heading .trip-button {
+    width: auto;
+    height: auto;
+    transition: 0.5s
+}
+
+.ate .heading .trip-button:hover {
+    transition: 0.5s
+}
+
+.ate-info {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 5px 0px;
+    flex-direction: row;
+    overflow: hidden;
+    margin: auto 0px;
+}
+
+    .ate-info > div {
+        border: none;
+        min-width: 30%;
+        max-width: 32%;
+        border-radius: 5px;
+        margin: 10px;
+        padding: 20px;
+    }
+
+        .ate-info > div > div {
+            margin: 10px auto;
+            width: 100%;
+            flex: auto;
+            flex-direction: row;
+            display: inline-flex;
+            justify-content: space-between;
+            vertical-align: central;
+        }
+
+            .ate-info > div > div > div {
+                background-color: #ffffff;
+                margin: 10px;
+                padding: 10px;
+                border-radius: 5px;
+                font-weight: bolder;
+                font-size: 20px;
+                text-align: right;
+            }
+
+    .ate-info .item-btn {
+        width: 100%;
+        overflow: inherit;
+        font-size: 12px;
+        background: rgba(255,255,255,.6);
+        transition: 0.5s;
+        margin: 5px 0px;
+        padding: 5px;
+        height: auto;
+    }
+.ate .minimal {
+    margin: 5px 0px;
+}
+
+.ate .map-parts {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 96%
+}
+.ate .map-parts >div {
+    width: 96%;
+    margin: 0px 10px;
+}
+.booking-section {
+    margin-top: 10px;
+    max-width: 1300px; 
+    margin: 0 auto;
+}
+.booking-section .heading {
+    border-bottom: none;
+}
+
+.booking-section .no-booking {
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+    margin: 0px;
+    background-color: #efed8e;
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    color: #ff0082;
+    font-weight: bolder;
+}
+
+.detail-info button {
+    font-size: 30px;
+    display: inline-flex;
+    width: 43px;
+    height: 43px;
+}
+
+@media screen and (max-width: 400px) {
+    .modal-parent {
+        min-width: 90vw;
+        width: 90vw;
+        max-width: 90vw;
+        font-size: 14px;
+    }
+}
+
+    @media screen and (max-width: 600px) {
+        .detail .heading {
+            flex-direction: column;
+        }
+
+        .detail {
+            margin-top: 0px;
+        }
+
+        .modal-parent {
+            min-width: 250px;
+            max-width: 90vw;
+            overflow-x: hidden;
+            word-wrap: break-word;
+        }
+
+        /* ATE details*/
+
+
+        .ate button {
+            width: 100%;
+            margin: 5px 0px;
+        }
+
+        .ate .detail .heading > div {
+            flex-direction: row;
+        }
+
+            .ate .detail .heading > div > div {
+                max-width: 75%;
+            }
+
+        .ate .ate-info {
+            margin: auto 0px;
+        }
+
+            .ate .ate-info > div {
+                margin: 5px;
+                padding: 5px;
+            }
+
+                .ate .ate-info > div > div {
+                    margin: 2px;
+                }
+    }
+
+    @media screen and (max-width: 1000px) {
+        .ate .ate-info {
+            flex-direction: column;
+        }
+
+            .ate .ate-info > div {
+                min-width: 100%;
+            }
+
+        .ate .minimal {
+            margin: 3px;
+        }
+    }
+
+    @media screen and (max-width: 1300px) {
+        .map-parts {
+            flex-direction: column;
+            justify-content: normal;
+        }
+
+            .map-parts > div {
+                width: 96%;
+                min-height: 100px;
+            }
+
+        #map-wrapper {
+            z-index: 996;
+            max-height: 700px;
+            display: block;
+            padding: 0px 60px;
+        }
+    }
+
+    @media screen and (min-width: 1300px) {
+        .ate .map-parts {
+            flex-direction: row;
+            min-height: 700px;
+            width: 96%;
+        }
+
+        .ate .ate-info {
+            flex-direction: column;
+            width: 30%;
+            max-height: 700px;
+            margin: auto 0px;
+        }
+
+            .ate .ate-info > div {
+                min-width: 100%;
+                margin: 5px;
+                padding: 5px;
+                font-size-adjust: 0.8;
+            }
+
+                .ate .ate-info > div > div > div {
+                    background-color: #ffffff;
+                    margin: 5px;
+                    padding: 5px;
+                    border-radius: 5px;
+                    font-weight: bolder;
+                    font-size: 18px;
+                    text-align: right;
+                }
+
+        .ate #map-wrapper {
+            max-height: 600px;
+        }
+
+        .ate .limit-width {
+            max-width: 1750px;
+        }
+    }
