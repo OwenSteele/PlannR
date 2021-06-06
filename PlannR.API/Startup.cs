@@ -44,7 +44,8 @@ namespace PlannR.API
             services.AddCors(options =>
             {
                 options.AddPolicy("Production", builder => builder
-                .WithOrigins("https://plannr.azurewebsites.net", 
+                .WithOrigins("https://plannr.azurewebsites.net",
+                "https://owensteele.github.io",
                 "https://plannr-api.azurewebsites.net"));
 
                 options.AddPolicy("Development", builder => builder
