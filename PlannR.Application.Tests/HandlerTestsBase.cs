@@ -15,6 +15,7 @@ namespace PlannR.Application.Tests
             _mockAuthorisationService.Setup(x => x.CanAccessEntity(It.IsAny<T>())).Returns(true);
             _mockAuthorisationService.Setup(x => x.CanAccessEntity(It.IsAny<T>(), It.IsAny<bool>())).Returns(true);
             _mockAuthorisationService.Setup(x => x.CanCreateEntity()).Returns(true);
+            _mockAuthorisationService.Setup(x => x.CanAlterEntity(It.IsAny<T>())).Returns(true);
             _mockAuthorisationService.Setup(x => x.RemoveInAccessibleEntities(It.IsAny<ICollection<T>>())).Returns(
                 (ICollection<T> collection) =>
                 {
