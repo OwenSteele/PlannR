@@ -27,7 +27,7 @@ namespace PlannR.App.Pages.Account
         {
             var response = await AuthenticationDataService.Authenticate(LoginViewModel);
 
-            if (response) NavigationManager.NavigateTo("/account");
+            if (response) NavigationManager.NavigateTo("account");
             else Message = "Error on log in - Please ensure details are correct";
         }
         protected void HandleInvalidSubmit()

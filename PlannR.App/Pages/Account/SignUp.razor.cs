@@ -26,7 +26,7 @@ namespace PlannR.App.Pages.Account
         {
             var response = await AuthenticationDataService.Register(RegisterViewModel);
 
-            if (response) NavigationManager.NavigateTo("/account");
+            if (response) NavigationManager.NavigateTo("account");
             else Message = "Error on trying to register.";
         }
         protected void HandleInvalidSubmit()

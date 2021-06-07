@@ -21,7 +21,7 @@
                 @foreach (var transport in Transports)
                 {
                     <li>
-                        <a href="@($"/transports/{transport.TransportId}")">
+                        <a href="@($"transports/{transport.TransportId}")">
                             <div class="overview-name">
                                 <h3>@transport.Name</h3>
                                 <span><strong>@transport.StartDateTime.ToShortDateString()</strong> - <strong>@transport.EndDateTime.ToShortDateString()</strong></span>

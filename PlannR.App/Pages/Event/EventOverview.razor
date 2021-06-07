@@ -21,7 +21,7 @@
                 @foreach (var ev in Events)
                 {
                     <li>
-                        <a href="@($"/events/{ev.EventId}")">
+                        <a href="@($"events/{ev.EventId}")">
                             <div class="overview-name">
                                 <h3>@ev.Name</h3>
                                 <span><strong>@ev.StartDateTime.ToShortDateString()</strong> - <strong>@ev.EndDateTime.ToShortDateString()</strong></span>

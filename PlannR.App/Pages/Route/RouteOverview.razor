@@ -21,7 +21,7 @@
                 @foreach (var route in Routes)
                 {
                     <li>
-                        <a href="@($"/routes/{route.RouteId}")">
+                        <a href="@($"routes/{route.RouteId}")">
                             <div class="overview-name">
                                 <h3>@route.Name</h3>
                                 <span><strong>@route.StartDateTime.ToShortDateString()</strong> - <strong>@route.EndDateTime.ToShortDateString()</strong></span>

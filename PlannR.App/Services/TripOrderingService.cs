@@ -24,7 +24,7 @@ namespace PlannR.App.Services
                     EndDateTime = accom.EndDateTime,
                     StartLocationName = accom.Location?.Name,
                     StartCoordinates = (accom.Location?.Longitude, accom.Location?.Latitude),
-                    Uri = $"/accomodations/{accom.AccomodationId}",
+                    Uri = $"accomodations/{accom.AccomodationId}",
                     CssClass = "accom"
                 });
             }
@@ -40,7 +40,7 @@ namespace PlannR.App.Services
                     StartCoordinates = (transport.StartLocation?.Longitude, transport.StartLocation?.Latitude),
                     EndLocationName = transport.EndLocation?.Name,
                     EndCoordinates = (transport.EndLocation?.Longitude, transport.EndLocation?.Latitude),
-                    Uri = $"/transports/{transport.TransportId}",
+                    Uri = $"transports/{transport.TransportId}",
                     CssClass = "transport"
                 });
             }
@@ -54,7 +54,7 @@ namespace PlannR.App.Services
                     EndDateTime = ev.EndDateTime,
                     StartLocationName = ev.CompanyName,
                     StartCoordinates = (ev.Location?.Longitude, ev.Location?.Latitude),
-                    Uri = $"/events/{ev.EventId}",
+                    Uri = $"events/{ev.EventId}",
                     CssClass = "events"
                 });
             }
@@ -66,7 +66,7 @@ namespace PlannR.App.Services
                     Type = "Route",
                     StartDateTime = route.StartDateTime,
                     EndDateTime = route.EndDateTime,
-                    Uri = $"/routes/{route.RouteId}",
+                    Uri = $"routes/{route.RouteId}",
                     CssClass = "routes"
                 });
             }
