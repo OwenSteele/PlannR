@@ -287,21 +287,8 @@ button[b-uwd547yp8v] {
     border: 2px solid black;
 }
 
-.header[b-uwd547yp8v] {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    flex-direction: row;
-    margin: 0px;
-    justify-content: space-between;
-    background-image: url("..\images\index-bg.jpg");
-    background-color: darkslategray;
-    background-size: cover;
-    padding: 9rem 4rem;
-    margin-bottom: 0.5rem;
-    background-position: center;
-}
-.header > div[b-uwd547yp8v] {
+
+.home-header > div[b-uwd547yp8v] {
     margin: auto;
     transform: translateY(200px);
     animation: header-container-b-uwd547yp8v 2s ease forwards;
@@ -315,9 +302,9 @@ button[b-uwd547yp8v] {
     margin: 15px auto;
 }
 
-.header img[b-uwd547yp8v] {
-    min-width:100px;
-    min-height: 100px;
+.home-header img[b-uwd547yp8v] {
+    max-width: 100px;
+    max-height: 100px;
     margin: auto;
 }
 
@@ -449,17 +436,8 @@ ul[b-uwd547yp8v] {
     z-index: -2;
 }
 
-.divider[b-uwd547yp8v] {
-    background-image: url("..\images\index-divider.jpg");
-    min-height: 250px;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin: 20px 0px;
-    display: flex;
-}
-.divider > div[b-uwd547yp8v] {
+
+.home-divider > div[b-uwd547yp8v] {
     margin: auto;
 }
 
@@ -505,7 +483,7 @@ ul[b-uwd547yp8v] {
 }
 
     @media screen and (max-width:1000px) {
-        .header[b-uwd547yp8v] {
+        .home-header[b-uwd547yp8v] {
             align-content: center;
             margin: 10px 0px;
             text-align: center;
@@ -551,7 +529,7 @@ ul[b-uwd547yp8v] {
             transform: translateX(0%);
         }
 
-        .divider[b-uwd547yp8v] {
+        .home-divider[b-uwd547yp8v] {
             min-height: 150px;
             margin: 10px 0px;
         }
