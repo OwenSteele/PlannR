@@ -1066,7 +1066,7 @@ h1[b-l212vi820h] {
     flex-direction: column;
     justify-content: space-evenly;
     vertical-align: central;
-    padding: 0px;
+    padding: 0px 0px 10px;
     text-align: center;
 }
 
@@ -1077,11 +1077,11 @@ h1[b-l212vi820h] {
     margin: auto;
 }
 
-.name[b-8rj2bvb1x7] {
+#footer-name a[b-8rj2bvb1x7] {
     font-size: 18px;
     font-weight: bolder;
     color: #00ff90;
-    text-align:center;
+    text-align: center;
 }
 
 .footer-wrapper a[b-8rj2bvb1x7] {
