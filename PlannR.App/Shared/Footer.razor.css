@@ -74,10 +74,11 @@
         flex-direction: column;
         padding: 10px;
     }
-    .footer-wrapper ul {
-        text-align: center;
-        margin: 0px;
-    }
+        .footer-wrapper ul {
+            text-align: center;
+            margin: 0px;
+            padding: 0px;
+        }
         .footer-wrapper li {
             padding-bottom: 5px;
         }

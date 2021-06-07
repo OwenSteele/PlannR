@@ -107,13 +107,13 @@ button:focus {
     width: min-content;
     background-color: #ffffff;
     border-radius: 50%;
-    padding: 50px;
+    padding: 50px 60px;
     margin: 15px auto;
 }
 
 .app-loading img {
-    max-width: 100px;
-    max-height: 100px;
+    width: 80px;
+    height: 100px;
     margin: auto;
 }
 
@@ -158,94 +158,94 @@ button:focus {
 }
 
 .blob.red {
-    background: rgba(255, 82, 82, 1);
-    box-shadow: 0 0 0 0 rgba(255, 82, 82, 1);
+    background: rgba(254,169,169, 1);
+    box-shadow: 0 0 0 0 rgba(254,169,169, 1);
     animation: pulse-red 0.5s infinite;
 }
 
 @keyframes pulse-red {
     0% {
         transform: scale(0.95);
-        box-shadow: 0 0 0 0 rgba(255, 82, 82, 0.7);
+        box-shadow: 0 0 0 0 rgba(254,169,169, 0.7);
     }
 
     70% {
         transform: scale(1);
-        box-shadow: 0 0 0 10px rgba(255, 82, 82, 0);
+        box-shadow: 0 0 0 10px rgba(254,169,169, 0);
     }
 
     100% {
         transform: scale(0.95);
-        box-shadow: 0 0 0 0 rgba(255, 82, 82, 0);
+        box-shadow: 0 0 0 0 rgba(254,169,169, 0);
     }
 }
 
 .blob.yellow {
-    background: rgba(255, 177, 66, 1);
-    box-shadow: 0 0 0 0 rgba(255, 177, 66, 1);
+    background: rgba(253,255,186, 1);
+    box-shadow: 0 0 0 0 rgba(253,255,186, 1);
     animation: pulse-yellow 1s infinite;
 }
 
 @keyframes pulse-yellow {
     0% {
         transform: scale(0.95);
-        box-shadow: 0 0 0 0 rgba(255, 177, 66, 0.7);
+        box-shadow: 0 0 0 0 rgba(253,255,186, 0.7);
     }
 
     70% {
         transform: scale(1);
-        box-shadow: 0 0 0 10px rgba(255, 177, 66, 0);
+        box-shadow: 0 0 0 10px rgba(253,255,186, 0);
     }
 
     100% {
         transform: scale(0.95);
-        box-shadow: 0 0 0 0 rgba(255, 177, 66, 0);
+        box-shadow: 0 0 0 0 rgba(253,255,186, 0);
     }
 }
 
 .blob.blue {
-    background: rgba(52, 172, 224, 1);
-    box-shadow: 0 0 0 0 rgba(52, 172, 224, 1);
+    background: rgba(193,243,253, 1);
+    box-shadow: 0 0 0 0 rgba(193,243,253, 1);
     animation: pulse-blue 1.5s infinite;
 }
 
 @keyframes pulse-blue {
     0% {
         transform: scale(0.95);
-        box-shadow: 0 0 0 0 rgba(52, 172, 224, 0.7);
+        box-shadow: 0 0 0 0 rgba(193,243,253, 0.7);
     }
 
     70% {
         transform: scale(1);
-        box-shadow: 0 0 0 10px rgba(52, 172, 224, 0);
+        box-shadow: 0 0 0 10px rgba(193,243,253, 0);
     }
 
     100% {
         transform: scale(0.95);
-        box-shadow: 0 0 0 0 rgba(52, 172, 224, 0);
+        box-shadow: 0 0 0 0 rgba(193,243,253, 0);
     }
 }
 
 .blob.green {
-    background: rgba(51, 217, 178, 1);
-    box-shadow: 0 0 0 0 rgba(51, 217, 178, 1);
+    background: rgba(223,253,192, 1);
+    box-shadow: 0 0 0 0 rgba(223,253,192, 1);
     animation: pulse-green 2s infinite;
 }
 
 @keyframes pulse-green {
     0% {
         transform: scale(0.95);
-        box-shadow: 0 0 0 0 rgba(51, 217, 178, 0.7);
+        box-shadow: 0 0 0 0 rgba(223,253,192, 0.7);
     }
 
     70% {
         transform: scale(1);
-        box-shadow: 0 0 0 10px rgba(51, 217, 178, 0);
+        box-shadow: 0 0 0 10px rgba(223,253,192, 0);
     }
 
     100% {
         transform: scale(0.95);
-        box-shadow: 0 0 0 0 rgba(51, 217, 178, 0);
+        box-shadow: 0 0 0 0 rgba(223,253,192, 0);
     }
 }
 
@@ -634,6 +634,25 @@ button:focus {
     height: 43px;
 }
 
+@media screen and (max-width: 370px) {
+    .app-loading {
+        padding: 0;
+    }
+    .app-loading > div {
+        margin: auto;
+        width: auto;
+    }
+    .app-loading .loading-text {
+        font-size: 20px;
+        padding: 20px;
+        margin: 5px auto;
+    }
+    .app-loading .loading-logo {
+        padding: 25px 35px;
+        margin: 5px auto;
+    }
+}
+
 @media screen and (max-width: 400px) {
     .modal-parent {
         min-width: 90vw;
@@ -651,6 +670,7 @@ button:focus {
         }
         .overview-wrapper .heading {
             flex-direction: column;
+        }
         
         .detail .heading {
             flex-direction: column;
