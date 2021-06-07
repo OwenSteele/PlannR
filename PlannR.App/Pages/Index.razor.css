@@ -2,21 +2,8 @@
     border: 2px solid black;
 }
 
-.header {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    flex-direction: row;
-    margin: 0px;
-    justify-content: space-between;
-    background-image: url("..\images\index-bg.jpg");
-    background-color: darkslategray;
-    background-size: cover;
-    padding: 9rem 4rem;
-    margin-bottom: 0.5rem;
-    background-position: center;
-}
-.header > div {
+
+.home-header > div {
     margin: auto;
     transform: translateY(200px);
     animation: header-container 2s ease forwards;
@@ -30,9 +17,9 @@
     margin: 15px auto;
 }
 
-.header img {
-    min-width:100px;
-    min-height: 100px;
+.home-header img {
+    max-width: 100px;
+    max-height: 100px;
     margin: auto;
 }
 
@@ -164,17 +151,8 @@ ul {
     z-index: -2;
 }
 
-.divider {
-    background-image: url("..\images\index-divider.jpg");
-    min-height: 250px;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin: 20px 0px;
-    display: flex;
-}
-.divider > div {
+
+.home-divider > div {
     margin: auto;
 }
 
@@ -220,7 +198,7 @@ ul {
 }
 
     @media screen and (max-width:1000px) {
-        .header {
+        .home-header {
             align-content: center;
             margin: 10px 0px;
             text-align: center;
@@ -266,7 +244,7 @@ ul {
             transform: translateX(0%);
         }
 
-        .divider {
+        .home-divider {
             min-height: 150px;
             margin: 10px 0px;
         }
