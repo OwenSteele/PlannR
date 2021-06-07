@@ -9,7 +9,7 @@
     flex-direction: row;
     margin: 0px;
     justify-content: space-between;
-    background-image: url("../images/index-bg.jpg");
+    background-image: url("..\images\index-bg.jpg");
     background-color: darkslategray;
     background-size: cover;
     padding: 9rem 4rem;
@@ -30,7 +30,7 @@
     margin: 15px auto;
 }
 
-.header  img {
+.header img {
     min-width:100px;
     min-height: 100px;
     margin: auto;
@@ -165,7 +165,7 @@ ul {
 }
 
 .divider {
-    background-image: url("../images/index-divider.jpg");
+    background-image: url("..\images\index-divider.jpg");
     min-height: 250px;
     background-attachment: fixed;
     background-position: center;
