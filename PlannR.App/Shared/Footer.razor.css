@@ -24,7 +24,7 @@
     flex-direction: column;
     justify-content: space-evenly;
     vertical-align: central;
-    padding: 0px;
+    padding: 0px 0px 10px;
     text-align: center;
 }
 
@@ -35,11 +35,11 @@
     margin: auto;
 }
 
-.name {
+#footer-name a {
     font-size: 18px;
     font-weight: bolder;
     color: #00ff90;
-    text-align:center;
+    text-align: center;
 }
 
 .footer-wrapper a {

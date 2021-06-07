@@ -144,6 +144,7 @@ button:focus {
 .overview-wrapper .heading h1 {
     font-weight: bolder;
     font-size: 60px;
+    word-wrap: break-word;
 }
 
 .overview-wrapper .heading button {
@@ -440,6 +441,14 @@ button:focus {
 }
 
     @media screen and (max-width: 600px) {
+
+        .overview-wrapper .heading h1 {
+            font-weight: bolder;
+            font-size: 36px;
+        }
+        .overview-wrapper .heading {
+            flex-direction: column;
+        
         .detail .heading {
             flex-direction: column;
         }

@@ -14,27 +14,29 @@
             }
             else
             {
-                <EditForm Model="@ExistingLocationId" OnValidSubmit="HandleExistingSubmit">
-                    <div class="form-field">
-                        <label for="type">Select a location</label>
-                        <InputSelect id="type" @bind-Value="@ExistingLocationId"
-                                     placeholder="-- pick --">
-                            @foreach (var location in ExistingLocations)
-                                        {
-                                <option class="location-option" value="@location.LocationId">@location.Name (&#128204; @location.Latitude&#176; @location.Longitude&#176;) @location.Address</option>
-                                        }
-                        </InputSelect>
-                    </div>
-                    <div class="form-submit">
-                        <button type="submit"><strong>&#128190;</strong></button>
-                    </div>
-                </EditForm>
-                @if (ExistingLocationId != Guid.Empty)
-                {
-                    <div>
-                        <button type="button" id="delete-btn" @onclick="(() => DeleteItem(ExistingLocationId))">Delete</button>
-                    </div>
-                }
+<EditForm Model="@ExistingLocationId" OnValidSubmit="HandleExistingSubmit">
+    <div class="form-field">
+        <label for="type">Select a location</label>
+        <InputSelect id="type" @bind-Value="@ExistingLocationId"
+                     placeholder="-- pick --">
+            @foreach (var location in ExistingLocations)
+                        {
+                <option class="location-option" value="@location.LocationId">@location.Name (&#128204; @location.Latitude&#176; @location.Longitude&#176;) @location.Address</option>
+                        }
+        </InputSelect>
+    </div>
+    <div class="form-field">
+        <div class="form-submit">
+            <button type="submit"><strong>&#128190;</strong></button>
+        </div>
+        @if (ExistingLocationId != Guid.Empty)
+        {
+            <div>
+                <button type="button" id="delete-btn" @onclick="(() => DeleteItem(ExistingLocationId))">Delete</button>
+            </div>
+        }
+    </div>
+</EditForm>
             }
 
         }
