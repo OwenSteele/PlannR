@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 using PlannR.App.Components;
 using PlannR.App.Infrastructure.Contracts;
+using PlannR.App.Infrastructure.Contracts.View;
 using PlannR.App.Infrastructure.Services.Base;
 using PlannR.App.Infrastructure.ViewModels.Locations;
 using PlannR.ComponentLibrary.Map;
@@ -23,6 +24,8 @@ namespace PlannR.App.Pages.Modals
         public ILocationDataService LocationDataService { get; set; }
         [Inject]
         IJSRuntime JSRuntime { get; set; }
+        [Inject]
+        IMapService MapService { get; set; }
 
         [Parameter]
         public EditLocationViewModel EditLocationViewModel { get; set; }
@@ -83,17 +86,25 @@ namespace PlannR.App.Pages.Modals
 
         protected async Task HandleValidSubmit()
         {
+            Guid? data = null;
+
             if (EditLocationViewModel.LocationId == Guid.Empty)
             {
                 var result = await CreateLocationAsync();
 
-                await ModalInstance.CloseAsync(ModalResult.Ok(result));
+                data = result;
             }
             else
             {
                 await EditLocationAsync();
+            }
 
-                await ModalInstance.CloseAsync();
+            if (Submitted)
+            {
+                if (data.HasValue)
+                    await ModalInstance.CloseAsync(ModalResult.Ok(data.Value));
+
+                else await ModalInstance.CloseAsync();
             }
         }
 
@@ -145,17 +156,11 @@ namespace PlannR.App.Pages.Modals
         public async Task SetMarker()
         {
             var result = await JSRuntime.InvokeAsync<string>("deliveryMap.getCurrentMarkerLocation");
-            var coords = result.Split(' ');
 
-            if (!double.TryParse(coords[0], NumberStyles.Any & (~NumberStyles.AllowCurrencySymbol),CultureInfo.CurrentCulture, out double latValue))
-            {
-                EditLocationViewModel.Latitude = latValue;
-            }
-
-            if (!double.TryParse(coords[1], NumberStyles.Any & (~NumberStyles.AllowCurrencySymbol), CultureInfo.CurrentCulture, out double longValue))
-            {
-                EditLocationViewModel.Longitude = longValue;
-            }
+            var coords = MapService.ParseCoordinates(result);
+            
+            EditLocationViewModel.Longitude = coords.Item1;
+            EditLocationViewModel.Latitude = coords.Item2;
         }
         private async Task DeleteItem(Guid? otherLocationId = null)
         {

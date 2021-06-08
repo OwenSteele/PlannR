@@ -137,12 +137,12 @@ button:focus {
         background: white;
         height: auto;
         box-shadow: 0 0 0 0 rgba(255, 255, 255, 1);
-        animation: pulse-white 0.5s infinite;
+        animation: pulse-white 1s infinite;
     }
 
 @keyframes pulse-white {
     0% {
-        transform: scale(0.95);
+        transform: scale(0.7);
         box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
     }
 
@@ -152,7 +152,7 @@ button:focus {
     }
 
     100% {
-        transform: scale(0.95);
+        transform: scale(0.8);
         box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
     }
 }
@@ -160,12 +160,12 @@ button:focus {
 .blob.red {
     background: rgba(254,169,169, 1);
     box-shadow: 0 0 0 0 rgba(254,169,169, 1);
-    animation: pulse-red 0.5s infinite;
+    animation: pulse-red 1s infinite;
 }
 
 @keyframes pulse-red {
     0% {
-        transform: scale(0.95);
+        transform: scale(0.9);
         box-shadow: 0 0 0 0 rgba(254,169,169, 0.7);
     }
 
@@ -175,7 +175,7 @@ button:focus {
     }
 
     100% {
-        transform: scale(0.95);
+        transform: scale(0.9);
         box-shadow: 0 0 0 0 rgba(254,169,169, 0);
     }
 }
@@ -188,7 +188,7 @@ button:focus {
 
 @keyframes pulse-yellow {
     0% {
-        transform: scale(0.95);
+        transform: scale(0.9);
         box-shadow: 0 0 0 0 rgba(253,255,186, 0.7);
     }
 
@@ -198,7 +198,7 @@ button:focus {
     }
 
     100% {
-        transform: scale(0.95);
+        transform: scale(0.9);
         box-shadow: 0 0 0 0 rgba(253,255,186, 0);
     }
 }
@@ -206,12 +206,12 @@ button:focus {
 .blob.blue {
     background: rgba(193,243,253, 1);
     box-shadow: 0 0 0 0 rgba(193,243,253, 1);
-    animation: pulse-blue 1.5s infinite;
+    animation: pulse-blue 1s infinite;
 }
 
 @keyframes pulse-blue {
     0% {
-        transform: scale(0.95);
+        transform: scale(0.9);
         box-shadow: 0 0 0 0 rgba(193,243,253, 0.7);
     }
 
@@ -221,7 +221,7 @@ button:focus {
     }
 
     100% {
-        transform: scale(0.95);
+        transform: scale(0.9);
         box-shadow: 0 0 0 0 rgba(193,243,253, 0);
     }
 }
@@ -229,12 +229,12 @@ button:focus {
 .blob.green {
     background: rgba(223,253,192, 1);
     box-shadow: 0 0 0 0 rgba(223,253,192, 1);
-    animation: pulse-green 2s infinite;
+    animation: pulse-green 1s infinite;
 }
 
 @keyframes pulse-green {
     0% {
-        transform: scale(0.95);
+        transform: scale(0.9);
         box-shadow: 0 0 0 0 rgba(223,253,192, 0.7);
     }
 
@@ -244,7 +244,7 @@ button:focus {
     }
 
     100% {
-        transform: scale(0.95);
+        transform: scale(0.9);
         box-shadow: 0 0 0 0 rgba(223,253,192, 0);
     }
 }

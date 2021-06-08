@@ -55,8 +55,8 @@ span {
     border-bottom: 16px solid rgba(254,169,169, 1);
     border-left: 16px solid rgba(253,255,186, 1);
     border-radius: 50%;
-    width: 23px;
-    height: 23px;
+    width: 40px;
+    height: 40px;
     animation: spin 2s linear infinite;
 }
 
