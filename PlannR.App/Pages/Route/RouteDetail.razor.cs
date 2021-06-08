@@ -43,6 +43,10 @@ namespace PlannR.App.Pages.Route
         {
             NavigationManager.NavigateTo($"{uri}");
         }
+        protected void NavigateToEvent(Guid eventId)
+        {
+            NavigationManager.NavigateTo($"events/{eventId}");
+        }
         private async Task ShowEditRouteModal()
         {
             var points = new List<Guid>();
@@ -73,9 +77,10 @@ namespace PlannR.App.Pages.Route
             if (result.Data != null)
             {
                 Route = await RouteDataService.GetRouteByIdAsync(_RouteId);
-
-                StateHasChanged();
             }
+
+            StateHasChanged();
+
             SetMapPoints();
         }
         private void SetMapPoints()

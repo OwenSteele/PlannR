@@ -21,3 +21,30 @@
 .no-points-wrapper {
     height: 30vh;
 }
+
+.route-plan {
+    max-height: inherit;
+    overflow-y: auto;
+}
+
+.route-plan > div {
+    margin: 5px 0px;
+    padding: 5px;
+    background-color: #fea9a9;
+}
+
+#point-title {
+    background-color: #fea9a9;
+    text-align:left;
+}
+
+#point-title h4 {
+    margin: 0px;
+    padding: 1px;
+    text-align: left;
+}
+
+#point-coords p {
+    margin: 0px;
+    padding: 1px;
+}

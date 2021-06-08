@@ -23,17 +23,17 @@
         {
             <div class="detail-info">
                 <div class="one">
-                        <div>
-                            <div>Location:</div>
-                            <div class="val">@(Route.Points?.FirstOrDefault()?.Location?.Name ?? "No Location Set")</div>
-                        </div>
+                    <div>
+                        <div>Location:</div>
+                        <div class="val">@(Route.Points?.FirstOrDefault()?.Location?.Name ?? "No Location Set")</div>
                     </div>
-                    <div class="two">
-                        <div>
-                            <div>Location:</div>
-                            <div class="val">@(Route.Points?.LastOrDefault()?.Location?.Name ?? "No Location Set")</div>
-                        </div>
+                </div>
+                <div class="two">
+                    <div>
+                        <div>Location:</div>
+                        <div class="val">@(Route.Points?.LastOrDefault()?.Location?.Name ?? "No Location Set")</div>
                     </div>
+                </div>
             </div>
         }
 
@@ -59,6 +59,34 @@
                             (@Route.EndDateTime.ToShortTimeString())
                         </div>
                     </div>
+                </div>
+                <div class="route-plan">
+                    @for (int i = 1; i <= Route.Points.Count; i++)
+                    {
+                        var point = Route.Points.ElementAt(i - 1);
+                    <div>
+                        <div id="point-title">
+                            <h4>@i. @point.Location.Name</h4>
+                        </div>
+                        <div id="point-coords">
+                            <p >(@Math.Round(point.Location.Latitude, 3)° @Math.Round(point.Location.Longitude, 3)°)</p>
+                        </div>
+                        <div class="part-info">
+                            <p>
+                                <span>&#128197;</span>
+                                <strong>@point.StartDateTime.ToString("dd MMMM HH:mm")</strong> to
+                                <strong>@point.EndDateTime.ToString("dd MMMM HH:mm")</strong>
+                            </p>
+                            <p>
+                                @if (point.AssociatedEventId.HasValue)
+                                {
+                                    <span>&#127881; Event:</span>
+                                    <button class="part-btn" @onclick="(() => NavigateToEvent(point.AssociatedEventId.Value))" />
+                                }
+                            </p>
+                        </div>
+                    </div>
+                    }
                 </div>
             </div>
             <div class="map-container">
@@ -86,8 +114,6 @@
                 }
             </div>
         </div>
-        <div class="route-plan">
 
-        </div>
     }
 </div>
