@@ -28,7 +28,15 @@
                 <ValidationMessage For="@(() => LoginViewModel.Password)" />
             </div>
         </div>
+        @if (Submitted)
+        {
+            <div class="@LoginButtonCssClass">
+            </div>
+        }
+        else
+        {
+            <button type="submit"><strong>Login</strong></button>
 
-        <button type="submit"><strong>Login</strong></button>
+        }
     </EditForm>
 </div>

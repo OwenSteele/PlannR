@@ -39,7 +39,15 @@ namespace PlannR.App.Shared
         {
             StateHasChanged();
             AuthenticationService.Logout();
-            NavigationManager.NavigateTo("/");
+
+            if (NavigationManager.BaseUri.Contains("PlannR"))
+            {
+                NavigationManager.NavigateTo("/PlannR/");
+            }
+            else
+            {
+                NavigationManager.NavigateTo("/");
+            }
         }
     }
 }

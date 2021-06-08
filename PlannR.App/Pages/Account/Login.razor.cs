@@ -14,6 +14,9 @@ namespace PlannR.App.Pages.Account
         [Parameter]
         public string Redirected { get; set; } = null;
         public AuthenticateViewModel LoginViewModel { get; set; }
+        public string LoginButtonCssClass { get; set; } = "";
+
+        public bool Submitted { get; set; } = false;
 
         public string Message { get; set; }
         protected override void OnInitialized()
@@ -25,6 +28,10 @@ namespace PlannR.App.Pages.Account
 
         protected async Task HandleValidSubmit()
         {
+            Submitted = true;
+
+            LoginButtonCssClass = "loader";
+
             var response = await AuthenticationDataService.Authenticate(LoginViewModel);
 
             if (response) NavigationManager.NavigateTo("account");
