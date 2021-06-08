@@ -220,10 +220,6 @@
     .dates-locations > div {
         flex-direction: column;
     }
-
-    .trip-section{
-
-    }
     .map-parts > div {
         width: 96%;
     }

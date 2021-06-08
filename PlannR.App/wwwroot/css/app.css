@@ -651,6 +651,12 @@ button:focus {
         padding: 25px 35px;
         margin: 5px auto;
     }
+    #map-wrapper {
+        height: 200px;
+    }
+    .ate .map-parts {
+        min-height: 480px;
+    }
 }
 
 @media screen and (max-width: 400px) {
@@ -659,6 +665,12 @@ button:focus {
         width: 90vw;
         max-width: 90vw;
         font-size: 14px;
+    }
+    #map-wrapper {
+        height: 250px;
+    }
+    .ate .map-parts {
+        min-height: 520px;
     }
 }
 
@@ -685,6 +697,10 @@ button:focus {
             max-width: 90vw;
             overflow-x: hidden;
             word-wrap: break-word;
+        }
+
+        #map-wrapper {
+            height: 400px;
         }
 
         /* ATE details*/
