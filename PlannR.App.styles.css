@@ -748,6 +748,33 @@ h1[b-l212vi820h] {
 .no-points-wrapper[b-4i30g0x2f1] {
     height: 30vh;
 }
+
+.route-plan[b-4i30g0x2f1] {
+    max-height: inherit;
+    overflow-y: auto;
+}
+
+.route-plan > div[b-4i30g0x2f1] {
+    margin: 5px 0px;
+    padding: 5px;
+    background-color: #fea9a9;
+}
+
+#point-title[b-4i30g0x2f1] {
+    background-color: #fea9a9;
+    text-align:left;
+}
+
+#point-title h4[b-4i30g0x2f1] {
+    margin: 0px;
+    padding: 1px;
+    text-align: left;
+}
+
+#point-coords p[b-4i30g0x2f1] {
+    margin: 0px;
+    padding: 1px;
+}
 /* /Pages/Transport/TransportDetail.razor.rz.scp.css */
 .dates-times[b-o7kfknfwmj] {
     background-color: #fea9a9;
