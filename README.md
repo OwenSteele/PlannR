@@ -1,12 +1,14 @@
-# PlannR
+# PlannR 
 
 [![PlannR-CI](https://github.com/OwenSteele/PlannR/actions/workflows/dotnet.yml/badge.svg)](https://github.com/OwenSteele/PlannR/actions/workflows/dotnet.yml)
 
-[![gh-pages](https://github.com/OwenSteele/PlannR/actions/workflows/publish.yml/badge.svg)](https://owensteele.github.io/PlannR/)
+## [![gh-pages](https://github.com/OwenSteele/PlannR/actions/workflows/publish.yml/badge.svg)](https://owensteele.github.io/PlannR/) **:point_left: click to see PlannR website!**
+
+### ```Written and Designed by Owen Steele```
 
 #### *Plan and save all parts of your trips in one place. Blazor ASP.NET Core with Clean Architecture and CQRS linked to EF Core*
 
-## Written and Designed by Owen Steele
+
 
 # :paintbrush: Design and Features
 
@@ -40,8 +42,8 @@ Plannr> $ dotnet restore
 ```
 3. Create the databases from the existing migrations:
      * :warning: This requires mutiple install to build the SQL databases:
-     * 	:link: [EF Core](https://docs.microsoft.com/en-us/ef/core/get-started/overview/install "EF Core install")
-     * 	:link: [Microsoft SQL server](https://www.microsoft.com/en-gb/sql-server/sql-server-downloads "MS SQL server install page")
+         * 	:link: [EF Core](https://docs.microsoft.com/en-us/ef/core/get-started/overview/install "EF Core install")
+         * 	:link: [Microsoft SQL server](https://www.microsoft.com/en-gb/sql-server/sql-server-downloads "MS SQL server install page")
 4. With the required software, navigate to the identity and persistence projects
 ```
 // Starting in the root folder:
@@ -60,7 +62,7 @@ PlannR\PlannR.Persistence> $ dotnet-ef database update -s ..\PlannR.API\PlannR.A
 7. To run PlannR, both the API and the client App need to be running:
 
  * :infinity: If using Visual Studio, right-click on the solution and select 
-    * **properties -> 'Common properties' -> 'Startup Project'
+    * **properties -> 'Common properties' -> 'Startup Project'**
     * then set **PlannR.App** and **Plannr.API** to 'start' actions 
  * :new: Alternatively in two terminal windows:
 ```
@@ -77,8 +79,8 @@ PlannR\PlannR.App> $ dotnet run
 
 # :building_construction: Planned Updates and Features
 
-**As this is a portfolio project some API methods and calls have not yet been implemented for use in the App, but are planned to be added:**
+**As this is a portfolio project some back-end features (API methods and calls, repository calls) have not yet been implemented for use in the App, but are planned to be added:**
 * Sorting and filtering of results in overview pages
-* Higher detail map of areas, using the **wrldeD** package - https://www.wrld3d.com/
+* Higher detail map of areas, using the [**wrld3D** package](https://www.wrld3d.com)
 * Possible addition of refresh tokens, instead of sign-in required after token/session expiry
-* Addition of files from users for bookings - with safety validation checks.
+* Addition of files from users for bookings - [with safety validation checks](https://docs.microsoft.com/en-us/aspnet/core/mvc/models/file-uploads?view=aspnetcore-5.0).
