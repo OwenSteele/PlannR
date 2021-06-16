@@ -304,6 +304,84 @@ span[b-a5l1racko3] {
     justify-content: center;
     flex-direction: column;
 }
+/* /Pages/Home/AboutMe.razor.rz.scp.css */
+.aboutme-wrapper[b-web7da9xjn] {
+    margin: 10% auto;
+    min-height:50vh;
+}
+.aboutme-wrapper h1[b-web7da9xjn] {
+    text-align:center;
+    font-weight: 900;
+}
+.me-section[b-web7da9xjn] {
+    max-width: 80%;
+    display:flex;
+    margin: auto;
+}
+    .me-section > img[b-web7da9xjn] {
+        margin: 10px 0;
+        border-radius: 50%;
+        height: 250px;
+        width: 250px;
+        object-fit: cover;
+        transform: translateX(50%);
+    }
+.me-section > div[b-web7da9xjn] {
+    margin: 10px auto;
+    border: 0.1em solid #000000;
+    padding: 10px 0 10px 170px;
+    font-weight:600;
+}
+
+.me-section p[b-web7da9xjn]{
+    padding: 0 10px;
+    text-align:justify;
+}
+
+.spec-section[b-web7da9xjn] {
+    width:100%;
+    margin: 0 auto;
+}
+    .spec-section h2[b-web7da9xjn] {
+        padding: 10px 0;
+        margin: 20px 0;
+        background: #808080;
+        color: #00ff90;
+        padding-left: 50px;
+    }
+    .spec-section ul[b-web7da9xjn] {
+        margin: 0 auto;
+        padding-left: 50px;
+    }
+    .spec-section li[b-web7da9xjn] {
+        margin: 10px auto;
+        padding: 0 10px;
+    }
+
+@media screen and (max-width: 1500px){
+    .me-section[b-web7da9xjn] {
+        max-width: 95%;
+        padding-left: -100px;
+    }
+}
+@media screen and (max-width: 900px) {
+    .me-section[b-web7da9xjn] {
+        flex-direction: column;
+    }
+        .me-section > img[b-web7da9xjn] {
+            transform: translateY(30%);
+            margin: 0 auto;
+        }
+        .me-section > div[b-web7da9xjn] {
+            margin: 10px auto;
+            border: 0.1em solid #000000;
+            padding: 100px 0 10px;
+            font-weight: 600;
+        }
+        .me-section p[b-web7da9xjn] {
+            font-size: 0.8em;
+        }
+}
 /* /Pages/Index.razor.rz.scp.css */
 button[b-uwd547yp8v] {
     border: 2px solid black;

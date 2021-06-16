@@ -251,6 +251,10 @@ button:focus {
 
 /* HOME INDEX - required to be in global app.css file */
 
+.spacer{
+    min-height: 30vh;
+}
+
 .home-header {
     width: 100%;
     height: 100vh;
