@@ -1,0 +1,77 @@
+﻿.aboutme-wrapper {
+    margin: 10% auto;
+    min-height:50vh;
+}
+.aboutme-wrapper h1 {
+    text-align:center;
+    font-weight: 900;
+}
+.me-section {
+    max-width: 80%;
+    display:flex;
+    margin: auto;
+}
+    .me-section > img {
+        margin: 10px 0;
+        border-radius: 50%;
+        height: 250px;
+        width: 250px;
+        object-fit: cover;
+        transform: translateX(50%);
+    }
+.me-section > div {
+    margin: 10px auto;
+    border: 0.1em solid #000000;
+    padding: 10px 0 10px 170px;
+    font-weight:600;
+}
+
+.me-section p{
+    padding: 0 10px;
+    text-align:justify;
+}
+
+.spec-section {
+    width:100%;
+    margin: 0 auto;
+}
+    .spec-section h2 {
+        padding: 10px 0;
+        margin: 20px 0;
+        background: #808080;
+        color: #00ff90;
+        padding-left: 50px;
+    }
+    .spec-section ul {
+        margin: 0 auto;
+        padding-left: 50px;
+    }
+    .spec-section li {
+        margin: 10px auto;
+        padding: 0 10px;
+    }
+
+@media screen and (max-width: 1500px){
+    .me-section {
+        max-width: 95%;
+        padding-left: -100px;
+    }
+}
+@media screen and (max-width: 900px) {
+    .me-section {
+        flex-direction: column;
+    }
+        .me-section > img {
+            transform: translateY(30%);
+            margin: 0 auto;
+        }
+        .me-section > div {
+            margin: 10px auto;
+            border: 0.1em solid #000000;
+            padding: 100px 0 10px;
+            font-weight: 600;
+        }
+        .me-section p {
+            font-size: 0.8em;
+        }
+}

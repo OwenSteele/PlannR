@@ -22,7 +22,7 @@
         <div class="form-field">
             <div class="inputs">
                 <label for="password">Password</label>
-                <InputText id="password" @bind-Value="@LoginViewModel.Password"></InputText>
+                <InputText id="password" type="password" @bind-Value="@LoginViewModel.Password"></InputText>
             </div>
             <div>
                 <ValidationMessage For="@(() => LoginViewModel.Password)" />
@@ -40,3 +40,4 @@
         }
     </EditForm>
 </div>
+<div class="spacer"></div>

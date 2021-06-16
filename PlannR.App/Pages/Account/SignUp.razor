@@ -33,7 +33,7 @@
         <div class="form-field">
             <div class="inputs">
                 <label for="password">Password <span>*</span></label>
-                <InputText id="password" @bind-Value="@RegisterViewModel.Password"></InputText>
+                <InputText id="password" type="password" @bind-Value="@RegisterViewModel.Password"></InputText>
             </div>
             <div>
                 <ValidationMessage For="@(() => RegisterViewModel.Password)" />
@@ -42,7 +42,7 @@
         <div class="form-field">
             <div class="inputs">
                 <label for="passwordConfirm">Confirm Password <span>*</span></label>
-                <InputText id="passwordConfirm" @bind-Value="@RegisterViewModel.PasswordConfirm"></InputText>
+                <InputText id="passwordConfirm" type="password" @bind-Value="@RegisterViewModel.PasswordConfirm"></InputText>
             </div>
             <div>
                 <ValidationMessage For="@(() => RegisterViewModel.PasswordConfirm)" />
