@@ -37,6 +37,13 @@ namespace PlannR.App.Infrastructure.Authentication
             NotifyAuthenticationStateChanged(authState);
         }
 
+        public void SetGuestAuthenticated()
+        {
+            var authUser = new ClaimsPrincipal(new ClaimsIdentity(new[] { new Claim(ClaimTypes.Name, string.Empty) }, "apiauth"));
+            var authState = Task.FromResult(new AuthenticationState(authUser));
+            NotifyAuthenticationStateChanged(authState);
+        }
+
         public void SetUserLoggedOut()
         {
             var anonUser = new ClaimsPrincipal(new ClaimsIdentity());
@@ -50,6 +57,8 @@ namespace PlannR.App.Infrastructure.Authentication
                 await _localStorage.RemoveItemAsync("token");
                 await _localStorage.RemoveItemAsync("tokenExpiry");
                 await _localStorage.RemoveItemAsync("username");
+
+                SetUserLoggedOut();
             }
             else
             {
@@ -57,7 +66,6 @@ namespace PlannR.App.Infrastructure.Authentication
                 await _localStorage.SetItemAsync("tokenExpiry", expiry);
                 await _localStorage.SetItemAsync("username", username);
             }
-            SetUserLoggedOut();
         }
 
         public async Task<string> GetTokenAsync()
@@ -74,6 +82,8 @@ namespace PlannR.App.Infrastructure.Authentication
 
         private static IEnumerable<Claim> ParseTokenClaims(string jwt)
         {
+            if (string.IsNullOrWhiteSpace(jwt)) return null;
+
             var claims = new List<Claim>();
             var payload = jwt.Split('.')[1];
 

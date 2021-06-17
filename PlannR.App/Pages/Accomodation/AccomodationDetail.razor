@@ -85,26 +85,34 @@
                             </div>
                         }
                     </div>
+                    <div class="minimal">
+                        <h4>
+                            Number of nights:
+                        </h4>
+                        <div>
+                            @Accomodation.Nights
+                        </div>
+                    </div>
+                    <div class="minimal">
+                        <h4>
+                            Rooms:
+                        </h4>
+                        <div>
+                            @Accomodation.Rooms
+                        </div>
+                    </div>
+                    @if (Accomodation.CostPerNight.HasValue)
+                    {
                         <div class="minimal">
                             <h4>
-                                Number of nights:
+                                Total Cost:
                             </h4>
                             <div>
-                                @Accomodation.Nights
+                                £@(Accomodation.CostPerNight * Accomodation.Nights)
                             </div>
                         </div>
-                        @if (Accomodation.CostPerNight.HasValue)
-                        {
-                            <div class="minimal">
-                                <h4>
-                                    Total Cost:
-                                </h4>
-                                <div>
-                                    £@(Accomodation.CostPerNight * Accomodation.Nights)
-                                </div>
-                            </div>
-                        }
-                    </div>
+                    }
+                </div>
             </div>
             <div class="map-container">
                 <div class="map-header">

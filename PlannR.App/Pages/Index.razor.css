@@ -157,6 +157,33 @@ ul {
     margin: auto;
 }
 
+.home-divider button {
+    border: 5px solid #00ff90;
+    animation: pulse-button 3s infinite;
+}
+
+.home-divider button:hover {
+    border: 5px solid #00ff90;
+    animation: none;
+}
+
+@keyframes pulse-button {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(255,255,255, 0.7);
+    }
+
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(255,255,255, 0);
+    }
+
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(255,255,255, 0);
+    }
+}
+
 /* animations */
 
 .come-in {

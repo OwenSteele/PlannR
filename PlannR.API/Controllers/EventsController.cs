@@ -35,7 +35,6 @@ namespace PlannR.API.Controllers
             return Ok(result);
         }
 
-        [Authorize]
         [HttpGet("{id}", Name = "GetEventById")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]

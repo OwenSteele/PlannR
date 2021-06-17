@@ -3,10 +3,20 @@
 
 <div class="heading">
     <div>
-        <h1>Hi, @Username</h1>
+        @if (string.IsNullOrWhiteSpace(Username))
+        {
+        <p>
+            Loading Profile...
+        </p>
+        }
+    
+else
+{
+            <h1>Hi, @Username</h1>
 
-        <p>This is your PlannR account page</p>
+    <p>This is your PlannR account page</p>
 
-        <p>Checkout the Navigation pane to the left, to see your trips!</p>
+    <p>@Info</p>
+}
     </div>
 </div>

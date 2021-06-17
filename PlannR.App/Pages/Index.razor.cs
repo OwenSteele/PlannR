@@ -14,5 +14,9 @@ namespace PlannR.App.Pages
         {
             NavigationManager.NavigateTo("signup");
         }
+        protected void NavigateToGuestlogin()
+        {
+            NavigationManager.NavigateTo("guestlogin");
+        }
     }
 }

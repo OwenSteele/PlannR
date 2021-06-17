@@ -3,9 +3,26 @@
 }
 
 .heading > div {
-    margin-left: 10px;
+    margin: 0 4%;
+    width: 90%;
+    font-size: 1.5em;
+    font-weight: bold;
 }
+
+    .heading p:nth-child(2n+1) {
+        color: #00ba69;
+    }
 
 h1 {
     font-weight: bolder;
+    margin: 2%;
+    border-bottom: 2px solid #00ff90;
+}
+
+@media screen and (max-width: 900px){
+    .heading > div {
+        margin-left: 5px;
+        font-size: 1.2em;
+        font-weight: 500;
+    }
 }

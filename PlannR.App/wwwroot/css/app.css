@@ -142,7 +142,7 @@ button:focus {
 
 @keyframes pulse-white {
     0% {
-        transform: scale(0.7);
+        transform: scale(0.8);
         box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
     }
 
@@ -152,7 +152,7 @@ button:focus {
     }
 
     100% {
-        transform: scale(0.8);
+        transform: scale(0.9);
         box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
     }
 }
@@ -184,6 +184,7 @@ button:focus {
     background: rgba(253,255,186, 1);
     box-shadow: 0 0 0 0 rgba(253,255,186, 1);
     animation: pulse-yellow 1s infinite;
+    animation-delay: 0.1s
 }
 
 @keyframes pulse-yellow {
@@ -207,6 +208,7 @@ button:focus {
     background: rgba(193,243,253, 1);
     box-shadow: 0 0 0 0 rgba(193,243,253, 1);
     animation: pulse-blue 1s infinite;
+    animation-delay: 1s
 }
 
 @keyframes pulse-blue {
@@ -230,6 +232,7 @@ button:focus {
     background: rgba(223,253,192, 1);
     box-shadow: 0 0 0 0 rgba(223,253,192, 1);
     animation: pulse-green 1s infinite;
+    animation-delay: 0.3s
 }
 
 @keyframes pulse-green {

@@ -35,7 +35,6 @@ namespace PlannR.API.Controllers
             return Ok(result);
         }
 
-        [Authorize]
         [HttpGet("{id}", Name = "GetAccomodationById")]
         [ProducesDefaultResponseType]
         [ProducesResponseType(StatusCodes.Status200OK)]

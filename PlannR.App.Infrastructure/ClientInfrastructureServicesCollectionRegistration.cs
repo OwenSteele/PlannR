@@ -1,11 +1,13 @@
 ﻿using Blazored.LocalStorage;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.Extensions.DependencyInjection;
+using PlannR.App.Contracts.Guest;
 using PlannR.App.Infrastructure.Authentication;
 using PlannR.App.Infrastructure.Contracts;
 using PlannR.App.Infrastructure.Contracts.Security;
 using PlannR.App.Infrastructure.Services;
 using PlannR.App.Infrastructure.Services.Base;
+using PlannR.App.Infrastructure.Services.Guest;
 using PlannR.App.Infrastructure.Services.Security;
 using System;
 using System.Net.Http;
@@ -39,6 +41,7 @@ namespace PlannR.App.Infrastructure
 
             services.AddScoped<IClientInputService, ClientInputService>();
 
+            services.AddScoped<IGuestService, GuestService>();
             services.AddScoped<IAuthenticationDataService, AuthenticationDataService>();
 
             services.AddScoped<IAccomodationDataService, AccomodationDataService>();
