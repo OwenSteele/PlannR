@@ -5,18 +5,20 @@
     <div>
         @if (string.IsNullOrWhiteSpace(Username))
         {
-        <p>
-            Loading Profile...
-        </p>
+            <p>
+                Loading Profile...
+            </p>
         }
-    
-else
-{
+
+        else
+        {
             <h1>Hi, @Username</h1>
 
-    <p>This is your PlannR account page</p>
+            <p>This is your PlannR account page</p>
 
-    <p>@Info</p>
-}
+            <p>@Info</p>
+
+            <p>To navigate back to this page, click <strong>PlannR</strong> in the top-right corner.</p>
+        }
     </div>
 </div>

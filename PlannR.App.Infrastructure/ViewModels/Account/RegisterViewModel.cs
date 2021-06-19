@@ -18,6 +18,7 @@ namespace PlannR.App.Infrastructure.ViewModels.Account
         [EmailAddress]
         public string Email { get; set; }
         [Required(ErrorMessage = "This field is required")]
+        [Password]
         public string Password { get; set; }
         [Required(ErrorMessage = "This field is required")]
         [MustMatch("Password", ErrorMessage = "Passwords do not match")]

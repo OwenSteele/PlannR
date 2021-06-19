@@ -47,6 +47,10 @@ span {
 .input-field {
     box-sizing: border-box;
 }
+.home-nav {
+    margin: 20px auto 5px;
+    width: 100%;
+}
 
 .loader {
     border: 10px solid #f3f3f3;

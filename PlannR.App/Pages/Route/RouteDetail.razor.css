@@ -1,8 +1,8 @@
-﻿.dates-times {
+﻿#dates-times {
     background-color: #b9e8eb;
 }
 
-.dates-times > div {
+#dates-times > div {
     margin: auto 0px;
 }
 
@@ -22,12 +22,12 @@
     height: 30vh;
 }
 
-.route-plan {
+#route-plan {
     max-height: inherit;
     overflow-y: auto;
 }
 
-.route-plan > div {
+#route-plan > div {
     margin: 5px 0px;
     padding: 5px;
     background-color: #fea9a9;
@@ -47,4 +47,32 @@
 #point-coords p {
     margin: 0px;
     padding: 1px;
+}
+
+@media screen and (max-width: 1300px){
+    .ate-info {
+        flex-direction: column;
+    }
+    #dates-times {
+        min-width: 100%;
+    }
+    #route-plan {
+        max-height: 500px;
+        min-width: 100%;
+        overflow-y: scroll;
+    }
+    #route-plan > div {
+        margin: 2px 0px;
+        padding: 2px;
+    }
+}
+@media screen and (max-width: 900px) {
+
+    #route-plan > div {
+        display: flex;
+        flex-direction: column;
+        font-size: 0.7rem;
+        margin: 2px;
+        padding: 2px;
+    }
 }

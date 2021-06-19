@@ -90,13 +90,19 @@ namespace PlannR.App.Pages.Route
             var pos = 1;
             foreach (var point in Route.Points)
             {
-                MapPoints.Add(new Marker
+                if (point.Location == null)
+                {
+                    point.Location = new();
+                    continue;
+                }
+
+                 MapPoints.Add(new Marker
                 {
                     Description = $"{pos}. {point.Location.Name} ({point.StartDateTime.ToString("dd MMMMM HH:mm")})",
                     ShowPopup = (pos==1),
                     Y = (point.Location?.Latitude ?? 0),
                     X = (point.Location?.Longitude ?? 0)
-                }); ;
+                });
                 pos++;
             }
         }

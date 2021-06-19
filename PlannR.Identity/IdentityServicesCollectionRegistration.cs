@@ -33,6 +33,14 @@ namespace PlannR.Identity
                 .AddRoleManager<RoleManager<IdentityRole>>()
                 .AddEntityFrameworkStores<PlannrIdentityDbContext>();
 
+            services.Configure<IdentityOptions>(options =>
+            {
+                options.Password.RequireDigit = true;
+                options.Password.RequireLowercase = true;
+                options.Password.RequireUppercase = true;
+                options.Password.RequiredLength = 8;
+            });
+
             services.AddScoped<IAuthenticationService, AuthenticationService>();
 
             services.AddAuthentication(options =>

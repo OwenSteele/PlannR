@@ -39,7 +39,7 @@
 
         <div class="map-parts">
             <div class="ate-info">
-                <div class="dates-times">
+                <div id="dates-times">
                     <div>
                         <h4>
                             Starting Time:
@@ -60,7 +60,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="route-plan">
+                <div id="route-plan">
                     @for (int i = 1; i <= Route.Points.Count; i++)
                     {
                         var point = Route.Points.ElementAt(i - 1);

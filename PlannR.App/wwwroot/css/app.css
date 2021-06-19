@@ -256,6 +256,7 @@ button:focus {
 
 .spacer{
     min-height: 30vh;
+    margin: auto;
 }
 
 .home-header {
