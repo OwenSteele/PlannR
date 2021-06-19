@@ -147,6 +147,10 @@ span[b-a5l1racko3] {
 .input-field[b-a5l1racko3] {
     box-sizing: border-box;
 }
+.home-nav[b-a5l1racko3] {
+    margin: 20px auto 5px;
+    width: 100%;
+}
 
 .loader[b-a5l1racko3] {
     border: 10px solid #f3f3f3;
@@ -847,11 +851,11 @@ h1[b-l212vi820h] {
         font-size: 12px;
     }
 /* /Pages/Route/RouteDetail.razor.rz.scp.css */
-.dates-times[b-4i30g0x2f1] {
+#dates-times[b-4i30g0x2f1] {
     background-color: #b9e8eb;
 }
 
-.dates-times > div[b-4i30g0x2f1] {
+#dates-times > div[b-4i30g0x2f1] {
     margin: auto 0px;
 }
 
@@ -871,12 +875,12 @@ h1[b-l212vi820h] {
     height: 30vh;
 }
 
-.route-plan[b-4i30g0x2f1] {
+#route-plan[b-4i30g0x2f1] {
     max-height: inherit;
     overflow-y: auto;
 }
 
-.route-plan > div[b-4i30g0x2f1] {
+#route-plan > div[b-4i30g0x2f1] {
     margin: 5px 0px;
     padding: 5px;
     background-color: #fea9a9;
@@ -896,6 +900,34 @@ h1[b-l212vi820h] {
 #point-coords p[b-4i30g0x2f1] {
     margin: 0px;
     padding: 1px;
+}
+
+@media screen and (max-width: 1300px){
+    .ate-info[b-4i30g0x2f1] {
+        flex-direction: column;
+    }
+    #dates-times[b-4i30g0x2f1] {
+        min-width: 100%;
+    }
+    #route-plan[b-4i30g0x2f1] {
+        max-height: 500px;
+        min-width: 100%;
+        overflow-y: scroll;
+    }
+    #route-plan > div[b-4i30g0x2f1] {
+        margin: 2px 0px;
+        padding: 2px;
+    }
+}
+@media screen and (max-width: 900px) {
+
+    #route-plan > div[b-4i30g0x2f1] {
+        display: flex;
+        flex-direction: column;
+        font-size: 0.7rem;
+        margin: 2px;
+        padding: 2px;
+    }
 }
 /* /Pages/Transport/TransportDetail.razor.rz.scp.css */
 .dates-times[b-o7kfknfwmj] {
