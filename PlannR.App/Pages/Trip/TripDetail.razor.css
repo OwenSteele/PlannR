@@ -223,6 +223,25 @@
     .map-parts > div {
         width: 96%;
     }
+    .ordered-parts .part-btn {
+        font-size: 10px;
+        margin: 1px 0px;
+        padding: 1px;
+        min-height: 160px;
+        max-height: 180px;
+    }
+    .part-btn h4 {
+        font-weight: bolder;
+        font-size: 14px;
+        margin: auto;
+    }
+    .part-btn > div {
+        padding: 2px 2px;
+    }
+    .part-btn > p {
+        font-weight: bold;
+        font-size: 10px;
+    }
 }
 
 @media screen and (max-width: 1300px) {
